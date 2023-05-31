@@ -18,13 +18,13 @@ class STMainViewController: UIViewController {
         
         self.view.backgroundColor = .white
 
-        let banner : STBannerView = STBannerView(frame: CGRect(x: 0, y: 0, width: 40, height: 40), title: "title", content: "content")
+        let banner : bannerView = bannerView(frame: CGRect(x: 0, y: 0, width: 40, height: 40), title: "title", content: "content")
         self.view.addSubview(banner)
         self.setBannerLayOut(banner)
         
     }
     
-    private func setBannerLayOut(_ banner: STBannerView) {
+    private func setBannerLayOut(_ banner: bannerView) {
         banner.translatesAutoresizingMaskIntoConstraints = false
         banner.backgroundColor = .orange
         
@@ -48,3 +48,29 @@ class STMainViewController: UIViewController {
     }
 }
 
+fileprivate class bannerView: UIView {
+    
+    init(frame: CGRect, title: String?, content: String?){
+        super.init(frame: frame)
+        
+        let placeHolderTitleLabel : UILabel = {
+            let label = UILabel()
+            label.text = title ?? ""
+            return label
+        }()
+        
+        let placeHolderContentLabel : UILabel = {
+            let label = UILabel()
+            label.text = content ?? ""
+            return label
+        }()
+        
+        self.addSubview(placeHolderTitleLabel)
+        self.addSubview(placeHolderContentLabel)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
+}
