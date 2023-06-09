@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class APIService {
-    static let shared = APIService()
+final class APIClient {
+    static let shared = APIClient()
     private init() {}
     
     func request() {
