@@ -3,22 +3,78 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="STMainViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="STHomeViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yaq-d7-80S">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hyd-cn-93B" customClass="STCollectionViewFlowLayout" customModule="Streetalk2_0" customModuleProvider="target">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="50" height="190"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="wRH-Tx-E5r">
+                                        <rect key="frame" x="0.0" y="190" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XjK-ku-ocv">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionHeaderCell" id="i8M-cs-RId" customClass="STCollectionReusableView" customModule="Streetalk2_0" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="190"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="streetalk_background" translatesAutoresizingMaskIntoConstraints="NO" id="xsJ-iM-X4x">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="190"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Streetalk 2.0 Renewal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0U-1U-00E">
+                                            <rect key="frame" x="30" y="76" width="333" height="38.333333333333343"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="R0U-1U-00E" secondAttribute="trailing" constant="30" id="Ngz-6o-zGM"/>
+                                        <constraint firstItem="xsJ-iM-X4x" firstAttribute="leading" secondItem="i8M-cs-RId" secondAttribute="leading" id="Rip-AK-7ey"/>
+                                        <constraint firstItem="R0U-1U-00E" firstAttribute="leading" secondItem="i8M-cs-RId" secondAttribute="leading" constant="30" id="Ted-Bt-Cf4"/>
+                                        <constraint firstItem="xsJ-iM-X4x" firstAttribute="top" secondItem="i8M-cs-RId" secondAttribute="top" id="Tw6-57-bjp"/>
+                                        <constraint firstItem="R0U-1U-00E" firstAttribute="centerY" secondItem="xsJ-iM-X4x" secondAttribute="centerY" id="bv0-vx-DFk"/>
+                                        <constraint firstAttribute="trailing" secondItem="xsJ-iM-X4x" secondAttribute="trailing" id="dqL-DM-gB6"/>
+                                        <constraint firstAttribute="bottom" secondItem="xsJ-iM-X4x" secondAttribute="bottom" id="hT2-G2-JKt"/>
+                                    </constraints>
+                                </collectionReusableView>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Yaq-d7-80S" secondAttribute="bottom" id="22h-fj-an5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yaq-d7-80S" secondAttribute="trailing" id="Vml-KJ-Ae1"/>
+                            <constraint firstItem="Yaq-d7-80S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hTh-Gb-OKC"/>
+                            <constraint firstItem="Yaq-d7-80S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jCg-0M-i6x"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Yaq-d7-80S" id="7vh-7C-rnZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,6 +82,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="streetalk_background" width="2048" height="1280"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

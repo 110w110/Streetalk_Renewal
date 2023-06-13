@@ -22,6 +22,26 @@ class STMainViewController: UIViewController {
         self.view.addSubview(banner)
         self.setBannerLayOut(banner)
         
+        let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?&key=99672dad40a8f499176d319a49070269&targetDt=20210201"
+//        APIClient.shared.request(url: url) { result in
+//            switch result {
+//            case let .success(data):
+//                print(data)
+//            case let .failure(error):
+//                print(error)
+//            }
+//        }
+//
+        
+//        let replyRequest = UserInfoRequest(uri: "", methods: .get)
+//        replyRequest.request { result in
+//            switch result {
+//            case let .success(data):
+//                print(data)
+//            case let .failure(error):
+//                print(error)
+//            }
+//        }
     }
     
     private func setBannerLayOut(_ banner: bannerView) {
