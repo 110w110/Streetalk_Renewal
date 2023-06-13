@@ -12,6 +12,7 @@ protocol Requestable {
     var methods: HttpMethods { get set }
     var auth: Bool { get set }
     var param: [String : Any]? { get set }
+    var response: Responsable { get set }
 }
 
 extension Requestable {
@@ -21,7 +22,7 @@ extension Requestable {
 }
 
 extension Requestable {
-    func request() {
+    func request(completion: @escaping (Result<Data, APIError>) -> Void) {
         var innerHeader: [String : String] = self.header
         
         if auth {
@@ -37,8 +38,10 @@ extension Requestable {
             switch result {
             case let .success(data):
                 print(data)
+                completion(.success(data))
             case let .failure(error):
                 print(error)
+                completion(.failure(error))
             }
         }
     }

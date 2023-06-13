@@ -12,6 +12,15 @@ struct AddReplyRequest: Requestable {
     var methods: HttpMethods = .post
     var auth: Bool = false
     var param: [String : Any]?
+    
+    var response: Responsable
+    
+    // dto 함수 각 request 마다 만드는 것이 좋을지..?
+    // 함수 시그니처를 프로토콜에 추가하는게 좋을 것 같은데
+    // response를 어디서 소유해야할지..?
+//    func dataToObject(_ data: Data) -> Codable {
+//
+//    }
 }
 
 // POST 로 보낼 정보
