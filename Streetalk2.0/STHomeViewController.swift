@@ -16,12 +16,25 @@ class STHomeViewController: UIViewController, UICollectionViewDataSource, UIScro
 
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        presentJoinViewController()
     }
     
+    private func presentJoinViewController() {
+        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
+            DispatchQueue.main.async {
+                let joinStoryboard = UIStoryboard(name: "Join", bundle: nil)
+                let joinViewController = joinStoryboard.instantiateViewController(withIdentifier: "joinViewController")
+//                self.navigationController?.pushViewController(VC, animated: true)
+                joinViewController.modalPresentationStyle = .overFullScreen
+                joinViewController.modalTransitionStyle = .crossDissolve
+                self.present(joinViewController, animated: true, completion: nil)
+            }
+            return
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 80
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
