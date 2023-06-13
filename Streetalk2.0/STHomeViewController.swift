@@ -14,13 +14,15 @@ class STHomeViewController: UIViewController, UICollectionViewDataSource, UIScro
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Streetalk"
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         presentJoinViewController()
     }
     
     private func presentJoinViewController() {
-        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
+        guard let _ = UserDefaults.standard.string(forKey: "userToken") else {
             DispatchQueue.main.async {
                 let joinStoryboard = UIStoryboard(name: "Join", bundle: nil)
                 let joinViewController = joinStoryboard.instantiateViewController(withIdentifier: "joinViewController")

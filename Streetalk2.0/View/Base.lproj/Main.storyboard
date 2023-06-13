@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="STHomeViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yaq-d7-80S">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hyd-cn-93B" customClass="STCollectionViewFlowLayout" customModule="Streetalk2_0" customModuleProvider="target">
                                     <size key="itemSize" width="128" height="128"/>
@@ -87,14 +87,14 @@
                             <constraint firstItem="Yaq-d7-80S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jCg-0M-i6x"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="r5a-EQ-Gph"/>
+                    <navigationItem key="navigationItem" id="sfX-Xj-x4y"/>
                     <connections>
                         <outlet property="collectionView" destination="Yaq-d7-80S" id="7vh-7C-rnZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="941.22137404580144" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1867.9389312977098" y="3.5211267605633805"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xEY-pJ-h69">
@@ -106,12 +106,31 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="MiA-Kj-mhK"/>
+                        <segue destination="wQe-DQ-5LV" kind="relationship" relationship="viewControllers" id="MiA-Kj-mhK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1JF-p1-6Px" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="14.503816793893129" y="3.5211267605633805"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="bRa-Jv-C7q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wQe-DQ-5LV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="r5a-EQ-Gph"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s4c-WL-F06">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JN4-7V-0K5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gdg-ub-UPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="941.22137404580144" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
