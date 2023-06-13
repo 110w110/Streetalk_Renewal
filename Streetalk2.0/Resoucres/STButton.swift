@@ -23,7 +23,7 @@ class STButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        setGradient(color1: UIColor.streetalkPink, color2: UIColor.streetalkOrange)
+        setGradient(color1: UIColor.streetalkOrange, color2: UIColor.streetalkPink)
         roundCorners(cornerRadius: 10)
         tintColor = .white
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
