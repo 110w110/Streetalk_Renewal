@@ -37,12 +37,15 @@ class STRootViewController: UIViewController {
             myPageListViewController.title = "마이페이지"
             
             let navigationController = UINavigationController(rootViewController: homeViewController)
+            navigationController.navigationBar.tintColor = .streetalkPink
+            navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.streetalkPink]
             
             // 탭바로 사용하기 위한 뷰 컨트롤러들 설정
             let tabBarController = STTabBarController()
             tabBarController.setViewControllers([navigationController, boarListViewController,writeViewController,alertListViewController,myPageListViewController], animated: false)
             tabBarController.modalPresentationStyle = .fullScreen
             tabBarController.tabBar.backgroundColor = .white
+            tabBarController.tabBar.tintColor = .streetalkPink
             
             guard let items = tabBarController.tabBar.items else { return }
             items[0].title = "Home"
