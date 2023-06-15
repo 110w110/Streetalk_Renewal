@@ -13,8 +13,6 @@ class STHomeViewController: UIViewController, UICollectionViewDataSource, UIScro
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "Streetalk"
         
         collectionView.dataSource = self
         collectionView.delegate = self

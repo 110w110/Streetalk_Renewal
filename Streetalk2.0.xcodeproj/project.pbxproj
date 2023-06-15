@@ -31,6 +31,10 @@
 		330CE9912A3A90AA00BFA26F /* Alert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9902A3A90AA00BFA26F /* Alert.storyboard */; };
 		330CE9932A3A90B200BFA26F /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9922A3A90B200BFA26F /* MyPage.storyboard */; };
 		330CE9952A3A90BE00BFA26F /* Write.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9942A3A90BE00BFA26F /* Write.storyboard */; };
+		330CE9972A3A913700BFA26F /* STBoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9962A3A913700BFA26F /* STBoardListViewController.swift */; };
+		330CE9992A3A94A900BFA26F /* STAlertListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9982A3A94A900BFA26F /* STAlertListViewController.swift */; };
+		330CE99B2A3A955000BFA26F /* STMyPageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE99A2A3A955000BFA26F /* STMyPageListViewController.swift */; };
+		330CE99D2A3A961000BFA26F /* STWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE99C2A3A961000BFA26F /* STWriteViewController.swift */; };
 		339AE2C42A273FE8006005AE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339AE2C32A273FE8006005AE /* APIClient.swift */; };
 		B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254629D6BE4E00222C8A /* AppDelegate.swift */; };
 		B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */; };
@@ -87,6 +91,10 @@
 		330CE9902A3A90AA00BFA26F /* Alert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alert.storyboard; sourceTree = "<group>"; };
 		330CE9922A3A90B200BFA26F /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		330CE9942A3A90BE00BFA26F /* Write.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
+		330CE9962A3A913700BFA26F /* STBoardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBoardListViewController.swift; sourceTree = "<group>"; };
+		330CE9982A3A94A900BFA26F /* STAlertListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAlertListViewController.swift; sourceTree = "<group>"; };
+		330CE99A2A3A955000BFA26F /* STMyPageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPageListViewController.swift; sourceTree = "<group>"; };
+		330CE99C2A3A961000BFA26F /* STWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWriteViewController.swift; sourceTree = "<group>"; };
 		339AE2C32A273FE8006005AE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streetalk2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C2254629D6BE4E00222C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +190,15 @@
 		339AE2C12A273F7B006005AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B2C2254A29D6BE4E00222C8A /* ViewController.swift */,
+				330CE98C2A3A8B8500BFA26F /* STRootViewController.swift */,
+				330CE9742A385F4400BFA26F /* STHomeViewController.swift */,
+				330CE99C2A3A961000BFA26F /* STWriteViewController.swift */,
+				330CE9982A3A94A900BFA26F /* STAlertListViewController.swift */,
+				330CE99A2A3A955000BFA26F /* STMyPageListViewController.swift */,
+				330CE9842A38A51A00BFA26F /* STJoinViewController.swift */,
+				B2C2257629D6BE8100222C8A /* STMainViewController.swift */,
+				330CE9962A3A913700BFA26F /* STBoardListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -230,11 +247,6 @@
 				339AE2BF2A273F6C006005AE /* Model */,
 				339AE2C02A273F74006005AE /* View */,
 				339AE2C12A273F7B006005AE /* Controller */,
-				B2C2254A29D6BE4E00222C8A /* ViewController.swift */,
-				330CE98C2A3A8B8500BFA26F /* STRootViewController.swift */,
-				330CE9742A385F4400BFA26F /* STHomeViewController.swift */,
-				330CE9842A38A51A00BFA26F /* STJoinViewController.swift */,
-				B2C2257629D6BE8100222C8A /* STMainViewController.swift */,
 			);
 			path = Streetalk2.0;
 			sourceTree = "<group>";
@@ -398,6 +410,9 @@
 				330CE9752A385F4400BFA26F /* STHomeViewController.swift in Sources */,
 				330438F92A316217008123AD /* Post.swift in Sources */,
 				B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */,
+				330CE9992A3A94A900BFA26F /* STAlertListViewController.swift in Sources */,
+				330CE9972A3A913700BFA26F /* STBoardListViewController.swift in Sources */,
+				330CE99B2A3A955000BFA26F /* STMyPageListViewController.swift in Sources */,
 				330438F72A3161B9008123AD /* Board.swift in Sources */,
 				B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */,
 				330438F32A315F55008123AD /* Industry.swift in Sources */,
@@ -408,6 +423,7 @@
 				330438F52A316005008123AD /* User.swift in Sources */,
 				339AE2C42A273FE8006005AE /* APIClient.swift in Sources */,
 				B2C2257929D6BF2000222C8A /* STTabBarController.swift in Sources */,
+				330CE99D2A3A961000BFA26F /* STWriteViewController.swift in Sources */,
 				330CE98D2A3A8B8500BFA26F /* STRootViewController.swift in Sources */,
 				330CE9712A3843D400BFA26F /* UIColor+.swift in Sources */,
 				330438F12A315E95008123AD /* Location.swift in Sources */,
