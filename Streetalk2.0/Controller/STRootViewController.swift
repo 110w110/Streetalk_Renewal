@@ -64,10 +64,10 @@ class STRootViewController: UIViewController {
             
             tabBarController.modalPresentationStyle = .overFullScreen
             tabBarController.modalTransitionStyle = .crossDissolve
-                self.present(tabBarController, animated: true, completion: nil)
-            }
-            return
+            self.present(tabBarController, animated: true, completion: nil)
         }
+        return
+    }
     
 
 }

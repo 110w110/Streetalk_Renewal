@@ -7,13 +7,15 @@
 
 import UIKit
 
-class STTabBarController: UITabBarController {
+class STTabBarController: UITabBarController, UITabBarControllerDelegate {
 
-    public var addButton: UIButton = UIButton()
+    private var addButton: UIButton = UIButton()
+    private var isUploadTabBarEnabled = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.delegate = self
         setupMiddleButton()
     }
     
@@ -39,7 +41,36 @@ class STTabBarController: UITabBarController {
         self.view.layoutIfNeeded()
     }
 
+    // floating button 액션
     @objc func addButtonAction(sender: UIButton) {
-        print("check")
+        showWriteViewController()
     }
+    
+    // 글쓰기 탭 선택 시 탭이 넘어가지 않고 글쓰기 뷰컨만 올라오도록 유도
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.title == "글쓰기" {
+            let previousIndex = self.selectedIndex
+            self.selectedIndex = previousIndex
+            isUploadTabBarEnabled = false
+            showWriteViewController()
+        } else {
+            isUploadTabBarEnabled = true
+        }
+    }
+    
+    // 실제로 글쓰기 뷰컨을 띄우는 메서드
+    private func showWriteViewController() {
+        // writeViewController
+        let writeStoryboard = UIStoryboard(name: "Write", bundle: nil)
+        let writeViewController = writeStoryboard.instantiateViewController(withIdentifier: "writeViewController")
+//        writeViewController.modalPresentationStyle = .overFullScreen
+//        writeViewController.modalTransitionStyle = .crossDissolve
+        self.present(writeViewController, animated: true, completion: nil)
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        return isUploadTabBarEnabled
+    }
+    
+    
 }
