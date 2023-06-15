@@ -63,14 +63,14 @@ class STTabBarController: UITabBarController, UITabBarControllerDelegate {
         // writeViewController
         let writeStoryboard = UIStoryboard(name: "Write", bundle: nil)
         let writeViewController = writeStoryboard.instantiateViewController(withIdentifier: "writeViewController")
-//        writeViewController.modalPresentationStyle = .overFullScreen
-//        writeViewController.modalTransitionStyle = .crossDissolve
-        self.present(writeViewController, animated: true, completion: nil)
+        writeViewController.title = "글쓰기"
+        let navigationController = UINavigationController(rootViewController: writeViewController)
+        navigationController.modalPresentationStyle = .overFullScreen
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         return isUploadTabBarEnabled
     }
-    
     
 }
