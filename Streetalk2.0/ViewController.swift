@@ -11,49 +11,24 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        self.title = "Streetalk"
-//        self.delegate = self
-//        // Tab Bar
-//        self.tabBar.barStyle = UIBarStyle.black
-//        self.tabBar.tintColor = UIColor.init(red: 1, green: 0, blue: 0.5, alpha: 1)
-//        let serviceViewController: UIViewController = STMainViewController()
-//        serviceViewController.tabBarItem = UITabBarItem(title: "Service", image: UIImage(systemName: ""), tag: 1)
-//        let authViewController: UIViewController = STMainViewController()
-//        authViewController.tabBarItem = UITabBarItem(title: "Auth", image: UIImage(systemName: ""), tag: 2)
-//        let promotionViewController: UIViewController = STMainViewController()
-//        promotionViewController.tabBarItem = UITabBarItem(title: "Promotion", image: UIImage(systemName: ""), tag: 3)
-//        let viewControllers: Array<UIViewController> = [serviceViewController,
-//                                                        authViewController,
-//                                                        promotionViewController]
-//        self.viewControllers = viewControllers
+        
     }
-    
-//
-//    override public func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-//        let index = tabBar.items?.firstIndex(of: item)
-//        switch index {
-//        case 0:
-//            print("0")
-//            self.promotionMenu()
-//            break;
-//        case 1:
-//            print("1")
-//            break;
-//        case 2:
-//            print("2")
-//            break;
-//        default:
-//            break;
-//        }
-//    }
-//
-//    @IBAction func promotionMenu() {
-//        let alertController = UIAlertController(title: "Promotion", message: nil, preferredStyle: .actionSheet)
-//        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
-//        })
-//        self.present(alertController, animated: true, completion: nil)
-//    }
 
 }
 
+/*
+ 앱에 대한 설명
+ 
+ - UI 구현 방식에 대한 설명
+ 일단 storyboard로만 구현했던 기존의 방식에서 조금 벗어나서 화면 구성만 담당하도록 변경
+ 모든 UI를 코드로 구현하기에는 전체적으로 UI 구현이 굉장히 많아서 빠르게 리팩토링하기 어렵다고 판단
+ 
+ - 디자인 패턴에 대한 설명
+ MVC를 기준으로 구현하되, iOS 구현 상에서 View와 Controller 간의 의존성 문제는 억지로 분리하지 않음
+ 
+ - 네트워크 통신에 대한 설명
+ 기존 구현에서는 모두 Alamofire를 통한 통신을 선택했지만 조금 더 네트워크 통신에 대한 이해도를 높이기 위해 URLSession을 통해 직접 통신하도록 구현
+ 
+ 
+ 
+ */

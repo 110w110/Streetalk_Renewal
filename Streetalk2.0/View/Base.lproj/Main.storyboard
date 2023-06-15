@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yca-JO-oC8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vfm-eS-dPR">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -14,13 +14,13 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="STHomeViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeViewController" id="BYZ-38-t0r" customClass="STHomeViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yaq-d7-80S">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hyd-cn-93B" customClass="STCollectionViewFlowLayout" customModule="Streetalk2_0" customModuleProvider="target">
                                     <size key="itemSize" width="128" height="128"/>
@@ -177,43 +177,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1867.9389312977098" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1141" y="4"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="xEY-pJ-h69">
+        <!--Root View Controller-->
+        <scene sceneID="6UW-ff-KbX">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="yca-JO-oC8" customClass="STTabBarController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DSz-3A-qob">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="wQe-DQ-5LV" kind="relationship" relationship="viewControllers" id="MiA-Kj-mhK"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1JF-p1-6Px" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="Vfm-eS-dPR" customClass="STRootViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kdf-61-8g4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Pd1-2c-wDk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="alg-A8-1cH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14.503816793893129" y="3.5211267605633805"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="bRa-Jv-C7q">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wQe-DQ-5LV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="r5a-EQ-Gph"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s4c-WL-F06">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JN4-7V-0K5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gdg-ub-UPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="941.22137404580144" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="280" y="4"/>
         </scene>
     </scenes>
     <resources>

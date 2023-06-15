@@ -26,6 +26,7 @@
 		330CE97B2A38634600BFA26F /* STCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE97A2A38634600BFA26F /* STCollectionViewFlowLayout.swift */; };
 		330CE9832A38A4F700BFA26F /* Join.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9822A38A4F700BFA26F /* Join.storyboard */; };
 		330CE9852A38A51A00BFA26F /* STJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9842A38A51A00BFA26F /* STJoinViewController.swift */; };
+		330CE98D2A3A8B8500BFA26F /* STRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE98C2A3A8B8500BFA26F /* STRootViewController.swift */; };
 		339AE2C42A273FE8006005AE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339AE2C32A273FE8006005AE /* APIClient.swift */; };
 		B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254629D6BE4E00222C8A /* AppDelegate.swift */; };
 		B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */; };
@@ -77,6 +78,7 @@
 		330CE97A2A38634600BFA26F /* STCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		330CE9822A38A4F700BFA26F /* Join.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Join.storyboard; sourceTree = "<group>"; };
 		330CE9842A38A51A00BFA26F /* STJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinViewController.swift; sourceTree = "<group>"; };
+		330CE98C2A3A8B8500BFA26F /* STRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRootViewController.swift; sourceTree = "<group>"; };
 		339AE2C32A273FE8006005AE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streetalk2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C2254629D6BE4E00222C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				339AE2C02A273F74006005AE /* View */,
 				339AE2C12A273F7B006005AE /* Controller */,
 				B2C2254A29D6BE4E00222C8A /* ViewController.swift */,
+				330CE98C2A3A8B8500BFA26F /* STRootViewController.swift */,
 				330CE9742A385F4400BFA26F /* STHomeViewController.swift */,
 				330CE9842A38A51A00BFA26F /* STJoinViewController.swift */,
 				B2C2257629D6BE8100222C8A /* STMainViewController.swift */,
@@ -389,6 +392,7 @@
 				330438F52A316005008123AD /* User.swift in Sources */,
 				339AE2C42A273FE8006005AE /* APIClient.swift in Sources */,
 				B2C2257929D6BF2000222C8A /* STTabBarController.swift in Sources */,
+				330CE98D2A3A8B8500BFA26F /* STRootViewController.swift in Sources */,
 				330CE9712A3843D400BFA26F /* UIColor+.swift in Sources */,
 				330438F12A315E95008123AD /* Location.swift in Sources */,
 				330CE9732A38444400BFA26F /* STButton.swift in Sources */,
