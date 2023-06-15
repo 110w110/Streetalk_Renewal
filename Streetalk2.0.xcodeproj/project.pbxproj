@@ -27,6 +27,10 @@
 		330CE9832A38A4F700BFA26F /* Join.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9822A38A4F700BFA26F /* Join.storyboard */; };
 		330CE9852A38A51A00BFA26F /* STJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9842A38A51A00BFA26F /* STJoinViewController.swift */; };
 		330CE98D2A3A8B8500BFA26F /* STRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE98C2A3A8B8500BFA26F /* STRootViewController.swift */; };
+		330CE98F2A3A909600BFA26F /* Board.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE98E2A3A909600BFA26F /* Board.storyboard */; };
+		330CE9912A3A90AA00BFA26F /* Alert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9902A3A90AA00BFA26F /* Alert.storyboard */; };
+		330CE9932A3A90B200BFA26F /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9922A3A90B200BFA26F /* MyPage.storyboard */; };
+		330CE9952A3A90BE00BFA26F /* Write.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9942A3A90BE00BFA26F /* Write.storyboard */; };
 		339AE2C42A273FE8006005AE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339AE2C32A273FE8006005AE /* APIClient.swift */; };
 		B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254629D6BE4E00222C8A /* AppDelegate.swift */; };
 		B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */; };
@@ -79,6 +83,10 @@
 		330CE9822A38A4F700BFA26F /* Join.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Join.storyboard; sourceTree = "<group>"; };
 		330CE9842A38A51A00BFA26F /* STJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinViewController.swift; sourceTree = "<group>"; };
 		330CE98C2A3A8B8500BFA26F /* STRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRootViewController.swift; sourceTree = "<group>"; };
+		330CE98E2A3A909600BFA26F /* Board.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Board.storyboard; sourceTree = "<group>"; };
+		330CE9902A3A90AA00BFA26F /* Alert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alert.storyboard; sourceTree = "<group>"; };
+		330CE9922A3A90B200BFA26F /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		330CE9942A3A90BE00BFA26F /* Write.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
 		339AE2C32A273FE8006005AE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streetalk2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C2254629D6BE4E00222C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,8 +169,12 @@
 			isa = PBXGroup;
 			children = (
 				B2C2255129D6BE5100222C8A /* LaunchScreen.storyboard */,
-				B2C2254C29D6BE4E00222C8A /* Main.storyboard */,
 				330CE9822A38A4F700BFA26F /* Join.storyboard */,
+				B2C2254C29D6BE4E00222C8A /* Main.storyboard */,
+				330CE98E2A3A909600BFA26F /* Board.storyboard */,
+				330CE9942A3A90BE00BFA26F /* Write.storyboard */,
+				330CE9902A3A90AA00BFA26F /* Alert.storyboard */,
+				330CE9922A3A90B200BFA26F /* MyPage.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,9 +361,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2C2255329D6BE5100222C8A /* LaunchScreen.storyboard in Resources */,
+				330CE98F2A3A909600BFA26F /* Board.storyboard in Resources */,
+				330CE9952A3A90BE00BFA26F /* Write.storyboard in Resources */,
 				B2C2255029D6BE5100222C8A /* Assets.xcassets in Resources */,
 				330CE9832A38A4F700BFA26F /* Join.storyboard in Resources */,
+				330CE9932A3A90B200BFA26F /* MyPage.storyboard in Resources */,
 				B2C2254E29D6BE4E00222C8A /* Main.storyboard in Resources */,
+				330CE9912A3A90AA00BFA26F /* Alert.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
