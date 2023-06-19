@@ -29,6 +29,8 @@ class STRootViewController: UIViewController {
             let navigationController = UINavigationController(rootViewController: joinViewController)
             navigationController.modalPresentationStyle = .overFullScreen
             navigationController.modalTransitionStyle = .crossDissolve
+            navigationController.navigationBar.tintColor = .streetalkPink
+            navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.streetalkPink]
             self.present(navigationController, animated: true, completion: nil)
         }
     }
