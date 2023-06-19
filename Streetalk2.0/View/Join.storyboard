@@ -135,6 +135,56 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="인증문자 받기"/>
+                                        <connections>
+                                            <action selector="submitButtonTapped:" destination="GnG-q7-XBN" eventType="touchUpInside" id="mv1-p3-TJa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="w41-wj-PFm">
+                                <rect key="frame" x="30" y="308.33333333333331" width="333" height="160"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5Cx-Sw-Hb2">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="20"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문자를 받지 못하셨나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVv-zc-X8R">
+                                                <rect key="frame" x="0.0" y="0.0" width="163" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKs-Lp-7uG">
+                                                <rect key="frame" x="183" y="0.0" width="150" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="3mx-We-GCN"/>
+                                                    <constraint firstAttribute="height" constant="20" id="U9x-Wk-F0U"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="인증번호 재발송">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="인증번호 입력" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oA8-yh-jzm">
+                                        <rect key="frame" x="0.0" y="40" width="333" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="SgM-m1-0Ax"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vf9-lc-JHv" customClass="STButton" customModule="Streetalk2_0" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="110" width="333" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2hZ-YV-iwW"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="인증하기"/>
+                                        <connections>
+                                            <action selector="authButtonTapped:" destination="GnG-q7-XBN" eventType="touchUpInside" id="jn4-qk-x68"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -149,15 +199,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="pZL-Aj-69P" firstAttribute="leading" secondItem="2Lq-z4-cm7" secondAttribute="leading" constant="30" id="FgX-S6-b4X"/>
+                            <constraint firstItem="2Lq-z4-cm7" firstAttribute="trailing" secondItem="w41-wj-PFm" secondAttribute="trailing" constant="30" id="Qy6-fe-w8b"/>
                             <constraint firstItem="HBn-em-dWl" firstAttribute="leading" secondItem="2Lq-z4-cm7" secondAttribute="leading" constant="100" id="ZVC-CM-Dx6"/>
                             <constraint firstItem="2Lq-z4-cm7" firstAttribute="trailing" secondItem="HBn-em-dWl" secondAttribute="trailing" constant="100" id="aHA-EE-xcW"/>
                             <constraint firstItem="pZL-Aj-69P" firstAttribute="top" secondItem="2Lq-z4-cm7" secondAttribute="top" constant="30" id="co4-5L-iyj"/>
                             <constraint firstItem="2Lq-z4-cm7" firstAttribute="trailing" secondItem="pZL-Aj-69P" secondAttribute="trailing" constant="30" id="ide-j2-h23"/>
+                            <constraint firstItem="w41-wj-PFm" firstAttribute="top" secondItem="pZL-Aj-69P" secondAttribute="bottom" constant="60" id="lu7-42-aXy"/>
+                            <constraint firstItem="w41-wj-PFm" firstAttribute="leading" secondItem="2Lq-z4-cm7" secondAttribute="leading" constant="30" id="o5E-8b-FYg"/>
                             <constraint firstItem="HBn-em-dWl" firstAttribute="centerY" secondItem="2Lq-z4-cm7" secondAttribute="centerY" constant="-50" id="qRo-tg-Y78"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YbA-YP-ju6"/>
                     <connections>
+                        <outlet property="authNumberTextField" destination="oA8-yh-jzm" id="yC9-d9-Wnj"/>
+                        <outlet property="authStackView" destination="w41-wj-PFm" id="ftE-Td-4VK"/>
+                        <outlet property="backgroundPhoneImageView" destination="HBn-em-dWl" id="ZrW-nH-D6b"/>
                         <outlet property="mobileNumberTextField" destination="5mJ-JH-mXh" id="ssb-n8-i3V"/>
                         <outlet property="submitButton" destination="3py-Vu-j3L" id="ebi-4U-ieW"/>
                     </connections>
@@ -165,6 +221,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="01f-ge-V9h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="851" y="-2"/>
+        </scene>
+        <!--Join Register View Controller-->
+        <scene sceneID="pkO-fu-fXU">
+            <objects>
+                <viewController storyboardIdentifier="joinRegisterViewController" id="e2a-fi-RsL" customClass="STJoinRegisterViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zf6-Lu-Row">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="WNO-qh-WSS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ep-uu-Dd5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1695" y="-2"/>
         </scene>
     </scenes>
     <resources>

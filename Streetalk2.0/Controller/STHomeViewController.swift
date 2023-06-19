@@ -24,10 +24,10 @@ class STHomeViewController: UIViewController, UICollectionViewDataSource, UIScro
             DispatchQueue.main.async {
                 let joinStoryboard = UIStoryboard(name: "Join", bundle: nil)
                 let joinViewController = joinStoryboard.instantiateViewController(withIdentifier: "joinViewController")
-//                self.navigationController?.pushViewController(VC, animated: true)
-                joinViewController.modalPresentationStyle = .overFullScreen
-                joinViewController.modalTransitionStyle = .crossDissolve
-                self.present(joinViewController, animated: true, completion: nil)
+                let navigationController = UINavigationController(rootViewController: joinViewController)
+                navigationController.modalPresentationStyle = .overFullScreen
+                navigationController.modalTransitionStyle = .crossDissolve
+                self.present(navigationController, animated: true, completion: nil)
             }
             return
         }

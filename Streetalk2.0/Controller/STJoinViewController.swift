@@ -17,9 +17,7 @@ class STJoinViewController: UIViewController {
     @IBAction func closeButtonTapped(_ sender: Any) {
 //        self.dismiss(animated: true)
         let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "joinMobileAuthViewController") as! STJoinMobileAuthViewController
-        nextViewController.title = "휴대폰 인증"
-        let navigationController = UINavigationController(rootViewController: nextViewController)
-        navigationController.modalPresentationStyle = .overFullScreen
-        self.present(navigationController, animated: false)
+        nextViewController.title = "본인인증하기"
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
