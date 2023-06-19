@@ -7,27 +7,37 @@
 
 import UIKit
 
-class STJoinRegisterViewController: UIViewController, UITextFieldDelegate {
+class STJoinRegisterViewController: UIViewController, UITextFieldDelegate, UICollectionViewDelegate {
     
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet var nicknameSectionView: UIView!
     @IBOutlet var locationSectionView: UIView!
     @IBOutlet var jobSectionView: UIView!
+    @IBOutlet var locationCollectionView: UICollectionView!
+    @IBOutlet var jobCollectionView: UICollectionView!
     @IBOutlet var isValidNickNameLabel: UILabel!
     @IBOutlet var isValidCharLabel: UILabel!
     @IBOutlet var lengthLimitLabel: UILabel!
     @IBOutlet var confirmButton: STButton!
+    
+    // 서버에서 동네 정보 가져와야 함
+    private let debugingLocationList: [String] = ["서울 마포구 대흥동", "서울 마포구 서교동", "서울 마포구 신수동", "서울 마포구 연남동", "서울 마포구 합정동"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.hidesBackButton = true
         nickNameTextField.becomeFirstResponder()
+        
         nicknameSectionView.setRoundedBorder()
         locationSectionView.setRoundedBorder()
         jobSectionView.setRoundedBorder()
+        jobCollectionView.setRoundedBorder()
         
         nickNameTextField.delegate = self
+        locationCollectionView.delegate = self
+        locationCollectionView.dataSource = self
+        
         guard let text = nickNameTextField.text else { return }
         setNickNameCheckUI(nickname: text)
     }
@@ -121,7 +131,34 @@ class STJoinRegisterViewController: UIViewController, UITextFieldDelegate {
             confirmButton.isEnabled = false
         }
     }
+    
 }
+
+extension STJoinRegisterViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return debugingLocationList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath) as? STRegisterLocationCollectionViewCell else {
+            return STRegisterLocationCollectionViewCell()
+        }
+        
+        let location = debugingLocationList[indexPath.item]
+        cell.locationLabel.text = location
+        
+        return cell
+    }
+}
+
+extension STJoinRegisterViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = collectionView.bounds.width
+        let height: CGFloat = 20.0
+        return CGSize(width: width, height: height )
+    }
+}
+
 
 fileprivate extension String {
     func isValidChar() -> Bool {
