@@ -15,7 +15,7 @@ class STRootViewController: UIViewController {
     }
     
     private func checkUserToken() {
-        if UserDefaults.standard.string(forKey: "userToken") != nil {
+        if UserDefaults.standard.string(forKey: "userToken") == nil {
             presentHomeViewController()
         } else {
             presentJoinViewController()
@@ -51,10 +51,10 @@ class STRootViewController: UIViewController {
             let writeViewController = writeStoryboard.instantiateViewController(withIdentifier: "writeViewController")
             writeViewController.title = "글쓰기"
             
-            // alertListViewController
-            let alertStoryboard = UIStoryboard(name: "Alert", bundle: nil)
-            let alertListViewController = alertStoryboard.instantiateViewController(withIdentifier: "alertListViewController")
-            alertListViewController.title = "알림"
+            // searchListViewController
+            let searchStoryboard = UIStoryboard(name: "Search", bundle: nil)
+            let searchListViewController = searchStoryboard.instantiateViewController(withIdentifier: "searchListViewController")
+            searchListViewController.title = "검색"
             
             // myPageListViewController
             let myPageStoryboard = UIStoryboard(name: "MyPage", bundle: nil)
@@ -67,7 +67,7 @@ class STRootViewController: UIViewController {
             
             // 탭바로 사용하기 위한 뷰 컨트롤러들 설정
             let tabBarController = STTabBarController()
-            tabBarController.setViewControllers([navigationController, boarListViewController,writeViewController,alertListViewController,myPageListViewController], animated: false)
+            tabBarController.setViewControllers([navigationController, boarListViewController,writeViewController,searchListViewController,myPageListViewController], animated: false)
             tabBarController.modalPresentationStyle = .fullScreen
             tabBarController.tabBar.backgroundColor = .white
             tabBarController.tabBar.tintColor = .streetalkPink
@@ -79,8 +79,8 @@ class STRootViewController: UIViewController {
             items[1].image = UIImage(named: "Board_Normal")
             items[1].selectedImage = UIImage(named: "Board_Highlight")
             
-            items[3].image = UIImage(named: "Alert_Normal")
-            items[3].selectedImage = UIImage(named: "Alert_Highlight")
+            items[3].image = UIImage(named: "Search_Normal")
+            items[3].selectedImage = UIImage(named: "Search_Highlight")
             items[4].image = UIImage(named: "MyPage_Normal")
             items[4].selectedImage = UIImage(named: "MyPage_Highlight")
             

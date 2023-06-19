@@ -37,6 +37,8 @@
 		330CE99D2A3A961000BFA26F /* STWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE99C2A3A961000BFA26F /* STWriteViewController.swift */; };
 		330CE9A12A3B506400BFA26F /* STTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9A02A3B506400BFA26F /* STTextView.swift */; };
 		330CE9A32A3C35B600BFA26F /* STJoinMobileAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */; };
+		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
+		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		3399BAF52A400E9400A56A4B /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF42A400E9400A56A4B /* String+.swift */; };
 		3399BAF82A40122100A56A4B /* AnyFormatKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3399BAF72A40122100A56A4B /* AnyFormatKit */; };
 		3399BAFA2A401C2400A56A4B /* STJoinRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */; };
@@ -103,6 +105,8 @@
 		330CE99C2A3A961000BFA26F /* STWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWriteViewController.swift; sourceTree = "<group>"; };
 		330CE9A02A3B506400BFA26F /* STTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTextView.swift; sourceTree = "<group>"; };
 		330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinMobileAuthViewController.swift; sourceTree = "<group>"; };
+		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		3399BAF42A400E9400A56A4B /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinRegisterViewController.swift; sourceTree = "<group>"; };
 		3399BAFB2A402FE200A56A4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 				B2C2254C29D6BE4E00222C8A /* Main.storyboard */,
 				330CE98E2A3A909600BFA26F /* Board.storyboard */,
 				330CE9942A3A90BE00BFA26F /* Write.storyboard */,
+				33506C162A40456F00BFCBF0 /* Search.storyboard */,
 				330CE9902A3A90AA00BFA26F /* Alert.storyboard */,
 				330CE9922A3A90B200BFA26F /* MyPage.storyboard */,
 			);
@@ -212,6 +217,7 @@
 				330CE99A2A3A955000BFA26F /* STMyPageListViewController.swift */,
 				330CE9842A38A51A00BFA26F /* STJoinViewController.swift */,
 				330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */,
+				33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */,
 				3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */,
 				B2C2257629D6BE8100222C8A /* STMainViewController.swift */,
 				330CE9962A3A913700BFA26F /* STBoardListViewController.swift */,
@@ -399,6 +405,7 @@
 				330CE98F2A3A909600BFA26F /* Board.storyboard in Resources */,
 				330CE9952A3A90BE00BFA26F /* Write.storyboard in Resources */,
 				B2C2255029D6BE5100222C8A /* Assets.xcassets in Resources */,
+				33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */,
 				330CE9832A38A4F700BFA26F /* Join.storyboard in Resources */,
 				330CE9932A3A90B200BFA26F /* MyPage.storyboard in Resources */,
 				B2C2254E29D6BE4E00222C8A /* Main.storyboard in Resources */,
@@ -449,6 +456,7 @@
 				B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */,
 				330CE9792A38627F00BFA26F /* STCollectionReusableView.swift in Sources */,
 				330438F52A316005008123AD /* User.swift in Sources */,
+				33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */,
 				339AE2C42A273FE8006005AE /* APIClient.swift in Sources */,
 				B2C2257929D6BF2000222C8A /* STTabBarController.swift in Sources */,
 				330CE99D2A3A961000BFA26F /* STWriteViewController.swift in Sources */,
