@@ -31,6 +31,7 @@ class STJoinMobileAuthViewController: UIViewController, UITextFieldDelegate {
         backgroundPhoneImageView.isHidden = true
         submitButton.isEnabled = false
         mobileNumberTextField.isEnabled = false
+        authNumberTextField.becomeFirstResponder()
     }
     
     @IBAction func authButtonTapped(_ sender: Any) {

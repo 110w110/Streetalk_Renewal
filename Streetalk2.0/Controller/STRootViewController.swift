@@ -11,10 +11,10 @@ class STRootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkUserToken()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func checkUserToken() {
         if UserDefaults.standard.string(forKey: "userToken") != nil {
             presentHomeViewController()
         } else {
