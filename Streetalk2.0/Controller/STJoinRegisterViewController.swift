@@ -7,12 +7,16 @@
 
 import UIKit
 
-class STJoinRegisterViewController: UIViewController {
+class STJoinRegisterViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet var nicknameSectionView: UIView!
     @IBOutlet var locationSectionView: UIView!
     @IBOutlet var jobSectionView: UIView!
+    @IBOutlet var isValidNickNameLabel: UILabel!
+    @IBOutlet var isValidCharLabel: UILabel!
+    @IBOutlet var lengthLimitLabel: UILabel!
+    @IBOutlet var confirmButton: STButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +26,23 @@ class STJoinRegisterViewController: UIViewController {
         nicknameSectionView.setRoundedBorder()
         locationSectionView.setRoundedBorder()
         jobSectionView.setRoundedBorder()
+        
+        nickNameTextField.delegate = self
+        guard let text = nickNameTextField.text else { return }
+        setNickNameCheckUI(nickname: text)
+    }
+    
+    @IBAction func nickNameTextFieldEditing(_ sender: Any) {
+        guard let text = nickNameTextField.text else { return  }
+        setNickNameCheckUI(nickname: text)
     }
     
     @IBAction func confirmButtonTapped(_ sender: Any) {
         // TODO: 가입 요청 보내보고 결과에 따라 분기 시켜야함
-        
+        showHomeViewController()
+    }
+    
+    private func showHomeViewController() {
         DispatchQueue.main.async {
             // homeViewController
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -80,7 +96,41 @@ class STJoinRegisterViewController: UIViewController {
             tabBarController.modalTransitionStyle = .crossDissolve
             self.present(tabBarController, animated: true, completion: nil)
         }
-        
     }
     
+    private func setNickNameCheckUI(nickname: String) {
+        print(nickname)
+        if nickname.isValidChar() {
+            isValidCharLabel.textColor = .systemGreen
+        } else {
+            isValidCharLabel.textColor = .streetalkPink
+        }
+        
+        if nickname.isConformLengthLimit() {
+            lengthLimitLabel.textColor = .systemGreen
+        } else {
+            lengthLimitLabel.textColor = .streetalkPink
+        }
+        
+        if nickname.isValidChar() && nickname.isConformLengthLimit() {
+            isValidNickNameLabel.textColor = .systemGreen
+            confirmButton.isEnabled = true
+            
+        } else {
+            isValidNickNameLabel.textColor = .streetalkPink
+            confirmButton.isEnabled = false
+        }
+    }
+}
+
+fileprivate extension String {
+    func isValidChar() -> Bool {
+        let nickRegEx = "[가-힣A-Za-z0-9]+"
+        let pred = NSPredicate(format:"SELF MATCHES %@", nickRegEx)
+        return pred.evaluate(with: self)
+    }
+    
+    func isConformLengthLimit() -> Bool {
+        return self.count >= 2 && self.count < 9
+    }
 }
