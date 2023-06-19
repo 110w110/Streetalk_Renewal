@@ -11,6 +11,29 @@ class STRootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if UserDefaults.standard.string(forKey: "userToken") != nil {
+            presentHomeViewController()
+        } else {
+            presentJoinViewController()
+        }
+    }
+    
+    private func presentJoinViewController() {
+        DispatchQueue.main.async {
+            let joinStoryboard = UIStoryboard(name: "Join", bundle: nil)
+            let joinViewController = joinStoryboard.instantiateViewController(withIdentifier: "joinViewController")
+            let navigationController = UINavigationController(rootViewController: joinViewController)
+            navigationController.modalPresentationStyle = .overFullScreen
+            navigationController.modalTransitionStyle = .crossDissolve
+            self.present(navigationController, animated: true, completion: nil)
+        }
+    }
+    
+    private func presentHomeViewController() {
         DispatchQueue.main.async {
             // homeViewController
             let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController") as! STHomeViewController
@@ -59,18 +82,10 @@ class STRootViewController: UIViewController {
             items[4].image = UIImage(named: "MyPage_Normal")
             items[4].selectedImage = UIImage(named: "MyPage_Highlight")
             
-            // 중간 아이템 block
-//            if  let arrayOfTabBarItems = tabBarController.tabBar.items as! AnyObject as? NSArray,let tabBarItem = arrayOfTabBarItems[2] as? UITabBarItem {
-//                tabBarItem.isEnabled = false
-//            }
-            // block 하지말고 탭바 아이템 2번 선택 시 글쓰기 버튼과 동일하게 뷰컨을 팝업으로 띄우도록 하는게 좋을듯
-            
             tabBarController.modalPresentationStyle = .overFullScreen
             tabBarController.modalTransitionStyle = .crossDissolve
             self.present(tabBarController, animated: true, completion: nil)
         }
-        return
     }
-    
 
 }
