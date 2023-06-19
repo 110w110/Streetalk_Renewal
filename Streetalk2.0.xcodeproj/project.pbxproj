@@ -38,6 +38,8 @@
 		330CE9A12A3B506400BFA26F /* STTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9A02A3B506400BFA26F /* STTextView.swift */; };
 		330CE9A32A3C35B600BFA26F /* STJoinMobileAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */; };
 		330CE9A52A3C360A00BFA26F /* STRoundedBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9A42A3C360A00BFA26F /* STRoundedBackgroundView.swift */; };
+		3399BAF52A400E9400A56A4B /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF42A400E9400A56A4B /* String+.swift */; };
+		3399BAF82A40122100A56A4B /* AnyFormatKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3399BAF72A40122100A56A4B /* AnyFormatKit */; };
 		339AE2C42A273FE8006005AE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339AE2C32A273FE8006005AE /* APIClient.swift */; };
 		B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254629D6BE4E00222C8A /* AppDelegate.swift */; };
 		B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */; };
@@ -101,6 +103,7 @@
 		330CE9A02A3B506400BFA26F /* STTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTextView.swift; sourceTree = "<group>"; };
 		330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinMobileAuthViewController.swift; sourceTree = "<group>"; };
 		330CE9A42A3C360A00BFA26F /* STRoundedBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRoundedBackgroundView.swift; sourceTree = "<group>"; };
+		3399BAF42A400E9400A56A4B /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		339AE2C32A273FE8006005AE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streetalk2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C2254629D6BE4E00222C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3399BAF82A40122100A56A4B /* AnyFormatKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				330CE9702A3843D400BFA26F /* UIColor+.swift */,
+				3399BAF42A400E9400A56A4B /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -293,6 +298,9 @@
 			dependencies = (
 			);
 			name = Streetalk2.0;
+			packageProductDependencies = (
+				3399BAF72A40122100A56A4B /* AnyFormatKit */,
+			);
 			productName = Streetalk2.0;
 			productReference = B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */;
 			productType = "com.apple.product-type.application";
@@ -365,6 +373,9 @@
 				Base,
 			);
 			mainGroup = B2C2253A29D6BE4E00222C8A;
+			packageReferences = (
+				3399BAF62A40122100A56A4B /* XCRemoteSwiftPackageReference "AnyFormatKit" */,
+			);
 			productRefGroup = B2C2254429D6BE4E00222C8A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -420,6 +431,7 @@
 				330438F92A316217008123AD /* Post.swift in Sources */,
 				B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */,
 				330CE9992A3A94A900BFA26F /* STAlertListViewController.swift in Sources */,
+				3399BAF52A400E9400A56A4B /* String+.swift in Sources */,
 				330CE9972A3A913700BFA26F /* STBoardListViewController.swift in Sources */,
 				330CE9A32A3C35B600BFA26F /* STJoinMobileAuthViewController.swift in Sources */,
 				330CE99B2A3A955000BFA26F /* STMyPageListViewController.swift in Sources */,
@@ -794,6 +806,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3399BAF62A40122100A56A4B /* XCRemoteSwiftPackageReference "AnyFormatKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/luximetr/AnyFormatKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3399BAF72A40122100A56A4B /* AnyFormatKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3399BAF62A40122100A56A4B /* XCRemoteSwiftPackageReference "AnyFormatKit" */;
+			productName = AnyFormatKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B2C2253B29D6BE4E00222C8A /* Project object */;
 }

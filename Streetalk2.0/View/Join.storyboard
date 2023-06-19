@@ -159,6 +159,7 @@
                     <navigationItem key="navigationItem" id="YbA-YP-ju6"/>
                     <connections>
                         <outlet property="mobileNumberTextField" destination="5mJ-JH-mXh" id="ssb-n8-i3V"/>
+                        <outlet property="submitButton" destination="3py-Vu-j3L" id="ebi-4U-ieW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="01f-ge-V9h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
