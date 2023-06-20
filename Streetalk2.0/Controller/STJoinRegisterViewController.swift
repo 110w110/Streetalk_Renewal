@@ -22,7 +22,7 @@ class STJoinRegisterViewController: UIViewController, UITextFieldDelegate, UICol
     
     // 서버에서 동네 정보 가져와야 함
     private let debugingLocationList: [String] = ["서울 마포구 대흥동", "서울 마포구 서교동", "서울 마포구 신수동", "서울 마포구 연남동", "서울 마포구 합정동"]
-    private let debugingJobList: [String] = ["식당", "카페", "주점", "오락", "미용", "숙박", "교육"]
+    private let debugingJobList: [String] = ["식당", "카페", "주점", "오락", "미용", "숙박", "교육", "스포츠", "반려동물", "유통 및 제조", "의료", "패션"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +39,21 @@ class STJoinRegisterViewController: UIViewController, UITextFieldDelegate, UICol
         
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = self
-//        locationCollectionView.register(STRegisterLocationCollectionViewCell.self, forCellWithReuseIdentifier: "locationCell")
+        locationCollectionView.collectionViewLayout = {
+            let layout = UICollectionViewFlowLayout()
+            layout.minimumInteritemSpacing = 0
+            layout.minimumLineSpacing = 0
+            return layout
+        }()
         
         jobCollectionView.delegate = self
         jobCollectionView.dataSource = self
-//        jobCollectionView.register(STRegisterJobCollectionViewCell.self, forCellWithReuseIdentifier: "jobCell")
+        jobCollectionView.collectionViewLayout = {
+            let layout = UICollectionViewFlowLayout()
+            layout.minimumInteritemSpacing = 0
+            layout.minimumLineSpacing = 0
+            return layout
+        }()
         
         guard let text = nickNameTextField.text else { return }
         setNickNameCheckUI(nickname: text)
@@ -176,6 +186,8 @@ extension STJoinRegisterViewController: UICollectionViewDataSource {
             print(job)
             dump(cell)
             cell.jobLabel.text = job
+            cell.layer.borderColor = UIColor.systemGray5.cgColor
+            cell.layer.borderWidth = 0.5
             
             return cell
             
@@ -187,9 +199,17 @@ extension STJoinRegisterViewController: UICollectionViewDataSource {
 
 extension STJoinRegisterViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = collectionView.bounds.width
-        let height: CGFloat = 20.0
-        return CGSize(width: width, height: height )
+        if collectionView == locationCollectionView {
+            let width: CGFloat = collectionView.frame.width
+            let height: CGFloat = collectionView.frame.height / 5
+            return CGSize(width: width, height: height )
+        }
+        else if collectionView == jobCollectionView {
+            let width = collectionView.frame.width / 3
+            let height = collectionView.frame.height / 4
+            return CGSize(width: width, height: height)
+        }
+        return CGSize(width: 0.0, height: 0.0 )
     }
 }
 
