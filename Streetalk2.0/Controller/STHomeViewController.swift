@@ -9,13 +9,15 @@ import UIKit
 
 class STHomeViewController: UIViewController, UICollectionViewDataSource, UIScrollViewDelegate, UICollectionViewDelegate {
     
-
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+//        homeNotiStackViewBackground.setRoundedBorder()
+//        homeNotiStackViewBackground.setRoundedBorder()
     }
     
     
@@ -24,7 +26,7 @@ class STHomeViewController: UIViewController, UICollectionViewDataSource, UIScro
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as UICollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! STHomeMainCollectionCell
         cell.backgroundColor = .systemBackground
         cell.layer.cornerRadius = 10.0
         
@@ -46,3 +48,25 @@ class STHomeViewController: UIViewController, UICollectionViewDataSource, UIScro
         }
     }
 }
+
+class STHomeMainCollectionCell: UICollectionViewCell {
+    @IBOutlet var notiView: UIView!
+    @IBOutlet var mainView: UIView!
+    @IBOutlet var notiLabel: UILabel!
+    
+    @IBOutlet var hotPostSectionView: UIView!
+    @IBOutlet var favoriteBoardSectionView: UIView!
+    @IBOutlet var eventSectionView: UIView!
+    
+    override func awakeFromNib() {
+        notiView.setRoundedBorder(shadow: true)
+        mainView.setRoundedBorder(shadow: true)
+        notiLabel.textColor = .streetalkPink
+        notiLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        hotPostSectionView.setRoundedBorder(shadow: true)
+        favoriteBoardSectionView.setRoundedBorder(shadow: true)
+        eventSectionView.setRoundedBorder(shadow: true)
+    }
+}
+
