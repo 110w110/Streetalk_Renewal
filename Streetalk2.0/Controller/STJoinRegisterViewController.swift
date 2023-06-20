@@ -22,6 +22,7 @@ class STJoinRegisterViewController: UIViewController, UITextFieldDelegate, UICol
     
     // 서버에서 동네 정보 가져와야 함
     private let debugingLocationList: [String] = ["서울 마포구 대흥동", "서울 마포구 서교동", "서울 마포구 신수동", "서울 마포구 연남동", "서울 마포구 합정동"]
+    private let debugingJobList: [String] = ["식당", "카페", "주점", "오락", "미용", "숙박", "교육"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,14 @@ class STJoinRegisterViewController: UIViewController, UITextFieldDelegate, UICol
         jobCollectionView.setRoundedBorder()
         
         nickNameTextField.delegate = self
+        
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = self
+//        locationCollectionView.register(STRegisterLocationCollectionViewCell.self, forCellWithReuseIdentifier: "locationCell")
+        
+        jobCollectionView.delegate = self
+        jobCollectionView.dataSource = self
+//        jobCollectionView.register(STRegisterJobCollectionViewCell.self, forCellWithReuseIdentifier: "jobCell")
         
         guard let text = nickNameTextField.text else { return }
         setNickNameCheckUI(nickname: text)
@@ -136,18 +143,45 @@ class STJoinRegisterViewController: UIViewController, UITextFieldDelegate, UICol
 
 extension STJoinRegisterViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return debugingLocationList.count
+        
+        if collectionView == locationCollectionView {
+            return debugingLocationList.count
+        }
+        else if collectionView == jobCollectionView {
+            return debugingJobList.count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath) as? STRegisterLocationCollectionViewCell else {
-            return STRegisterLocationCollectionViewCell()
+        
+        if collectionView == locationCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath) as? STRegisterLocationCollectionViewCell else {
+                return STRegisterLocationCollectionViewCell()
+            }
+            
+            let location = debugingLocationList[indexPath.item]
+            cell.locationLabel.text = location
+            
+            return cell
+            
         }
         
-        let location = debugingLocationList[indexPath.item]
-        cell.locationLabel.text = location
+        if collectionView == jobCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "jobCell", for: indexPath) as? STRegisterJobCollectionViewCell else {
+                return STRegisterJobCollectionViewCell()
+            }
+            
+            let job = debugingJobList[indexPath.item]
+            print(job)
+            dump(cell)
+            cell.jobLabel.text = job
+            
+            return cell
+            
+        }
         
-        return cell
+        return UICollectionViewCell()
     }
 }
 

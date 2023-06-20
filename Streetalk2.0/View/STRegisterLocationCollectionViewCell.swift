@@ -9,4 +9,12 @@ import UIKit
 
 class STRegisterLocationCollectionViewCell: UICollectionViewCell {
     @IBOutlet var locationLabel: UILabel!
+    
+//    override var isSelected: Bool {
+//        didSet {
+//            if isSelected {
+//
+//            }
+//        }
+//    }
 }

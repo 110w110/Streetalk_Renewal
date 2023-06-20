@@ -45,6 +45,7 @@
 		3399BAFA2A401C2400A56A4B /* STJoinRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */; };
 		3399BAFC2A402FE200A56A4B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAFB2A402FE200A56A4B /* UIView+.swift */; };
 		339AE2C42A273FE8006005AE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339AE2C32A273FE8006005AE /* APIClient.swift */; };
+		33BB8BF72A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BB8BF62A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift */; };
 		B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254629D6BE4E00222C8A /* AppDelegate.swift */; };
 		B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */; };
 		B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254A29D6BE4E00222C8A /* ViewController.swift */; };
@@ -113,6 +114,7 @@
 		3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinRegisterViewController.swift; sourceTree = "<group>"; };
 		3399BAFB2A402FE200A56A4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		339AE2C32A273FE8006005AE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		33BB8BF62A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterJobCollectionViewCell.swift; sourceTree = "<group>"; };
 		B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streetalk2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C2254629D6BE4E00222C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				330CE9902A3A90AA00BFA26F /* Alert.storyboard */,
 				330CE9922A3A90B200BFA26F /* MyPage.storyboard */,
 				33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */,
+				33BB8BF62A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */,
 				330438F72A3161B9008123AD /* Board.swift in Sources */,
 				B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */,
+				33BB8BF72A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift in Sources */,
 				330438F32A315F55008123AD /* Industry.swift in Sources */,
 				330CE9A12A3B506400BFA26F /* STTextView.swift in Sources */,
 				330439052A34701C008123AD /* UserInfoRequest.swift in Sources */,
