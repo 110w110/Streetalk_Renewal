@@ -13,7 +13,11 @@ class STMyPageListViewController: UIViewController {
         super.viewDidLoad()
 
         self.view.backgroundColor = .green
-        // Do any additional setup after loading the view.
+        
+        MyPage.getMyPageData(completion: { titles, contents in
+            print(titles)
+            print(contents)
+        })
     }
     
 

@@ -46,6 +46,7 @@
 		3399BAFC2A402FE200A56A4B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAFB2A402FE200A56A4B /* UIView+.swift */; };
 		339AE2C42A273FE8006005AE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339AE2C32A273FE8006005AE /* APIClient.swift */; };
 		33BB8BF72A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BB8BF62A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift */; };
+		33D30C1C2A4485170053C0CF /* myPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C1B2A4485170053C0CF /* myPage.swift */; };
 		B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254629D6BE4E00222C8A /* AppDelegate.swift */; };
 		B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */; };
 		B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254A29D6BE4E00222C8A /* ViewController.swift */; };
@@ -115,6 +116,7 @@
 		3399BAFB2A402FE200A56A4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		339AE2C32A273FE8006005AE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		33BB8BF62A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterJobCollectionViewCell.swift; sourceTree = "<group>"; };
+		33D30C1B2A4485170053C0CF /* myPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPage.swift; sourceTree = "<group>"; };
 		B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streetalk2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C2254629D6BE4E00222C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		339AE2C22A273F89006005AE /* Resoucres */ = {
 			isa = PBXGroup;
 			children = (
+				33D30C1D2A44851A0053C0CF /* Data */,
 				B2C2254F29D6BE5100222C8A /* Assets.xcassets */,
 				330CE9722A38444400BFA26F /* STButton.swift */,
 				330CE9A02A3B506400BFA26F /* STTextView.swift */,
@@ -242,6 +245,14 @@
 				B2C2257829D6BF2000222C8A /* STTabBarController.swift */,
 			);
 			path = Resoucres;
+			sourceTree = "<group>";
+		};
+		33D30C1D2A44851A0053C0CF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				33D30C1B2A4485170053C0CF /* myPage.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		B2C2253A29D6BE4E00222C8A = {
@@ -464,6 +475,7 @@
 				B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */,
 				330CE9792A38627F00BFA26F /* STCollectionReusableView.swift in Sources */,
 				330438F52A316005008123AD /* User.swift in Sources */,
+				33D30C1C2A4485170053C0CF /* myPage.swift in Sources */,
 				33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */,
 				339AE2C42A273FE8006005AE /* APIClient.swift in Sources */,
 				B2C2257929D6BF2000222C8A /* STTabBarController.swift in Sources */,
