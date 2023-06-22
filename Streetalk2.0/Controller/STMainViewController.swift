@@ -7,90 +7,70 @@
 
 import UIKit
 
-//class STMainViewController: UIViewController {
-//
-//    override func viewWillAppear(_ animated: Bool) {
-////        let registerViewController = STRegisterViewController
-//    }
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        self.view.backgroundColor = .white
-//
-//        let banner : bannerView = bannerView(frame: CGRect(x: 0, y: 0, width: 40, height: 40), title: "title", content: "content")
-//        self.view.addSubview(banner)
-//        self.setBannerLayOut(banner)
-//
-//        let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?&key=99672dad40a8f499176d319a49070269&targetDt=20210201"
-////        APIClient.shared.request(url: url) { result in
-////            switch result {
-////            case let .success(data):
-////                print(data)
-////            case let .failure(error):
-////                print(error)
-////            }
-////        }
-////
-//
-////        let replyRequest = UserInfoRequest(uri: "", methods: .get)
-////        replyRequest.request { result in
-////            switch result {
-////            case let .success(data):
-////                print(data)
-////            case let .failure(error):
-////                print(error)
-////            }
-////        }
-//    }
-//
-//    private func setBannerLayOut(_ banner: bannerView) {
-//        banner.translatesAutoresizingMaskIntoConstraints = false
-//        banner.backgroundColor = .orange
-//
-//        if #available(iOS 11, *) {
-//            let guide = self.view.safeAreaLayoutGuide
-//            NSLayoutConstraint.activate([
-//                banner.topAnchor.constraint(equalTo: guide.topAnchor, constant: -(self.view.frame.height) * 0.5),
-//                banner.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 0),
-//                banner.heightAnchor.constraint(equalTo: guide.heightAnchor, multiplier: 0.7),
-//                banner.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: 0),
-//                ])
-//        } else {
-//            NSLayoutConstraint.activate([
-//                banner.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 0),
-//                banner.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
-//                banner.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.3),
-//                banner.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
-//                ])
-//        }
-//
-//    }
-//}
-//
-//fileprivate class bannerView: UIView {
-//
-//    init(frame: CGRect, title: String?, content: String?){
-//        super.init(frame: frame)
-//
-//        let placeHolderTitleLabel : UILabel = {
-//            let label = UILabel()
-//            label.text = title ?? ""
-//            return label
-//        }()
-//
-//        let placeHolderContentLabel : UILabel = {
-//            let label = UILabel()
-//            label.text = content ?? ""
-//            return label
-//        }()
-//
-//        self.addSubview(placeHolderTitleLabel)
-//        self.addSubview(placeHolderContentLabel)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        super.init(coder: coder)
-//    }
-//
-//}
+class STMainViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presentHomeViewController()
+    }
+
+    private func presentHomeViewController() {
+        DispatchQueue.main.async {
+            // homeViewController
+            let MainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeViewController = MainStoryboard.instantiateViewController(withIdentifier: "homeViewController") as! STHomeViewController
+            homeViewController.title = "Streetalk"
+            let homeNavigationController = UINavigationController(rootViewController: homeViewController)
+            homeNavigationController.navigationBar.tintColor = .streetalkPink
+            homeNavigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.streetalkPink]
+            
+            // boardListViewController
+            let boardStoryboard = UIStoryboard(name: "Board", bundle: nil)
+            let boarListViewController = boardStoryboard.instantiateViewController(withIdentifier: "boardListViewController")
+            boarListViewController.title = "게시판"
+            let boarListNavigationController = UINavigationController(rootViewController: boarListViewController)
+            
+            // writeViewController
+            let writeStoryboard = UIStoryboard(name: "Write", bundle: nil)
+            let writeViewController = writeStoryboard.instantiateViewController(withIdentifier: "writeViewController")
+            writeViewController.title = "글쓰기"
+            
+            // searchListViewController
+            let searchStoryboard = UIStoryboard(name: "Search", bundle: nil)
+            let searchListViewController = searchStoryboard.instantiateViewController(withIdentifier: "searchListViewController")
+            searchListViewController.title = "검색"
+            let searchListNavigationController = UINavigationController(rootViewController: searchListViewController)
+            
+            // myPageListViewController
+            let myPageStoryboard = UIStoryboard(name: "MyPage", bundle: nil)
+            let myPageListViewController = myPageStoryboard.instantiateViewController(withIdentifier: "myPageListViewController")
+            myPageListViewController.title = "마이페이지"
+            let myPageListNavigationController = UINavigationController(rootViewController: myPageListViewController)
+            
+            
+            // 탭바로 사용하기 위한 뷰 컨트롤러들 설정
+            let tabBarController = STTabBarController()
+            tabBarController.setViewControllers([homeNavigationController, boarListNavigationController,writeViewController,searchListNavigationController,myPageListNavigationController], animated: false)
+            tabBarController.modalPresentationStyle = .fullScreen
+            tabBarController.tabBar.backgroundColor = .white
+            tabBarController.tabBar.tintColor = .streetalkPink
+            
+            guard let items = tabBarController.tabBar.items else { return }
+            items[0].title = "Home"
+            items[0].image = UIImage(named: "Home_Normal")
+            items[0].selectedImage = UIImage(named: "Home_Highlight")
+            items[1].image = UIImage(named: "Board_Normal")
+            items[1].selectedImage = UIImage(named: "Board_Highlight")
+            
+            items[3].image = UIImage(named: "Search_Normal")
+            items[3].selectedImage = UIImage(named: "Search_Highlight")
+            items[4].image = UIImage(named: "MyPage_Normal")
+            items[4].selectedImage = UIImage(named: "MyPage_Highlight")
+            
+            tabBarController.modalPresentationStyle = .overFullScreen
+            tabBarController.modalTransitionStyle = .crossDissolve
+            self.present(tabBarController, animated: true, completion: nil)
+        }
+    }
+    
+}

@@ -267,7 +267,7 @@
                                                                                     <constraint firstAttribute="height" constant="30" id="eSd-QP-ED7"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                                                                 <connections>
                                                                                     <action selector="nickNameTextFieldEditing:" destination="e2a-fi-RsL" eventType="editingChanged" id="yXX-4T-Iq3"/>
                                                                                 </connections>
@@ -546,7 +546,7 @@
                                     <constraint firstItem="bhl-Yn-vRk" firstAttribute="top" secondItem="vgR-WI-9o7" secondAttribute="top" id="Qt6-WL-J9z"/>
                                     <constraint firstItem="bhl-Yn-vRk" firstAttribute="leading" secondItem="KDh-Zd-nqW" secondAttribute="leading" constant="30" id="TSq-8v-GLM"/>
                                     <constraint firstItem="bhl-Yn-vRk" firstAttribute="leading" secondItem="vgR-WI-9o7" secondAttribute="leading" constant="30" id="WRF-HP-aLx"/>
-                                    <constraint firstItem="bhl-Yn-vRk" firstAttribute="bottom" secondItem="vgR-WI-9o7" secondAttribute="bottom" id="ZTX-Fa-eCe"/>
+                                    <constraint firstItem="bhl-Yn-vRk" firstAttribute="bottom" secondItem="vgR-WI-9o7" secondAttribute="bottom" constant="-20" id="ZTX-Fa-eCe"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="vgR-WI-9o7"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="KDh-Zd-nqW"/>
