@@ -7,7 +7,7 @@
 
 import UIKit
 
-class STJoinRegisterViewController: UIViewController, UITextFieldDelegate, UICollectionViewDelegate {
+class STJoinRegisterViewController: UIViewController {
     
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet var nicknameSectionView: UIView!
@@ -34,8 +34,6 @@ class STJoinRegisterViewController: UIViewController, UITextFieldDelegate, UICol
         locationSectionView.setRoundedBorder()
         jobSectionView.setRoundedBorder()
         jobCollectionView.setRoundedBorder()
-        
-        nickNameTextField.delegate = self
         
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = self

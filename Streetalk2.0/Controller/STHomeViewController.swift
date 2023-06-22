@@ -7,7 +7,7 @@
 
 import UIKit
 
-class STHomeViewController: UIViewController, UICollectionViewDataSource, UIScrollViewDelegate, UICollectionViewDelegate {
+class STHomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -15,22 +15,15 @@ class STHomeViewController: UIViewController, UICollectionViewDataSource, UIScro
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-//        homeNotiStackViewBackground.setRoundedBorder()
-//        homeNotiStackViewBackground.setRoundedBorder()
+
     }
     
+}
+
+extension STHomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! STHomeMainCollectionCell
-        cell.backgroundColor = .systemBackground
-        cell.layer.cornerRadius = 10.0
-        
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -47,9 +40,30 @@ class STHomeViewController: UIViewController, UICollectionViewDataSource, UIScro
             assert(false, "Invalid element type")
         }
     }
+    
+}
+
+extension STHomeViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! STHomeMainCollectionCell
+        cell.backgroundColor = .systemBackground
+        
+        return cell
+    }
+    
+}
+
+extension STHomeViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+    }
+    
 }
 
 class STHomeMainCollectionCell: UICollectionViewCell {
+    
     @IBOutlet var notiView: UIView!
     @IBOutlet var mainView: UIView!
     @IBOutlet var notiLabel: UILabel!
@@ -68,5 +82,6 @@ class STHomeMainCollectionCell: UICollectionViewCell {
         favoriteBoardSectionView.setRoundedBorder(shadow: true)
         eventSectionView.setRoundedBorder(shadow: true)
     }
+    
 }
 

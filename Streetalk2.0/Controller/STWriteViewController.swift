@@ -7,7 +7,7 @@
 
 import UIKit
 
-class STWriteViewController: UIViewController, UITextViewDelegate {
+class STWriteViewController: UIViewController {
 
     @IBOutlet weak var writeContentTextView: STTextView!
     @IBOutlet weak var writtingBackgroundImageView: UIImageView!
@@ -27,6 +27,14 @@ class STWriteViewController: UIViewController, UITextViewDelegate {
         self.navigationItem.rightBarButtonItem = rightButton
     }
     
+    @objc func writeButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
+}
+
+extension STWriteViewController: UITextViewDelegate {
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         let contentTextView = textView as! STTextView
         if contentTextView.text == "" {
@@ -45,10 +53,6 @@ class STWriteViewController: UIViewController, UITextViewDelegate {
             contentTextView.text = ""
             contentTextView.textColor = .label
         }
-    }
-    
-    @objc func writeButtonTapped(_ sender: UIButton) {
-        self.dismiss(animated: true)
     }
     
 }

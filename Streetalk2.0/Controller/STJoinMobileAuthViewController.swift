@@ -8,7 +8,7 @@
 import UIKit
 import AnyFormatKit
 
-class STJoinMobileAuthViewController: UIViewController, UITextFieldDelegate {
+class STJoinMobileAuthViewController: UIViewController {
 
     @IBOutlet weak var mobileNumberTextField: UITextField!
     @IBOutlet weak var submitButton: STButton!
@@ -46,6 +46,10 @@ class STJoinMobileAuthViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
+}
+
+extension STJoinMobileAuthViewController:  UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // 번호 입력에 따라 실시간으로 포맷팅
         guard let text = textField.text else {
@@ -69,4 +73,5 @@ class STJoinMobileAuthViewController: UIViewController, UITextFieldDelegate {
         
         return false
     }
+    
 }
