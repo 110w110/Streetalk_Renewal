@@ -40,11 +40,15 @@ class STRootViewController: UIViewController {
             // homeViewController
             let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController") as! STHomeViewController
             homeViewController.title = "Streetalk"
+            let homeNavigationController = UINavigationController(rootViewController: homeViewController)
+            homeNavigationController.navigationBar.tintColor = .streetalkPink
+            homeNavigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.streetalkPink]
             
             // boardListViewController
             let boardStoryboard = UIStoryboard(name: "Board", bundle: nil)
             let boarListViewController = boardStoryboard.instantiateViewController(withIdentifier: "boardListViewController")
             boarListViewController.title = "게시판"
+            let boarListNavigationController = UINavigationController(rootViewController: boarListViewController)
             
             // writeViewController
             let writeStoryboard = UIStoryboard(name: "Write", bundle: nil)
@@ -55,19 +59,18 @@ class STRootViewController: UIViewController {
             let searchStoryboard = UIStoryboard(name: "Search", bundle: nil)
             let searchListViewController = searchStoryboard.instantiateViewController(withIdentifier: "searchListViewController")
             searchListViewController.title = "검색"
+            let searchListNavigationController = UINavigationController(rootViewController: searchListViewController)
             
             // myPageListViewController
             let myPageStoryboard = UIStoryboard(name: "MyPage", bundle: nil)
             let myPageListViewController = myPageStoryboard.instantiateViewController(withIdentifier: "myPageListViewController")
             myPageListViewController.title = "마이페이지"
+            let myPageListNavigationController = UINavigationController(rootViewController: myPageListViewController)
             
-            let navigationController = UINavigationController(rootViewController: homeViewController)
-            navigationController.navigationBar.tintColor = .streetalkPink
-            navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.streetalkPink]
             
             // 탭바로 사용하기 위한 뷰 컨트롤러들 설정
             let tabBarController = STTabBarController()
-            tabBarController.setViewControllers([navigationController, boarListViewController,writeViewController,searchListViewController,myPageListViewController], animated: false)
+            tabBarController.setViewControllers([homeNavigationController, boarListNavigationController,writeViewController,searchListNavigationController,myPageListNavigationController], animated: false)
             tabBarController.modalPresentationStyle = .fullScreen
             tabBarController.tabBar.backgroundColor = .white
             tabBarController.tabBar.tintColor = .streetalkPink
