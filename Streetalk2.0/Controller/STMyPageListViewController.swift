@@ -17,12 +17,11 @@ class STMyPageListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .green
         tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = 50
         
         MyPage.getMyPageData(completion: { titles, contents in
-            print(titles)
-            print(contents)
             self.titles = titles
             self.contents = contents
         })
@@ -30,7 +29,7 @@ class STMyPageListViewController: UIViewController {
     
 }
 
-extension STMyPageListViewController: UITableViewDataSource {
+extension STMyPageListViewController: UITableViewDataSource, UITableViewDelegate {
     
     // cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,6 +51,10 @@ extension STMyPageListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.titles[section]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
 }

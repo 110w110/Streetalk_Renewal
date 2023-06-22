@@ -221,16 +221,16 @@
 			children = (
 				B2C2254A29D6BE4E00222C8A /* ViewController.swift */,
 				330CE98C2A3A8B8500BFA26F /* STRootViewController.swift */,
-				330CE9742A385F4400BFA26F /* STHomeViewController.swift */,
-				330CE99C2A3A961000BFA26F /* STWriteViewController.swift */,
-				330CE9982A3A94A900BFA26F /* STAlertListViewController.swift */,
-				330CE99A2A3A955000BFA26F /* STMyPageListViewController.swift */,
 				330CE9842A38A51A00BFA26F /* STJoinViewController.swift */,
 				330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */,
-				33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */,
 				3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */,
 				B2C2257629D6BE8100222C8A /* STMainViewController.swift */,
+				330CE9742A385F4400BFA26F /* STHomeViewController.swift */,
 				330CE9962A3A913700BFA26F /* STBoardListViewController.swift */,
+				330CE99C2A3A961000BFA26F /* STWriteViewController.swift */,
+				33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */,
+				330CE99A2A3A955000BFA26F /* STMyPageListViewController.swift */,
+				330CE9982A3A94A900BFA26F /* STAlertListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
