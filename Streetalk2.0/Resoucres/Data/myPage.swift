@@ -13,7 +13,7 @@ struct MyPage {
     public static let section1: [String] = ["문의하기", "도움말", "이용약관", "개인정보 처리방침"]
     public static let section2: [String] = ["로그아웃", "어플 잠금", "회원 탈퇴"]
     
-    public static func getMyPageData(completion: ([String], [Any])->()) {
+    public static func getMyPageData(completion: ([String], [Array<String>])->()) {
         completion(sectionTitles, [section1, section2])
     }
 }
