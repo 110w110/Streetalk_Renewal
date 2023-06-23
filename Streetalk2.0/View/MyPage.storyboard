@@ -59,6 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="2JU-Dr-HeO" id="K6U-48-fkD"/>
+                        <segue destination="Ow1-pL-mRA" kind="presentation" identifier="popUpSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="7EK-0X-qtW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -129,15 +130,15 @@
         <scene sceneID="CkZ-oQ-4tc">
             <objects>
                 <viewController storyboardIdentifier="myPagePopUpViewController" id="Ow1-pL-mRA" customClass="STMyPagePopUpViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.5" contentMode="scaleToFill" id="i5p-LA-5hd">
+                    <view key="view" contentMode="scaleToFill" id="i5p-LA-5hd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yl-GW-ABY">
-                                <rect key="frame" x="50" y="199" width="293" height="353"/>
+                                <rect key="frame" x="50" y="140" width="293" height="412"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="4H0-QO-nFj">
-                                        <rect key="frame" x="20" y="20" width="253" height="313"/>
+                                        <rect key="frame" x="20" y="20" width="253" height="372"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="cqz-rC-SuZ">
                                                 <rect key="frame" x="58.333333333333343" y="0.0" width="136.66666666666666" height="30"/>
@@ -168,13 +169,13 @@
                                                 </constraints>
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZDM-jW-2O0">
-                                                <rect key="frame" x="37" y="48" width="179" height="179"/>
+                                                <rect key="frame" x="7.6666666666666714" y="48" width="238" height="238"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ZDM-jW-2O0" secondAttribute="height" multiplier="1:1" id="bVa-1R-NsR"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqr-76-zbI">
-                                                <rect key="frame" x="106" y="245" width="41.333333333333343" height="20"/>
+                                                <rect key="frame" x="106" y="304" width="41.333333333333343" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="uul-7C-UFt"/>
                                                 </constraints>
@@ -183,7 +184,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpe-Vt-9SK">
-                                                <rect key="frame" x="89" y="283" width="75" height="30"/>
+                                                <rect key="frame" x="89" y="342" width="75" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="JcF-iW-pEM"/>
                                                 </constraints>
@@ -214,6 +215,7 @@
                             <constraint firstItem="nYO-gw-wSm" firstAttribute="trailing" secondItem="6Yl-GW-ABY" secondAttribute="trailing" constant="50" id="WoA-km-M6H"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bDK-pp-V02"/>
                     <connections>
                         <outlet property="contentsLabel" destination="lqr-76-zbI" id="7A5-wW-NYl"/>
                         <outlet property="popUpView" destination="6Yl-GW-ABY" id="3LL-fU-vny"/>

@@ -49,12 +49,22 @@ extension STMyPageListViewController: UITableViewDelegate {
         case 1:
             switch indexPath.row {
             case 0:
-                showPopUpViewController(identifier: "myPagePopUpViewController", title: self.contents[1][indexPath.row], contents: "로그아웃 하시겠습니까?")
+//                showPopUpViewController(identifier: "myPagePopUpViewController", title: self.contents[1][indexPath.row], contents: "로그아웃 하시겠습니까?")
+                performSegue(withIdentifier: "popUpSegue", sender: [self.contents[1][indexPath.row], "로그아웃 하시겠습니까?"])
             default:
                 print("Error: Invalid indexPath row")
             }
         default:
             print("Error: Invalid indexPath section")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "popUpSegue" {
+            guard let sender = sender as? Array<Any> else { return }
+            let nextViewController = segue.destination as! STMyPagePopUpViewController
+            nextViewController.popUpTitle = sender[0] as! String
+            nextViewController.popUpContent = sender[1] as! String
         }
     }
     
@@ -71,6 +81,7 @@ extension STMyPageListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "myPageCell", for: indexPath) as? STMyPageTableViewCell else { return UITableViewCell() }
         let contents = self.contents[indexPath.section]
         cell.contentLabel.text = contents[indexPath.row]
+        cell.selectionStyle = .none
         
         return cell
     }

@@ -13,6 +13,8 @@ class STMyPagePopUpViewController: UIViewController {
     @IBOutlet var contentsLabel: UILabel!
     @IBOutlet var popUpView: UIView!
     
+    var popUpTitle: String = "title"
+    var popUpContent: String = "content"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,8 @@ class STMyPagePopUpViewController: UIViewController {
         self.popUpView.setRoundedBorder(shadow: true)
         self.view.backgroundColor = .label.withAlphaComponent(0.5)
 
+        self.titleLabel.text = popUpTitle
+        self.contentsLabel.text = popUpContent
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
