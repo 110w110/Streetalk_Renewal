@@ -49,6 +49,10 @@
 		33D30C1C2A4485170053C0CF /* myPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C1B2A4485170053C0CF /* myPage.swift */; };
 		33D30C1F2A4489E00053C0CF /* STMyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C1E2A4489E00053C0CF /* STMyPageTableViewCell.swift */; };
 		33D30C232A453A710053C0CF /* STMyPageFAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C222A453A710053C0CF /* STMyPageFAQViewController.swift */; };
+		33D30C2B2A4543A90053C0CF /* STMyPageHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C2A2A4543A90053C0CF /* STMyPageHelpViewController.swift */; };
+		33D30C2D2A4543CC0053C0CF /* STMyPageTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C2C2A4543CC0053C0CF /* STMyPageTermsViewController.swift */; };
+		33D30C2F2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C2E2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift */; };
+		33D30C312A45472D0053C0CF /* STMyPagePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C302A45472D0053C0CF /* STMyPagePopUpViewController.swift */; };
 		B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254629D6BE4E00222C8A /* AppDelegate.swift */; };
 		B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */; };
 		B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254A29D6BE4E00222C8A /* ViewController.swift */; };
@@ -121,6 +125,10 @@
 		33D30C1B2A4485170053C0CF /* myPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPage.swift; sourceTree = "<group>"; };
 		33D30C1E2A4489E00053C0CF /* STMyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPageTableViewCell.swift; sourceTree = "<group>"; };
 		33D30C222A453A710053C0CF /* STMyPageFAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPageFAQViewController.swift; sourceTree = "<group>"; };
+		33D30C2A2A4543A90053C0CF /* STMyPageHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPageHelpViewController.swift; sourceTree = "<group>"; };
+		33D30C2C2A4543CC0053C0CF /* STMyPageTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPageTermsViewController.swift; sourceTree = "<group>"; };
+		33D30C2E2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPagePrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		33D30C302A45472D0053C0CF /* STMyPagePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPagePopUpViewController.swift; sourceTree = "<group>"; };
 		B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streetalk2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C2254629D6BE4E00222C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,18 +230,13 @@
 			isa = PBXGroup;
 			children = (
 				B2C2254A29D6BE4E00222C8A /* ViewController.swift */,
-				330CE98C2A3A8B8500BFA26F /* STRootViewController.swift */,
-				330CE9842A38A51A00BFA26F /* STJoinViewController.swift */,
-				330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */,
-				33D30C222A453A710053C0CF /* STMyPageFAQViewController.swift */,
-				3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */,
-				B2C2257629D6BE8100222C8A /* STMainViewController.swift */,
-				330CE9742A385F4400BFA26F /* STHomeViewController.swift */,
-				330CE9962A3A913700BFA26F /* STBoardListViewController.swift */,
-				330CE99C2A3A961000BFA26F /* STWriteViewController.swift */,
-				33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */,
-				330CE99A2A3A955000BFA26F /* STMyPageListViewController.swift */,
 				330CE9982A3A94A900BFA26F /* STAlertListViewController.swift */,
+				33D30C242A45432A0053C0CF /* Join */,
+				33D30C252A45433C0053C0CF /* Main */,
+				33D30C262A4543410053C0CF /* Write */,
+				33D30C272A4543470053C0CF /* Board */,
+				33D30C282A45434F0053C0CF /* Search */,
+				33D30C292A4543560053C0CF /* MyPage */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,6 +262,63 @@
 				33D30C1B2A4485170053C0CF /* myPage.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		33D30C242A45432A0053C0CF /* Join */ = {
+			isa = PBXGroup;
+			children = (
+				330CE9842A38A51A00BFA26F /* STJoinViewController.swift */,
+				330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */,
+				3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */,
+			);
+			path = Join;
+			sourceTree = "<group>";
+		};
+		33D30C252A45433C0053C0CF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				330CE98C2A3A8B8500BFA26F /* STRootViewController.swift */,
+				B2C2257629D6BE8100222C8A /* STMainViewController.swift */,
+				330CE9742A385F4400BFA26F /* STHomeViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		33D30C262A4543410053C0CF /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				330CE99C2A3A961000BFA26F /* STWriteViewController.swift */,
+			);
+			path = Write;
+			sourceTree = "<group>";
+		};
+		33D30C272A4543470053C0CF /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				330CE9962A3A913700BFA26F /* STBoardListViewController.swift */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		33D30C282A45434F0053C0CF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		33D30C292A4543560053C0CF /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				330CE99A2A3A955000BFA26F /* STMyPageListViewController.swift */,
+				33D30C222A453A710053C0CF /* STMyPageFAQViewController.swift */,
+				33D30C302A45472D0053C0CF /* STMyPagePopUpViewController.swift */,
+				33D30C2A2A4543A90053C0CF /* STMyPageHelpViewController.swift */,
+				33D30C2C2A4543CC0053C0CF /* STMyPageTermsViewController.swift */,
+				33D30C2E2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift */,
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		B2C2253A29D6BE4E00222C8A = {
@@ -472,14 +532,18 @@
 				3399BAFA2A401C2400A56A4B /* STJoinRegisterViewController.swift in Sources */,
 				330CE99B2A3A955000BFA26F /* STMyPageListViewController.swift in Sources */,
 				33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */,
+				33D30C312A45472D0053C0CF /* STMyPagePopUpViewController.swift in Sources */,
 				330438F72A3161B9008123AD /* Board.swift in Sources */,
+				33D30C2D2A4543CC0053C0CF /* STMyPageTermsViewController.swift in Sources */,
 				B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */,
 				33BB8BF72A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift in Sources */,
 				330438F32A315F55008123AD /* Industry.swift in Sources */,
 				330CE9A12A3B506400BFA26F /* STTextView.swift in Sources */,
 				330439052A34701C008123AD /* UserInfoRequest.swift in Sources */,
 				330438FB2A316323008123AD /* Reply.swift in Sources */,
+				33D30C2B2A4543A90053C0CF /* STMyPageHelpViewController.swift in Sources */,
 				B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */,
+				33D30C2F2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift in Sources */,
 				330CE9792A38627F00BFA26F /* STCollectionReusableView.swift in Sources */,
 				33D30C1F2A4489E00053C0CF /* STMyPageTableViewCell.swift in Sources */,
 				330438F52A316005008123AD /* User.swift in Sources */,
