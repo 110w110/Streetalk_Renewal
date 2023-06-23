@@ -1,18 +1,17 @@
 //
-//  STBoardListViewController.swift
+//  STMyPageTermsViewController.swift
 //  Streetalk2.0
 //
-//  Created by 한태희 on 2023/06/15.
+//  Created by 한태희 on 2023/06/23.
 //
 
 import UIKit
 
-class STBoardListViewController: UIViewController {
+class STMyPageTermsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .blue
         // Do any additional setup after loading the view.
     }
     

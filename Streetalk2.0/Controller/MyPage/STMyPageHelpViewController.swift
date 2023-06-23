@@ -1,5 +1,5 @@
 //
-//  STMyPageFAQViewController.swift
+//  STMyPageHelpViewController.swift
 //  Streetalk2.0
 //
 //  Created by 한태희 on 2023/06/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class STMyPageFAQViewController: UIViewController {
+class STMyPageHelpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

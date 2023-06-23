@@ -1,13 +1,13 @@
 //
-//  STSearchListViewController.swift
+//  STMyPagePrivacyPolicyViewController.swift
 //  Streetalk2.0
 //
-//  Created by 한태희 on 2023/06/19.
+//  Created by 한태희 on 2023/06/23.
 //
 
 import UIKit
 
-class STSearchListViewController: UIViewController {
+class STMyPagePrivacyPolicyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
