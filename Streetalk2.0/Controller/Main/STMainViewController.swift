@@ -52,7 +52,8 @@ class STMainViewController: UIViewController {
             let tabBarController = STTabBarController()
             tabBarController.setViewControllers([homeNavigationController, boarListNavigationController,writeViewController,searchListNavigationController,myPageListNavigationController], animated: false)
             tabBarController.modalPresentationStyle = .fullScreen
-            tabBarController.tabBar.backgroundColor = .white
+            tabBarController.tabBar.backgroundColor = .systemBackground
+            tabBarController.tabBar.setRoundedBorder(shadow: true, bottomExtend: true)
             tabBarController.tabBar.tintColor = .streetalkPink
             
             guard let items = tabBarController.tabBar.items else { return }
