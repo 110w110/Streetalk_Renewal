@@ -15,12 +15,13 @@ class STMyPagePopUpViewController: UIViewController {
     
     var popUpTitle: String = "title"
     var popUpContent: String = "content"
+    var popUpUsage: PopUpViewUsage = .undefined
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.popUpView.setRoundedBorder(shadow: true)
-        self.view.backgroundColor = .label.withAlphaComponent(0.5)
+        self.view.backgroundColor = .label.withAlphaComponent(0.2)
 
         self.titleLabel.text = popUpTitle
         self.contentsLabel.text = popUpContent
@@ -31,7 +32,32 @@ class STMyPagePopUpViewController: UIViewController {
     }
     
     @IBAction func confirmButtonTapped(_ sender: Any) {
-        
+        switch self.popUpUsage {
+        case .logout:
+            logOut()
+        case .leave:
+            leave()
+        default:
+            print("Error: pop-up usage is undefined")
+        }
     }
     
+}
+
+extension STMyPagePopUpViewController {
+    
+    private func logOut() {
+        print(#function)
+    }
+    
+    private func leave() {
+        print(#function)
+    }
+    
+}
+
+public enum PopUpViewUsage {
+    case logout
+    case leave
+    case undefined
 }

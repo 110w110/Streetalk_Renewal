@@ -49,8 +49,9 @@ extension STMyPageListViewController: UITableViewDelegate {
         case 1:
             switch indexPath.row {
             case 0:
-//                showPopUpViewController(identifier: "myPagePopUpViewController", title: self.contents[1][indexPath.row], contents: "로그아웃 하시겠습니까?")
-                performSegue(withIdentifier: "popUpSegue", sender: [self.contents[1][indexPath.row], "로그아웃 하시겠습니까?"])
+                performSegue(withIdentifier: "popUpSegue", sender: [self.contents[1][indexPath.row], "로그아웃 하시겠습니까?", PopUpViewUsage.logout] as [Any])
+            case 2:
+                performSegue(withIdentifier: "popUpSegue", sender: [self.contents[1][indexPath.row], "확인을 누르시면 되돌릴 수 없습니다.", PopUpViewUsage.leave] as [Any])
             default:
                 print("Error: Invalid indexPath row")
             }
@@ -65,6 +66,7 @@ extension STMyPageListViewController: UITableViewDelegate {
             let nextViewController = segue.destination as! STMyPagePopUpViewController
             nextViewController.popUpTitle = sender[0] as! String
             nextViewController.popUpContent = sender[1] as! String
+            nextViewController.popUpUsage = sender[2] as! PopUpViewUsage
         }
     }
     
