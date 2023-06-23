@@ -29,7 +29,17 @@ class STMyPageListViewController: UIViewController {
     
 }
 
-extension STMyPageListViewController: UITableViewDataSource, UITableViewDelegate {
+extension STMyPageListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath == IndexPath(row: 0, section: 0)) {
+            showNextViewController(identifier: "myPageFAQViewController", title: "문의하기", viewControllerType: STMyPageFAQViewController.self)
+        }
+    }
+    
+}
+
+extension STMyPageListViewController: UITableViewDataSource {
     
     // cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,6 +65,16 @@ extension STMyPageListViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
+    }
+    
+}
+
+extension STMyPageListViewController {
+    
+    private func showNextViewController<T: UIViewController>(identifier: String, title: String, viewControllerType: T.Type) {
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: identifier) as? T else { return }
+        viewController.title = title
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

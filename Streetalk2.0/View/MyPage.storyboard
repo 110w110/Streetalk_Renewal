@@ -65,6 +65,21 @@
             </objects>
             <point key="canvasLocation" x="73" y="-2"/>
         </scene>
+        <!--My PageFAQ View Controller-->
+        <scene sceneID="ZCZ-np-5lD">
+            <objects>
+                <viewController storyboardIdentifier="myPageFAQViewController" id="oRr-PZ-kmS" customClass="STMyPageFAQViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J3B-4C-TIN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="OXD-D8-PJf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xT4-bY-G58" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="-2"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
