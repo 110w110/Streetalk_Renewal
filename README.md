@@ -34,6 +34,8 @@
     - 클래스 또는 구조체 외부에서 사용되지 않거나 사용하지 않아야 하는 프로퍼티 또는 함수는 모두 private으로 설정하였습니다.
 - 메인화면의 뷰의 배너를 UICollectionView의 Header로 변경하고 Sticky Header 형태로 구현하였습니다.
 - 스토리보드 상 UI 배치 간에 Stack View를 적극 활용하여 각 UI 간 Auto Layout의 충돌 가능성을 최소화하고 재사용성을 늘렸습니다.
+- myPage 구조체를 만들어서 메뉴 수정이 있을 때 다른 클래스에 영향이 없도록 분리 시켰습니다.
+- mypage showNextViewController 에서 제너릭 구현으로 메소드 간소화
 
 ## 주요 변경점 자세히 보기
 ![스크린샷 2023-06-23 오후 7 34 19](https://github.com/110w110/Streetalk_Renewal/assets/87888411/ce5c0646-2c1f-4e98-9cde-75007a718686)
