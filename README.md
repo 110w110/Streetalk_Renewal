@@ -9,7 +9,7 @@
 기존 레거시 코드에 부족한 부분이 아주 많고 구조적으로 완성도가 많이 떨어지기 때문에 리팩토링은 새로운 프로젝트에서 구현하게 되었습니다.
 아래에는 변경되는 사항에 대한 내용이며 소스 코드 또는 캡쳐 화면을 추후에 업데이트하여 정리할 예정입니다.
 
-## 주요 변경점
+## 주요 변경점 요약
 - 네트워크 모듈을 깔끔하게 정리하였습니다.
     - 레거시에서는 같은 로직을 모든 요청마다 중복 수행하는 문제가 있었기 때문에 싱글턴의 네트워크 모듈을 구현하여 정리하였습니다.
     - Model 또한 중복되거나 불필요한 구조를 제거하여 정리하였습니다.
@@ -34,3 +34,19 @@
     - 클래스 또는 구조체 외부에서 사용되지 않거나 사용하지 않아야 하는 프로퍼티 또는 함수는 모두 private으로 설정하였습니다.
 - 메인화면의 뷰의 배너를 UICollectionView의 Header로 변경하고 Sticky Header 형태로 구현하였습니다.
 - 스토리보드 상 UI 배치 간에 Stack View를 적극 활용하여 각 UI 간 Auto Layout의 충돌 가능성을 최소화하고 재사용성을 늘렸습니다.
+- myPage 구조체를 만들어서 메뉴 수정이 있을 때 다른 클래스에 영향이 없도록 분리 시켰습니다.
+- mypage showNextViewController 에서 제너릭 구현으로 메소드 간소화
+
+## 주요 변경점 자세히 보기
+![스크린샷 2023-06-23 오후 7 34 19](https://github.com/110w110/Streetalk_Renewal/assets/87888411/ce5c0646-2c1f-4e98-9cde-75007a718686)
+![스크린샷 2023-06-23 오후 7 34 30](https://github.com/110w110/Streetalk_Renewal/assets/87888411/9a775f47-44ee-4987-844e-0e102509be07)
+![스크린샷 2023-06-23 오후 7 34 40](https://github.com/110w110/Streetalk_Renewal/assets/87888411/8ceafda3-81bb-46e6-a900-55e74e199198)
+![스크린샷 2023-06-23 오후 7 34 55](https://github.com/110w110/Streetalk_Renewal/assets/87888411/2483d22c-e0d2-4ada-b3f3-14e38c613f42)
+![스크린샷 2023-06-23 오후 7 35 15](https://github.com/110w110/Streetalk_Renewal/assets/87888411/f26a7378-4ac0-4deb-b6f8-9bbf415ccfd8)
+![스크린샷 2023-06-23 오후 8 02 13](https://github.com/110w110/Streetalk_Renewal/assets/87888411/2df705e0-3eee-43bf-9f56-5591025567ce)
+![스크린샷 2023-06-23 오후 8 02 24](https://github.com/110w110/Streetalk_Renewal/assets/87888411/a0057c11-f617-45da-ac2a-944bb24d0c2b)
+![스크린샷 2023-06-23 오후 8 02 32](https://github.com/110w110/Streetalk_Renewal/assets/87888411/569a981f-9728-474b-a98b-90c9816ee578)
+![스크린샷 2023-06-23 오후 8 02 44](https://github.com/110w110/Streetalk_Renewal/assets/87888411/7850bf2a-ecbb-481e-8e55-c1f1ce9cee48)
+![스크린샷 2023-06-23 오후 8 02 54](https://github.com/110w110/Streetalk_Renewal/assets/87888411/50e0bad4-7b2f-4956-a2fe-edf09866f1c6)
+![스크린샷 2023-06-23 오후 8 03 07](https://github.com/110w110/Streetalk_Renewal/assets/87888411/0d0d9c90-f9ab-4f83-8e11-1d863f938de8)
+  
