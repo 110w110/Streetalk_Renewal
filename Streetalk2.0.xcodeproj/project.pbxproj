@@ -37,9 +37,11 @@
 		330CE99D2A3A961000BFA26F /* STWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE99C2A3A961000BFA26F /* STWriteViewController.swift */; };
 		330CE9A12A3B506400BFA26F /* STTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9A02A3B506400BFA26F /* STTextView.swift */; };
 		330CE9A32A3C35B600BFA26F /* STJoinMobileAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */; };
+		332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */; };
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
+		337CB04F2A49550B00A7E375 /* STPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337CB04E2A49550B00A7E375 /* STPostViewController.swift */; };
 		3399BAF52A400E9400A56A4B /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF42A400E9400A56A4B /* String+.swift */; };
 		3399BAF82A40122100A56A4B /* AnyFormatKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3399BAF72A40122100A56A4B /* AnyFormatKit */; };
 		3399BAFA2A401C2400A56A4B /* STJoinRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */; };
@@ -114,9 +116,11 @@
 		330CE99C2A3A961000BFA26F /* STWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWriteViewController.swift; sourceTree = "<group>"; };
 		330CE9A02A3B506400BFA26F /* STTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTextView.swift; sourceTree = "<group>"; };
 		330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinMobileAuthViewController.swift; sourceTree = "<group>"; };
+		332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostContentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
+		337CB04E2A49550B00A7E375 /* STPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostViewController.swift; sourceTree = "<group>"; };
 		3399BAF42A400E9400A56A4B /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinRegisterViewController.swift; sourceTree = "<group>"; };
 		3399BAFB2A402FE200A56A4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -222,6 +226,13 @@
 				330CE9922A3A90B200BFA26F /* MyPage.storyboard */,
 				33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */,
 				33BB8BF62A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift */,
+				330CE9722A38444400BFA26F /* STButton.swift */,
+				330CE9A02A3B506400BFA26F /* STTextView.swift */,
+				330CE97A2A38634600BFA26F /* STCollectionViewFlowLayout.swift */,
+				33D30C1E2A4489E00053C0CF /* STMyPageTableViewCell.swift */,
+				330CE9782A38627F00BFA26F /* STCollectionReusableView.swift */,
+				332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */,
+				B2C2257829D6BF2000222C8A /* STTabBarController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,12 +257,6 @@
 			children = (
 				33D30C1D2A44851A0053C0CF /* Data */,
 				B2C2254F29D6BE5100222C8A /* Assets.xcassets */,
-				330CE9722A38444400BFA26F /* STButton.swift */,
-				330CE9A02A3B506400BFA26F /* STTextView.swift */,
-				330CE97A2A38634600BFA26F /* STCollectionViewFlowLayout.swift */,
-				33D30C1E2A4489E00053C0CF /* STMyPageTableViewCell.swift */,
-				330CE9782A38627F00BFA26F /* STCollectionReusableView.swift */,
-				B2C2257829D6BF2000222C8A /* STTabBarController.swift */,
 			);
 			path = Resoucres;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				330CE9962A3A913700BFA26F /* STBoardListViewController.swift */,
+				337CB04E2A49550B00A7E375 /* STPostViewController.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -526,6 +532,7 @@
 				330CE9992A3A94A900BFA26F /* STAlertListViewController.swift in Sources */,
 				3399BAF52A400E9400A56A4B /* String+.swift in Sources */,
 				330CE9972A3A913700BFA26F /* STBoardListViewController.swift in Sources */,
+				337CB04F2A49550B00A7E375 /* STPostViewController.swift in Sources */,
 				3399BAFC2A402FE200A56A4B /* UIView+.swift in Sources */,
 				330CE9A32A3C35B600BFA26F /* STJoinMobileAuthViewController.swift in Sources */,
 				33D30C232A453A710053C0CF /* STMyPageFAQViewController.swift in Sources */,
@@ -555,6 +562,7 @@
 				330CE98D2A3A8B8500BFA26F /* STRootViewController.swift in Sources */,
 				330CE9712A3843D400BFA26F /* UIColor+.swift in Sources */,
 				330438F12A315E95008123AD /* Location.swift in Sources */,
+				332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */,
 				330CE9732A38444400BFA26F /* STButton.swift in Sources */,
 				330CE9852A38A51A00BFA26F /* STJoinViewController.swift in Sources */,
 				330438FD2A31647D008123AD /* NetworkResponse.swift in Sources */,
