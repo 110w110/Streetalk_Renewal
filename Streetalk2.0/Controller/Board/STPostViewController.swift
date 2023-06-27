@@ -14,7 +14,8 @@ class STPostViewController: UIViewController {
         super.viewDidLoad()
 
         collectionView.dataSource = self
-        // Do any additional setup after loading the view.
+        collectionView.delegate = self
+        
     }
     
 }
@@ -27,7 +28,22 @@ extension STPostViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath) as! STPostContentsCollectionViewCell
+        cell.setRoundedBorder(shadow: true)
         return cell
     }
     
+}
+
+extension STPostViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath) as! STPostContentsCollectionViewCell
+        let width: CGFloat = collectionView.frame.width - 20
+        
+        let boundingRect = NSString(string: cell.postContentsLabel.text ?? "temp").boundingRect(with: CGSize(width: width - 60, height: CGFloat.greatestFiniteMagnitude),
+                                                options: .usesLineFragmentOrigin,
+                                                attributes: [.font: UIFont.systemFont(ofSize: 14, weight: .regular)],
+                                                context: nil)
+
+        return CGSize(width: width, height: boundingRect.height + 160)
+    }
 }
