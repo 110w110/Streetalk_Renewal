@@ -26,9 +26,10 @@ class STMainViewController: UIViewController {
             
             // boardListViewController
             let boardStoryboard = UIStoryboard(name: "Board", bundle: nil)
-            let boarListViewController = boardStoryboard.instantiateViewController(withIdentifier: "boardListViewController")
-            boarListViewController.title = "게시판"
-            let boarListNavigationController = UINavigationController(rootViewController: boarListViewController)
+            let boardListViewController = boardStoryboard.instantiateViewController(withIdentifier: "boardListViewController")
+            boardListViewController.title = "게시판"
+            let boardListNavigationController = UINavigationController(rootViewController: boardListViewController)
+            boardListNavigationController.navigationBar.tintColor = .streetalkPink
             
             // writeViewController
             let writeStoryboard = UIStoryboard(name: "Write", bundle: nil)
@@ -40,17 +41,19 @@ class STMainViewController: UIViewController {
             let searchListViewController = searchStoryboard.instantiateViewController(withIdentifier: "searchListViewController")
             searchListViewController.title = "검색"
             let searchListNavigationController = UINavigationController(rootViewController: searchListViewController)
+            searchListNavigationController.navigationBar.tintColor = .streetalkPink
             
             // myPageListViewController
             let myPageStoryboard = UIStoryboard(name: "MyPage", bundle: nil)
             let myPageListViewController = myPageStoryboard.instantiateViewController(withIdentifier: "myPageListViewController")
             myPageListViewController.title = "마이페이지"
             let myPageListNavigationController = UINavigationController(rootViewController: myPageListViewController)
+            myPageListNavigationController.navigationBar.tintColor = .streetalkPink
             
             
             // 탭바로 사용하기 위한 뷰 컨트롤러들 설정
             let tabBarController = STTabBarController()
-            tabBarController.setViewControllers([homeNavigationController, boarListNavigationController,writeViewController,searchListNavigationController,myPageListNavigationController], animated: false)
+            tabBarController.setViewControllers([homeNavigationController, boardListNavigationController,writeViewController,searchListNavigationController,myPageListNavigationController], animated: false)
             tabBarController.modalPresentationStyle = .fullScreen
             tabBarController.tabBar.backgroundColor = .systemBackground
             tabBarController.tabBar.setRoundedBorder(shadow: true, bottomExtend: true)
