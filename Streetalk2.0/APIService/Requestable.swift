@@ -12,7 +12,7 @@ protocol Requestable {
     var methods: HttpMethods { get set }
     var auth: Bool { get set }
     var param: [String : Any]? { get set }
-    var response: Responsable { get set }
+    func dataToObject(data: Data) -> Codable?
 }
 
 extension Requestable {
@@ -22,7 +22,7 @@ extension Requestable {
 }
 
 extension Requestable {
-    func request(completion: @escaping (Result<Data, APIError>) -> Void) {
+    func request(completion: @escaping (Result<Codable, APIError>) -> Void) {
         var innerHeader: [String : String] = self.header
         
         if auth {
@@ -37,8 +37,12 @@ extension Requestable {
         APIClient.shared.request(url: baseUrl + uri, method: methods, header: innerHeader, param: param) { result in
             switch result {
             case let .success(data):
-                print(data)
-                completion(.success(data))
+//                let json = String(decoding: data, as: UTF8.self)
+                guard let object = dataToObject(data: data) else {
+                    print("Error: object is nil")
+                    return
+                }
+                completion(.success(object))
             case let .failure(error):
                 print(error)
                 completion(.failure(error))

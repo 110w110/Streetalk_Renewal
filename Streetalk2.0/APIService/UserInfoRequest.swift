@@ -13,5 +13,13 @@ struct UserInfoRequest: Requestable {
     var auth: Bool = true
     var param: [String : Any]? = nil
     
-    var response: Responsable
+    func dataToObject(data: Data) -> Codable? {
+        do {
+            let result = try JSONDecoder().decode(User.self, from: data)
+            return result
+        } catch {
+            print("Error: Data decoding error")
+            return nil
+        }
+    }
 }

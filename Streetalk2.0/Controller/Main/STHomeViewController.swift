@@ -15,7 +15,15 @@ class STHomeViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-
+        let u = UserInfoRequest()
+        u.request(completion: { result in
+            switch result {
+            case let .success(object):
+                dump(object)
+            case let .failure(error):
+                print("Error: Decoding error \(error)")
+            }
+        })
     }
     
 }

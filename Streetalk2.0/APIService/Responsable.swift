@@ -7,6 +7,7 @@
 
 import Foundation
 
-protocol Responsable {
-    func dataToObject(_ data: Data) -> Codable
+protocol Responsable: Codable {
+//    func dataToObject(_ data: Data) -> Codable
+    var result: Codable? { get }
 }
