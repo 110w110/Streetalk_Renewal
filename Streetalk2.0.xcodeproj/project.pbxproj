@@ -40,7 +40,6 @@
 		331427892A4EF88F004AFF23 /* TestAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331427882A4EF88F004AFF23 /* TestAPIClient.swift */; };
 		3314278B2A4EFABB004AFF23 /* STPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */; };
 		332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */; };
-		332FEA842A4A8A4A00FF2C73 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332FEA832A4A8A4A00FF2C73 /* UILabel+.swift */; };
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
@@ -122,7 +121,6 @@
 		331427882A4EF88F004AFF23 /* TestAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIClient.swift; sourceTree = "<group>"; };
 		3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostTableViewCell.swift; sourceTree = "<group>"; };
 		332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostContentsCollectionViewCell.swift; sourceTree = "<group>"; };
-		332FEA832A4A8A4A00FF2C73 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				330CE9702A3843D400BFA26F /* UIColor+.swift */,
 				3399BAF42A400E9400A56A4B /* String+.swift */,
 				3399BAFB2A402FE200A56A4B /* UIView+.swift */,
-				332FEA832A4A8A4A00FF2C73 /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -545,7 +542,6 @@
 				3399BAFC2A402FE200A56A4B /* UIView+.swift in Sources */,
 				330CE9A32A3C35B600BFA26F /* STJoinMobileAuthViewController.swift in Sources */,
 				33D30C232A453A710053C0CF /* STMyPageFAQViewController.swift in Sources */,
-				332FEA842A4A8A4A00FF2C73 /* UILabel+.swift in Sources */,
 				3399BAFA2A401C2400A56A4B /* STJoinRegisterViewController.swift in Sources */,
 				330CE99B2A3A955000BFA26F /* STMyPageListViewController.swift in Sources */,
 				33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */,
