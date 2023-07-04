@@ -26,18 +26,23 @@ class STPostViewController: UIViewController {
 extension STPostViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return posts.count
-        return 1
+//        return reply.count + 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.row == 1 {
+        if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "postContentTableViewCell", for: indexPath) as! STPostTableViewCell
             cell.selectionStyle = .none
             cell.primaryNickNameStackView.isHidden = true
             cell.secondaryNickNameStackView.isHidden = false
             return cell
-//        }
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "replyTableViewCell", for: indexPath) as! STReplyTableViewCell
+            cell.selectionStyle = .none
+            return cell
+            
+        }
     }
     
 }
