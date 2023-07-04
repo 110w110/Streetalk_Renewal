@@ -10,16 +10,24 @@ import UIKit
 class STPostViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var bottomView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
+        
+        setUI()
     }
     
 }
 
+extension STPostViewController {
+    func setUI() {
+        bottomView.setRoundedBorder(shadow: true, bottomExtend: true)
+    }
+}
 
 extension STPostViewController: UITableViewDataSource {
     

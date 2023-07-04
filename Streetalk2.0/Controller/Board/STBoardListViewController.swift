@@ -43,6 +43,7 @@ extension STBoardListViewController: UITableViewDelegate {
         // indexPath에 따라 정보 넘겨야함
         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "postViewController") as! STPostViewController
         postViewController.title = "지역 게시판"
+        postViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(postViewController, animated: true)
     }
     

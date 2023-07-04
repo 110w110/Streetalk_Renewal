@@ -31,9 +31,9 @@ class STTabBarController: UITabBarController, UITabBarControllerDelegate {
         addButton.contentMode = .scaleToFill
         addButton.addTarget(self, action: #selector(self.addButtonAction(sender:)), for: UIControl.Event.touchUpInside)
         addButton.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(addButton)
+        self.tabBar.addSubview(addButton)
         
-        NSLayoutConstraint(item: addButton, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: addButton, attribute: .centerX, relatedBy: .equal, toItem: self.tabBar, attribute: .centerX, multiplier: 1.0, constant: 0).isActive = true
         addButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
         addButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
         addButton.bottomAnchor.constraint(equalTo: self.tabBar.topAnchor, constant: 36).isActive = true
@@ -73,4 +73,28 @@ class STTabBarController: UITabBarController, UITabBarControllerDelegate {
         return isUploadTabBarEnabled
     }
     
+}
+
+extension UITabBar {
+    
+    open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        guard !clipsToBounds && !isHidden && alpha > 0 else { return nil }
+        for member in subviews.reversed() {
+            let subPoint = member.convert(point, from: self)
+            guard let result = member.hitTest(subPoint, with: event) else { continue }
+            return result
+        }
+        return nil
+    }
+    
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1).cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        self.layer.shadowRadius = 4.0
+        self.layer.shadowOpacity = 0.4
+        self.layer.masksToBounds = false
+
+    }
 }
