@@ -11,12 +11,18 @@ class STPostViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var bottomView: UIView!
+    @IBOutlet var keyboardArea: UIView!
+    @IBOutlet var replyTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
+        replyTextField.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         setUI()
     }
@@ -24,9 +30,28 @@ class STPostViewController: UIViewController {
 }
 
 extension STPostViewController {
+    
     func setUI() {
         bottomView.setRoundedBorder(shadow: true, bottomExtend: true)
     }
+    
+}
+
+extension STPostViewController: UITextFieldDelegate {
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        self.keyboardArea.isHidden = false
+    }
+
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        self.keyboardArea.isHidden = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
 
 extension STPostViewController: UITableViewDataSource {
