@@ -194,16 +194,24 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		333C206B2A5486DC00F8265C /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				330439022A346551008123AD /* AddReplyRequest.swift */,
+				330439042A34701C008123AD /* UserInfoRequest.swift */,
+				333C20672A545C9F00F8265C /* RegisterRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		339AE2BE2A273F5D006005AE /* APIService */ = {
 			isa = PBXGroup;
 			children = (
 				339AE2C32A273FE8006005AE /* APIClient.swift */,
-				331427882A4EF88F004AFF23 /* TestAPIClient.swift */,
 				330438FE2A33604C008123AD /* APIError.swift */,
 				330439002A3460F5008123AD /* Requestable.swift */,
-				330439022A346551008123AD /* AddReplyRequest.swift */,
-				330439042A34701C008123AD /* UserInfoRequest.swift */,
-				333C20672A545C9F00F8265C /* RegisterRequest.swift */,
+				331427882A4EF88F004AFF23 /* TestAPIClient.swift */,
+				333C206B2A5486DC00F8265C /* Request */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
