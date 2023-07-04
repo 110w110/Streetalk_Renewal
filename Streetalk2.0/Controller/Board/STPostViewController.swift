@@ -9,12 +9,42 @@ import UIKit
 
 class STPostViewController: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
     @IBOutlet var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.dataSource = self
-        collectionView.delegate = self
+//        collectionView.dataSource = self
+//        collectionView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+}
+
+
+extension STPostViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return posts.count
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "postContentTableViewCell", for: indexPath) as! STPostTableViewCell
+            cell.selectionStyle = .none
+            cell.primaryNickNameStackView.isHidden = true
+            cell.secondaryNickNameStackView.isHidden = false
+            return cell
+//        }
+    }
+    
+}
+
+extension STPostViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     

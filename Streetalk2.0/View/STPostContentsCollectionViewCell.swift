@@ -19,5 +19,9 @@ class STPostContentsCollectionViewCell: UICollectionViewCell {
     @IBOutlet var likeCountLabel: UILabel!
     @IBOutlet var scrapImageView: UIImageView!
     @IBOutlet var scrapCountLabel: UILabel!
+    @IBOutlet var bottomStackView: UIStackView!
     
+    override func setNeedsLayout() {
+        bottomStackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
 }

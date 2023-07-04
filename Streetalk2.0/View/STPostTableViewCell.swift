@@ -15,6 +15,8 @@ class STPostTableViewCell: UITableViewCell {
     @IBOutlet var nickNameLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var bottomStackView: UIStackView!
+    @IBOutlet var primaryNickNameStackView: UIStackView!
+    @IBOutlet var secondaryNickNameStackView: UIStackView!
     
     
     
@@ -22,7 +24,7 @@ class STPostTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         cellBackground.setRoundedBorder()
-        bottomStackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        bottomStackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 15, right: 10)
         bottomStackView.isLayoutMarginsRelativeArrangement = true
     }
 
