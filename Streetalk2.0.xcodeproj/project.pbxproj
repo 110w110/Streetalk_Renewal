@@ -18,7 +18,6 @@
 		330439012A3460F5008123AD /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330439002A3460F5008123AD /* Requestable.swift */; };
 		330439032A346551008123AD /* AddReplyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330439022A346551008123AD /* AddReplyRequest.swift */; };
 		330439052A34701C008123AD /* UserInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330439042A34701C008123AD /* UserInfoRequest.swift */; };
-		330439072A3597FE008123AD /* Responsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330439062A3597FE008123AD /* Responsable.swift */; };
 		330CE9712A3843D400BFA26F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9702A3843D400BFA26F /* UIColor+.swift */; };
 		330CE9732A38444400BFA26F /* STButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9722A38444400BFA26F /* STButton.swift */; };
 		330CE9752A385F4400BFA26F /* STHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9742A385F4400BFA26F /* STHomeViewController.swift */; };
@@ -41,6 +40,8 @@
 		3314278B2A4EFABB004AFF23 /* STPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */; };
 		3314278F2A541EAC004AFF23 /* STReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3314278E2A541EAC004AFF23 /* STReplyTableViewCell.swift */; };
 		332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */; };
+		333C20682A545C9F00F8265C /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20672A545C9F00F8265C /* RegisterRequest.swift */; };
+		333C206A2A545D7500F8265C /* RegisterRandNum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20692A545D7500F8265C /* RegisterRandNum.swift */; };
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
@@ -100,7 +101,6 @@
 		330439002A3460F5008123AD /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		330439022A346551008123AD /* AddReplyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReplyRequest.swift; sourceTree = "<group>"; };
 		330439042A34701C008123AD /* UserInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRequest.swift; sourceTree = "<group>"; };
-		330439062A3597FE008123AD /* Responsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responsable.swift; sourceTree = "<group>"; };
 		330CE9702A3843D400BFA26F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		330CE9722A38444400BFA26F /* STButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STButton.swift; sourceTree = "<group>"; };
 		330CE9742A385F4400BFA26F /* STHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STHomeViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +123,8 @@
 		3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostTableViewCell.swift; sourceTree = "<group>"; };
 		3314278E2A541EAC004AFF23 /* STReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STReplyTableViewCell.swift; sourceTree = "<group>"; };
 		332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostContentsCollectionViewCell.swift; sourceTree = "<group>"; };
+		333C20672A545C9F00F8265C /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		333C20692A545D7500F8265C /* RegisterRandNum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRandNum.swift; sourceTree = "<group>"; };
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -199,9 +201,9 @@
 				331427882A4EF88F004AFF23 /* TestAPIClient.swift */,
 				330438FE2A33604C008123AD /* APIError.swift */,
 				330439002A3460F5008123AD /* Requestable.swift */,
-				330439062A3597FE008123AD /* Responsable.swift */,
 				330439022A346551008123AD /* AddReplyRequest.swift */,
 				330439042A34701C008123AD /* UserInfoRequest.swift */,
+				333C20672A545C9F00F8265C /* RegisterRequest.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -216,6 +218,7 @@
 				330438F62A3161B9008123AD /* Board.swift */,
 				330438F82A316217008123AD /* Post.swift */,
 				330438FA2A316323008123AD /* Reply.swift */,
+				333C20692A545D7500F8265C /* RegisterRandNum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -534,7 +537,8 @@
 			files = (
 				330439012A3460F5008123AD /* Requestable.swift in Sources */,
 				B2C2257729D6BE8100222C8A /* STMainViewController.swift in Sources */,
-				330439072A3597FE008123AD /* Responsable.swift in Sources */,
+				333C20682A545C9F00F8265C /* RegisterRequest.swift in Sources */,
+				333C206A2A545D7500F8265C /* RegisterRandNum.swift in Sources */,
 				330CE9752A385F4400BFA26F /* STHomeViewController.swift in Sources */,
 				330438F92A316217008123AD /* Post.swift in Sources */,
 				B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */,

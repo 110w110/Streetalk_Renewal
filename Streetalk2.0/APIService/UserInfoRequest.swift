@@ -8,18 +8,11 @@
 import Foundation
 
 struct UserInfoRequest: Requestable {
+    typealias ResultType = User
+    
     var uri: String = "/user"
     var methods: HttpMethods = .get
     var auth: Bool = true
     var param: [String : Any]? = nil
     
-    func dataToObject(data: Data) -> Codable? {
-        do {
-            let result = try JSONDecoder().decode(User.self, from: data)
-            return result
-        } catch {
-            print("Error: Data decoding error")
-            return nil
-        }
-    }
 }

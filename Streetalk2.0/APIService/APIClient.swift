@@ -24,6 +24,10 @@ final class APIClient {
         request.httpMethod = method.rawValue
         request.timeoutInterval = timeoutInterval
         
+        if let param = param {
+            request.httpBody = try? JSONSerialization.data(withJSONObject: param, options: [])
+        }
+        
         for item in header {
             print(item)
             request.setValue(item.key, forHTTPHeaderField: item.value)
@@ -48,9 +52,9 @@ final class APIClient {
                 // completion(.failure(APIError))
                 return
             }
-//            let resultJson = String(decoding: data, as: UTF8.self)
-//            print(resultJson)
+            
             completion(.success(data))
+            
         }.resume()
     }
 }

@@ -8,10 +8,12 @@
 import Foundation
 
 protocol Requestable {
+    associatedtype ResultType: Codable
     var uri: String { get set }
     var methods: HttpMethods { get set }
     var auth: Bool { get set }
     var param: [String : Any]? { get set }
+    
     func dataToObject(data: Data) -> Codable?
 }
 
@@ -22,7 +24,7 @@ extension Requestable {
 }
 
 extension Requestable {
-    func request(completion: @escaping (Result<Codable, APIError>) -> Void) {
+    func request(completion: @escaping (Result<ResultType, APIError>) -> Void) {
         var innerHeader: [String : String] = self.header
         
         if auth {
@@ -36,14 +38,23 @@ extension Requestable {
         
         APIClient.shared.request(url: baseUrl + uri, method: methods, header: innerHeader, param: param) { result in
             switch result {
-            case let .success(data):
-//                let json = String(decoding: data, as: UTF8.self)
-                guard let object = dataToObject(data: data) else { return }
-                completion(.success(object))
+            case let .success(response):
+                guard let data = dataToObject(data: response) as? ResultType else { return }
+                completion(.success(data))
             case let .failure(error):
                 print(error)
                 completion(.failure(error))
             }
+        }
+    }
+    
+    func dataToObject(data: Data) -> Codable? {
+        do {
+            let result = try JSONDecoder().decode(NetworkResponse<ResultType>.self, from: data)
+            return result.data
+        } catch {
+            print("Error: Data decoding error")
+            return nil
         }
     }
 }
