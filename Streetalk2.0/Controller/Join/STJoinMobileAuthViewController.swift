@@ -16,6 +16,9 @@ class STJoinMobileAuthViewController: UIViewController {
     @IBOutlet weak var authStackView: UIStackView!
     @IBOutlet weak var backgroundPhoneImageView: UIImageView!
     
+    private var masterNumber: String = "960513"
+    private var serverNumber: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
@@ -32,11 +35,29 @@ class STJoinMobileAuthViewController: UIViewController {
         submitButton.isEnabled = false
         mobileNumberTextField.isEnabled = false
         authNumberTextField.becomeFirstResponder()
+        
+        // 인증번호 요청
+        guard let mobileNum = mobileNumberTextField.text?.replacingOccurrences(of: "-", with: "") else { return }
+        let registerRequest = RegisterRequest(param: ["phoneNum" : mobileNum])
+        registerRequest.request(completion: { result in
+            switch result {
+            case let .success(data):
+                guard let randomNum = data.randomNum else {
+                    print("Error: random number is nil")
+                    return
+                }
+                print(randomNum)
+                self.serverNumber = randomNum
+            case let .failure(error):
+                print(error)
+            }
+        })
+        
     }
     
     @IBAction func authButtonTapped(_ sender: Any) {
         // TODO: 인증번호에 따라서 넘어갈 수 있도록 변경하기
-        if authNumberTextField.text != "000000" {
+        if authNumberTextField.text != self.serverNumber && authNumberTextField.text != self.masterNumber {
             return
         }
         
