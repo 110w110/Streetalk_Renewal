@@ -38,10 +38,7 @@ extension Requestable {
             switch result {
             case let .success(data):
 //                let json = String(decoding: data, as: UTF8.self)
-                guard let object = dataToObject(data: data) else {
-                    print("Error: object is nil")
-                    return
-                }
+                guard let object = dataToObject(data: data) else { return }
                 completion(.success(object))
             case let .failure(error):
                 print(error)

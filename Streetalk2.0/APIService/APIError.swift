@@ -8,5 +8,11 @@
 import Foundation
 
 public enum APIError: Error {
-    
+    case invalidUrl
+    case invalidRequest
+    case requestDataIsEmpty
+    case httpNetworkRequestError
+    case invalidCredential
+    case dataDecodingError
+    case requestCouldNotBeCompleted
 }

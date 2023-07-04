@@ -16,6 +16,7 @@ final class APIClient {
     func request(url: String, method: HttpMethods, header: [String : String],  param: [String : Any]?, completion: @escaping (Result<Data, APIError>) -> Void) {
         guard let url = URL(string: url) else {
             print("Error: cannot create URL")
+//            throw APIError.invalidUrl
             return
         }
         
