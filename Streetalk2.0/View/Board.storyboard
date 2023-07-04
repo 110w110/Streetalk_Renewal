@@ -215,10 +215,10 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Dyu-wM-3Fa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Bo7-Ty-oLq"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Dyu-wM-3Fa" secondAttribute="bottom" constant="30" id="Oeg-g7-re5"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Dyu-wM-3Fa" secondAttribute="trailing" id="ajD-hM-RcY"/>
-                            <constraint firstItem="Dyu-wM-3Fa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="kLt-gn-n3F"/>
+                            <constraint firstItem="Dyu-wM-3Fa" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="59" id="Bo7-Ty-oLq"/>
+                            <constraint firstAttribute="bottom" secondItem="Dyu-wM-3Fa" secondAttribute="bottom" constant="64" id="Oeg-g7-re5"/>
+                            <constraint firstAttribute="trailing" secondItem="Dyu-wM-3Fa" secondAttribute="trailing" id="ajD-hM-RcY"/>
+                            <constraint firstItem="Dyu-wM-3Fa" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="kLt-gn-n3F"/>
                         </constraints>
                     </view>
                     <connections>
