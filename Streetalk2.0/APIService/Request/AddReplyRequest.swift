@@ -14,6 +14,7 @@ struct AddReplyRequest: Requestable {
     var methods: HttpMethods = .post
     var auth: Bool = false
     var param: [String : Any]?
+    var additionalInfo: String?
     
 }
 

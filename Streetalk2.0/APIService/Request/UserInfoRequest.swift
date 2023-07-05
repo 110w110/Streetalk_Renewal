@@ -14,5 +14,6 @@ struct UserInfoRequest: Requestable {
     var methods: HttpMethods = .get
     var auth: Bool = true
     var param: [String : Any]? = nil
+    var additionalInfo: String?
     
 }

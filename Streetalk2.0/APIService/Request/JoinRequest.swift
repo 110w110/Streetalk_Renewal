@@ -14,5 +14,6 @@ struct JoinRequest: Requestable {
     var methods: HttpMethods = .put
     var auth: Bool = true
     var param: [String : Any]?
+    var additionalInfo: String?
     
 }

@@ -13,6 +13,7 @@ protocol Requestable {
     var methods: HttpMethods { get set }
     var auth: Bool { get set }
     var param: [String : Any]? { get set }
+    var additionalInfo: String? { get set }
     
     func dataToObject(data: Data) -> Codable?
 }
@@ -36,7 +37,7 @@ extension Requestable {
             innerHeader["Bearer " + credential] = "Authorization"
         }
         
-        APIClient.shared.request(url: baseUrl + uri, method: methods, header: innerHeader, param: param) { result in
+        APIClient.shared.request(url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param) { result in
             switch result {
             case let .success(response):
                 guard let data = dataToObject(data: response) as? ResultType else { return }

@@ -14,5 +14,6 @@ struct RegisterRequest: Requestable {
     var methods: HttpMethods = .post
     var auth: Bool = false
     var param: [String : Any]? = nil
+    var additionalInfo: String?
     
 }
