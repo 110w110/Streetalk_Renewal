@@ -79,7 +79,15 @@ class STJoinRegisterViewController: UIViewController {
     
     @IBAction func confirmButtonTapped(_ sender: Any) {
         // TODO: 가입 요청 보내보고 결과에 따라 분기 시켜야함
-        showHomeViewController()
+        let alert = UIAlertController(title: "가입하시겠습니까?", message: "닉네임 : \(self.nickNameTextField.text ?? "")\n지역 : \(self.locationTextField.text ?? "")\n업종 : \(self.selectedIndustry ?? "")\n가입 이후에도 변경 가능합니다.", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "가입", style: .default) { action in
+            print("Join")
+            self.showHomeViewController()
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(cancel)
+        alert.addAction(confirm)
+        present(alert, animated: true)
     }
     
     private func showHomeViewController() {
