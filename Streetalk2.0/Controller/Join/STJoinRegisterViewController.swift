@@ -23,11 +23,15 @@ class STJoinRegisterViewController: UIViewController {
     
     private let locationManager = CLLocationManager()
     private var location: Location?
+    private var token: String?
+    
+    private var nearCities: [Cities] = []
+    private var industries: [String] = []
     
     var auth: [String : String]?
     
     // 서버에서 동네 정보 가져와야 함
-    private let debugingLocationList: [String] = ["서울 마포구 대흥동", "서울 마포구 서교동", "서울 마포구 신수동", "서울 마포구 연남동", "서울 마포구 합정동"]
+//    private let debugingLocationList: [String] = ["서울 마포구 대흥동", "서울 마포구 서교동", "서울 마포구 신수동", "서울 마포구 연남동", "서울 마포구 합정동"]
     private let debugingJobList: [String] = ["식당", "카페", "주점", "오락", "미용", "숙박", "교육", "스포츠", "반려동물", "유통 및 제조", "의료", "패션"]
     
     override func viewDidLoad() {
@@ -130,6 +134,13 @@ extension STJoinRegisterViewController {
             switch result {
             case let .success(data):
                 print(data)
+                self.token = data.token
+                self.nearCities = data.nearCities ?? []
+                self.nearCities.insert(Cities(fullName: data.currentCity, id: nil), at: 0)
+                DispatchQueue.main.async {
+                    self.locationCollectionView.reloadData()
+                }
+                
             case let .failure(error):
                 print(error)
             }
@@ -142,7 +153,7 @@ extension STJoinRegisterViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == locationCollectionView {
-            return debugingLocationList.count
+            return nearCities.count
         }
         else if collectionView == jobCollectionView {
             return debugingJobList.count
@@ -157,7 +168,7 @@ extension STJoinRegisterViewController: UICollectionViewDataSource {
                 return STRegisterLocationCollectionViewCell()
             }
             
-            let location = debugingLocationList[indexPath.item]
+            let location = nearCities[indexPath.item].fullName
             cell.locationLabel.text = location
             
             return cell
