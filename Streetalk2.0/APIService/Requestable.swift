@@ -50,8 +50,13 @@ extension Requestable {
     
     func dataToObject(data: Data) -> Codable? {
         do {
-            let result = try JSONDecoder().decode(NetworkResponse<ResultType>.self, from: data)
-            return result.data
+            if ResultType.self == String.self {
+                let result = try JSONDecoder().decode(NetworkResponseWithoutData.self, from: data)
+                return result.message
+            } else {
+                let result = try JSONDecoder().decode(NetworkResponse<ResultType>.self, from: data)
+                return result.data
+            }
         } catch {
             print("Error: Data decoding error")
             return nil
