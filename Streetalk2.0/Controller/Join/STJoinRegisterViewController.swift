@@ -32,8 +32,6 @@ class STJoinRegisterViewController: UIViewController {
     
     var auth: [String : String]?
     
-    // 서버에서 동네 정보 가져와야 함
-//    private let debugingLocationList: [String] = ["서울 마포구 대흥동", "서울 마포구 서교동", "서울 마포구 신수동", "서울 마포구 연남동", "서울 마포구 합정동"]
     private let debugingJobList: [String] = ["식당", "카페", "주점", "오락", "미용", "숙박", "교육", "스포츠", "반려동물", "유통 및 제조", "의료", "패션"]
     
     override func viewDidLoad() {
@@ -78,10 +76,8 @@ class STJoinRegisterViewController: UIViewController {
     }
     
     @IBAction func confirmButtonTapped(_ sender: Any) {
-        // TODO: 가입 요청 보내보고 결과에 따라 분기 시켜야함
         let alert = UIAlertController(title: "가입하시겠습니까?", message: "닉네임 : \(self.nickNameTextField.text ?? "")\n지역 : \(self.locationTextField.text ?? "")\n업종 : \(self.selectedIndustry ?? "")\n가입 이후에도 변경 가능합니다.", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "가입", style: .default) { action in
-            print("Join")
             self.showHomeViewController()
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel)
@@ -91,16 +87,25 @@ class STJoinRegisterViewController: UIViewController {
     }
     
     private func showHomeViewController() {
-        DispatchQueue.main.async {
-            let mainViewController = STMainViewController()
-            mainViewController.modalPresentationStyle = .overFullScreen
-            mainViewController.modalTransitionStyle = .crossDissolve
-            self.present(mainViewController, animated: true, completion: nil)
-        }
+        guard let name = self.nickNameTextField.text, let location = self.locationTextField.text, let industry = self.selectedIndustry else { return }
+        let request = JoinRequest(param: ["name" : name, "location" : location, "industry" : industry])
+        request.request(completion: { result in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    let mainViewController = STMainViewController()
+                    mainViewController.modalPresentationStyle = .overFullScreen
+                    mainViewController.modalTransitionStyle = .crossDissolve
+                    self.present(mainViewController, animated: true, completion: nil)
+                }
+            case .failure(_):
+                UserDefaults.standard.set(nil, forKey: "userToken")
+                return
+            }
+        })
     }
     
     private func setNickNameCheckUI(nickname: String) {
-        print(nickname)
         if nickname.isValidChar() {
             isValidCharLabel.textColor = .systemGreen
         } else {
@@ -139,12 +144,12 @@ extension STJoinRegisterViewController {
             print("Check phone number or auth number")
             return
         }
+        
         let request = LoginRequest(param: ["phoneNum" : phoneNum, "longitude" : longitude, "latitude" : latitude, "randomNum" : authNum])
         request.request(completion: { result in
             switch result {
             case let .success(data):
-                print(data)
-                self.token = data.token
+                UserDefaults.standard.set(data.token, forKey: "userToken")
                 self.nearCities = data.nearCities ?? []
                 self.nearCities.insert(Cities(fullName: data.currentCity, id: nil), at: 0)
                 self.selectedIndustry = self.debugingJobList[0]
@@ -199,8 +204,6 @@ extension STJoinRegisterViewController: UICollectionViewDataSource {
             }
             
             let job = debugingJobList[indexPath.item]
-            print(job)
-            dump(cell)
             cell.jobLabel.text = job
             cell.layer.borderColor = UIColor.systemGray5.cgColor
             cell.layer.borderWidth = 0.5
