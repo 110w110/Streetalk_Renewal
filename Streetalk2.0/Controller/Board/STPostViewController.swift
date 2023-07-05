@@ -31,7 +31,7 @@ class STPostViewController: UIViewController {
 
 extension STPostViewController {
     
-    func setUI() {
+    private func setUI() {
         bottomView.setRoundedBorder(shadow: true, bottomExtend: true)
     }
     
