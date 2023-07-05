@@ -46,10 +46,15 @@ final class APIClient {
                 return
             }
             
-            guard let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode else {
+            guard let response = response as? HTTPURLResponse else {
                 // 코드 번호에 따라 적절한 에러 발생 시켜야함
                 print("Error: HTTP request failed")
                 // completion(.failure(APIError))
+                return
+            }
+            
+            guard (200 ..< 299) ~= response.statusCode else {
+                print("Error: HTTP request failed (code:\(response.statusCode))")
                 return
             }
             
