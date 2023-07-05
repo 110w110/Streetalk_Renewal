@@ -11,6 +11,7 @@ import CoreLocation
 class STJoinRegisterViewController: UIViewController {
     
     @IBOutlet weak var nickNameTextField: UITextField!
+    @IBOutlet var locationTextField: UITextField!
     @IBOutlet var nicknameSectionView: UIView!
     @IBOutlet var locationSectionView: UIView!
     @IBOutlet var jobSectionView: UIView!
@@ -27,6 +28,7 @@ class STJoinRegisterViewController: UIViewController {
     
     private var nearCities: [Cities] = []
     private var industries: [String] = []
+    private var selectedIndustry: String?
     
     var auth: [String : String]?
     
@@ -192,6 +194,17 @@ extension STJoinRegisterViewController: UICollectionViewDataSource {
         }
         
         return UICollectionViewCell()
+    }
+}
+
+extension STJoinRegisterViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == locationCollectionView {
+            self.locationTextField.text = self.nearCities[indexPath.row].fullName
+        } else if collectionView == jobCollectionView {
+            self.selectedIndustry = self.debugingJobList[indexPath.row]
+        }
     }
 }
 

@@ -570,6 +570,7 @@
                         <outlet property="lengthLimitLabel" destination="bAH-o2-N1R" id="GaV-7U-T4h"/>
                         <outlet property="locationCollectionView" destination="hvE-5Z-r2E" id="pOO-yZ-YYB"/>
                         <outlet property="locationSectionView" destination="vx7-ND-HNL" id="efa-25-bHS"/>
+                        <outlet property="locationTextField" destination="Uut-tW-7D0" id="7v7-fC-5vp"/>
                         <outlet property="nickNameTextField" destination="HeN-yy-GQo" id="gyo-ZE-tSt"/>
                         <outlet property="nicknameSectionView" destination="81a-OR-SKH" id="eDj-hL-tfD"/>
                     </connections>
