@@ -2,27 +2,18 @@
 //  Location.swift
 //  Streetalk2.0
 //
-//  Created by 한태희 on 2023/06/08.
+//  Created by 한태희 on 2023/07/05.
 //
 
 import Foundation
 
 struct Location: Codable {
-    let id: Int?
-    let bigLocation: String?   // 시
-    let middleLocation: String?    // 구
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case bigLocation
-        case middleLocation
+    let longitude: Double?   // 경도
+    let latitude: Double?    // 위도
+    
+    init(longitude: Double?, latitude: Double?) {
+        self.longitude = longitude
+        self.latitude = latitude
     }
-
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
-        bigLocation = try values.decodeIfPresent(String.self, forKey: .bigLocation)
-        middleLocation = try values.decodeIfPresent(String.self, forKey: .middleLocation)
-    }
-
+    
 }
