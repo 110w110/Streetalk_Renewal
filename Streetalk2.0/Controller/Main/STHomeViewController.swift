@@ -10,6 +10,7 @@ import UIKit
 class STHomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,7 +56,7 @@ extension STHomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! STHomeMainCollectionCell
-        cell.backgroundColor = .systemBackground
+        cell.backgroundColor = .clear
         
         return cell
     }
@@ -65,7 +66,13 @@ extension STHomeViewController: UICollectionViewDataSource {
 extension STHomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 0, bottom: 20, right: 0)
+        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = collectionView.frame.width - 20
+        let height: CGFloat = collectionView.frame.height * 1.5
+        return CGSize(width: width, height: height )
     }
     
 }
@@ -80,11 +87,16 @@ class STHomeMainCollectionCell: UICollectionViewCell {
     @IBOutlet var favoriteBoardSectionView: UIView!
     @IBOutlet var eventSectionView: UIView!
     
+    @IBOutlet var postCollectionView: UICollectionView!
+    
     override func awakeFromNib() {
         notiView.setRoundedBorder(shadow: true)
         mainView.setRoundedBorder(shadow: true)
         notiLabel.textColor = .streetalkPink
         notiLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        postCollectionView.delegate = self
+        postCollectionView.dataSource = self
         
         hotPostSectionView.setRoundedBorder(shadow: true)
         favoriteBoardSectionView.setRoundedBorder(shadow: true)
@@ -93,3 +105,41 @@ class STHomeMainCollectionCell: UICollectionViewCell {
     
 }
 
+extension STHomeMainCollectionCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCollectionViewCell", for: indexPath)
+        cell.backgroundColor = .systemBackground
+        
+        return cell
+    }
+    
+}
+
+extension STHomeMainCollectionCell: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == postCollectionView {
+            let width: CGFloat = collectionView.frame.width
+            let height: CGFloat = collectionView.frame.height / 5
+            return CGSize(width: width, height: height)
+        }
+        return CGSize(width: 0, height: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+}
