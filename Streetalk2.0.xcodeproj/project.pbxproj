@@ -42,6 +42,9 @@
 		332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */; };
 		333C20682A545C9F00F8265C /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20672A545C9F00F8265C /* RegisterRequest.swift */; };
 		333C206A2A545D7500F8265C /* RegisterRandNum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20692A545D7500F8265C /* RegisterRandNum.swift */; };
+		333C206F2A55104D00F8265C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C206E2A55104D00F8265C /* Location.swift */; };
+		333C20712A5513A000F8265C /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20702A5513A000F8265C /* LoginRequest.swift */; };
+		333C20732A5514D100F8265C /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20722A5514D100F8265C /* Login.swift */; };
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
@@ -125,6 +128,9 @@
 		332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostContentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		333C20672A545C9F00F8265C /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		333C20692A545D7500F8265C /* RegisterRandNum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRandNum.swift; sourceTree = "<group>"; };
+		333C206E2A55104D00F8265C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		333C20702A5513A000F8265C /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		333C20722A5514D100F8265C /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 				330439022A346551008123AD /* AddReplyRequest.swift */,
 				330439042A34701C008123AD /* UserInfoRequest.swift */,
 				333C20672A545C9F00F8265C /* RegisterRequest.swift */,
+				333C20702A5513A000F8265C /* LoginRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -222,7 +229,9 @@
 				330438FC2A31647D008123AD /* NetworkResponse.swift */,
 				330438F42A316005008123AD /* User.swift */,
 				330438F02A315E95008123AD /* Address.swift */,
+				333C206E2A55104D00F8265C /* Location.swift */,
 				330438F22A315F55008123AD /* Industry.swift */,
+				333C20722A5514D100F8265C /* Login.swift */,
 				330438F62A3161B9008123AD /* Board.swift */,
 				330438F82A316217008123AD /* Post.swift */,
 				330438FA2A316323008123AD /* Reply.swift */,
@@ -565,10 +574,13 @@
 				330438F72A3161B9008123AD /* Board.swift in Sources */,
 				33D30C2D2A4543CC0053C0CF /* STMyPageTermsViewController.swift in Sources */,
 				B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */,
+				333C206F2A55104D00F8265C /* Location.swift in Sources */,
 				33BB8BF72A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift in Sources */,
 				330438F32A315F55008123AD /* Industry.swift in Sources */,
 				330CE9A12A3B506400BFA26F /* STTextView.swift in Sources */,
+				333C20732A5514D100F8265C /* Login.swift in Sources */,
 				330439052A34701C008123AD /* UserInfoRequest.swift in Sources */,
+				333C20712A5513A000F8265C /* LoginRequest.swift in Sources */,
 				330438FB2A316323008123AD /* Reply.swift in Sources */,
 				33D30C2B2A4543A90053C0CF /* STMyPageHelpViewController.swift in Sources */,
 				B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */,

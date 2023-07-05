@@ -61,9 +61,12 @@ class STJoinMobileAuthViewController: UIViewController {
             return
         }
         
+        guard let mobileNum = mobileNumberTextField.text?.replacingOccurrences(of: "-", with: ""), let serverNumber = self.serverNumber else { return }
+        
         // next viewcontroller
         let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "joinRegisterViewController") as! STJoinRegisterViewController
         nextViewController.title = "본인인증하기"
+        nextViewController.auth = ["phoneNum" : mobileNum, "authNum" : serverNumber]
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     

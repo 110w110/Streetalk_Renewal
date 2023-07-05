@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class STJoinRegisterViewController: UIViewController {
     
@@ -19,6 +20,11 @@ class STJoinRegisterViewController: UIViewController {
     @IBOutlet var isValidCharLabel: UILabel!
     @IBOutlet var lengthLimitLabel: UILabel!
     @IBOutlet var confirmButton: STButton!
+    
+    private let locationManager = CLLocationManager()
+    private var location: Location?
+    
+    var auth: [String : String]?
     
     // 서버에서 동네 정보 가져와야 함
     private let debugingLocationList: [String] = ["서울 마포구 대흥동", "서울 마포구 서교동", "서울 마포구 신수동", "서울 마포구 연남동", "서울 마포구 합정동"]
@@ -34,6 +40,9 @@ class STJoinRegisterViewController: UIViewController {
         locationSectionView.setRoundedBorder()
         jobSectionView.setRoundedBorder()
         jobCollectionView.setRoundedBorder()
+        
+        locationManager.delegate = self
+        requestLocationAuth()
         
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = self
@@ -102,6 +111,33 @@ class STJoinRegisterViewController: UIViewController {
     
 }
 
+extension STJoinRegisterViewController {
+    
+    private func requestLocationAuth() {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
+    }
+    
+    private func setLocation() {
+        guard let phoneNum = auth?["phoneNum"], let authNum = auth?["authNum"], let longitude = self.location?.longitude, let latitude = self.location?.latitude else {
+            print("Error: cannot request Login")
+            print("Check phone number or auth number")
+            return
+        }
+        let request = LoginRequest(param: ["phoneNum" : phoneNum, "longitude" : longitude, "latitude" : latitude, "randomNum" : authNum])
+        request.request(completion: { result in
+            switch result {
+            case let .success(data):
+                print(data)
+            case let .failure(error):
+                print(error)
+            }
+        })
+    }
+    
+}
+
 extension STJoinRegisterViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -161,6 +197,25 @@ extension STJoinRegisterViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: width, height: height)
         }
         return CGSize(width: 0.0, height: 0.0 )
+    }
+}
+
+extension STJoinRegisterViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        self.location = Location(longitude: Double(location.coordinate.longitude), latitude: Double(location.coordinate.latitude))
+        setLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+         print("error:: \(error.localizedDescription)")
     }
 }
 
