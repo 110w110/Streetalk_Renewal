@@ -147,7 +147,10 @@ extension STJoinRegisterViewController {
                 self.token = data.token
                 self.nearCities = data.nearCities ?? []
                 self.nearCities.insert(Cities(fullName: data.currentCity, id: nil), at: 0)
+                self.selectedIndustry = self.debugingJobList[0]
+                
                 DispatchQueue.main.async {
+                    self.locationTextField.text = data.currentCity
                     self.locationCollectionView.reloadData()
                 }
                 
@@ -181,6 +184,11 @@ extension STJoinRegisterViewController: UICollectionViewDataSource {
             let location = nearCities[indexPath.item].fullName
             cell.locationLabel.text = location
             
+            if indexPath.row == 0 {
+                cell.isSelected = true
+                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+            }
+            
             return cell
             
         }
@@ -196,6 +204,11 @@ extension STJoinRegisterViewController: UICollectionViewDataSource {
             cell.jobLabel.text = job
             cell.layer.borderColor = UIColor.systemGray5.cgColor
             cell.layer.borderWidth = 0.5
+            
+            if indexPath.row == 0 {
+                cell.isSelected = true
+                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+            }
             
             return cell
             
