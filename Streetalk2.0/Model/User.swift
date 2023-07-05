@@ -13,7 +13,7 @@ struct User: Codable {
     let phoneNum: Int?
     let createdDate: Date?
     let updatedDate: Date?
-    let location: Location?
+    let location: Address?
     let industry: Industry?
 
     enum CodingKeys: String, CodingKey {
@@ -33,7 +33,7 @@ struct User: Codable {
         phoneNum = try values.decodeIfPresent(Int.self, forKey: .phoneNum)
         createdDate = try values.decodeIfPresent(Date.self, forKey: .createdDate)
         updatedDate = try values.decodeIfPresent(Date.self, forKey: .updatedDate)
-        location = try values.decodeIfPresent(Location.self, forKey: .location)
+        location = try values.decodeIfPresent(Address.self, forKey: .location)
         industry = try values.decodeIfPresent(Industry.self, forKey: .industry)
     }
 
