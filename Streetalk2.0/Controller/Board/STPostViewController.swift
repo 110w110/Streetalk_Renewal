@@ -62,6 +62,9 @@ extension STPostViewController {
     private func setUI() {
         bottomView.setRoundedBorder(shadow: true, bottomExtend: true)
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "신고", style: .plain, target: self, action: #selector(showReportViewController))
+
+        
         guard let id = postId else { return }
         let request = GetPostRequest(additionalInfo: "\(id)")
         request.request(completion: { result in
@@ -79,6 +82,13 @@ extension STPostViewController {
         })
     }
     
+    @objc private func showReportViewController() {
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "reportViewController") as! STReportViewController
+        viewController.postId = self.postId
+        viewController.modalPresentationStyle = .overFullScreen
+        viewController.modalTransitionStyle = .crossDissolve
+        present(viewController, animated: true)
+    }
 }
 
 extension STPostViewController: UITextFieldDelegate {

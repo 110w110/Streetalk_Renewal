@@ -52,6 +52,8 @@
 		333C207F2A56935300F8265C /* PostList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C207E2A56935300F8265C /* PostList.swift */; };
 		333C20812A5694A100F8265C /* GetPostListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20802A5694A100F8265C /* GetPostListRequest.swift */; };
 		333C20832A569D6400F8265C /* PostReplyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20822A569D6400F8265C /* PostReplyRequest.swift */; };
+		333C20852A56A35800F8265C /* STReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20842A56A35800F8265C /* STReportViewController.swift */; };
+		333C20872A56AF3900F8265C /* ReportPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20862A56AF3900F8265C /* ReportPostRequest.swift */; };
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
@@ -145,6 +147,8 @@
 		333C207E2A56935300F8265C /* PostList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostList.swift; sourceTree = "<group>"; };
 		333C20802A5694A100F8265C /* GetPostListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostListRequest.swift; sourceTree = "<group>"; };
 		333C20822A569D6400F8265C /* PostReplyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReplyRequest.swift; sourceTree = "<group>"; };
+		333C20842A56A35800F8265C /* STReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STReportViewController.swift; sourceTree = "<group>"; };
+		333C20862A56AF3900F8265C /* ReportPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPostRequest.swift; sourceTree = "<group>"; };
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 				333C207C2A568F8300F8265C /* GetPostRequest.swift */,
 				333C20802A5694A100F8265C /* GetPostListRequest.swift */,
 				333C20822A569D6400F8265C /* PostReplyRequest.swift */,
+				333C20862A56AF3900F8265C /* ReportPostRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 			children = (
 				330CE9962A3A913700BFA26F /* STBoardListViewController.swift */,
 				337CB04E2A49550B00A7E375 /* STPostViewController.swift */,
+				333C20842A56A35800F8265C /* STReportViewController.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -620,8 +626,10 @@
 				330CE98D2A3A8B8500BFA26F /* STRootViewController.swift in Sources */,
 				330CE9712A3843D400BFA26F /* UIColor+.swift in Sources */,
 				331427892A4EF88F004AFF23 /* TestAPIClient.swift in Sources */,
+				333C20872A56AF3900F8265C /* ReportPostRequest.swift in Sources */,
 				330438F12A315E95008123AD /* Address.swift in Sources */,
 				332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */,
+				333C20852A56A35800F8265C /* STReportViewController.swift in Sources */,
 				330CE9732A38444400BFA26F /* STButton.swift in Sources */,
 				330CE9852A38A51A00BFA26F /* STJoinViewController.swift in Sources */,
 				333C20792A55D94B00F8265C /* SearchPost.swift in Sources */,
