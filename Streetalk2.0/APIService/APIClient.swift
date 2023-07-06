@@ -14,7 +14,7 @@ final class APIClient {
     private let timeoutInterval = 10.0
     
     func request(url: String, method: HttpMethods, header: [String : String],  param: [String : Any]?, completion: @escaping (Result<Data, APIError>) -> Void) {
-        guard let url = URL(string: url) else {
+        guard let url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: url) else {
             print("Error: cannot create URL")
 //            throw APIError.invalidUrl
             return
