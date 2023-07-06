@@ -48,6 +48,8 @@
 		333C20752A559C6E00F8265C /* JoinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20742A559C6E00F8265C /* JoinRequest.swift */; };
 		333C20792A55D94B00F8265C /* SearchPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20782A55D94B00F8265C /* SearchPost.swift */; };
 		333C207B2A55DA4500F8265C /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C207A2A55DA4500F8265C /* SearchRequest.swift */; };
+		333C207D2A568F8300F8265C /* GetPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C207C2A568F8300F8265C /* GetPostRequest.swift */; };
+		333C207F2A56935300F8265C /* PostList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C207E2A56935300F8265C /* PostList.swift */; };
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
@@ -137,6 +139,8 @@
 		333C20742A559C6E00F8265C /* JoinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRequest.swift; sourceTree = "<group>"; };
 		333C20782A55D94B00F8265C /* SearchPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPost.swift; sourceTree = "<group>"; };
 		333C207A2A55DA4500F8265C /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
+		333C207C2A568F8300F8265C /* GetPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostRequest.swift; sourceTree = "<group>"; };
+		333C207E2A56935300F8265C /* PostList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostList.swift; sourceTree = "<group>"; };
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				333C20702A5513A000F8265C /* LoginRequest.swift */,
 				333C20742A559C6E00F8265C /* JoinRequest.swift */,
 				333C207A2A55DA4500F8265C /* SearchRequest.swift */,
+				333C207C2A568F8300F8265C /* GetPostRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				330438FA2A316323008123AD /* Reply.swift */,
 				333C20692A545D7500F8265C /* RegisterRandNum.swift */,
 				333C20782A55D94B00F8265C /* SearchPost.swift */,
+				333C207E2A56935300F8265C /* PostList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -593,6 +599,7 @@
 				333C20712A5513A000F8265C /* LoginRequest.swift in Sources */,
 				330438FB2A316323008123AD /* Reply.swift in Sources */,
 				33D30C2B2A4543A90053C0CF /* STMyPageHelpViewController.swift in Sources */,
+				333C207D2A568F8300F8265C /* GetPostRequest.swift in Sources */,
 				B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */,
 				33D30C2F2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift in Sources */,
 				330CE9792A38627F00BFA26F /* STCollectionReusableView.swift in Sources */,
@@ -613,6 +620,7 @@
 				333C20792A55D94B00F8265C /* SearchPost.swift in Sources */,
 				330438FD2A31647D008123AD /* NetworkResponse.swift in Sources */,
 				3314278B2A4EFABB004AFF23 /* STPostTableViewCell.swift in Sources */,
+				333C207F2A56935300F8265C /* PostList.swift in Sources */,
 				330CE97B2A38634600BFA26F /* STCollectionViewFlowLayout.swift in Sources */,
 				333C207B2A55DA4500F8265C /* SearchRequest.swift in Sources */,
 				330439032A346551008123AD /* AddReplyRequest.swift in Sources */,

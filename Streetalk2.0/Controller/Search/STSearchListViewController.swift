@@ -68,6 +68,7 @@ extension STSearchListViewController: UITableViewDelegate {
         let postViewController = storyboard.instantiateViewController(withIdentifier: "postViewController") as! STPostViewController
         postViewController.title = "지역 게시판"
         postViewController.hidesBottomBarWhenPushed = true
+        postViewController.postId = postList[indexPath.row].id
         self.navigationController?.pushViewController(postViewController, animated: true)
     }
     

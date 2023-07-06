@@ -11,7 +11,7 @@ class STBoardListViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
-    private var posts: [Post] = []
+    private var postList: [PostList] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,7 @@ class STBoardListViewController: UIViewController {
 extension STBoardListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return posts.count
-        return 10
+        return postList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,6 +43,7 @@ extension STBoardListViewController: UITableViewDelegate {
         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "postViewController") as! STPostViewController
         postViewController.title = "지역 게시판"
         postViewController.hidesBottomBarWhenPushed = true
+        postViewController.postId = postList[indexPath.row].postId
         self.navigationController?.pushViewController(postViewController, animated: true)
     }
     

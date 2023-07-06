@@ -14,6 +14,9 @@ class STPostViewController: UIViewController {
     @IBOutlet var keyboardArea: UIView!
     @IBOutlet var replyTextField: UITextField!
     
+    var postId: Int?
+    private var post: Post?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +28,23 @@ class STPostViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         setUI()
+        
+        // get post 후 completion에서 post 내용 받아온 후 tableview reload data
+        guard let id = postId else { return }
+        let request = GetPostRequest(additionalInfo: "\(id)")
+        request.request(completion: { result in
+            switch result {
+            case let .success(data):
+                self.post = data
+            case let .failure(error):
+                print(error)
+            }
+            
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        })
     }
     
 }
@@ -67,6 +87,11 @@ extension STPostViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.primaryNickNameStackView.isHidden = true
             cell.secondaryNickNameStackView.isHidden = false
+            if let post = post {
+                cell.titleLabel.text = post.title
+                cell.contentLabel.text = post.content
+                cell.nickNameLabel.text = post.postWriterName
+            }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "replyTableViewCell", for: indexPath) as! STReplyTableViewCell

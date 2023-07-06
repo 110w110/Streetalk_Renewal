@@ -18,7 +18,7 @@ class STPostTableViewCell: UITableViewCell {
     @IBOutlet var primaryNickNameStackView: UIStackView!
     @IBOutlet var secondaryNickNameStackView: UIStackView!
     
-    
+    var postId: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
