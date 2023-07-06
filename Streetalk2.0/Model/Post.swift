@@ -21,7 +21,7 @@ struct Post: Codable {
     let lastTime : Int?
     let postLike : Bool?
     let postScrap : Bool?
-    let replyList : [ReplyList]?
+    let replyList : [Reply]?
     let images : [String]?
 
     enum CodingKeys: String, CodingKey {
@@ -57,17 +57,9 @@ struct Post: Codable {
         lastTime = try values.decodeIfPresent(Int.self, forKey: .lastTime)
         postLike = try values.decodeIfPresent(Bool.self, forKey: .postLike)
         postScrap = try values.decodeIfPresent(Bool.self, forKey: .postScrap)
-        replyList = try values.decodeIfPresent([ReplyList].self, forKey: .replyList)
+        replyList = try values.decodeIfPresent([Reply].self, forKey: .replyList)
         images = try values.decodeIfPresent([String].self, forKey: .images)
     }
 
 }
 
-struct ReplyList : Codable {
-    let replyId : Int?
-    let replyWriterId : Int?
-    let replyWriterName : String?
-    let location : String?
-    let content : String?
-    let lastTime : Int?
-}

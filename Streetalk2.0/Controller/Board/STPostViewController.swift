@@ -16,6 +16,7 @@ class STPostViewController: UIViewController {
     
     var postId: Int?
     private var post: Post?
+    private var replies: [Reply] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,17 +30,16 @@ class STPostViewController: UIViewController {
         
         setUI()
         
-        // get post 후 completion에서 post 내용 받아온 후 tableview reload data
         guard let id = postId else { return }
         let request = GetPostRequest(additionalInfo: "\(id)")
         request.request(completion: { result in
             switch result {
             case let .success(data):
                 self.post = data
+                self.replies = data.replyList ?? []
             case let .failure(error):
                 print(error)
             }
-            
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -77,8 +77,7 @@ extension STPostViewController: UITextFieldDelegate {
 extension STPostViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return reply.count + 1
-        return 3
+        return replies.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,6 +95,9 @@ extension STPostViewController: UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "replyTableViewCell", for: indexPath) as! STReplyTableViewCell
             cell.selectionStyle = .none
+            cell.nickNameLabel.text = replies[indexPath.row - 1].replyWriterName
+            cell.contentLabel.text = replies[indexPath.row - 1].content
+            cell.timeLabel.text = String(replies[indexPath.row - 1].lastTime ?? 0)
             return cell
             
         }

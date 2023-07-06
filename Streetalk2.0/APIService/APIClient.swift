@@ -29,7 +29,6 @@ final class APIClient {
         }
         
         for item in header {
-            print(item)
             request.setValue(item.key, forHTTPHeaderField: item.value)
         }
         
