@@ -56,14 +56,12 @@ class STJoinMobileAuthViewController: UIViewController {
     }
     
     @IBAction func authButtonTapped(_ sender: Any) {
-        // TODO: 인증번호에 따라서 넘어갈 수 있도록 변경하기
         if authNumberTextField.text != self.serverNumber && authNumberTextField.text != self.masterNumber {
             return
         }
         
         guard let mobileNum = mobileNumberTextField.text?.replacingOccurrences(of: "-", with: ""), let serverNumber = self.serverNumber else { return }
         
-        // next viewcontroller
         let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "joinRegisterViewController") as! STJoinRegisterViewController
         nextViewController.title = "본인인증하기"
         nextViewController.auth = ["phoneNum" : mobileNum, "authNum" : serverNumber]

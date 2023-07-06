@@ -22,7 +22,6 @@ class STBoardListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        // getPostRequest 때리고 스크롤 델리게이트 함수에서 postList의 마지막원소 id 포함해서 계속 Request
         guard let id = boardId else { return }
         let request = GetPostListRequest(additionalInfo: "\(id)")
         request.request(completion: { result in
@@ -62,7 +61,6 @@ extension STBoardListViewController: UITableViewDataSource {
 extension STBoardListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // indexPath에 따라 정보 넘겨야함
         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "postViewController") as! STPostViewController
         postViewController.title = "지역 게시판"
         postViewController.hidesBottomBarWhenPushed = true
@@ -72,8 +70,6 @@ extension STBoardListViewController: UITableViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if (self.tableView.contentOffset.y + 1) >= (self.tableView.contentSize.height - self.tableView.frame.size.height) {
-            print("check")
-            
             guard let id = boardId, let lastId = self.postList.last?.postId else { return }
             let request = GetPostListRequest(additionalInfo: "\(id)/\(lastId)")
             request.request(completion: { result in

@@ -54,7 +54,6 @@ extension STSearchListViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         cell.titleLabel.text = postList[indexPath.row].title
         cell.contentLabel.text = postList[indexPath.row].content
-//        cell. = postList[indexPath.row].
         return cell
     }
     
@@ -63,7 +62,6 @@ extension STSearchListViewController: UITableViewDataSource {
 extension STSearchListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // indexPath에 따라 정보 넘겨야함
         let storyboard = UIStoryboard(name: "Board", bundle: nil)
         let postViewController = storyboard.instantiateViewController(withIdentifier: "postViewController") as! STPostViewController
         postViewController.title = "지역 게시판"

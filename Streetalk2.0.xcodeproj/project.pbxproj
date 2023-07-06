@@ -36,7 +36,6 @@
 		330CE99D2A3A961000BFA26F /* STWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE99C2A3A961000BFA26F /* STWriteViewController.swift */; };
 		330CE9A12A3B506400BFA26F /* STTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9A02A3B506400BFA26F /* STTextView.swift */; };
 		330CE9A32A3C35B600BFA26F /* STJoinMobileAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */; };
-		331427892A4EF88F004AFF23 /* TestAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331427882A4EF88F004AFF23 /* TestAPIClient.swift */; };
 		3314278B2A4EFABB004AFF23 /* STPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */; };
 		3314278F2A541EAC004AFF23 /* STReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3314278E2A541EAC004AFF23 /* STReplyTableViewCell.swift */; };
 		332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */; };
@@ -131,7 +130,6 @@
 		330CE99C2A3A961000BFA26F /* STWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWriteViewController.swift; sourceTree = "<group>"; };
 		330CE9A02A3B506400BFA26F /* STTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTextView.swift; sourceTree = "<group>"; };
 		330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinMobileAuthViewController.swift; sourceTree = "<group>"; };
-		331427882A4EF88F004AFF23 /* TestAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIClient.swift; sourceTree = "<group>"; };
 		3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostTableViewCell.swift; sourceTree = "<group>"; };
 		3314278E2A541EAC004AFF23 /* STReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STReplyTableViewCell.swift; sourceTree = "<group>"; };
 		332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostContentsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 				339AE2C32A273FE8006005AE /* APIClient.swift */,
 				330438FE2A33604C008123AD /* APIError.swift */,
 				330439002A3460F5008123AD /* Requestable.swift */,
-				331427882A4EF88F004AFF23 /* TestAPIClient.swift */,
 				333C206B2A5486DC00F8265C /* Request */,
 			);
 			path = APIService;
@@ -625,7 +622,6 @@
 				330CE99D2A3A961000BFA26F /* STWriteViewController.swift in Sources */,
 				330CE98D2A3A8B8500BFA26F /* STRootViewController.swift in Sources */,
 				330CE9712A3843D400BFA26F /* UIColor+.swift in Sources */,
-				331427892A4EF88F004AFF23 /* TestAPIClient.swift in Sources */,
 				333C20872A56AF3900F8265C /* ReportPostRequest.swift in Sources */,
 				330438F12A315E95008123AD /* Address.swift in Sources */,
 				332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */,

@@ -22,7 +22,6 @@ struct NetworkResponse<T: Codable>: Decodable {
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        
         status = try values.decodeIfPresent(Int.self, forKey: .status)
         success = try values.decodeIfPresent(Bool.self, forKey: .success)
         message = try values.decodeIfPresent(String.self, forKey: .message)
@@ -43,7 +42,6 @@ struct NetworkResponseWithoutData: Decodable {
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        
         status = try values.decodeIfPresent(Int.self, forKey: .status)
         success = try values.decodeIfPresent(Bool.self, forKey: .success)
         message = try values.decodeIfPresent(String.self, forKey: .message)

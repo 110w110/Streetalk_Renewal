@@ -17,6 +17,3 @@ struct AddReplyRequest: Requestable {
     var additionalInfo: String?
     
 }
-
-// POST 로 보낼 정보
-//let params = ["postId" : postId, "content" : content, "checkName" : checkName] as Dictionary
