@@ -51,6 +51,7 @@
 		333C207D2A568F8300F8265C /* GetPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C207C2A568F8300F8265C /* GetPostRequest.swift */; };
 		333C207F2A56935300F8265C /* PostList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C207E2A56935300F8265C /* PostList.swift */; };
 		333C20812A5694A100F8265C /* GetPostListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20802A5694A100F8265C /* GetPostListRequest.swift */; };
+		333C20832A569D6400F8265C /* PostReplyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20822A569D6400F8265C /* PostReplyRequest.swift */; };
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
@@ -143,6 +144,7 @@
 		333C207C2A568F8300F8265C /* GetPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostRequest.swift; sourceTree = "<group>"; };
 		333C207E2A56935300F8265C /* PostList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostList.swift; sourceTree = "<group>"; };
 		333C20802A5694A100F8265C /* GetPostListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostListRequest.swift; sourceTree = "<group>"; };
+		333C20822A569D6400F8265C /* PostReplyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReplyRequest.swift; sourceTree = "<group>"; };
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				333C207A2A55DA4500F8265C /* SearchRequest.swift */,
 				333C207C2A568F8300F8265C /* GetPostRequest.swift */,
 				333C20802A5694A100F8265C /* GetPostListRequest.swift */,
+				333C20822A569D6400F8265C /* PostReplyRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				330CE9732A38444400BFA26F /* STButton.swift in Sources */,
 				330CE9852A38A51A00BFA26F /* STJoinViewController.swift in Sources */,
 				333C20792A55D94B00F8265C /* SearchPost.swift in Sources */,
+				333C20832A569D6400F8265C /* PostReplyRequest.swift in Sources */,
 				330438FD2A31647D008123AD /* NetworkResponse.swift in Sources */,
 				3314278B2A4EFABB004AFF23 /* STPostTableViewCell.swift in Sources */,
 				333C207F2A56935300F8265C /* PostList.swift in Sources */,

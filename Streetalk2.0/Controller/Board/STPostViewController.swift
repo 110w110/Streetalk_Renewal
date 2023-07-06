@@ -17,6 +17,7 @@ class STPostViewController: UIViewController {
     var postId: Int?
     private var post: Post?
     private var replies: [Reply] = []
+    private var anonymous: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,37 @@ class STPostViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         setUI()
+        
+    }
+    
+    @IBAction func replySubmitButtonTapped(_ sender: Any) {
+        if self.replyTextField.text == "" { return }
+        
+        guard let postId = postId, let text = self.replyTextField.text else { return }
+        let request = PostReplyRequest(param: ["postId" : postId, "content" : text, "checkName" : anonymous])
+        request.request(completion: {result in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.setUI()
+                    self.replyTextField.text = ""
+                    self.tableView.reloadData()
+                }
+            case let .failure(error):
+                print(error)
+                DispatchQueue.main.async {
+                    self.replyTextField.text = ""
+                }
+            }
+        })
+    }
+    
+}
+
+extension STPostViewController {
+    
+    private func setUI() {
+        bottomView.setRoundedBorder(shadow: true, bottomExtend: true)
         
         guard let id = postId else { return }
         let request = GetPostRequest(additionalInfo: "\(id)")
@@ -45,14 +77,6 @@ class STPostViewController: UIViewController {
                 self.tableView.reloadData()
             }
         })
-    }
-    
-}
-
-extension STPostViewController {
-    
-    private func setUI() {
-        bottomView.setRoundedBorder(shadow: true, bottomExtend: true)
     }
     
 }
