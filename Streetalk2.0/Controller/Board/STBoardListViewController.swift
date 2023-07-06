@@ -13,11 +13,30 @@ class STBoardListViewController: UIViewController {
     
     private var postList: [PostList] = []
     
+    // 임시로 1번 게시판 할당, 차후에 게시판 선택 구현 후에 수정할 예정
+    var boardId: Int? = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        // getPostRequest 때리고 스크롤 델리게이트 함수에서 postList의 마지막원소 id 포함해서 계속 Request
+        guard let id = boardId else { return }
+        let request = GetPostListRequest(additionalInfo: "\(id)")
+        request.request(completion: { result in
+            switch result {
+            case let .success(data):
+                self.postList += data
+            case let .failure(error):
+                print(error)
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        })
     }
 
 }
@@ -31,6 +50,10 @@ extension STBoardListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postTableViewCell", for: indexPath) as! STPostTableViewCell
         cell.selectionStyle = .none
+        cell.titleLabel.text = postList[indexPath.row].title
+        cell.contentLabel.text = postList[indexPath.row].content
+        cell.nickNameLabel.text = postList[indexPath.row].writer
+        cell.timeLabel.text = String(postList[indexPath.row].lastTime ?? 0)
         return cell
     }
     
