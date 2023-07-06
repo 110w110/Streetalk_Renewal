@@ -70,6 +70,26 @@ extension STBoardListViewController: UITableViewDelegate {
         self.navigationController?.pushViewController(postViewController, animated: true)
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if (self.tableView.contentOffset.y + 1) >= (self.tableView.contentSize.height - self.tableView.frame.size.height) {
+            print("check")
+            
+            guard let id = boardId, let lastId = self.postList.last?.postId else { return }
+            let request = GetPostListRequest(additionalInfo: "\(id)/\(lastId)")
+            request.request(completion: { result in
+                switch result {
+                case let .success(data):
+                    self.postList += data
+                case let .failure(error):
+                    print(error)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+        }
+    }
 }
 
 
