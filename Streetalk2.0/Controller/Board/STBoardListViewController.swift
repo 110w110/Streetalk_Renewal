@@ -16,8 +16,6 @@ class STBoardListViewController: UIViewController {
     
     let myBoardImageList = [UIImage(named: "MyPost"), UIImage(named: "MyComment"), UIImage(named: "MyLike"), UIImage(named: "MyScrap")]
     let debugMyBoardTitles = ["내 게시글", "내 댓글", "추천한 게시글", "내 스크랩"]
-    let debugBoardTitles = ["인기 게시글", "자유 게시판", "지역 게시판", "업종 게시판"]
-    let debugSubBoardTitles = ["주식 게시판", "해외축구 게시판", "게임 게시판", "자전거 게시판"]
     
     private var mainBoardList: [Board] = []
     private var subBoardList: [Board] = []
@@ -60,7 +58,6 @@ class STBoardListViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.mainBoardListCollectionView.reloadData()
                         self.subBoardListCollectionView.reloadData()
-                        self.myBoardListCollectionView.reloadData()
                     }
                 }
             case let .failure(error):
