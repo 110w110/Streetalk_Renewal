@@ -54,6 +54,7 @@
 		333C20852A56A35800F8265C /* STReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20842A56A35800F8265C /* STReportViewController.swift */; };
 		333C20872A56AF3900F8265C /* ReportPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20862A56AF3900F8265C /* ReportPostRequest.swift */; };
 		333C20892A57D14700F8265C /* STBoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20882A57D14700F8265C /* STBoardListViewController.swift */; };
+		333C208B2A57F20500F8265C /* boardList.Requestswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C208A2A57F20500F8265C /* boardList.Requestswift.swift */; };
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
@@ -149,6 +150,7 @@
 		333C20842A56A35800F8265C /* STReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STReportViewController.swift; sourceTree = "<group>"; };
 		333C20862A56AF3900F8265C /* ReportPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPostRequest.swift; sourceTree = "<group>"; };
 		333C20882A57D14700F8265C /* STBoardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBoardListViewController.swift; sourceTree = "<group>"; };
+		333C208A2A57F20500F8265C /* boardList.Requestswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = boardList.Requestswift.swift; sourceTree = "<group>"; };
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				333C20802A5694A100F8265C /* GetPostListRequest.swift */,
 				333C20822A569D6400F8265C /* PostReplyRequest.swift */,
 				333C20862A56AF3900F8265C /* ReportPostRequest.swift */,
+				333C208A2A57F20500F8265C /* boardList.Requestswift.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */,
 				330CE9992A3A94A900BFA26F /* STAlertListViewController.swift in Sources */,
 				3399BAF52A400E9400A56A4B /* String+.swift in Sources */,
+				333C208B2A57F20500F8265C /* boardList.Requestswift.swift in Sources */,
 				330CE9972A3A913700BFA26F /* STPostListViewController.swift in Sources */,
 				337CB04F2A49550B00A7E375 /* STPostViewController.swift in Sources */,
 				3399BAFC2A402FE200A56A4B /* UIView+.swift in Sources */,

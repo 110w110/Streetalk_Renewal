@@ -13,7 +13,7 @@ struct Board: Codable {
     let category: String?   // 카테고리
 
     enum CodingKeys: String, CodingKey {
-        case id
+        case id = "boardId"
         case boardName
         case category
     }

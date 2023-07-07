@@ -19,6 +19,9 @@ class STBoardListViewController: UIViewController {
     let debugBoardTitles = ["인기 게시글", "자유 게시판", "지역 게시판", "업종 게시판"]
     let debugSubBoardTitles = ["주식 게시판", "해외축구 게시판", "게임 게시판", "자전거 게시판"]
     
+    private var mainBoardList: [Board] = []
+    private var subBoardList: [Board] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,11 +43,40 @@ class STBoardListViewController: UIViewController {
         subBoardListCollectionView.setRoundedBorder(shadow: true, bottomExtend: false)
     }
 
+    func getBoardList() {
+        let request = boardListRequest()
+        request.request(completion: { result in
+            switch result {
+            case let .success(data):
+                print(data)
+                for board in data {
+                    if board.category == "main" {
+                        self.mainBoardList.append(board)
+                    } else if board.category == "sub" {
+                        self.subBoardList.append(board)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.mainBoardListCollectionView.reloadData()
+                        self.subBoardListCollectionView.reloadData()
+                        self.myBoardListCollectionView.reloadData()
+                    }
+                }
+            case let .failure(error):
+                print(error)
+            }
+        })
+    }
 }
 
 extension STBoardListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == mainBoardListCollectionView {
+            return min(4, mainBoardList.count)
+        } else if collectionView == subBoardListCollectionView {
+            return min(4, subBoardList.count)
+        }
         return 4
     }
     
@@ -99,9 +131,9 @@ extension STBoardListViewController: UICollectionViewDataSource {
             let label = UILabel()
             label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
             if collectionView == mainBoardListCollectionView {
-                label.text = debugBoardTitles[indexPath.row]
-            } else {
-                label.text = debugSubBoardTitles[indexPath.row]
+                label.text = mainBoardList[indexPath.row].boardName
+            } else if collectionView == subBoardListCollectionView {
+                label.text = subBoardList[indexPath.row].boardName
             }
             
             return label
@@ -143,4 +175,3 @@ extension STBoardListViewController: UICollectionViewDelegateFlowLayout {
     }
     
 }
-
