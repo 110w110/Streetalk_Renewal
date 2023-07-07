@@ -54,7 +54,9 @@
 		333C20852A56A35800F8265C /* STReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20842A56A35800F8265C /* STReportViewController.swift */; };
 		333C20872A56AF3900F8265C /* ReportPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20862A56AF3900F8265C /* ReportPostRequest.swift */; };
 		333C20892A57D14700F8265C /* STBoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20882A57D14700F8265C /* STBoardListViewController.swift */; };
-		333C208B2A57F20500F8265C /* boardList.Requestswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C208A2A57F20500F8265C /* boardList.Requestswift.swift */; };
+		333C208B2A57F20500F8265C /* BoardListRequestswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C208A2A57F20500F8265C /* BoardListRequestswift.swift */; };
+		333C208D2A57F8F100F8265C /* PolicyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C208C2A57F8F100F8265C /* PolicyRequest.swift */; };
+		333C208F2A57F92A00F8265C /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C208E2A57F92A00F8265C /* Policy.swift */; };
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
@@ -150,7 +152,9 @@
 		333C20842A56A35800F8265C /* STReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STReportViewController.swift; sourceTree = "<group>"; };
 		333C20862A56AF3900F8265C /* ReportPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPostRequest.swift; sourceTree = "<group>"; };
 		333C20882A57D14700F8265C /* STBoardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBoardListViewController.swift; sourceTree = "<group>"; };
-		333C208A2A57F20500F8265C /* boardList.Requestswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = boardList.Requestswift.swift; sourceTree = "<group>"; };
+		333C208A2A57F20500F8265C /* BoardListRequestswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardListRequestswift.swift; sourceTree = "<group>"; };
+		333C208C2A57F8F100F8265C /* PolicyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyRequest.swift; sourceTree = "<group>"; };
+		333C208E2A57F92A00F8265C /* Policy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Policy.swift; sourceTree = "<group>"; };
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -233,7 +237,8 @@
 				333C20802A5694A100F8265C /* GetPostListRequest.swift */,
 				333C20822A569D6400F8265C /* PostReplyRequest.swift */,
 				333C20862A56AF3900F8265C /* ReportPostRequest.swift */,
-				333C208A2A57F20500F8265C /* boardList.Requestswift.swift */,
+				333C208A2A57F20500F8265C /* BoardListRequestswift.swift */,
+				333C208C2A57F8F100F8265C /* PolicyRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				330438F42A316005008123AD /* User.swift */,
 				330438F02A315E95008123AD /* Address.swift */,
 				333C206E2A55104D00F8265C /* Location.swift */,
+				333C208E2A57F92A00F8265C /* Policy.swift */,
 				330438F22A315F55008123AD /* Industry.swift */,
 				333C20722A5514D100F8265C /* Login.swift */,
 				330438F62A3161B9008123AD /* Board.swift */,
@@ -591,7 +597,7 @@
 				B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */,
 				330CE9992A3A94A900BFA26F /* STAlertListViewController.swift in Sources */,
 				3399BAF52A400E9400A56A4B /* String+.swift in Sources */,
-				333C208B2A57F20500F8265C /* boardList.Requestswift.swift in Sources */,
+				333C208B2A57F20500F8265C /* BoardListRequestswift.swift in Sources */,
 				330CE9972A3A913700BFA26F /* STPostListViewController.swift in Sources */,
 				337CB04F2A49550B00A7E375 /* STPostViewController.swift in Sources */,
 				3399BAFC2A402FE200A56A4B /* UIView+.swift in Sources */,
@@ -621,6 +627,7 @@
 				33D30C2F2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift in Sources */,
 				330CE9792A38627F00BFA26F /* STCollectionReusableView.swift in Sources */,
 				33D30C1F2A4489E00053C0CF /* STMyPageTableViewCell.swift in Sources */,
+				333C208D2A57F8F100F8265C /* PolicyRequest.swift in Sources */,
 				330438F52A316005008123AD /* User.swift in Sources */,
 				33D30C1C2A4485170053C0CF /* myPage.swift in Sources */,
 				33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */,
@@ -644,6 +651,7 @@
 				333C207B2A55DA4500F8265C /* SearchRequest.swift in Sources */,
 				330439032A346551008123AD /* AddReplyRequest.swift in Sources */,
 				333C20892A57D14700F8265C /* STBoardListViewController.swift in Sources */,
+				333C208F2A57F92A00F8265C /* Policy.swift in Sources */,
 				330438FF2A33604D008123AD /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

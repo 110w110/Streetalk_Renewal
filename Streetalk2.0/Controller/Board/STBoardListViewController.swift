@@ -32,6 +32,7 @@ class STBoardListViewController: UIViewController {
         subBoardListCollectionView.dataSource = self
         subBoardListCollectionView.delegate = self
         
+        getBoardList()
         setUI()
     }
     
@@ -44,7 +45,7 @@ class STBoardListViewController: UIViewController {
     }
 
     func getBoardList() {
-        let request = boardListRequest()
+        let request = BoardListRequest()
         request.request(completion: { result in
             switch result {
             case let .success(data):
