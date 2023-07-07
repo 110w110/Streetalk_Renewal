@@ -30,7 +30,7 @@
 		330CE9912A3A90AA00BFA26F /* Alert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9902A3A90AA00BFA26F /* Alert.storyboard */; };
 		330CE9932A3A90B200BFA26F /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9922A3A90B200BFA26F /* MyPage.storyboard */; };
 		330CE9952A3A90BE00BFA26F /* Write.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9942A3A90BE00BFA26F /* Write.storyboard */; };
-		330CE9972A3A913700BFA26F /* STBoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9962A3A913700BFA26F /* STBoardListViewController.swift */; };
+		330CE9972A3A913700BFA26F /* STPostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9962A3A913700BFA26F /* STPostListViewController.swift */; };
 		330CE9992A3A94A900BFA26F /* STAlertListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9982A3A94A900BFA26F /* STAlertListViewController.swift */; };
 		330CE99B2A3A955000BFA26F /* STMyPageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE99A2A3A955000BFA26F /* STMyPageListViewController.swift */; };
 		330CE99D2A3A961000BFA26F /* STWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE99C2A3A961000BFA26F /* STWriteViewController.swift */; };
@@ -124,7 +124,7 @@
 		330CE9902A3A90AA00BFA26F /* Alert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alert.storyboard; sourceTree = "<group>"; };
 		330CE9922A3A90B200BFA26F /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		330CE9942A3A90BE00BFA26F /* Write.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
-		330CE9962A3A913700BFA26F /* STBoardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBoardListViewController.swift; sourceTree = "<group>"; };
+		330CE9962A3A913700BFA26F /* STPostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostListViewController.swift; sourceTree = "<group>"; };
 		330CE9982A3A94A900BFA26F /* STAlertListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAlertListViewController.swift; sourceTree = "<group>"; };
 		330CE99A2A3A955000BFA26F /* STMyPageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPageListViewController.swift; sourceTree = "<group>"; };
 		330CE99C2A3A961000BFA26F /* STWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWriteViewController.swift; sourceTree = "<group>"; };
@@ -352,7 +352,7 @@
 		33D30C272A4543470053C0CF /* Board */ = {
 			isa = PBXGroup;
 			children = (
-				330CE9962A3A913700BFA26F /* STBoardListViewController.swift */,
+				330CE9962A3A913700BFA26F /* STPostListViewController.swift */,
 				337CB04E2A49550B00A7E375 /* STPostViewController.swift */,
 				333C20842A56A35800F8265C /* STReportViewController.swift */,
 			);
@@ -585,7 +585,7 @@
 				B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */,
 				330CE9992A3A94A900BFA26F /* STAlertListViewController.swift in Sources */,
 				3399BAF52A400E9400A56A4B /* String+.swift in Sources */,
-				330CE9972A3A913700BFA26F /* STBoardListViewController.swift in Sources */,
+				330CE9972A3A913700BFA26F /* STPostListViewController.swift in Sources */,
 				337CB04F2A49550B00A7E375 /* STPostViewController.swift in Sources */,
 				3399BAFC2A402FE200A56A4B /* UIView+.swift in Sources */,
 				330CE9A32A3C35B600BFA26F /* STJoinMobileAuthViewController.swift in Sources */,
