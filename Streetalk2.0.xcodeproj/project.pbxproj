@@ -53,6 +53,7 @@
 		333C20832A569D6400F8265C /* PostReplyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20822A569D6400F8265C /* PostReplyRequest.swift */; };
 		333C20852A56A35800F8265C /* STReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20842A56A35800F8265C /* STReportViewController.swift */; };
 		333C20872A56AF3900F8265C /* ReportPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20862A56AF3900F8265C /* ReportPostRequest.swift */; };
+		333C20892A57D14700F8265C /* STBoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20882A57D14700F8265C /* STBoardListViewController.swift */; };
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
@@ -147,6 +148,7 @@
 		333C20822A569D6400F8265C /* PostReplyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReplyRequest.swift; sourceTree = "<group>"; };
 		333C20842A56A35800F8265C /* STReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STReportViewController.swift; sourceTree = "<group>"; };
 		333C20862A56AF3900F8265C /* ReportPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPostRequest.swift; sourceTree = "<group>"; };
+		333C20882A57D14700F8265C /* STBoardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBoardListViewController.swift; sourceTree = "<group>"; };
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 		33D30C272A4543470053C0CF /* Board */ = {
 			isa = PBXGroup;
 			children = (
+				333C20882A57D14700F8265C /* STBoardListViewController.swift */,
 				330CE9962A3A913700BFA26F /* STPostListViewController.swift */,
 				337CB04E2A49550B00A7E375 /* STPostViewController.swift */,
 				333C20842A56A35800F8265C /* STReportViewController.swift */,
@@ -636,6 +639,7 @@
 				330CE97B2A38634600BFA26F /* STCollectionViewFlowLayout.swift in Sources */,
 				333C207B2A55DA4500F8265C /* SearchRequest.swift in Sources */,
 				330439032A346551008123AD /* AddReplyRequest.swift in Sources */,
+				333C20892A57D14700F8265C /* STBoardListViewController.swift in Sources */,
 				330438FF2A33604D008123AD /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
