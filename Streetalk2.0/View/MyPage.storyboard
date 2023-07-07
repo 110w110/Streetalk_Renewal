@@ -105,8 +105,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C9o-1i-1Cm">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C9o-1i-1Cm">
+                                <rect key="frame" x="20" y="79" width="353" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -116,10 +116,10 @@
                         <viewLayoutGuide key="safeArea" id="Ze1-Hb-mN8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ze1-Hb-mN8" firstAttribute="trailing" secondItem="C9o-1i-1Cm" secondAttribute="trailing" id="A2r-UX-8OK"/>
-                            <constraint firstItem="Ze1-Hb-mN8" firstAttribute="bottom" secondItem="C9o-1i-1Cm" secondAttribute="bottom" id="Hq9-z4-6Yk"/>
-                            <constraint firstItem="C9o-1i-1Cm" firstAttribute="top" secondItem="Ze1-Hb-mN8" secondAttribute="top" id="hT7-g1-Rq1"/>
-                            <constraint firstItem="C9o-1i-1Cm" firstAttribute="leading" secondItem="Ze1-Hb-mN8" secondAttribute="leading" id="mWF-LI-Wvw"/>
+                            <constraint firstItem="Ze1-Hb-mN8" firstAttribute="trailing" secondItem="C9o-1i-1Cm" secondAttribute="trailing" constant="20" id="A2r-UX-8OK"/>
+                            <constraint firstItem="Ze1-Hb-mN8" firstAttribute="bottom" secondItem="C9o-1i-1Cm" secondAttribute="bottom" constant="20" id="Hq9-z4-6Yk"/>
+                            <constraint firstItem="C9o-1i-1Cm" firstAttribute="top" secondItem="Ze1-Hb-mN8" secondAttribute="top" constant="20" id="hT7-g1-Rq1"/>
+                            <constraint firstItem="C9o-1i-1Cm" firstAttribute="leading" secondItem="Ze1-Hb-mN8" secondAttribute="leading" constant="20" id="mWF-LI-Wvw"/>
                         </constraints>
                     </view>
                     <connections>
@@ -138,8 +138,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B6A-Wv-vfh">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B6A-Wv-vfh">
+                                <rect key="frame" x="20" y="79" width="353" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -149,10 +149,10 @@
                         <viewLayoutGuide key="safeArea" id="JwA-GZ-3MF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="B6A-Wv-vfh" firstAttribute="top" secondItem="JwA-GZ-3MF" secondAttribute="top" id="3nE-bi-hX2"/>
-                            <constraint firstItem="B6A-Wv-vfh" firstAttribute="leading" secondItem="JwA-GZ-3MF" secondAttribute="leading" id="Nxc-8y-Phv"/>
-                            <constraint firstItem="JwA-GZ-3MF" firstAttribute="bottom" secondItem="B6A-Wv-vfh" secondAttribute="bottom" id="n0i-jb-S5i"/>
-                            <constraint firstItem="JwA-GZ-3MF" firstAttribute="trailing" secondItem="B6A-Wv-vfh" secondAttribute="trailing" id="q4c-xM-9SZ"/>
+                            <constraint firstItem="B6A-Wv-vfh" firstAttribute="top" secondItem="JwA-GZ-3MF" secondAttribute="top" constant="20" id="3nE-bi-hX2"/>
+                            <constraint firstItem="B6A-Wv-vfh" firstAttribute="leading" secondItem="JwA-GZ-3MF" secondAttribute="leading" constant="20" id="Nxc-8y-Phv"/>
+                            <constraint firstItem="JwA-GZ-3MF" firstAttribute="bottom" secondItem="B6A-Wv-vfh" secondAttribute="bottom" constant="20" id="n0i-jb-S5i"/>
+                            <constraint firstItem="JwA-GZ-3MF" firstAttribute="trailing" secondItem="B6A-Wv-vfh" secondAttribute="trailing" constant="20" id="q4c-xM-9SZ"/>
                         </constraints>
                     </view>
                     <connections>
