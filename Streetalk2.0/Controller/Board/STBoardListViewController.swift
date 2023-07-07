@@ -176,3 +176,19 @@ extension STBoardListViewController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+
+extension STBoardListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == mainBoardListCollectionView {
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "postListViewController") as! STPostListViewController
+            viewController.boardId = mainBoardList[indexPath.row].id
+            self.navigationController?.pushViewController(viewController, animated: true)
+        } else if collectionView == subBoardListCollectionView {
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "postListViewController") as! STPostListViewController
+            viewController.boardId = subBoardList[indexPath.row].id
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+}
