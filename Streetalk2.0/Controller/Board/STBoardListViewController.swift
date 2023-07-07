@@ -9,12 +9,18 @@ import UIKit
 
 class STBoardListViewController: UIViewController {
 
+    @IBOutlet var stackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setUI()
     }
     
+    func setUI() {
+        stackView.layoutMargins = UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 20)
+        stackView.isLayoutMarginsRelativeArrangement = true
+    }
 
     /*
     // MARK: - Navigation
