@@ -104,9 +104,27 @@
                     <view key="view" contentMode="scaleToFill" id="61q-XV-r7t">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C9o-1i-1Cm">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ze1-Hb-mN8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ze1-Hb-mN8" firstAttribute="trailing" secondItem="C9o-1i-1Cm" secondAttribute="trailing" id="A2r-UX-8OK"/>
+                            <constraint firstItem="Ze1-Hb-mN8" firstAttribute="bottom" secondItem="C9o-1i-1Cm" secondAttribute="bottom" id="Hq9-z4-6Yk"/>
+                            <constraint firstItem="C9o-1i-1Cm" firstAttribute="top" secondItem="Ze1-Hb-mN8" secondAttribute="top" id="hT7-g1-Rq1"/>
+                            <constraint firstItem="C9o-1i-1Cm" firstAttribute="leading" secondItem="Ze1-Hb-mN8" secondAttribute="leading" id="mWF-LI-Wvw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="C9o-1i-1Cm" id="lHN-0j-yTN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UeC-Kh-BxS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,9 +137,27 @@
                     <view key="view" contentMode="scaleToFill" id="jdi-tj-7hX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B6A-Wv-vfh">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="JwA-GZ-3MF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B6A-Wv-vfh" firstAttribute="top" secondItem="JwA-GZ-3MF" secondAttribute="top" id="3nE-bi-hX2"/>
+                            <constraint firstItem="B6A-Wv-vfh" firstAttribute="leading" secondItem="JwA-GZ-3MF" secondAttribute="leading" id="Nxc-8y-Phv"/>
+                            <constraint firstItem="JwA-GZ-3MF" firstAttribute="bottom" secondItem="B6A-Wv-vfh" secondAttribute="bottom" id="n0i-jb-S5i"/>
+                            <constraint firstItem="JwA-GZ-3MF" firstAttribute="trailing" secondItem="B6A-Wv-vfh" secondAttribute="trailing" id="q4c-xM-9SZ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="B6A-Wv-vfh" id="jps-O2-F58"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2AQ-0d-MFb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -256,6 +292,9 @@
     <resources>
         <image name="Cancel" width="23.5" height="23"/>
         <image name="Leave" width="298.5" height="309"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

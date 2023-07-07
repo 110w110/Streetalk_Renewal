@@ -9,21 +9,29 @@ import UIKit
 
 class STMyPageTermsViewController: UIViewController {
 
+    @IBOutlet var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.getContents()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func getContents() {
+        let request = PolicyRequest()
+        request.request(completion: { result in
+            switch result {
+            case let .success(data):
+                DispatchQueue.main.async {
+                    self.textView.text = data.termsOfUse?.replacingOccurrences(of: "\\n", with: "\n")
+                }
+            case let .failure(error):
+                DispatchQueue.main.async {
+                    self.textView.text = "잠시 후 다시 시도해주세요."
+                }
+            }
+        })
     }
-    */
 
 }
