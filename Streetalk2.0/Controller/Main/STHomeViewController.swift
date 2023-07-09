@@ -87,6 +87,7 @@ class STHomeMainCollectionCell: UICollectionViewCell {
     @IBOutlet var favoriteBoardSectionView: UIView!
     @IBOutlet var eventSectionView: UIView!
     
+    @IBOutlet var sectionChoiceCollectionView: UICollectionView!
     @IBOutlet var postCollectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -110,12 +111,20 @@ extension STHomeMainCollectionCell: UICollectionViewDataSource {
         return 5
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCollectionViewCell", for: indexPath)
-        cell.backgroundColor = .systemBackground
-        
-        return cell
+        if collectionView == sectionChoiceCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sectionCell", for: indexPath)
+            cell.backgroundColor = .systemBackground
+            
+            return cell
+            
+        } else if collectionView == postCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCollectionViewCell", for: indexPath)
+            cell.backgroundColor = .systemBackground
+            
+            return cell
+        }
+        return UICollectionViewCell()
     }
     
 }
