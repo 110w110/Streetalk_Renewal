@@ -15,7 +15,7 @@ class STRootViewController: UIViewController {
     }
     
     private func checkUserToken() {
-        if UserDefaults.standard.string(forKey: "userToken") == nil {
+        if UserDefaults.standard.string(forKey: "userToken") != nil {
             presentHomeViewController()
         } else {
             presentJoinViewController()
