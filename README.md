@@ -51,3 +51,4 @@
 ![스크린샷 2023-06-23 오후 8 02 54](https://github.com/110w110/Streetalk_Renewal/assets/87888411/50e0bad4-7b2f-4956-a2fe-edf09866f1c6)
 ![스크린샷 2023-06-23 오후 8 03 07](https://github.com/110w110/Streetalk_Renewal/assets/87888411/0d0d9c90-f9ab-4f83-8e11-1d863f938de8)
   
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F110w110%2FStreetalk_Renewal%2Fhit-counter&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23000000&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
