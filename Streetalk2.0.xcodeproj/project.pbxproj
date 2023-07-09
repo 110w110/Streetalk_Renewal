@@ -57,6 +57,7 @@
 		333C208B2A57F20500F8265C /* BoardListRequestswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C208A2A57F20500F8265C /* BoardListRequestswift.swift */; };
 		333C208D2A57F8F100F8265C /* PolicyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C208C2A57F8F100F8265C /* PolicyRequest.swift */; };
 		333C208F2A57F92A00F8265C /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C208E2A57F92A00F8265C /* Policy.swift */; };
+		333C20912A5AFEC500F8265C /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20902A5AFEC500F8265C /* ServerData.swift */; };
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
@@ -155,6 +156,7 @@
 		333C208A2A57F20500F8265C /* BoardListRequestswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardListRequestswift.swift; sourceTree = "<group>"; };
 		333C208C2A57F8F100F8265C /* PolicyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyRequest.swift; sourceTree = "<group>"; };
 		333C208E2A57F92A00F8265C /* Policy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Policy.swift; sourceTree = "<group>"; };
+		333C20902A5AFEC500F8265C /* ServerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				33D30C1B2A4485170053C0CF /* myPage.swift */,
+				333C20902A5AFEC500F8265C /* ServerData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				330CE9A12A3B506400BFA26F /* STTextView.swift in Sources */,
 				333C20732A5514D100F8265C /* Login.swift in Sources */,
 				330439052A34701C008123AD /* UserInfoRequest.swift in Sources */,
+				333C20912A5AFEC500F8265C /* ServerData.swift in Sources */,
 				333C20712A5513A000F8265C /* LoginRequest.swift in Sources */,
 				330438FB2A316323008123AD /* Reply.swift in Sources */,
 				333C20812A5694A100F8265C /* GetPostListRequest.swift in Sources */,

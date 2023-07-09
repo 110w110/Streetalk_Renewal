@@ -19,7 +19,7 @@ protocol Requestable {
 }
 
 extension Requestable {
-    var baseUrl: String { "http://43.200.53.77:8080" }
+    var baseUrl: String { ServerData.url }
     var header: [String : String] { ["application/json" : "Content-Type"] }
     var credential: String? { UserDefaults.standard.string(forKey: "userToken") }
 }
