@@ -59,6 +59,7 @@ extension STHomeViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "boardTableViewCell", for: indexPath) as! BoardTableViewCell
             cell.selectionStyle = .none
             cell.homeInfo = self.homeInfo
+            cell.navigation = self.navigationController
             cell.boardCollectionView.reloadData()
             return cell
         }
@@ -183,6 +184,7 @@ class BoardTableViewCell: UITableViewCell {
     @IBOutlet var emptyLabel: UILabel!
     
     var homeInfo: HomeInfo?
+    var navigation: UINavigationController?
     
     private let section = ["내 지역", "내 업종", "실시간"]
     private var sectionSelection: BoardSelection = .myLocal
@@ -278,7 +280,18 @@ extension BoardTableViewCell: UICollectionViewDelegate {
                 self.emptyLabel.isHidden = true
             }
         } else if collectionView == boardCollectionView {
-            
+            let storyboard = UIStoryboard(name: "Board", bundle: nil)
+            let postController = storyboard.instantiateViewController(identifier: "postViewController") as! STPostViewController
+            switch self.sectionSelection {
+            case .myLocal:
+                postController.postId = homeInfo?.myLocalPosts?[indexPath.row].postId
+            case .myIndustry:
+                postController.postId = homeInfo?.myIndustryPosts?[indexPath.row].postId
+            case .newPost:
+                postController.postId = homeInfo?.newPosts?[indexPath.row].postId
+            }
+            self.navigation?.pushViewController(postController, animated: true)
+                
         }
     }
     
