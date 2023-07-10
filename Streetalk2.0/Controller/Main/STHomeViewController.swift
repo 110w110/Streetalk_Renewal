@@ -9,9 +9,12 @@ import UIKit
 
 class STHomeViewController: UIViewController {
     
-//    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var stretchableView: UIView!
+    
+    @IBOutlet var nickNameLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var industryLabel: UILabel!
     
     
     private var kTableHeaderHeight:CGFloat = 200
@@ -27,9 +30,8 @@ class STHomeViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         setStretchableHeaderView()
         updateHeaderView()
-//        collectionView.dataSource = self
-//        collectionView.delegate = self
-//        self.fetchHomeData()
+        
+        self.fetchHomeData()
     }
     
 }
@@ -56,6 +58,8 @@ extension STHomeViewController: UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "boardTableViewCell", for: indexPath) as! BoardTableViewCell
             cell.selectionStyle = .none
+            cell.homeInfo = self.homeInfo
+            cell.boardCollectionView.reloadData()
             return cell
         }
     }
@@ -72,6 +76,28 @@ extension STHomeViewController: UITableViewDataSource {
 }
 
 extension STHomeViewController {
+    
+    private func fetchHomeData() {
+        let request = HomeInfoRequest()
+        request.request(completion: { result in
+            switch result {
+            case let .success(object):
+                dump(object)
+                self.homeInfo = object
+                DispatchQueue.main.async { self.setUI() }
+            case let .failure(error):
+                print("Error: Decoding error \(error)")
+            }
+        })
+    }
+
+    private func setUI() {
+        tableView.reloadData()
+        nickNameLabel.text = homeInfo?.userName
+        locationLabel.text = homeInfo?.location
+        industryLabel.text = homeInfo?.industry
+    }
+    
     func setStretchableHeaderView() {
         stretchableView = tableView.tableHeaderView
         tableView.tableHeaderView = nil
@@ -154,9 +180,13 @@ class BoardTableViewCell: UITableViewCell {
     @IBOutlet var sectionCollectionView: UICollectionView!
     @IBOutlet var boardCollectionView: UICollectionView!
     @IBOutlet var stackView: UIStackView!
+    @IBOutlet var emptyLabel: UILabel!
+    
+    var homeInfo: HomeInfo?
     
     private let section = ["내 지역", "내 업종", "실시간"]
     private var sectionSelection: BoardSelection = .myLocal
+    private var posts: [HomePost]? = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -164,6 +194,14 @@ class BoardTableViewCell: UITableViewCell {
         sectionCollectionView.delegate = self
         boardCollectionView.dataSource = self
         boardCollectionView.delegate = self
+        
+        posts = homeInfo?.myLocalPosts
+        
+        if posts == nil || posts?.count == 0 {
+            self.emptyLabel.isHidden = false
+        } else {
+            self.emptyLabel.isHidden = true
+        }
     }
     
     override func layoutSubviews() {
@@ -190,7 +228,7 @@ extension BoardTableViewCell: UICollectionViewDataSource {
         if collectionView == sectionCollectionView {
             return 3
         }
-        return 5
+        return posts?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -207,6 +245,9 @@ extension BoardTableViewCell: UICollectionViewDataSource {
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boardCollectionViewCell", for: indexPath) as! BoardCollectionViewCell
+            cell.contentsLabel.text = posts?[indexPath.row].title
+            cell.infoLabel.text = posts?[indexPath.row].location
+            cell.commentCountLabel.text = "\(String(describing: posts?[indexPath.row].replyCount))"
             return cell
         }
     }
@@ -216,15 +257,29 @@ extension BoardTableViewCell: UICollectionViewDataSource {
 extension BoardTableViewCell: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
-            self.sectionSelection = .myLocal
-        case 1:
-            self.sectionSelection = .myIndustry
-        default:
-            self.sectionSelection = .newPost
+        if collectionView == sectionCollectionView {
+            switch indexPath.row {
+            case 0:
+                self.sectionSelection = .myLocal
+                self.posts = self.homeInfo?.myLocalPosts
+            case 1:
+                self.sectionSelection = .myIndustry
+                self.posts = self.homeInfo?.myIndustryPosts
+            default:
+                self.sectionSelection = .newPost
+                self.posts = self.homeInfo?.newPosts
+            }
+            // 보이는 게시글 바꾸기
+            boardCollectionView.reloadData()
+            
+            if posts == nil || posts?.count == 0 {
+                self.emptyLabel.isHidden = false
+            } else {
+                self.emptyLabel.isHidden = true
+            }
+        } else if collectionView == boardCollectionView {
+            
         }
-        // 보이는 게시글 바꾸기
     }
     
 }

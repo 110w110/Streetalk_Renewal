@@ -784,16 +784,25 @@
                                                         </collectionView>
                                                     </subviews>
                                                 </stackView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="아직 게시글이 없습니다. 가장 먼저 글을 작성해보세요 :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4B-I5-b4g">
+                                                    <rect key="frame" x="0.0" y="131" width="393" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="een-8v-R3Z" firstAttribute="leading" secondItem="ZDP-s5-K5J" secondAttribute="leading" id="Alb-zo-t46"/>
                                                 <constraint firstAttribute="bottom" secondItem="een-8v-R3Z" secondAttribute="bottom" id="IuR-fH-5xt"/>
+                                                <constraint firstItem="o4B-I5-b4g" firstAttribute="centerX" secondItem="ZDP-s5-K5J" secondAttribute="centerX" id="Kjt-Ka-oIh"/>
                                                 <constraint firstItem="een-8v-R3Z" firstAttribute="top" secondItem="ZDP-s5-K5J" secondAttribute="top" id="Z3p-CV-IWt"/>
                                                 <constraint firstAttribute="trailing" secondItem="een-8v-R3Z" secondAttribute="trailing" id="sxB-Tj-ABY"/>
+                                                <constraint firstItem="o4B-I5-b4g" firstAttribute="centerY" secondItem="ZDP-s5-K5J" secondAttribute="centerY" id="zjZ-X1-s9u"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="boardCollectionView" destination="BK3-CQ-1FA" id="9kW-HM-2aP"/>
+                                            <outlet property="emptyLabel" destination="o4B-I5-b4g" id="NdF-fU-uPJ"/>
                                             <outlet property="sectionCollectionView" destination="OP1-6M-CPc" id="rNq-Sr-pCw"/>
                                             <outlet property="stackView" destination="een-8v-R3Z" id="KLx-P6-d1b"/>
                                         </connections>
@@ -814,6 +823,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="industryLabel" destination="iCy-PW-LFg" id="Kn3-UC-h0D"/>
+                        <outlet property="locationLabel" destination="294-EX-CBh" id="OWc-qL-2dk"/>
+                        <outlet property="nickNameLabel" destination="aD7-dD-DHR" id="qf1-Xz-650"/>
                         <outlet property="stretchableView" destination="VXM-9J-r6X" id="Zcp-jL-wHi"/>
                         <outlet property="tableView" destination="HkR-EE-WlU" id="fsD-yS-jC6"/>
                     </connections>
