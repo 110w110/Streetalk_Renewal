@@ -542,7 +542,7 @@
                                     <constraint firstItem="Nmq-8v-dUP" firstAttribute="leading" secondItem="sTe-g5-JJr" secondAttribute="leading" constant="10" id="zLe-CO-Q7P"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HkR-EE-WlU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HkR-EE-WlU">
                                 <rect key="frame" x="0.0" y="99" width="393" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="VXM-9J-r6X">
@@ -572,18 +572,18 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stretchyTableViewCell" id="xCe-eM-WfD" customClass="StretchyTableViewCell" customModule="Streetalk2_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="250" width="393" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="250" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xCe-eM-WfD" id="vTA-oP-wnt">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeTableViewCell" id="hCh-Zb-gog" customClass="NoticeTableViewCell" customModule="Streetalk2_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="293.66666793823242" width="393" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="294" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hCh-Zb-gog" id="yUX-rb-L1V">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" id="w9m-HT-8q7">
@@ -616,16 +616,19 @@
                                                 </stackView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="stackView" destination="w9m-HT-8q7" id="ALa-Om-MXq"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="boardTableViewCell" id="1uL-0k-4wo" customClass="BoardTableViewCell" customModule="Streetalk2_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="337.33333587646484" width="393" height="1062.3333740234375"/>
+                                        <rect key="frame" x="0.0" y="338" width="393" height="262"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1uL-0k-4wo" id="ZDP-s5-K5J">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="1062.3333740234375"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="262"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="een-8v-R3Z">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="1062.3333333333333"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="262"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cf-Zd-IAx">
                                                             <rect key="frame" x="0.0" y="0.0" width="393" height="20"/>
@@ -638,7 +641,7 @@
                                                         </label>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OP1-6M-CPc">
                                                             <rect key="frame" x="0.0" y="26" width="393" height="30"/>
-                                                            <color key="backgroundColor" red="0.7725490196" green="0.21960784310000001" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="FNz-PO-FXG"/>
                                                             </constraints>
@@ -659,7 +662,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vz4-tB-m32">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="22"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 지역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFI-dR-WKi">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 지역" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFI-dR-WKi">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="20"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="20" id="ibu-Wd-jdQ"/>
@@ -694,10 +697,10 @@
                                                             </cells>
                                                         </collectionView>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BK3-CQ-1FA">
-                                                            <rect key="frame" x="0.0" y="62.000000000000057" width="393" height="1000.3333333333335"/>
-                                                            <color key="backgroundColor" red="0.8156862855" green="0.54901963470000004" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <rect key="frame" x="0.0" y="62" width="393" height="200"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="1000" id="Hzc-4b-UYu"/>
+                                                                <constraint firstAttribute="height" constant="200" id="dgH-Ws-dYD"/>
                                                             </constraints>
                                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ocN-NN-nnh">
                                                                 <size key="itemSize" width="373" height="128"/>
@@ -792,6 +795,7 @@
                                         <connections>
                                             <outlet property="boardCollectionView" destination="BK3-CQ-1FA" id="9kW-HM-2aP"/>
                                             <outlet property="sectionCollectionView" destination="OP1-6M-CPc" id="rNq-Sr-pCw"/>
+                                            <outlet property="stackView" destination="een-8v-R3Z" id="KLx-P6-d1b"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

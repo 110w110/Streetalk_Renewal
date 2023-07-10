@@ -51,9 +51,11 @@ extension STHomeViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "noticeTableViewCell", for: indexPath) as! NoticeTableViewCell
+            cell.selectionStyle = .none
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "boardTableViewCell", for: indexPath) as! BoardTableViewCell
+            cell.selectionStyle = .none
             return cell
         }
     }
@@ -62,9 +64,9 @@ extension STHomeViewController: UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            return 50
+            return 60
         default:
-            return 320
+            return 360
         }
     }
 }
@@ -127,9 +129,19 @@ class StretchyTableViewCell: UITableViewCell {
 
 class NoticeTableViewCell: UITableViewCell {
     
+    @IBOutlet var stackView: UIStackView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        contentView.setRoundedBorder()
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        stackView.isLayoutMarginsRelativeArrangement = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -141,6 +153,10 @@ class BoardTableViewCell: UITableViewCell {
     
     @IBOutlet var sectionCollectionView: UICollectionView!
     @IBOutlet var boardCollectionView: UICollectionView!
+    @IBOutlet var stackView: UIStackView!
+    
+    private let section = ["내 지역", "내 업종", "실시간"]
+    private var sectionSelection: BoardSelection = .myLocal
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -149,10 +165,24 @@ class BoardTableViewCell: UITableViewCell {
         boardCollectionView.dataSource = self
         boardCollectionView.delegate = self
     }
-
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        contentView.setRoundedBorder()
+        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
+        stackView.isLayoutMarginsRelativeArrangement = true
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+}
+
+fileprivate enum BoardSelection {
+    case newPost
+    case myLocal
+    case myIndustry
 }
 
 extension BoardTableViewCell: UICollectionViewDataSource {
@@ -166,6 +196,7 @@ extension BoardTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == sectionCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sectionCell", for: indexPath) as! SectionCollectionViewCell
+            cell.label.text = section[indexPath.row]
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boardCollectionViewCell", for: indexPath) as! BoardCollectionViewCell
@@ -178,6 +209,9 @@ extension BoardTableViewCell: UICollectionViewDataSource {
 extension BoardTableViewCell: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if collectionView == sectionCollectionView {
+            return UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 60)
+        }
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
