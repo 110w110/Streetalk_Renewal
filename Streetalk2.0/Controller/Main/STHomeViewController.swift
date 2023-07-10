@@ -36,9 +36,9 @@ class STHomeViewController: UIViewController {
 
 extension STHomeViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
     
 }
 
@@ -62,9 +62,9 @@ extension STHomeViewController: UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            return 40
+            return 50
         default:
-            return 200
+            return 320
         }
     }
 }
