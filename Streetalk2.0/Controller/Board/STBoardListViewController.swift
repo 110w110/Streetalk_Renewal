@@ -14,6 +14,9 @@ class STBoardListViewController: UIViewController {
     @IBOutlet var mainBoardListCollectionView: UICollectionView!
     @IBOutlet var subBoardListCollectionView: UICollectionView!
     
+    @IBOutlet var mainBoardEmptyLabel: UILabel!
+    @IBOutlet var subBoardEmptyLabel: UILabel!
+    
     let myBoardImageList = [UIImage(named: "MyPost"), UIImage(named: "MyComment"), UIImage(named: "MyLike"), UIImage(named: "MyScrap")]
     let debugMyBoardTitles = ["내 게시글", "내 댓글", "추천한 게시글", "내 스크랩"]
     
@@ -40,6 +43,18 @@ class STBoardListViewController: UIViewController {
         myBoardListCollectionView.setRoundedBorder(shadow: true, bottomExtend: false)
         mainBoardListCollectionView.setRoundedBorder(shadow: true, bottomExtend: false)
         subBoardListCollectionView.setRoundedBorder(shadow: true, bottomExtend: false)
+        
+        if mainBoardList.count == 0 {
+            mainBoardEmptyLabel.isHidden = false
+        } else {
+            mainBoardEmptyLabel.isHidden = true
+        }
+        
+        if subBoardList.count == 0 {
+            subBoardEmptyLabel.isHidden = false
+        } else {
+            subBoardEmptyLabel.isHidden = true
+        }
     }
 
     func getBoardList() {
@@ -58,6 +73,7 @@ class STBoardListViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.mainBoardListCollectionView.reloadData()
                         self.subBoardListCollectionView.reloadData()
+                        self.setUI()
                     }
                 }
             case let .failure(error):
