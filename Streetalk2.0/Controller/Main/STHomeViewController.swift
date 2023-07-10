@@ -44,19 +44,28 @@ extension STHomeViewController: UITableViewDelegate {
 
 extension STHomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "stretchyTableViewCell", for: indexPath) as! StretchyTableViewCell
-        cell.indentationLevel = 2;
-        return cell
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "noticeTableViewCell", for: indexPath) as! NoticeTableViewCell
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "boardTableViewCell", for: indexPath) as! BoardTableViewCell
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 100
+        switch indexPath.row {
+        case 0:
+            return 40
+        default:
+            return 200
+        }
     }
 }
 
@@ -114,6 +123,94 @@ class StretchyTableViewCell: UITableViewCell {
         view1.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
 
     }
+}
+
+class NoticeTableViewCell: UITableViewCell {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+}
+
+class BoardTableViewCell: UITableViewCell {
+    
+    @IBOutlet var sectionCollectionView: UICollectionView!
+    @IBOutlet var boardCollectionView: UICollectionView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        sectionCollectionView.dataSource = self
+        sectionCollectionView.delegate = self
+        boardCollectionView.dataSource = self
+        boardCollectionView.delegate = self
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+}
+
+extension BoardTableViewCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == sectionCollectionView {
+            return 3
+        }
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == sectionCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sectionCell", for: indexPath) as! SectionCollectionViewCell
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boardCollectionViewCell", for: indexPath) as! BoardCollectionViewCell
+            return cell
+        }
+    }
+    
+}
+
+extension BoardTableViewCell: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == sectionCollectionView {
+            let width: CGFloat = collectionView.frame.width / 3
+            let height: CGFloat = collectionView.frame.height
+            return CGSize(width: width, height: height)
+        } else {
+            let width: CGFloat = collectionView.frame.width
+            let height: CGFloat = collectionView.frame.height / 5
+            return CGSize(width: width, height: height)
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+}
+
+class SectionCollectionViewCell: UICollectionViewCell {
+    @IBOutlet var label: UILabel!
+    @IBOutlet var selectionView: UIView!
+}
+
+class BoardCollectionViewCell: UICollectionViewCell {
+    @IBOutlet var contentsLabel: UILabel!
+    @IBOutlet var infoLabel: UILabel!
+    @IBOutlet var commentCountLabel: UILabel!
 }
 
 //extension STHomeViewController {
