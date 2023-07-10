@@ -19,12 +19,11 @@ class STSearchListViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
-        
+        tableView.keyboardDismissMode = .onDrag
     }
     
     @IBAction func searchTextFieldEditing(_ sender: Any) {
         guard let text = self.searchTextField.text else { return }
-        print(text)
         let request = SearchRequest(additionalInfo: text)
         request.request(completion: { result in
             switch result {
