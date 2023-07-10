@@ -26,6 +26,8 @@ class STPostViewController: UIViewController {
         tableView.delegate = self
         replyTextField.delegate = self
         
+        tableView.keyboardDismissMode = .onDrag
+        
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
