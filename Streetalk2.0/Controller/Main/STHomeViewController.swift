@@ -197,11 +197,34 @@ extension BoardTableViewCell: UICollectionViewDataSource {
         if collectionView == sectionCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sectionCell", for: indexPath) as! SectionCollectionViewCell
             cell.label.text = section[indexPath.row]
+            cell.selectionView.backgroundColor = .streetalkPink
+            
+            if indexPath.row == 0 {
+                cell.isSelected = true
+                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+            }
+            
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boardCollectionViewCell", for: indexPath) as! BoardCollectionViewCell
             return cell
         }
+    }
+    
+}
+
+extension BoardTableViewCell: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            self.sectionSelection = .myLocal
+        case 1:
+            self.sectionSelection = .myIndustry
+        default:
+            self.sectionSelection = .newPost
+        }
+        // 보이는 게시글 바꾸기
     }
     
 }
@@ -239,6 +262,16 @@ extension BoardTableViewCell: UICollectionViewDelegateFlowLayout {
 class SectionCollectionViewCell: UICollectionViewCell {
     @IBOutlet var label: UILabel!
     @IBOutlet var selectionView: UIView!
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                selectionView.isHidden = false
+            } else {
+                selectionView.isHidden = true
+            }
+        }
+    }
 }
 
 class BoardCollectionViewCell: UICollectionViewCell {
