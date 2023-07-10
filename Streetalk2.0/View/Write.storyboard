@@ -33,7 +33,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WCW-vF-fJt">
                                                 <rect key="frame" x="30" y="10" width="333" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -56,11 +56,11 @@
                                         <rect key="frame" x="0.0" y="52" width="393" height="707"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hhs-78-0Ru" customClass="STTextView" customModule="Streetalk2_0" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="10" width="353" height="687"/>
+                                                <rect key="frame" x="10" y="10" width="373" height="687"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Writting" translatesAutoresizingMaskIntoConstraints="NO" id="H6m-yb-XBz">
                                                 <rect key="frame" x="80" y="237" width="233" height="233"/>
@@ -73,12 +73,19 @@
                                         <constraints>
                                             <constraint firstItem="hhs-78-0Ru" firstAttribute="top" secondItem="HNk-dl-LBH" secondAttribute="top" constant="10" id="DuJ-wF-X6z"/>
                                             <constraint firstAttribute="bottom" secondItem="hhs-78-0Ru" secondAttribute="bottom" constant="10" id="Ei6-Hi-RBS"/>
-                                            <constraint firstItem="hhs-78-0Ru" firstAttribute="leading" secondItem="HNk-dl-LBH" secondAttribute="leading" constant="20" id="HOb-vE-s4T"/>
+                                            <constraint firstItem="hhs-78-0Ru" firstAttribute="leading" secondItem="HNk-dl-LBH" secondAttribute="leading" constant="10" id="HOb-vE-s4T"/>
                                             <constraint firstAttribute="trailing" secondItem="H6m-yb-XBz" secondAttribute="trailing" constant="80" id="Jox-GU-yp8"/>
                                             <constraint firstItem="H6m-yb-XBz" firstAttribute="centerY" secondItem="HNk-dl-LBH" secondAttribute="centerY" id="Wa0-nA-6M1"/>
-                                            <constraint firstAttribute="trailing" secondItem="hhs-78-0Ru" secondAttribute="trailing" constant="20" id="Wqb-Yl-eSJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="hhs-78-0Ru" secondAttribute="trailing" constant="10" id="Wqb-Yl-eSJ"/>
                                             <constraint firstItem="H6m-yb-XBz" firstAttribute="centerX" secondItem="HNk-dl-LBH" secondAttribute="centerX" id="oJD-X2-6pt"/>
                                             <constraint firstItem="H6m-yb-XBz" firstAttribute="leading" secondItem="HNk-dl-LBH" secondAttribute="leading" constant="80" id="oOW-mp-zxS"/>
+                                        </constraints>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cS-uD-Vu2">
+                                        <rect key="frame" x="0.0" y="759" width="393" height="280"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="280" id="Ptq-OI-rbM"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -94,6 +101,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="keyboardArea" destination="2cS-uD-Vu2" id="HxI-hV-Pln"/>
                         <outlet property="writeContentTextView" destination="hhs-78-0Ru" id="3bM-sv-N1y"/>
                         <outlet property="writtingBackgroundImageView" destination="H6m-yb-XBz" id="Bmn-R1-NmE"/>
                     </connections>

@@ -11,6 +11,7 @@ class STWriteViewController: UIViewController {
 
     @IBOutlet weak var writeContentTextView: STTextView!
     @IBOutlet weak var writtingBackgroundImageView: UIImageView!
+    @IBOutlet var keyboardArea: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ class STWriteViewController: UIViewController {
         writeContentTextView.delegate = self
         writeContentTextView.setPlaceholder(placeholder: "게시글 내용을 작성해주세요.")
         
+//        .keyboardDismissMode = .onDrag
         lazy var rightButton: UIBarButtonItem = {
             let button = UIBarButtonItem(title: "등록", style: .plain, target: self, action: #selector(writeButtonTapped(_:)))
             button.tintColor = .streetalkPink
@@ -25,6 +27,11 @@ class STWriteViewController: UIViewController {
         }()
         
         self.navigationItem.rightBarButtonItem = rightButton
+        
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     @objc func writeButtonTapped(_ sender: UIButton) {
@@ -55,4 +62,16 @@ extension STWriteViewController: UITextViewDelegate {
         }
     }
     
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        self.keyboardArea.isHidden = false
+    }
+
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        self.keyboardArea.isHidden = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
