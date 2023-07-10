@@ -16,7 +16,7 @@ struct HomeInfo: Codable {
     let myLocalPosts : [HomePost]?
     let myIndustryPosts : [HomePost]?
     let newPosts : [HomePost]?
-    let likeBoardList : [BoardLiked]?
+    var likeBoardList : [BoardLiked]?
 
     enum CodingKeys: String, CodingKey {
         case userName

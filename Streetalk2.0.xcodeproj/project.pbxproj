@@ -78,6 +78,7 @@
 		33D30C2F2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C2E2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift */; };
 		33D30C312A45472D0053C0CF /* STMyPagePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C302A45472D0053C0CF /* STMyPagePopUpViewController.swift */; };
 		33D4C9552A5C5D4E0099E94A /* STBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C9542A5C5D4D0099E94A /* STBoardTableViewCell.swift */; };
+		33D4C9572A5C65A30099E94A /* STLikedBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C9562A5C65A30099E94A /* STLikedBoardTableViewCell.swift */; };
 		B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254629D6BE4E00222C8A /* AppDelegate.swift */; };
 		B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */; };
 		B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254A29D6BE4E00222C8A /* ViewController.swift */; };
@@ -179,6 +180,7 @@
 		33D30C2E2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPagePrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		33D30C302A45472D0053C0CF /* STMyPagePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPagePopUpViewController.swift; sourceTree = "<group>"; };
 		33D4C9542A5C5D4D0099E94A /* STBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBoardTableViewCell.swift; sourceTree = "<group>"; };
+		33D4C9562A5C65A30099E94A /* STLikedBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STLikedBoardTableViewCell.swift; sourceTree = "<group>"; };
 		B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streetalk2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C2254629D6BE4E00222C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				330CE97A2A38634600BFA26F /* STCollectionViewFlowLayout.swift */,
 				33D30C1E2A4489E00053C0CF /* STMyPageTableViewCell.swift */,
 				330CE9782A38627F00BFA26F /* STCollectionReusableView.swift */,
+				33D4C9562A5C65A30099E94A /* STLikedBoardTableViewCell.swift */,
 				332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */,
 				3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */,
 				33D4C9542A5C5D4D0099E94A /* STBoardTableViewCell.swift */,
@@ -661,6 +664,7 @@
 				333C20832A569D6400F8265C /* PostReplyRequest.swift in Sources */,
 				330438FD2A31647D008123AD /* NetworkResponse.swift in Sources */,
 				3314278B2A4EFABB004AFF23 /* STPostTableViewCell.swift in Sources */,
+				33D4C9572A5C65A30099E94A /* STLikedBoardTableViewCell.swift in Sources */,
 				333C207F2A56935300F8265C /* PostList.swift in Sources */,
 				330CE97B2A38634600BFA26F /* STCollectionViewFlowLayout.swift in Sources */,
 				333C207B2A55DA4500F8265C /* SearchRequest.swift in Sources */,

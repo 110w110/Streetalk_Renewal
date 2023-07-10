@@ -358,6 +358,105 @@
                                             <outlet property="stackView" destination="een-8v-R3Z" id="KLx-P6-d1b"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="likedBoardTableViewCell" id="Amp-3Y-J9I" customClass="STLikedBoardTableViewCell" customModule="Streetalk2_0" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="600" width="393" height="226"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Amp-3Y-J9I" id="6Mq-HF-bFJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="226"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="npG-9d-1hH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="226"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐겨찾는 게시판" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH9-M2-crm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="G3T-hd-cwc"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sgo-tG-3S7">
+                                                            <rect key="frame" x="0.0" y="26" width="393" height="200"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="200" id="Bui-oX-7yi"/>
+                                                            </constraints>
+                                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oyz-xc-cE4">
+                                                                <size key="itemSize" width="373" height="128"/>
+                                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                            </collectionViewFlowLayout>
+                                                            <cells>
+                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="likedBoardCollectionViewCell" id="bxT-Vs-KLM" customClass="LikedBoardCollectionViewCell" customModule="Streetalk2_0" customModuleProvider="target">
+                                                                    <rect key="frame" x="10" y="0.0" width="373" height="128"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="laz-pI-EuF">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="373" height="128"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zH9-G7-58b">
+                                                                                <rect key="frame" x="10" y="10" width="353" height="108"/>
+                                                                                <subviews>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="BhJ-90-Yv2">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="108"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="20" id="7X4-Jo-hZB"/>
+                                                                                        </constraints>
+                                                                                    </imageView>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CollectionView를 사용할 때 우리는 delegate 함수를 사용해서 셀의 간격과 사이즈를 정할 수 있습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtE-VJ-gkW">
+                                                                                        <rect key="frame" x="30" y="0.0" width="323" height="108"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="20" id="jOM-Iq-VIM"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="bottom" secondItem="zH9-G7-58b" secondAttribute="bottom" constant="10" id="OYd-Bf-WJ5"/>
+                                                                            <constraint firstItem="zH9-G7-58b" firstAttribute="leading" secondItem="laz-pI-EuF" secondAttribute="leading" constant="10" id="UX3-nI-pHu"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="zH9-G7-58b" secondAttribute="trailing" constant="10" id="kug-F0-b1E"/>
+                                                                            <constraint firstItem="zH9-G7-58b" firstAttribute="top" secondItem="laz-pI-EuF" secondAttribute="top" constant="10" id="qpw-t5-4Ce"/>
+                                                                        </constraints>
+                                                                    </collectionViewCellContentView>
+                                                                    <size key="customSize" width="373" height="128"/>
+                                                                    <connections>
+                                                                        <outlet property="boardLabel" destination="rtE-VJ-gkW" id="r8i-uP-5zJ"/>
+                                                                        <outlet property="star" destination="BhJ-90-Yv2" id="ZZr-aq-D2e"/>
+                                                                    </connections>
+                                                                </collectionViewCell>
+                                                            </cells>
+                                                        </collectionView>
+                                                    </subviews>
+                                                </stackView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="즐겨찾는 게시판이 없습니다. 관심 있는 게시판만 모아보세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIQ-Ke-agi">
+                                                    <rect key="frame" x="0.0" y="22" width="393" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qIQ-Ke-agi" firstAttribute="centerY" secondItem="6Mq-HF-bFJ" secondAttribute="centerY" id="Dkf-8z-sVO"/>
+                                                <constraint firstItem="qIQ-Ke-agi" firstAttribute="centerX" secondItem="6Mq-HF-bFJ" secondAttribute="centerX" id="G28-wy-Zff"/>
+                                                <constraint firstAttribute="bottom" secondItem="npG-9d-1hH" secondAttribute="bottom" id="hs3-Qc-Z8T"/>
+                                                <constraint firstAttribute="trailing" secondItem="npG-9d-1hH" secondAttribute="trailing" id="jqq-xu-aCH"/>
+                                                <constraint firstItem="npG-9d-1hH" firstAttribute="top" secondItem="6Mq-HF-bFJ" secondAttribute="top" id="ke9-37-pNR"/>
+                                                <constraint firstItem="npG-9d-1hH" firstAttribute="leading" secondItem="6Mq-HF-bFJ" secondAttribute="leading" id="ngV-3v-NKy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="emptyLabel" destination="qIQ-Ke-agi" id="S4d-N4-1a5"/>
+                                            <outlet property="likedBoardCollectionView" destination="sgo-tG-3S7" id="dtN-mx-re6"/>
+                                            <outlet property="stackView" destination="npG-9d-1hH" id="oTr-4K-IVD"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>

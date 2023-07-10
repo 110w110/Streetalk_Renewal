@@ -18,9 +18,6 @@ class STHomeViewController: UIViewController {
     
     private var kTableHeaderHeight:CGFloat = 200
     private var homeInfo: HomeInfo?
-//
-//    // for test
-//    private let debugLikedBoardList: [BoardLiked] = [BoardLiked(boardName: "재밌는 게시판", boardId: 1),BoardLiked(boardName: "무서운 게시판", boardId: 2),BoardLiked(boardName: "침하하 게시판", boardId: 3),]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +39,8 @@ extension STHomeViewController: UITableViewDelegate {
         switch indexPath.row {
         case 0:
             return 60
+        case 2:
+            return 200
         default:
             return 360
         }
@@ -51,7 +50,7 @@ extension STHomeViewController: UITableViewDelegate {
 
 extension STHomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,6 +58,20 @@ extension STHomeViewController: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "noticeTableViewCell", for: indexPath) as! NoticeTableViewCell
             cell.selectionStyle = .none
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "boardTableViewCell", for: indexPath) as! STBoardTableViewCell
+            cell.selectionStyle = .none
+            cell.homeInfo = self.homeInfo
+            cell.navigation = self.navigationController
+            cell.boardCollectionView.reloadData()
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "likedBoardTableViewCell", for: indexPath) as! STLikedBoardTableViewCell
+            cell.selectionStyle = .none
+            cell.homeInfo = self.homeInfo
+            cell.navigation = self.navigationController
+            cell.likedBoardCollectionView.reloadData()
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "boardTableViewCell", for: indexPath) as! STBoardTableViewCell
@@ -79,8 +92,12 @@ extension STHomeViewController {
         request.request(completion: { result in
             switch result {
             case let .success(object):
-                dump(object)
                 self.homeInfo = object
+                
+                // for test
+                self.homeInfo?.likeBoardList?.append(BoardLiked(boardName: "재밌는 게시판", boardId: 1))
+                
+                dump(self.homeInfo)
                 DispatchQueue.main.async { self.setUI() }
             case let .failure(error):
                 print("Error: Decoding error \(error)")
@@ -93,6 +110,15 @@ extension STHomeViewController {
         nickNameLabel.text = homeInfo?.userName
         locationLabel.text = homeInfo?.location
         industryLabel.text = homeInfo?.industry
+        
+//        if let cell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? STBoardTableViewCell {
+//            cell.homeInfo = self.homeInfo
+//            cell.boardCollectionView.reloadData()
+//        }
+//        if let cell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? STLikedBoardTableViewCell {
+//            cell.homeInfo = self.homeInfo
+//            cell.likedBoardCollectionView.reloadData()
+//        }
     }
     
     private func setStretchableHeaderView() {
@@ -190,4 +216,9 @@ class BoardCollectionViewCell: UICollectionViewCell {
     @IBOutlet var contentsLabel: UILabel!
     @IBOutlet var infoLabel: UILabel!
     @IBOutlet var commentCountLabel: UILabel!
+}
+
+class LikedBoardCollectionViewCell: UICollectionViewCell {
+    @IBOutlet var star: UIImageView!
+    @IBOutlet var boardLabel: UILabel!
 }
