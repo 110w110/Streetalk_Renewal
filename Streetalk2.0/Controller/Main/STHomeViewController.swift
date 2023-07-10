@@ -249,7 +249,7 @@ extension BoardTableViewCell: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boardCollectionViewCell", for: indexPath) as! BoardCollectionViewCell
             cell.contentsLabel.text = posts?[indexPath.row].title
             cell.infoLabel.text = posts?[indexPath.row].location
-            cell.commentCountLabel.text = "\(String(describing: posts?[indexPath.row].replyCount))"
+            cell.commentCountLabel.text = "\( posts?[indexPath.row].replyCount ?? 0)"
             return cell
         }
     }
@@ -290,6 +290,8 @@ extension BoardTableViewCell: UICollectionViewDelegate {
             case .newPost:
                 postController.postId = homeInfo?.newPosts?[indexPath.row].postId
             }
+//            postController.title = "지역 게시판"
+            postController.hidesBottomBarWhenPushed = true
             self.navigation?.pushViewController(postController, animated: true)
                 
         }
