@@ -11,13 +11,14 @@ class STHomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var homeInfo: HomeInfo?
+    var homeInfo: HomeInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
         self.fetchHomeData()
     }
     
@@ -33,7 +34,8 @@ extension STHomeViewController {
                 dump(object)
                 self.homeInfo = object
                 DispatchQueue.main.async {
-                    self.setUI()
+                    self.collectionView.reloadData()
+                    
                 }
             case let .failure(error):
                 print("Error: Decoding error \(error)")
@@ -42,7 +44,6 @@ extension STHomeViewController {
     }
     
     private func setUI() {
-        
     }
 }
 
@@ -61,6 +62,9 @@ extension STHomeViewController: UICollectionViewDelegate {
                     fatalError("Invalid view type")
             }
             
+            headerView.nickNameLabel.text = homeInfo?.userName
+            headerView.locationLabel.text = homeInfo?.location
+            headerView.industryLabel.text = homeInfo?.industry
             return headerView
         default:
             assert(false, "Invalid element type")
@@ -74,7 +78,7 @@ extension STHomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! STHomeMainCollectionCell
         cell.backgroundColor = .clear
-        
+        cell.homeInfo = self.homeInfo
         return cell
     }
     
@@ -107,6 +111,9 @@ class STHomeMainCollectionCell: UICollectionViewCell {
     @IBOutlet var sectionChoiceCollectionView: UICollectionView!
     @IBOutlet var postCollectionView: UICollectionView!
     
+    var homeInfo: HomeInfo?
+    private var boardSelection: BoardSelection = .newPost
+    
     override func awakeFromNib() {
         notiView.setRoundedBorder(shadow: true)
         mainView.setRoundedBorder(shadow: true)
@@ -119,8 +126,16 @@ class STHomeMainCollectionCell: UICollectionViewCell {
         hotPostSectionView.setRoundedBorder(shadow: true)
         favoriteBoardSectionView.setRoundedBorder(shadow: true)
         eventSectionView.setRoundedBorder(shadow: true)
+        
+        sectionChoiceCollectionView.reloadData()
     }
     
+}
+
+fileprivate enum BoardSelection {
+    case newPost
+    case myLocal
+    case myIndustry
 }
 
 extension STHomeMainCollectionCell: UICollectionViewDataSource {
@@ -136,8 +151,17 @@ extension STHomeMainCollectionCell: UICollectionViewDataSource {
             return cell
             
         } else if collectionView == postCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCollectionViewCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCollectionViewCell", for: indexPath) as! STPostCollectionCell
             cell.backgroundColor = .systemBackground
+            
+            switch boardSelection {
+            case .myLocal:
+                cell.contentsLabel.text = homeInfo?.myLocalPosts?[indexPath.row].title
+            case .myIndustry:
+                cell.contentsLabel.text = homeInfo?.myIndustryPosts?[indexPath.row].title
+            case .newPost:
+                cell.contentsLabel.text = homeInfo?.newPosts?[indexPath.row].title
+            }
             
             return cell
         }
@@ -167,5 +191,15 @@ extension STHomeMainCollectionCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+class STPostCollectionCell: UICollectionViewCell {
+    @IBOutlet var contentsLabel: UILabel!
+    @IBOutlet var infoLabel: UILabel!
+    @IBOutlet var commentCountLabel: UILabel!
+    
+    override func awakeFromNib() {
+        
     }
 }

@@ -153,7 +153,7 @@
                                                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                                     </collectionViewFlowLayout>
                                                                                     <cells>
-                                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="postCollectionViewCell" id="O4m-Yj-6UT">
+                                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="postCollectionViewCell" id="O4m-Yj-6UT" customClass="STPostCollectionCell" customModule="Streetalk2_0" customModuleProvider="target">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="373" height="128"/>
                                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0bq-js-gEc">
@@ -218,6 +218,11 @@
                                                                                                 </constraints>
                                                                                             </collectionViewCellContentView>
                                                                                             <size key="customSize" width="373" height="128"/>
+                                                                                            <connections>
+                                                                                                <outlet property="commentCountLabel" destination="dgl-zd-J04" id="6Jr-VR-MVP"/>
+                                                                                                <outlet property="contentsLabel" destination="Bo2-Sb-Ibi" id="ZSj-9V-0mb"/>
+                                                                                                <outlet property="infoLabel" destination="5gO-ND-YXv" id="T7d-ZD-1DU"/>
+                                                                                            </connections>
                                                                                         </collectionViewCell>
                                                                                     </cells>
                                                                                 </collectionView>
@@ -426,6 +431,11 @@
                                         <constraint firstAttribute="bottom" secondItem="xsJ-iM-X4x" secondAttribute="bottom" id="hT2-G2-JKt"/>
                                         <constraint firstItem="Ip9-Zm-a2C" firstAttribute="top" secondItem="i8M-cs-RId" secondAttribute="top" id="i7V-ja-pui"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="industryLabel" destination="zxG-0H-3pt" id="pAL-K8-v98"/>
+                                        <outlet property="locationLabel" destination="NeX-L5-Rdc" id="UV2-at-0v3"/>
+                                        <outlet property="nickNameLabel" destination="x4h-Em-8g1" id="5NZ-e5-56v"/>
+                                    </connections>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>

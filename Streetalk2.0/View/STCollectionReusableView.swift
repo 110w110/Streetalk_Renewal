@@ -8,5 +8,9 @@
 import UIKit
 
 class STCollectionReusableView: UICollectionReusableView {
+    
+    @IBOutlet var nickNameLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var industryLabel: UILabel!
         
 }
