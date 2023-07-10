@@ -11,22 +11,39 @@ class STHomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private var homeInfo: HomeInfo?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        let u = UserInfoRequest()
-        u.request(completion: { result in
+        self.fetchHomeData()
+    }
+    
+}
+
+extension STHomeViewController {
+    
+    private func fetchHomeData() {
+        let request = HomeInfoRequest()
+        request.request(completion: { result in
             switch result {
             case let .success(object):
                 dump(object)
+                self.homeInfo = object
+                DispatchQueue.main.async {
+                    self.setUI()
+                }
             case let .failure(error):
                 print("Error: Decoding error \(error)")
             }
         })
     }
     
+    private func setUI() {
+        
+    }
 }
 
 extension STHomeViewController: UICollectionViewDelegate {

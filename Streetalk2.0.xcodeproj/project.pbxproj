@@ -58,6 +58,8 @@
 		333C208D2A57F8F100F8265C /* PolicyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C208C2A57F8F100F8265C /* PolicyRequest.swift */; };
 		333C208F2A57F92A00F8265C /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C208E2A57F92A00F8265C /* Policy.swift */; };
 		333C20912A5AFEC500F8265C /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20902A5AFEC500F8265C /* ServerData.swift */; };
+		333C20932A5BD7F300F8265C /* HomeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20922A5BD7F300F8265C /* HomeInfo.swift */; };
+		333C20952A5BD8D800F8265C /* HomeInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20942A5BD8D800F8265C /* HomeInfoRequest.swift */; };
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
@@ -157,6 +159,8 @@
 		333C208C2A57F8F100F8265C /* PolicyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyRequest.swift; sourceTree = "<group>"; };
 		333C208E2A57F92A00F8265C /* Policy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Policy.swift; sourceTree = "<group>"; };
 		333C20902A5AFEC500F8265C /* ServerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
+		333C20922A5BD7F300F8265C /* HomeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfo.swift; sourceTree = "<group>"; };
+		333C20942A5BD8D800F8265C /* HomeInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoRequest.swift; sourceTree = "<group>"; };
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 				333C20862A56AF3900F8265C /* ReportPostRequest.swift */,
 				333C208A2A57F20500F8265C /* BoardListRequestswift.swift */,
 				333C208C2A57F8F100F8265C /* PolicyRequest.swift */,
+				333C20942A5BD8D800F8265C /* HomeInfoRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				330438FC2A31647D008123AD /* NetworkResponse.swift */,
 				330438F42A316005008123AD /* User.swift */,
 				330438F02A315E95008123AD /* Address.swift */,
+				333C20922A5BD7F300F8265C /* HomeInfo.swift */,
 				333C206E2A55104D00F8265C /* Location.swift */,
 				333C208E2A57F92A00F8265C /* Policy.swift */,
 				330438F22A315F55008123AD /* Industry.swift */,
@@ -641,6 +647,7 @@
 				330CE98D2A3A8B8500BFA26F /* STRootViewController.swift in Sources */,
 				330CE9712A3843D400BFA26F /* UIColor+.swift in Sources */,
 				333C20872A56AF3900F8265C /* ReportPostRequest.swift in Sources */,
+				333C20952A5BD8D800F8265C /* HomeInfoRequest.swift in Sources */,
 				330438F12A315E95008123AD /* Address.swift in Sources */,
 				332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */,
 				333C20852A56A35800F8265C /* STReportViewController.swift in Sources */,
@@ -653,6 +660,7 @@
 				333C207F2A56935300F8265C /* PostList.swift in Sources */,
 				330CE97B2A38634600BFA26F /* STCollectionViewFlowLayout.swift in Sources */,
 				333C207B2A55DA4500F8265C /* SearchRequest.swift in Sources */,
+				333C20932A5BD7F300F8265C /* HomeInfo.swift in Sources */,
 				330439032A346551008123AD /* AddReplyRequest.swift in Sources */,
 				333C20892A57D14700F8265C /* STBoardListViewController.swift in Sources */,
 				333C208F2A57F92A00F8265C /* Policy.swift in Sources */,
