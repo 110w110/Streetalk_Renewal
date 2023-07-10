@@ -77,6 +77,7 @@
 		33D30C2D2A4543CC0053C0CF /* STMyPageTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C2C2A4543CC0053C0CF /* STMyPageTermsViewController.swift */; };
 		33D30C2F2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C2E2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift */; };
 		33D30C312A45472D0053C0CF /* STMyPagePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C302A45472D0053C0CF /* STMyPagePopUpViewController.swift */; };
+		33D4C9552A5C5D4E0099E94A /* STBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C9542A5C5D4D0099E94A /* STBoardTableViewCell.swift */; };
 		B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254629D6BE4E00222C8A /* AppDelegate.swift */; };
 		B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */; };
 		B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254A29D6BE4E00222C8A /* ViewController.swift */; };
@@ -177,6 +178,7 @@
 		33D30C2C2A4543CC0053C0CF /* STMyPageTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPageTermsViewController.swift; sourceTree = "<group>"; };
 		33D30C2E2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPagePrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		33D30C302A45472D0053C0CF /* STMyPagePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPagePopUpViewController.swift; sourceTree = "<group>"; };
+		33D4C9542A5C5D4D0099E94A /* STBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBoardTableViewCell.swift; sourceTree = "<group>"; };
 		B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streetalk2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C2254629D6BE4E00222C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				330CE9782A38627F00BFA26F /* STCollectionReusableView.swift */,
 				332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */,
 				3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */,
+				33D4C9542A5C5D4D0099E94A /* STBoardTableViewCell.swift */,
 				B2C2257829D6BF2000222C8A /* STTabBarController.swift */,
 				3314278E2A541EAC004AFF23 /* STReplyTableViewCell.swift */,
 			);
@@ -650,6 +653,7 @@
 				333C20952A5BD8D800F8265C /* HomeInfoRequest.swift in Sources */,
 				330438F12A315E95008123AD /* Address.swift in Sources */,
 				332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */,
+				33D4C9552A5C5D4E0099E94A /* STBoardTableViewCell.swift in Sources */,
 				333C20852A56A35800F8265C /* STReportViewController.swift in Sources */,
 				330CE9732A38444400BFA26F /* STButton.swift in Sources */,
 				330CE9852A38A51A00BFA26F /* STJoinViewController.swift in Sources */,
