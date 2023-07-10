@@ -174,9 +174,13 @@ class SectionCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                selectionView.isHidden = false
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.selectionView.alpha = 1.0
+                })
             } else {
-                selectionView.isHidden = true
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.selectionView.alpha = 0.0
+                })
             }
         }
     }
