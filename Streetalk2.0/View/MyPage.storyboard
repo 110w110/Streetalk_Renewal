@@ -74,9 +74,27 @@
                     <view key="view" contentMode="scaleToFill" id="J3B-4C-TIN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tbT-AB-7sE">
+                                <rect key="frame" x="10" y="49" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="OXD-D8-PJf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tbT-AB-7sE" firstAttribute="trailing" secondItem="OXD-D8-PJf" secondAttribute="trailing" constant="10" id="GE7-QN-3Lc"/>
+                            <constraint firstItem="tbT-AB-7sE" firstAttribute="leading" secondItem="OXD-D8-PJf" secondAttribute="leading" constant="10" id="LsF-1E-j3G"/>
+                            <constraint firstItem="OXD-D8-PJf" firstAttribute="top" secondItem="tbT-AB-7sE" secondAttribute="top" constant="10" id="ljF-EZ-sSC"/>
+                            <constraint firstItem="OXD-D8-PJf" firstAttribute="bottom" secondItem="tbT-AB-7sE" secondAttribute="bottom" constant="10" id="xHh-Te-fl3"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="tbT-AB-7sE" id="Ufs-YC-akz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xT4-bY-G58" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
