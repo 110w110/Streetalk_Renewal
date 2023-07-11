@@ -37,6 +37,10 @@ class STBoardListViewController: UIViewController {
         setUI()
     }
     
+    @IBAction func boardSuggestionButtonTapped(_ sender: Any) {
+        
+    }
+    
     func setUI() {
         stackView.layoutMargins = UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 20)
         stackView.isLayoutMarginsRelativeArrangement = true

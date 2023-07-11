@@ -81,6 +81,7 @@
 		33D4C9572A5C65A30099E94A /* STLikedBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C9562A5C65A30099E94A /* STLikedBoardTableViewCell.swift */; };
 		33D4C9592A5D07E50099E94A /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C9582A5D07E50099E94A /* UIButton+.swift */; };
 		33D4C95B2A5D2EC50099E94A /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C95A2A5D2EC50099E94A /* Int+.swift */; };
+		33D4C95D2A5D4AC60099E94A /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C95C2A5D4AC60099E94A /* UIViewController+.swift */; };
 		B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254629D6BE4E00222C8A /* AppDelegate.swift */; };
 		B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */; };
 		B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254A29D6BE4E00222C8A /* ViewController.swift */; };
@@ -185,6 +186,7 @@
 		33D4C9562A5C65A30099E94A /* STLikedBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STLikedBoardTableViewCell.swift; sourceTree = "<group>"; };
 		33D4C9582A5D07E50099E94A /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		33D4C95A2A5D2EC50099E94A /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		33D4C95C2A5D4AC60099E94A /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streetalk2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C2254629D6BE4E00222C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				33D4C9582A5D07E50099E94A /* UIButton+.swift */,
 				3399BAFB2A402FE200A56A4B /* UIView+.swift */,
 				3399BAF42A400E9400A56A4B /* String+.swift */,
+				33D4C95C2A5D4AC60099E94A /* UIViewController+.swift */,
 				33D4C95A2A5D2EC50099E94A /* Int+.swift */,
 			);
 			path = Extension;
@@ -629,6 +632,7 @@
 				330CE99B2A3A955000BFA26F /* STMyPageListViewController.swift in Sources */,
 				33D4C9592A5D07E50099E94A /* UIButton+.swift in Sources */,
 				33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */,
+				33D4C95D2A5D4AC60099E94A /* UIViewController+.swift in Sources */,
 				33D30C312A45472D0053C0CF /* STMyPagePopUpViewController.swift in Sources */,
 				330438F72A3161B9008123AD /* Board.swift in Sources */,
 				33D30C2D2A4543CC0053C0CF /* STMyPageTermsViewController.swift in Sources */,
