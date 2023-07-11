@@ -92,10 +92,10 @@ class STJoinRegisterViewController: UIViewController {
     private func showHomeViewController() {
         guard let name = self.nickNameTextField.text, let location = self.locationTextField.text, let industry = self.selectedIndustry else { return }
         let request = JoinRequest(param: ["name" : name, "location" : location, "industry" : industry])
+        UserDefaults.standard.set(self.token, forKey: "userToken")
         request.request(completion: { result in
             switch result {
             case .success(_):
-                UserDefaults.standard.set(self.token, forKey: "userToken")
                 DispatchQueue.main.async {
                     let mainViewController = STMainViewController()
                     mainViewController.modalPresentationStyle = .overFullScreen
