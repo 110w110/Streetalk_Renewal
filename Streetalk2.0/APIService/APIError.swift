@@ -12,6 +12,10 @@ public enum APIError: Error {
     case invalidRequest
     case requestDataIsEmpty
     case httpNetworkRequestError
+    case httpInformation1xxError
+    case httpRedirection3xxError
+    case httpClient4xxError
+    case httpServer5xxError
     case invalidCredential
     case dataDecodingError
     case requestCouldNotBeCompleted

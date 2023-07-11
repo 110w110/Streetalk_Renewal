@@ -16,6 +16,7 @@ final class APIClient {
     func request(url: String, method: HttpMethods, header: [String : String],  param: [String : Any]?, completion: @escaping (Result<Data, APIError>) -> Void) {
         guard let url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: url) else {
             print("Error: cannot create URL")
+            completion(.failure(.invalidUrl))
             return
         }
         
@@ -34,22 +35,39 @@ final class APIClient {
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error {
                 print("Error: request failed \(error)")
+                completion(.failure(.invalidRequest))
                 return
             }
             
             guard let data = data else {
                 print("Error: data is empty")
+                completion(.failure(.requestDataIsEmpty))
                 return
             }
             
             guard let response = response as? HTTPURLResponse else {
                 // 코드 번호에 따라 적절한 에러 발생 시켜야함
                 print("Error: HTTP request failed")
+                completion(.failure(.httpNetworkRequestError))
                 return
             }
             
             guard (200 ..< 299) ~= response.statusCode else {
                 print("Error: HTTP request failed (code:\(response.statusCode))")
+                
+                switch response.statusCode {
+                case (100 ..< 199):
+                    completion(.failure(.httpInformation1xxError))
+                case (300 ..< 399):
+                    completion(.failure(.httpRedirection3xxError))
+                case (400 ..< 499):
+                    completion(.failure(.httpClient4xxError))
+                case (500 ..< 599):
+                    completion(.failure(.httpServer5xxError))
+                default:
+                    completion(.failure(.httpNetworkRequestError))
+                }
+                
                 return
             }
             
