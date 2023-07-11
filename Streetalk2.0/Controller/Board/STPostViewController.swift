@@ -13,6 +13,7 @@ class STPostViewController: UIViewController {
     @IBOutlet var bottomView: UIView!
     @IBOutlet var keyboardArea: UIView!
     @IBOutlet var replyTextField: UITextField!
+    @IBOutlet var anonymousButton: UIButton!
     
     var postId: Int?
     private var post: Post?
@@ -32,6 +33,7 @@ class STPostViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         setUI()
+        setAnonymousButton()
         
     }
     
@@ -57,16 +59,33 @@ class STPostViewController: UIViewController {
         })
     }
     
+    @IBAction func anonymousButtonTapped(_ sender: Any) {
+        self.anonymous = !self.anonymous
+        print(anonymous)
+        setAnonymousButton()
+    }
 }
 
 extension STPostViewController {
     
+    private func setAnonymousButton() {
+        DispatchQueue.main.async {
+            if self.anonymous {
+                self.anonymousButton.setTitle("익명", for: .selected)
+//                self.anonymousButton.setBackgroundColor(.streetalkPink, for: .selected)
+                self.anonymousButton.tintColor = .streetalkPink
+            } else {
+                self.anonymousButton.setTitle("실명", for: .selected)
+//                self.anonymousButton.setBackgroundColor(.streetalkOrange, for: .normal)
+                self.anonymousButton.tintColor = .streetalkOrange
+            }
+        }
+    }
     private func setUI() {
         bottomView.setRoundedBorder(shadow: true, bottomExtend: true)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "신고", style: .plain, target: self, action: #selector(showReportViewController))
 
-        
         guard let id = postId else { return }
         let request = GetPostRequest(additionalInfo: "\(id)")
         request.request(completion: { result in

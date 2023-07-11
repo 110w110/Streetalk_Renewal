@@ -503,7 +503,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="KZZ-LG-FT5">
-                                                                            <rect key="frame" x="0.0" y="27.666666666666664" width="353" height="15"/>
+                                                                            <rect key="frame" x="0.0" y="27.666666666666664" width="353" height="15.000000000000007"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="익명 | 동네" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebR-6H-BAZ">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="177" height="15"/>
@@ -764,26 +764,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rcr-8X-Fxs">
                                         <rect key="frame" x="10" y="10" width="373" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ne8-pU-nM5">
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ne8-pU-nM5">
                                                 <rect key="frame" x="0.0" y="0.0" width="45" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="45" id="cnf-Qz-3wx"/>
                                                 </constraints>
-                                                <color key="tintColor" red="0.7725490196" green="0.21960784310000001" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted" buttonSize="small">
-                                                    <attributedString key="attributedTitle">
-                                                        <fragment content="익명">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.77254901960784317" green="0.2196078431372549" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
-                                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <color key="baseBackgroundColor" red="0.8156862855" green="0.54901963470000004" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="익명"/>
+                                                <connections>
+                                                    <action selector="anonymousButtonTapped:" destination="F00-WF-Wvx" eventType="touchUpInside" id="6tC-hG-ZYm"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KyZ-Jk-C5W">
                                                 <rect key="frame" x="55" y="0.0" width="248" height="40"/>
@@ -855,6 +846,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Geh-zq-Mvb"/>
                     <connections>
+                        <outlet property="anonymousButton" destination="ne8-pU-nM5" id="gBj-a1-vFc"/>
                         <outlet property="bottomView" destination="Jon-OA-bk7" id="Ozd-c7-dzn"/>
                         <outlet property="keyboardArea" destination="l9P-O5-pzI" id="jb7-JB-s9S"/>
                         <outlet property="replyTextField" destination="KyZ-Jk-C5W" id="Nc3-QL-knx"/>
