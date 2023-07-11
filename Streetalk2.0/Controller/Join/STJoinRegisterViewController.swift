@@ -31,6 +31,8 @@ class STJoinRegisterViewController: UIViewController {
     private var selectedIndustry: String?
     
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var indicatiorDimmingView: UIView!
+    @IBOutlet var locationIndicatorView: UIActivityIndicatorView!
     
     var auth: [String : String]?
     
@@ -51,6 +53,7 @@ class STJoinRegisterViewController: UIViewController {
         locationManager.delegate = self
         requestLocationAuth()
         
+        nickNameTextField.delegate = self
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = self
         locationCollectionView.collectionViewLayout = {
@@ -90,6 +93,9 @@ class STJoinRegisterViewController: UIViewController {
     }
     
     private func showHomeViewController() {
+        DispatchQueue.main.async {
+            self.indicatiorDimmingView.isHidden = false
+        }
         guard let name = self.nickNameTextField.text, let location = self.locationTextField.text, let industry = self.selectedIndustry else { return }
         let request = JoinRequest(param: ["name" : name, "location" : location, "industry" : industry])
         UserDefaults.standard.set(self.token, forKey: "userToken")
@@ -97,6 +103,7 @@ class STJoinRegisterViewController: UIViewController {
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
+                    self.indicatiorDimmingView.isHidden = true
                     let mainViewController = STMainViewController()
                     mainViewController.modalPresentationStyle = .overFullScreen
                     mainViewController.modalTransitionStyle = .crossDissolve
@@ -104,6 +111,9 @@ class STJoinRegisterViewController: UIViewController {
                 }
             case .failure(_):
                 UserDefaults.standard.set(nil, forKey: "userToken")
+                DispatchQueue.main.async {
+                    self.indicatiorDimmingView.isHidden = true
+                }
                 return
             }
         })
@@ -134,6 +144,15 @@ class STJoinRegisterViewController: UIViewController {
     
 }
 
+extension STJoinRegisterViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
+    }
+    
+}
+
 extension STJoinRegisterViewController {
     
     private func requestLocationAuth() {
@@ -159,11 +178,15 @@ extension STJoinRegisterViewController {
                 self.selectedIndustry = self.debugingJobList[0]
                 
                 DispatchQueue.main.async {
+                    self.locationIndicatorView.isHidden = true
                     self.locationTextField.text = data.currentCity
                     self.locationCollectionView.reloadData()
                 }
                 
             case let .failure(error):
+                DispatchQueue.main.async {
+                    self.locationIndicatorView.isHidden = true
+                }
                 print(error)
             }
         })

@@ -452,11 +452,16 @@
                                                                     </collectionView>
                                                                 </subviews>
                                                             </stackView>
+                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="IYd-ah-gP4">
+                                                                <rect key="frame" x="0.0" y="145" width="333" height="20"/>
+                                                            </activityIndicatorView>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="cuT-gc-Gwz" secondAttribute="trailing" constant="30" id="EAz-G2-WVW"/>
                                                             <constraint firstItem="cuT-gc-Gwz" firstAttribute="top" secondItem="vx7-ND-HNL" secondAttribute="top" constant="30" id="Hdt-oI-bWo"/>
+                                                            <constraint firstItem="IYd-ah-gP4" firstAttribute="centerX" secondItem="vx7-ND-HNL" secondAttribute="centerX" id="IzD-TS-k3A"/>
+                                                            <constraint firstItem="IYd-ah-gP4" firstAttribute="centerY" secondItem="vx7-ND-HNL" secondAttribute="centerY" id="MQI-kC-jWP"/>
                                                             <constraint firstItem="cuT-gc-Gwz" firstAttribute="leading" secondItem="vx7-ND-HNL" secondAttribute="leading" constant="30" id="Wqn-mL-XQm"/>
                                                             <constraint firstAttribute="bottom" secondItem="cuT-gc-Gwz" secondAttribute="bottom" constant="30" id="rWq-kS-UWc"/>
                                                         </constraints>
@@ -555,24 +560,40 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="vgR-WI-9o7"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="KDh-Zd-nqW"/>
                             </scrollView>
+                            <view hidden="YES" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9k-i5-MHE">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="i8o-1W-OfI">
+                                        <rect key="frame" x="110" y="54" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WNO-qh-WSS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="C2Z-ki-9MT" firstAttribute="leading" secondItem="WNO-qh-WSS" secondAttribute="leading" id="1IR-7d-dMe"/>
                             <constraint firstItem="WNO-qh-WSS" firstAttribute="bottom" secondItem="C2Z-ki-9MT" secondAttribute="bottom" id="Jjd-bN-DyN"/>
+                            <constraint firstAttribute="bottom" secondItem="d9k-i5-MHE" secondAttribute="bottom" constant="34" id="Ppk-kz-vWU"/>
                             <constraint firstItem="C2Z-ki-9MT" firstAttribute="top" secondItem="WNO-qh-WSS" secondAttribute="top" id="UGT-Cj-Xpe"/>
                             <constraint firstItem="WNO-qh-WSS" firstAttribute="trailing" secondItem="C2Z-ki-9MT" secondAttribute="trailing" id="bO8-1K-IjS"/>
+                            <constraint firstItem="d9k-i5-MHE" firstAttribute="top" secondItem="zf6-Lu-Row" secondAttribute="top" constant="59" id="ebz-c2-2tl"/>
+                            <constraint firstItem="WNO-qh-WSS" firstAttribute="trailing" secondItem="d9k-i5-MHE" secondAttribute="trailing" id="vkI-2g-pW8"/>
+                            <constraint firstItem="d9k-i5-MHE" firstAttribute="leading" secondItem="WNO-qh-WSS" secondAttribute="leading" id="vzJ-S5-DBy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="confirmButton" destination="9b2-K3-UEO" id="vB1-bn-Og2"/>
+                        <outlet property="indicatiorDimmingView" destination="d9k-i5-MHE" id="FNJ-s8-dI2"/>
                         <outlet property="isValidCharLabel" destination="l64-ta-eiZ" id="LkO-tp-d2Z"/>
                         <outlet property="isValidNickNameLabel" destination="cDP-nB-d7G" id="d0O-IL-T8k"/>
                         <outlet property="jobCollectionView" destination="xE5-aj-bBn" id="c2b-uX-FLU"/>
                         <outlet property="jobSectionView" destination="iPw-8h-I8Z" id="n06-Wz-9nb"/>
                         <outlet property="lengthLimitLabel" destination="bAH-o2-N1R" id="GaV-7U-T4h"/>
                         <outlet property="locationCollectionView" destination="hvE-5Z-r2E" id="pOO-yZ-YYB"/>
+                        <outlet property="locationIndicatorView" destination="IYd-ah-gP4" id="L67-Hj-bWH"/>
                         <outlet property="locationSectionView" destination="vx7-ND-HNL" id="efa-25-bHS"/>
                         <outlet property="locationTextField" destination="Uut-tW-7D0" id="7v7-fC-5vp"/>
                         <outlet property="nickNameTextField" destination="HeN-yy-GQo" id="gyo-ZE-tSt"/>
@@ -591,6 +612,9 @@
         <image name="phone" width="193" height="176"/>
         <image name="streetalk_logo_bottom" width="93" height="31"/>
         <image name="streetalk_logo_top" width="93" height="31"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
