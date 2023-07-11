@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>사용자의 위치 정보에 접근합니다. 앱의 정상적인 실행을 위해 반드시 허용해주시기 바랍니다.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>사용자의 위치 정보에 접근합니다. 앱의 정상적인 실행을 위해 반드시 허용해주시기 바랍니다.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

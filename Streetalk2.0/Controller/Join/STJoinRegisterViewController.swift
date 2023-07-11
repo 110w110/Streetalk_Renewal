@@ -30,6 +30,8 @@ class STJoinRegisterViewController: UIViewController {
     private var industries: [String] = []
     private var selectedIndustry: String?
     
+    @IBOutlet var scrollView: UIScrollView!
+    
     var auth: [String : String]?
     
     private let debugingJobList: [String] = ["식당", "카페", "주점", "오락", "미용", "숙박", "교육", "스포츠", "반려동물", "유통 및 제조", "의료", "패션"]
@@ -39,6 +41,7 @@ class STJoinRegisterViewController: UIViewController {
 
         self.navigationItem.hidesBackButton = true
         nickNameTextField.becomeFirstResponder()
+        scrollView.keyboardDismissMode = .onDrag
         
         nicknameSectionView.setRoundedBorder()
         locationSectionView.setRoundedBorder()
@@ -92,6 +95,7 @@ class STJoinRegisterViewController: UIViewController {
         request.request(completion: { result in
             switch result {
             case .success(_):
+                UserDefaults.standard.set(self.token, forKey: "userToken")
                 DispatchQueue.main.async {
                     let mainViewController = STMainViewController()
                     mainViewController.modalPresentationStyle = .overFullScreen
@@ -149,7 +153,7 @@ extension STJoinRegisterViewController {
         request.request(completion: { result in
             switch result {
             case let .success(data):
-                UserDefaults.standard.set(data.token, forKey: "userToken")
+                self.token = data.token
                 self.nearCities = data.nearCities ?? []
                 self.nearCities.insert(Cities(fullName: data.currentCity, id: nil), at: 0)
                 self.selectedIndustry = self.debugingJobList[0]

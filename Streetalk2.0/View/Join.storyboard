@@ -144,27 +144,31 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="w41-wj-PFm">
-                                <rect key="frame" x="30" y="308.33333333333331" width="333" height="160"/>
+                                <rect key="frame" x="30" y="278.33333333333331" width="333" height="160"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5Cx-Sw-Hb2">
                                         <rect key="frame" x="0.0" y="0.0" width="333" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문자를 받지 못하셨나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVv-zc-X8R">
-                                                <rect key="frame" x="0.0" y="0.0" width="163" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="233" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKs-Lp-7uG">
-                                                <rect key="frame" x="183" y="0.0" width="150" height="20"/>
+                                                <rect key="frame" x="253" y="0.0" width="80" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="3mx-We-GCN"/>
+                                                    <constraint firstAttribute="width" constant="80" id="3mx-We-GCN"/>
                                                     <constraint firstAttribute="height" constant="20" id="U9x-Wk-F0U"/>
                                                 </constraints>
+                                                <color key="tintColor" red="0.7725490196" green="0.21960784310000001" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="인증번호 재발송">
+                                                <buttonConfiguration key="configuration" style="plain" title="재발송">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="retryAuthButtonTapped:" destination="GnG-q7-XBN" eventType="touchUpInside" id="pEY-CI-9kO"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -206,7 +210,7 @@
                             <constraint firstItem="2Lq-z4-cm7" firstAttribute="trailing" secondItem="HBn-em-dWl" secondAttribute="trailing" constant="100" id="aHA-EE-xcW"/>
                             <constraint firstItem="pZL-Aj-69P" firstAttribute="top" secondItem="2Lq-z4-cm7" secondAttribute="top" constant="30" id="co4-5L-iyj"/>
                             <constraint firstItem="2Lq-z4-cm7" firstAttribute="trailing" secondItem="pZL-Aj-69P" secondAttribute="trailing" constant="30" id="ide-j2-h23"/>
-                            <constraint firstItem="w41-wj-PFm" firstAttribute="top" secondItem="pZL-Aj-69P" secondAttribute="bottom" constant="60" id="lu7-42-aXy"/>
+                            <constraint firstItem="w41-wj-PFm" firstAttribute="top" secondItem="pZL-Aj-69P" secondAttribute="bottom" constant="30" id="lu7-42-aXy"/>
                             <constraint firstItem="w41-wj-PFm" firstAttribute="leading" secondItem="2Lq-z4-cm7" secondAttribute="leading" constant="30" id="o5E-8b-FYg"/>
                             <constraint firstItem="HBn-em-dWl" firstAttribute="centerY" secondItem="2Lq-z4-cm7" secondAttribute="centerY" constant="-50" id="qRo-tg-Y78"/>
                         </constraints>
@@ -573,6 +577,7 @@
                         <outlet property="locationTextField" destination="Uut-tW-7D0" id="7v7-fC-5vp"/>
                         <outlet property="nickNameTextField" destination="HeN-yy-GQo" id="gyo-ZE-tSt"/>
                         <outlet property="nicknameSectionView" destination="81a-OR-SKH" id="eDj-hL-tfD"/>
+                        <outlet property="scrollView" destination="C2Z-ki-9MT" id="JOk-dv-2Jo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ep-uu-Dd5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
