@@ -13,10 +13,14 @@ class STPostTableViewCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var nickNameLabel: UILabel!
+    @IBOutlet var postTimeLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var bottomStackView: UIStackView!
     @IBOutlet var primaryNickNameStackView: UIStackView!
     @IBOutlet var secondaryNickNameStackView: UIStackView!
+    @IBOutlet var likeCount: UILabel!
+    @IBOutlet var commentCount: UILabel!
+    @IBOutlet var scrapCount: UILabel!
     
     var postId: Int?
     

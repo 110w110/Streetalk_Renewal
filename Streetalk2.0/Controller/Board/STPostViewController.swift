@@ -39,6 +39,7 @@ class STPostViewController: UIViewController {
     
     @IBAction func replySubmitButtonTapped(_ sender: Any) {
         if self.replyTextField.text == "" { return }
+        replyTextField.endEditing(false)
         
         guard let postId = postId, let text = self.replyTextField.text else { return }
         let request = PostReplyRequest(param: ["postId" : postId, "content" : text, "checkName" : anonymous])
@@ -49,11 +50,15 @@ class STPostViewController: UIViewController {
                     self.setUI()
                     self.replyTextField.text = ""
                     self.tableView.reloadData()
+                    self.tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentSize.height - self.tableView.bounds.height), animated: true)
                 }
             case let .failure(error):
                 print(error)
                 DispatchQueue.main.async {
                     self.replyTextField.text = ""
+                    let alert = UIAlertController(title: "댓글 작성 실패", message: "댓글 작성에 실패했습니다.\n\(error)", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "확인", style: .default))
+                    self.present(alert, animated: true)
                 }
             }
         })
@@ -145,6 +150,11 @@ extension STPostViewController: UITableViewDataSource {
                 cell.titleLabel.text = post.title
                 cell.contentLabel.text = post.content
                 cell.nickNameLabel.text = post.postWriterName
+                cell.postTimeLabel.text = post.lastTime?.toLastTimeString()
+                cell.commentCount.text = post.replyCount?.toString()
+                cell.likeCount.text = post.likeCount?.toString()
+                cell.scrapCount.text = post.scrapCount?.toString()
+                
             }
             return cell
         } else {
@@ -152,7 +162,7 @@ extension STPostViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.nickNameLabel.text = replies[indexPath.row - 1].replyWriterName
             cell.contentLabel.text = replies[indexPath.row - 1].content
-            cell.timeLabel.text = String(replies[indexPath.row - 1].lastTime ?? 0)
+            cell.timeLabel.text = replies[indexPath.row - 1].lastTime?.toLastTimeString()
             return cell
             
         }

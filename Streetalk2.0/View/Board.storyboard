@@ -437,9 +437,12 @@
                                         <connections>
                                             <outlet property="bottomStackView" destination="6nt-nX-QkI" id="gxX-ns-1lR"/>
                                             <outlet property="cellBackground" destination="Ddd-GX-vj2" id="xLK-Vy-LQy"/>
+                                            <outlet property="commentCount" destination="dIT-kM-0yv" id="sVw-mB-gos"/>
                                             <outlet property="contentLabel" destination="e2B-xl-ka1" id="Az5-xT-RBa"/>
+                                            <outlet property="likeCount" destination="te4-yf-ugs" id="OEe-pU-ddV"/>
                                             <outlet property="nickNameLabel" destination="4Nh-Gx-SxR" id="HKJ-2J-lTq"/>
                                             <outlet property="primaryNickNameStackView" destination="fE2-sC-EbG" id="JhN-RR-gGY"/>
+                                            <outlet property="scrapCount" destination="Y7F-cf-ADC" id="cae-fi-27Y"/>
                                             <outlet property="secondaryNickNameStackView" destination="OsS-zS-zF7" id="FDV-f1-zNS"/>
                                             <outlet property="timeLabel" destination="76P-ce-C1m" id="dCD-zE-WPL"/>
                                             <outlet property="titleLabel" destination="fey-Of-f9B" id="jjH-2d-X76"/>
@@ -653,9 +656,13 @@
                                         <connections>
                                             <outlet property="bottomStackView" destination="6WU-9P-CQJ" id="6bb-Wc-LCo"/>
                                             <outlet property="cellBackground" destination="FKu-mg-aXg" id="Vhm-kO-Yaf"/>
+                                            <outlet property="commentCount" destination="Ex7-w2-otP" id="XtQ-cg-hNF"/>
                                             <outlet property="contentLabel" destination="Upg-Md-7sP" id="fcm-An-IPs"/>
+                                            <outlet property="likeCount" destination="1d9-ZE-jGX" id="7oz-7x-sRt"/>
                                             <outlet property="nickNameLabel" destination="Dyv-dP-jAT" id="udY-PA-Pq2"/>
+                                            <outlet property="postTimeLabel" destination="gFB-lg-bpI" id="oDI-0q-Qkh"/>
                                             <outlet property="primaryNickNameStackView" destination="Iw0-JZ-Iho" id="ZgJ-6m-61G"/>
+                                            <outlet property="scrapCount" destination="eA0-u7-qdT" id="xcA-pf-Zzz"/>
                                             <outlet property="secondaryNickNameStackView" destination="KZZ-LG-FT5" id="KGD-ws-bG6"/>
                                             <outlet property="timeLabel" destination="OOe-8F-gUR" id="aj2-Km-kGC"/>
                                             <outlet property="titleLabel" destination="2w4-jd-OIU" id="NGl-qf-STX"/>

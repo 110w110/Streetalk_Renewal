@@ -80,6 +80,7 @@
 		33D4C9552A5C5D4E0099E94A /* STBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C9542A5C5D4D0099E94A /* STBoardTableViewCell.swift */; };
 		33D4C9572A5C65A30099E94A /* STLikedBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C9562A5C65A30099E94A /* STLikedBoardTableViewCell.swift */; };
 		33D4C9592A5D07E50099E94A /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C9582A5D07E50099E94A /* UIButton+.swift */; };
+		33D4C95B2A5D2EC50099E94A /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C95A2A5D2EC50099E94A /* Int+.swift */; };
 		B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254629D6BE4E00222C8A /* AppDelegate.swift */; };
 		B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */; };
 		B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254A29D6BE4E00222C8A /* ViewController.swift */; };
@@ -183,6 +184,7 @@
 		33D4C9542A5C5D4D0099E94A /* STBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBoardTableViewCell.swift; sourceTree = "<group>"; };
 		33D4C9562A5C65A30099E94A /* STLikedBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STLikedBoardTableViewCell.swift; sourceTree = "<group>"; };
 		33D4C9582A5D07E50099E94A /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		33D4C95A2A5D2EC50099E94A /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streetalk2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C2254629D6BE4E00222C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				33D4C9582A5D07E50099E94A /* UIButton+.swift */,
 				3399BAFB2A402FE200A56A4B /* UIView+.swift */,
 				3399BAF42A400E9400A56A4B /* String+.swift */,
+				33D4C95A2A5D2EC50099E94A /* Int+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				330CE9732A38444400BFA26F /* STButton.swift in Sources */,
 				330CE9852A38A51A00BFA26F /* STJoinViewController.swift in Sources */,
 				333C20792A55D94B00F8265C /* SearchPost.swift in Sources */,
+				33D4C95B2A5D2EC50099E94A /* Int+.swift in Sources */,
 				333C20832A569D6400F8265C /* PostReplyRequest.swift in Sources */,
 				330438FD2A31647D008123AD /* NetworkResponse.swift in Sources */,
 				3314278B2A4EFABB004AFF23 /* STPostTableViewCell.swift in Sources */,
