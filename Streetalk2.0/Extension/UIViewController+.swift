@@ -6,23 +6,6 @@
 //
 
 import UIKit
-import MessageUI
-
-// for email dialog
-extension UIViewController {
-    
-    func showSendMailErrorAlert() {
-        let sendMailErrorAlert = UIAlertController(title: "전송 불가", message: "이메일 앱 연결을 확인해주세요", preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "확인", style: .default)
-        sendMailErrorAlert.addAction(confirmAction)
-        self.present(sendMailErrorAlert, animated: true, completion: nil)
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
-}
 
 // Device Info
 extension UIViewController {

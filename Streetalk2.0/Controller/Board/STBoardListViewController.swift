@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class STBoardListViewController: UIViewController {
 
@@ -38,7 +39,7 @@ class STBoardListViewController: UIViewController {
     }
     
     @IBAction func boardSuggestionButtonTapped(_ sender: Any) {
-        
+        mailBoardSuggestion()
     }
     
     func setUI() {
@@ -84,6 +85,44 @@ class STBoardListViewController: UIViewController {
                 print(error)
             }
         })
+    }
+}
+
+extension STBoardListViewController: MFMailComposeViewControllerDelegate {
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "전송 불가", message: "이메일 앱 연결을 확인해주세요", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인", style: .default)
+        sendMailErrorAlert.addAction(confirmAction)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func mailBoardSuggestion() {
+        if MFMailComposeViewController.canSendMail() {
+            let viewController = MFMailComposeViewController()
+            viewController.mailComposeDelegate = self
+            viewController.setToRecipients(["dev.hantae@gmail.com"])
+            viewController.setSubject("Streetalk Board Suggestion")
+            let body = """
+                         스트릿톡 서비스에 관심을 가지고 도움을 주셔서 감사합니다.
+                         요청해주신 사항을 면밀히 검토하겠습니다.
+                         
+                         아래에 추천하고 싶으신 게시판에 대해 작성해주세요.
+                         
+                         게시판명 :
+                         게시판 목적:
+                         
+                         """
+            viewController.setMessageBody(body, isHTML: false)
+            self.present(viewController, animated: true, completion: nil)
+        }
+        else {
+            self.showSendMailErrorAlert()
+        }
     }
 }
 
