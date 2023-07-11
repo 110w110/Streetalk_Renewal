@@ -50,7 +50,9 @@ class STPostViewController: UIViewController {
                     self.setUI()
                     self.replyTextField.text = ""
                     self.tableView.reloadData()
-                    self.tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentSize.height - self.tableView.bounds.height), animated: true)
+                    
+                    let lastIndex = IndexPath(row: self.post?.replyList?.count ?? 0, section: 0)
+                    self.tableView.scrollToRow(at: lastIndex, at: .bottom, animated: true)
                 }
             case let .failure(error):
                 print(error)
