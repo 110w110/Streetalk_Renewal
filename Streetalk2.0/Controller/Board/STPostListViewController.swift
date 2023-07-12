@@ -12,6 +12,7 @@ class STPostListViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     private var postList: [PostList] = []
+    private let refreshControl = UIRefreshControl()
     
     // 임시로 1번 게시판 할당, 차후에 게시판 선택 구현 후에 수정할 예정
     var boardId: Int? = 1
@@ -22,6 +23,19 @@ class STPostListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        initialSetUI()
+    }
+
+}
+
+extension STPostListViewController {
+    private func setUI() {
+        refreshUI()
+    }
+    
+    private func initialSetUI() {
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshUI), for: .valueChanged)
         guard let id = boardId else { return }
         let request = GetPostListRequest(additionalInfo: "\(id)")
         request.request(completion: { result in
@@ -37,7 +51,25 @@ class STPostListViewController: UIViewController {
             }
         })
     }
-
+    
+    @objc private func refreshUI() {
+        guard let id = boardId else { return }
+        let request = GetPostListRequest(additionalInfo: "\(id)")
+        request.request(completion: { result in
+            switch result {
+            case let .success(data):
+                self.postList = data
+            case let .failure(error):
+                print(error)
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        })
+        
+    }
 }
 
 extension STPostListViewController: UITableViewDataSource {
