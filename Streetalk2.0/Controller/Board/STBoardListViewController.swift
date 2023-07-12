@@ -129,7 +129,10 @@ extension STBoardListViewController: MFMailComposeViewControllerDelegate {
 extension STBoardListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // TODO: 내 게시판 관련 API 생성 이후에 네 가지로 분기 처리 필요
         if collectionView == mainBoardListCollectionView {
+            return min(4, mainBoardList.count)
+        } else if collectionView == mainBoardListCollectionView {
             return min(4, mainBoardList.count)
         } else if collectionView == subBoardListCollectionView {
             return min(4, subBoardList.count)
@@ -236,15 +239,18 @@ extension STBoardListViewController: UICollectionViewDelegateFlowLayout {
 extension STBoardListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "postListViewController") as! STPostListViewController
+        
+        // TODO: 내 게시판 API 생성 후 연결되는 게시판 수정 필요
         if collectionView == mainBoardListCollectionView {
-            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "postListViewController") as! STPostListViewController
             viewController.boardId = mainBoardList[indexPath.row].id
-            self.navigationController?.pushViewController(viewController, animated: true)
+        } else if collectionView == mainBoardListCollectionView {
+            viewController.boardId = mainBoardList[indexPath.row].id
         } else if collectionView == subBoardListCollectionView {
-            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "postListViewController") as! STPostListViewController
             viewController.boardId = subBoardList[indexPath.row].id
-            self.navigationController?.pushViewController(viewController, animated: true)
         }
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }
