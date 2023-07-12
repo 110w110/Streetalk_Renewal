@@ -443,10 +443,12 @@
                                             <outlet property="commentCount" destination="dIT-kM-0yv" id="sVw-mB-gos"/>
                                             <outlet property="contentLabel" destination="e2B-xl-ka1" id="Az5-xT-RBa"/>
                                             <outlet property="likeCount" destination="te4-yf-ugs" id="OEe-pU-ddV"/>
+                                            <outlet property="likeImage" destination="GUJ-jd-LiY" id="0do-W9-RZR"/>
                                             <outlet property="likeView" destination="baa-lk-Aby" id="VhT-CO-rIJ"/>
                                             <outlet property="nickNameLabel" destination="4Nh-Gx-SxR" id="HKJ-2J-lTq"/>
                                             <outlet property="primaryNickNameStackView" destination="fE2-sC-EbG" id="JhN-RR-gGY"/>
                                             <outlet property="scrapCount" destination="Y7F-cf-ADC" id="cae-fi-27Y"/>
+                                            <outlet property="scrapImage" destination="hR0-iQ-bIZ" id="Cn7-oG-LRx"/>
                                             <outlet property="scrapView" destination="VIg-Oc-Q9V" id="Kpu-ae-Vaq"/>
                                             <outlet property="secondaryNickNameStackView" destination="OsS-zS-zF7" id="FDV-f1-zNS"/>
                                             <outlet property="timeLabel" destination="76P-ce-C1m" id="dCD-zE-WPL"/>

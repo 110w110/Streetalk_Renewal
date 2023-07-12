@@ -56,6 +56,7 @@ extension STPostListViewController: UITableViewDataSource {
         cell.commentCount.text = postList[indexPath.row].replyCount?.toString()
         cell.likeCount.text = postList[indexPath.row].likeCount?.toString()
         cell.scrapCount.text = postList[indexPath.row].scrapCount?.toString()
+        cell.postId = postList[indexPath.row].postId
         return cell
     }
     
