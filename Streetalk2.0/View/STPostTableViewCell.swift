@@ -90,6 +90,33 @@ extension STPostTableViewCell {
     }
     
     @objc func scrapTapped(sender: UITapGestureRecognizer) {
-        print("scrap")
+        guard let id = postId else { return }
+        let request = ScrapPostRequest(additionalInfo: "/\(id)")
+        request.request(completion: { result in
+            switch result {
+            case let .success(data):
+                print(data)
+                
+                guard let id = self.postId else { return }
+                let postRequest = GetPostRequest(additionalInfo: "\(id)")
+                postRequest.request(completion: { result in
+                    switch result {
+                    case let .success(data):
+                        self.like = data.likeCount
+                        self.scrap = data.scrapCount
+                    case let .failure(error):
+                        print(error)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.likeCount.text = self.like?.toString()
+                        self.scrapCount.text = self.scrap?.toString()
+                        self.scrapImage.isHighlighted = !self.scrapImage.isHighlighted
+                    }
+                })
+            case let .failure(error):
+                print(error)
+            }
+        })
     }
 }

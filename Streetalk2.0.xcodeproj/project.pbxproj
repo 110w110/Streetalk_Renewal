@@ -84,6 +84,7 @@
 		33D4C95D2A5D4AC60099E94A /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C95C2A5D4AC60099E94A /* UIViewController+.swift */; };
 		33D4C95F2A5D551A0099E94A /* PostPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C95E2A5D551A0099E94A /* PostPostRequest.swift */; };
 		33D4C9612A5E66480099E94A /* LikePostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C9602A5E66480099E94A /* LikePostRequest.swift */; };
+		33D4C9632A5E6F090099E94A /* ScarpPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4C9622A5E6F090099E94A /* ScarpPostRequest.swift */; };
 		B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254629D6BE4E00222C8A /* AppDelegate.swift */; };
 		B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */; };
 		B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2254A29D6BE4E00222C8A /* ViewController.swift */; };
@@ -191,6 +192,7 @@
 		33D4C95C2A5D4AC60099E94A /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		33D4C95E2A5D551A0099E94A /* PostPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPostRequest.swift; sourceTree = "<group>"; };
 		33D4C9602A5E66480099E94A /* LikePostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostRequest.swift; sourceTree = "<group>"; };
+		33D4C9622A5E6F090099E94A /* ScarpPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScarpPostRequest.swift; sourceTree = "<group>"; };
 		B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streetalk2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C2254629D6BE4E00222C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				333C208C2A57F8F100F8265C /* PolicyRequest.swift */,
 				333C20942A5BD8D800F8265C /* HomeInfoRequest.swift */,
 				33D4C9602A5E66480099E94A /* LikePostRequest.swift */,
+				33D4C9622A5E6F090099E94A /* ScarpPostRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */,
 				339AE2C42A273FE8006005AE /* APIClient.swift in Sources */,
 				B2C2257929D6BF2000222C8A /* STTabBarController.swift in Sources */,
+				33D4C9632A5E6F090099E94A /* ScarpPostRequest.swift in Sources */,
 				330CE99D2A3A961000BFA26F /* STWriteViewController.swift in Sources */,
 				330CE98D2A3A8B8500BFA26F /* STRootViewController.swift in Sources */,
 				330CE9712A3843D400BFA26F /* UIColor+.swift in Sources */,
