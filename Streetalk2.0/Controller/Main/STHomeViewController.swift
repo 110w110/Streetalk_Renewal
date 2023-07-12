@@ -48,6 +48,14 @@ extension STHomeViewController: UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+            let viewController = storyboard.instantiateViewController(identifier: "myPageNoticeViewController") as! STMyPageNoticeViewController
+            viewController.title = "공지사항"
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
 }
 
 extension STHomeViewController: UITableViewDataSource {
