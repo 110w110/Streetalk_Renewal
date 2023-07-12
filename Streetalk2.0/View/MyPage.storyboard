@@ -488,6 +488,90 @@
             </objects>
             <point key="canvasLocation" x="1717" y="717"/>
         </scene>
+        <!--Notice Detail View Controller-->
+        <scene sceneID="tbi-fP-l7R">
+            <objects>
+                <viewController storyboardIdentifier="noticeDetailViewController" id="smX-Gi-4n1" customClass="STNoticeDetailViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="URR-qc-z88">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zn-8M-Sh3">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="PKj-b0-yLN">
+                                        <rect key="frame" x="20" y="10" width="353" height="88"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FMI-7h-dkz">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGa-KU-2V4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="QDZ-dI-QFR"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023.07.12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odZ-Tm-UWp">
+                                                        <rect key="frame" x="0.0" y="25" width="353" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="15" id="wdM-P8-gmT"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6V-67-euS">
+                                                <rect key="frame" x="0.0" y="55" width="353" height="1"/>
+                                                <color key="backgroundColor" systemColor="labelColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="QCz-Ix-xlh"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="본문" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2H-5w-nSb">
+                                                <rect key="frame" x="0.0" y="71" width="353" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PKj-b0-yLN" firstAttribute="leading" secondItem="KMf-1I-v4Q" secondAttribute="leading" constant="20" id="0TT-3K-o6X"/>
+                                    <constraint firstItem="PKj-b0-yLN" firstAttribute="trailing" secondItem="KMf-1I-v4Q" secondAttribute="trailing" constant="-20" id="DTV-Ar-BoL"/>
+                                    <constraint firstItem="PKj-b0-yLN" firstAttribute="bottom" secondItem="YYV-W4-8gq" secondAttribute="bottom" constant="-10" id="G5a-gF-Owb"/>
+                                    <constraint firstItem="PKj-b0-yLN" firstAttribute="leading" secondItem="YYV-W4-8gq" secondAttribute="leading" constant="20" id="RGD-6y-Z6X"/>
+                                    <constraint firstItem="PKj-b0-yLN" firstAttribute="trailing" secondItem="YYV-W4-8gq" secondAttribute="trailing" constant="-20" id="XMS-po-Uht"/>
+                                    <constraint firstItem="PKj-b0-yLN" firstAttribute="top" secondItem="YYV-W4-8gq" secondAttribute="top" constant="10" id="XWT-IW-r3d"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="YYV-W4-8gq"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="KMf-1I-v4Q"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kP3-fb-SEJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1zn-8M-Sh3" firstAttribute="leading" secondItem="kP3-fb-SEJ" secondAttribute="leading" id="PCo-fW-Eom"/>
+                            <constraint firstItem="kP3-fb-SEJ" firstAttribute="trailing" secondItem="1zn-8M-Sh3" secondAttribute="trailing" id="naY-TD-WLs"/>
+                            <constraint firstItem="1zn-8M-Sh3" firstAttribute="top" secondItem="kP3-fb-SEJ" secondAttribute="top" id="sz7-Wo-QMF"/>
+                            <constraint firstItem="kP3-fb-SEJ" firstAttribute="bottom" secondItem="1zn-8M-Sh3" secondAttribute="bottom" id="tjp-yY-sDs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentLabel" destination="K2H-5w-nSb" id="40M-hk-MDN"/>
+                        <outlet property="timeLabel" destination="odZ-Tm-UWp" id="alJ-Gv-W7H"/>
+                        <outlet property="titleLabel" destination="gGa-KU-2V4" id="UL2-BI-x7r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KAl-wO-Wp1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2520" y="717"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Cancel" width="23.5" height="23"/>
