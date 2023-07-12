@@ -13,9 +13,12 @@ class STReportViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var reasonTextField: UITextField!
     
+    var target: reportTarget = .post
+    
     private let reasons: [String] = ["불건전한 내용","스팸 및 광고성","개인정보 노출","선정적/폭력적 내용","도배","기타"]
     
     var postId: Int?
+    var replyId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,20 @@ class STReportViewController: UIViewController {
     }
     
     @IBAction func reportButtonTapped(_ sender: Any) {
+        switch target {
+        case .post:
+            reportPost()
+        case .reply:
+            reportReply()
+        }
+        
+    }
+    
+    @IBAction func cancelButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    private func reportPost() {
         guard let postId = postId, let reason = reasonTextField.text else { return }
         let request = ReportPostRequest(param: ["postId" : postId, "lockInfo" : reason])
         request.request(completion: { result in
@@ -52,10 +69,30 @@ class STReportViewController: UIViewController {
         })
     }
     
-    @IBAction func cancelButton(_ sender: Any) {
-        self.dismiss(animated: true)
+    private func reportReply() {
+        guard let replyId = replyId, let reason = reasonTextField.text else { return }
+        let request = ReportReplyRequest(param: ["replyId" : replyId, "lockInfo" : reason])
+        request.request(completion: { result in
+            switch result {
+            case let .success(data):
+                var alert: UIAlertController
+                if data {
+                    alert = UIAlertController(title: "신고", message: "정상적으로 신고되었습니다.", preferredStyle: .alert)
+                } else {
+                    alert = UIAlertController(title: "신고", message: "이미 신고된 댓글입니다.", preferredStyle: .alert)
+                }
+                DispatchQueue.main.async {
+                    let okay = UIAlertAction(title: "확인", style: .default) { action in
+                        self.dismiss(animated: true)
+                    }
+                    alert.addAction(okay)
+                    self.present(alert, animated: true)
+                }
+            case let .failure(error):
+                print(error)
+            }
+        })
     }
-    
 }
 
 extension STReportViewController: UITableViewDataSource {
@@ -90,4 +127,9 @@ extension STReportViewController: UITableViewDelegate {
         self.reasonTextField.text = reasons[indexPath.row]
     }
     
+}
+
+enum reportTarget {
+    case post
+    case reply
 }

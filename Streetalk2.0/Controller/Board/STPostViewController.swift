@@ -166,6 +166,8 @@ extension STPostViewController: UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "replyTableViewCell", for: indexPath) as! STReplyTableViewCell
             cell.selectionStyle = .none
+            cell.targetViewController = self
+            cell.replyId = replies[indexPath.row - 1].replyId
             cell.nickNameLabel.text = replies[indexPath.row - 1].replyWriterName
             cell.contentLabel.text = replies[indexPath.row - 1].content
             cell.timeLabel.text = replies[indexPath.row - 1].lastTime?.toLastTimeString()
