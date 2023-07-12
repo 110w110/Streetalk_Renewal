@@ -33,7 +33,7 @@ extension STMyPageListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
-        case 0:
+        case 1:
             switch indexPath.row {
             case 0:
                 showNextViewController(identifier: "myPageFAQViewController", title: self.contents[0][indexPath.row], viewControllerType: STMyPageFAQViewController.self)
@@ -46,7 +46,7 @@ extension STMyPageListViewController: UITableViewDelegate {
             default:
                 print("Error: Invalid indexPath row")
             }
-        case 1:
+        case 2:
             switch indexPath.row {
             case 0:
                 performSegue(withIdentifier: "popUpSegue", sender: [self.contents[1][indexPath.row], "로그아웃 하시겠습니까?", PopUpViewUsage.logout] as [Any])
@@ -76,12 +76,22 @@ extension STMyPageListViewController: UITableViewDataSource {
     
     // cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.contents[section].count
+        if section == 0 {
+            return 1
+        }
+        return self.contents[section - 1].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath)
+            cell.selectionStyle = .none
+            
+            return cell
+            
+        }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "myPageCell", for: indexPath) as? STMyPageTableViewCell else { return UITableViewCell() }
-        let contents = self.contents[indexPath.section]
+        let contents = self.contents[indexPath.section - 1]
         cell.contentLabel.text = contents[indexPath.row]
         cell.selectionStyle = .none
         
@@ -90,15 +100,28 @@ extension STMyPageListViewController: UITableViewDataSource {
     
     // section
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.titles.count
+        return self.titles.count + 1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.titles[section]
+        if section == 0 {
+            return nil
+        }
+        return self.titles[section - 1]
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
         return 40
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 240
+        }
+        return 50
     }
     
 }
