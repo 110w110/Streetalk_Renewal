@@ -38,7 +38,7 @@ extension STMyPageListViewController: UITableViewDelegate {
             case 0:
                 showNextViewController(identifier: "myPageFAQViewController", title: self.contents[0][indexPath.row], viewControllerType: STMyPageFAQViewController.self)
             case 1:
-                showNextViewController(identifier: "myPageHelpViewController", title: self.contents[0][indexPath.row], viewControllerType: STMyPageHelpViewController.self)
+                showNextViewController(identifier: "myPageNoticeViewController", title: self.contents[0][indexPath.row], viewControllerType: STMyPageNoticeViewController.self)
             case 2:
                 showNextViewController(identifier: "myPageTermsViewController", title: self.contents[0][indexPath.row], viewControllerType: STMyPageTermsViewController.self)
             case 3:

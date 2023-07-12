@@ -100,20 +100,80 @@
             </objects>
             <point key="canvasLocation" x="900" y="-2"/>
         </scene>
-        <!--My Page Help View Controller-->
+        <!--My Page Notice View Controller-->
         <scene sceneID="0eD-fB-m1J">
             <objects>
-                <viewController storyboardIdentifier="myPageHelpViewController" id="jcA-da-0lC" customClass="STMyPageHelpViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myPageNoticeViewController" id="jcA-da-0lC" customClass="STMyPageNoticeViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aaz-uJ-MoI">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vuD-gp-jrb">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noticeTableViewCell" rowHeight="85" id="LI1-1g-aqJ" customClass="STMyPageNoticeCell" customModule="Streetalk2_0" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LI1-1g-aqJ" id="kYY-kL-GJH">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JPj-AR-L2G">
+                                                    <rect key="frame" x="10" y="10" width="373" height="65"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[안내 ]스트릿톡에 오신 것을 환영합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzJ-cO-Gpq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="373" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="7k1-b7-slY"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023.07.12 수 00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-M0-F4l">
+                                                            <rect key="frame" x="0.0" y="45" width="373" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="Ppe-8w-nVR"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JPj-AR-L2G" firstAttribute="leading" secondItem="kYY-kL-GJH" secondAttribute="leading" constant="10" id="Qb7-mH-NzB"/>
+                                                <constraint firstItem="JPj-AR-L2G" firstAttribute="top" secondItem="kYY-kL-GJH" secondAttribute="top" constant="10" id="U7P-12-Hf2"/>
+                                                <constraint firstAttribute="trailing" secondItem="JPj-AR-L2G" secondAttribute="trailing" constant="10" id="ksX-ic-3Es"/>
+                                                <constraint firstAttribute="bottom" secondItem="JPj-AR-L2G" secondAttribute="bottom" constant="10" id="xjX-cv-xaP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="timeLabel" destination="bvi-M0-F4l" id="OSB-57-tEj"/>
+                                            <outlet property="titleLabel" destination="zzJ-cO-Gpq" id="8jm-Hi-8x8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="pNX-m4-3gR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pNX-m4-3gR" firstAttribute="bottom" secondItem="vuD-gp-jrb" secondAttribute="bottom" id="ASD-6W-8ih"/>
+                            <constraint firstItem="pNX-m4-3gR" firstAttribute="trailing" secondItem="vuD-gp-jrb" secondAttribute="trailing" id="ikd-tm-pCy"/>
+                            <constraint firstItem="vuD-gp-jrb" firstAttribute="top" secondItem="pNX-m4-3gR" secondAttribute="top" id="jrE-H9-xew"/>
+                            <constraint firstItem="vuD-gp-jrb" firstAttribute="leading" secondItem="pNX-m4-3gR" secondAttribute="leading" id="kfx-lk-B6e"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="vuD-gp-jrb" id="ev4-f2-Nbr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHE-Cj-oLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1718" y="-2"/>
+            <point key="canvasLocation" x="1716.7938931297708" y="-2.1126760563380285"/>
         </scene>
         <!--My Page Terms View Controller-->
         <scene sceneID="xiR-ZY-ALI">
