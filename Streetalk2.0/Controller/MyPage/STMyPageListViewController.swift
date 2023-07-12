@@ -27,6 +27,14 @@ class STMyPageListViewController: UIViewController {
         })
     }
     
+    @IBAction func profileSettingButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Join", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "joinRegisterViewController") as! STJoinRegisterViewController
+        nextViewController.title = "프로필 관리"
+        let navigationController = UINavigationController(rootViewController: nextViewController)
+        self.present(navigationController, animated: true)
+    }
+    
 }
 
 extension STMyPageListViewController: UITableViewDelegate {

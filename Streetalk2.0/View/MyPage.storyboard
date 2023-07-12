@@ -129,6 +129,9 @@
                                                             </constraints>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="프로필 관리"/>
+                                                            <connections>
+                                                                <action selector="profileSettingButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZXR-BA-1RU"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>

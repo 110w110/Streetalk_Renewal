@@ -35,6 +35,7 @@ class STJoinRegisterViewController: UIViewController {
     @IBOutlet var locationIndicatorView: UIActivityIndicatorView!
     
     var auth: [String : String]?
+    var isFirstRegister: Bool = true
     
     private let debugingJobList: [String] = ["식당", "카페", "주점", "오락", "미용", "숙박", "교육", "스포츠", "반려동물", "유통 및 제조", "의료", "패션"]
     
