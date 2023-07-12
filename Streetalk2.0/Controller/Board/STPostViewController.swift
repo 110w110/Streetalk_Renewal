@@ -156,7 +156,11 @@ extension STPostViewController: UITableViewDataSource {
                 cell.commentCount.text = post.replyCount?.toString()
                 cell.likeCount.text = post.likeCount?.toString()
                 cell.scrapCount.text = post.scrapCount?.toString()
-                
+                cell.like = post.likeCount
+                cell.scrap = post.scrapCount
+                cell.postId = self.postId
+                cell.likeImage.isHighlighted = post.postLike ?? false
+                cell.scrapImage.isHighlighted = post.postScrap ?? false
             }
             return cell
         } else {

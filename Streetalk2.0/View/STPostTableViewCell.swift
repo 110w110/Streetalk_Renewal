@@ -24,8 +24,12 @@ class STPostTableViewCell: UITableViewCell {
     
     @IBOutlet var likeView: UIStackView!
     @IBOutlet var scrapView: UIStackView!
+    @IBOutlet var likeImage: UIImageView!
+    @IBOutlet var scrapImage: UIImageView!
     
     var postId: Int?
+    var like: Int?
+    var scrap: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,7 +59,34 @@ class STPostTableViewCell: UITableViewCell {
 extension STPostTableViewCell {
     
     @objc func likeTapped(sender: UITapGestureRecognizer) {
-        print("like")
+        guard let id = postId else { return }
+        let request = LikePostRequest(additionalInfo: "/\(id)")
+        request.request(completion: { result in
+            switch result {
+            case let .success(data):
+                print(data)
+                
+                guard let id = self.postId else { return }
+                let postRequest = GetPostRequest(additionalInfo: "\(id)")
+                postRequest.request(completion: { result in
+                    switch result {
+                    case let .success(data):
+                        self.like = data.likeCount
+                        self.scrap = data.scrapCount
+                    case let .failure(error):
+                        print(error)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.likeCount.text = self.like?.toString()
+                        self.scrapCount.text = self.scrap?.toString()
+                        self.likeImage.isHighlighted = !self.likeImage.isHighlighted
+                    }
+                })
+            case let .failure(error):
+                print(error)
+            }
+        })
     }
     
     @objc func scrapTapped(sender: UITapGestureRecognizer) {

@@ -664,11 +664,13 @@
                                             <outlet property="commentCount" destination="Ex7-w2-otP" id="XtQ-cg-hNF"/>
                                             <outlet property="contentLabel" destination="Upg-Md-7sP" id="fcm-An-IPs"/>
                                             <outlet property="likeCount" destination="1d9-ZE-jGX" id="7oz-7x-sRt"/>
+                                            <outlet property="likeImage" destination="tW6-XA-jq5" id="59b-uu-eKb"/>
                                             <outlet property="likeView" destination="R3Q-zr-Ito" id="flw-xw-iJ9"/>
                                             <outlet property="nickNameLabel" destination="Dyv-dP-jAT" id="udY-PA-Pq2"/>
                                             <outlet property="postTimeLabel" destination="gFB-lg-bpI" id="oDI-0q-Qkh"/>
                                             <outlet property="primaryNickNameStackView" destination="Iw0-JZ-Iho" id="ZgJ-6m-61G"/>
                                             <outlet property="scrapCount" destination="eA0-u7-qdT" id="xcA-pf-Zzz"/>
+                                            <outlet property="scrapImage" destination="wmU-qU-ftp" id="u4C-1t-c9K"/>
                                             <outlet property="scrapView" destination="0mC-Jq-kbA" id="IeG-mn-prM"/>
                                             <outlet property="secondaryNickNameStackView" destination="KZZ-LG-FT5" id="KGD-ws-bG6"/>
                                             <outlet property="timeLabel" destination="OOe-8F-gUR" id="aj2-Km-kGC"/>
