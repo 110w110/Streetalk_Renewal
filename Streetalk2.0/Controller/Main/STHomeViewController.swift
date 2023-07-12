@@ -16,6 +16,7 @@ class STHomeViewController: UIViewController {
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var industryLabel: UILabel!
     
+    private let refreshControl = UIRefreshControl()
     private var kTableHeaderHeight:CGFloat = 200
     private var homeInfo: HomeInfo?
     
@@ -28,7 +29,7 @@ class STHomeViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         setStretchableHeaderView()
         updateHeaderView()
-        fetchHomeData()
+        initialSetUI()
     }
     
 }
@@ -87,6 +88,12 @@ extension STHomeViewController: UITableViewDataSource {
 
 extension STHomeViewController {
     
+    private func initialSetUI() {
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshUI), for: .valueChanged)
+        fetchHomeData()
+    }
+    
     private func fetchHomeData() {
         let request = HomeInfoRequest()
         request.request(completion: { result in
@@ -97,7 +104,6 @@ extension STHomeViewController {
                 // for test
                 self.homeInfo?.likeBoardList?.append(BoardLiked(boardName: "재밌는 게시판", boardId: 1))
                 
-                dump(self.homeInfo)
                 DispatchQueue.main.async { self.setUI() }
             case let .failure(error):
                 print("Error: Decoding error \(error)")
@@ -111,6 +117,8 @@ extension STHomeViewController {
         locationLabel.text = homeInfo?.location
         industryLabel.text = homeInfo?.industry
         
+        self.refreshControl.endRefreshing()
+        
 //        if let cell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? STBoardTableViewCell {
 //            cell.homeInfo = self.homeInfo
 //            cell.boardCollectionView.reloadData()
@@ -119,6 +127,11 @@ extension STHomeViewController {
 //            cell.homeInfo = self.homeInfo
 //            cell.likedBoardCollectionView.reloadData()
 //        }
+    }
+    
+    @objc private func refreshUI() {
+        print("refresh")
+        fetchHomeData()
     }
     
     private func setStretchableHeaderView() {

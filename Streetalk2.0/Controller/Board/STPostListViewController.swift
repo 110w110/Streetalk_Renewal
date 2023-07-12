@@ -29,9 +29,6 @@ class STPostListViewController: UIViewController {
 }
 
 extension STPostListViewController {
-    private func setUI() {
-        refreshUI()
-    }
     
     private func initialSetUI() {
         tableView.refreshControl = refreshControl
