@@ -171,6 +171,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="noticeLabel" destination="Ixy-t4-q5t" id="Drr-z6-5Xy"/>
                                             <outlet property="stackView" destination="w9m-HT-8q7" id="ALa-Om-MXq"/>
                                         </connections>
                                     </tableViewCell>

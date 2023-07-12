@@ -19,6 +19,7 @@ class STHomeViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private var kTableHeaderHeight:CGFloat = 200
     private var homeInfo: HomeInfo?
+    private var notice: Notice?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +60,7 @@ extension STHomeViewController: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "noticeTableViewCell", for: indexPath) as! NoticeTableViewCell
             cell.selectionStyle = .none
+            cell.noticeLabel.text = notice?.title
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "boardTableViewCell", for: indexPath) as! STBoardTableViewCell
@@ -105,7 +107,19 @@ extension STHomeViewController {
                 // for test
                 self.homeInfo?.likeBoardList?.append(BoardLiked(boardName: "재밌는 게시판", boardId: 1))
                 
-                DispatchQueue.main.async { self.setUI() }
+                let noticeRequest = NoticeRequest()
+                noticeRequest.request(completion: { result in
+                    switch result {
+                    case let .success(data):
+                        if data.count != 0 {
+                            self.notice = data[0]
+                        }
+                    case let .failure(error):
+                        print(error)
+                    }
+                    DispatchQueue.main.async { self.setUI() }
+                })
+                
             case let .failure(error):
                 print("Error: Decoding error \(error)")
             }
@@ -193,6 +207,7 @@ class StretchyTableViewCell: UITableViewCell {
 class NoticeTableViewCell: UITableViewCell {
     
     @IBOutlet var stackView: UIStackView!
+    @IBOutlet var noticeLabel: UILabel!
     
     override func layoutSubviews() {
         super.layoutSubviews()
