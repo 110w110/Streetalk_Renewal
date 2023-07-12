@@ -227,9 +227,16 @@
                                                 <connections>
                                                     <outlet property="bottomStackView" destination="9KZ-Zz-XXA" id="KeI-Da-BPh"/>
                                                     <outlet property="cellBackground" destination="ziY-Q2-V75" id="Etb-9v-BtU"/>
+                                                    <outlet property="commentCount" destination="w2l-0y-A7O" id="gqR-tJ-LZL"/>
                                                     <outlet property="contentLabel" destination="tAP-Zo-QN8" id="qIa-Iz-8RC"/>
+                                                    <outlet property="likeCount" destination="LNo-Bf-NqZ" id="9MJ-KK-hhc"/>
+                                                    <outlet property="likeImage" destination="9vb-qZ-mGH" id="UcQ-h0-x2z"/>
+                                                    <outlet property="likeView" destination="V6e-Nu-dwy" id="5vf-5C-Syu"/>
                                                     <outlet property="nickNameLabel" destination="6U1-YC-bV3" id="dYW-WW-VHI"/>
                                                     <outlet property="primaryNickNameStackView" destination="11f-PZ-51r" id="6dI-nC-MgE"/>
+                                                    <outlet property="scrapCount" destination="dt8-12-ONL" id="oci-sS-aLW"/>
+                                                    <outlet property="scrapImage" destination="8iM-lP-9zl" id="gUv-Cq-eFC"/>
+                                                    <outlet property="scrapView" destination="vbI-fQ-AKJ" id="mG6-sS-Obl"/>
                                                     <outlet property="secondaryNickNameStackView" destination="NXv-Wt-3Uh" id="VRu-Zm-HJx"/>
                                                     <outlet property="timeLabel" destination="K71-VX-40O" id="pBh-Hr-rLf"/>
                                                     <outlet property="titleLabel" destination="TvQ-iR-2EY" id="Afv-Yl-lcv"/>
