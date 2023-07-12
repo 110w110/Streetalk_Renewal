@@ -18,7 +18,7 @@ class STBoardTableViewCell: UITableViewCell {
     var navigation: UINavigationController?
     
     private let section = ["내 지역", "내 업종", "실시간"]
-    private var sectionSelection: BoardSelection = .newPost
+    private var sectionSelection: BoardSelection = .myLocal
     private var posts: [HomePost]? = []
     
     override func awakeFromNib() {
@@ -81,7 +81,7 @@ extension STBoardTableViewCell: UICollectionViewDataSource {
             cell.label.text = section[indexPath.row]
             cell.selectionView.backgroundColor = .streetalkPink
             
-            if indexPath.row == 2 {
+            if indexPath.row == 0 {
                 cell.isSelected = true
                 collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
             }
