@@ -66,6 +66,7 @@ extension STHomeViewController: UITableViewDataSource {
             cell.homeInfo = self.homeInfo
             cell.navigation = self.navigationController
             cell.boardCollectionView.reloadData()
+            cell.setData()
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "likedBoardTableViewCell", for: indexPath) as! STLikedBoardTableViewCell
@@ -113,6 +114,7 @@ extension STHomeViewController {
 
     private func setUI() {
         tableView.reloadData()
+        
         nickNameLabel.text = homeInfo?.userName
         locationLabel.text = homeInfo?.location
         industryLabel.text = homeInfo?.industry

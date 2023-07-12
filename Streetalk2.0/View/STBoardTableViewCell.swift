@@ -18,7 +18,7 @@ class STBoardTableViewCell: UITableViewCell {
     var navigation: UINavigationController?
     
     private let section = ["내 지역", "내 업종", "실시간"]
-    private var sectionSelection: BoardSelection = .myLocal
+    private var sectionSelection: BoardSelection = .newPost
     private var posts: [HomePost]? = []
     
     override func awakeFromNib() {
@@ -28,13 +28,7 @@ class STBoardTableViewCell: UITableViewCell {
         boardCollectionView.dataSource = self
         boardCollectionView.delegate = self
         
-        posts = homeInfo?.myLocalPosts
-        
-        if posts == nil || posts?.count == 0 {
-            self.emptyLabel.isHidden = false
-        } else {
-            self.emptyLabel.isHidden = true
-        }
+        setData()
     }
     
     override func layoutSubviews() {
@@ -47,6 +41,23 @@ class STBoardTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func setData() {
+        switch sectionSelection {
+        case .newPost:
+            posts = homeInfo?.newPosts
+        case .myLocal:
+            posts = homeInfo?.myLocalPosts
+        case .myIndustry:
+            posts = homeInfo?.myIndustryPosts
+        }
+        
+        if posts == nil || posts?.count == 0 {
+            self.emptyLabel.isHidden = false
+        } else {
+            self.emptyLabel.isHidden = true
+        }
     }
 }
 
@@ -70,7 +81,7 @@ extension STBoardTableViewCell: UICollectionViewDataSource {
             cell.label.text = section[indexPath.row]
             cell.selectionView.backgroundColor = .streetalkPink
             
-            if indexPath.row == 0 {
+            if indexPath.row == 2 {
                 cell.isSelected = true
                 collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
             }
