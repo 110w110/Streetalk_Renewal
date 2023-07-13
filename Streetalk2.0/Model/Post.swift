@@ -22,6 +22,7 @@ struct Post: Codable {
     let postLike : Bool?
     let postScrap : Bool?
     let replyList : [Reply]?
+    let hasAuthority : Bool?
     let images : [String]?
 
     enum CodingKeys: String, CodingKey {
@@ -39,6 +40,7 @@ struct Post: Codable {
         case postLike
         case postScrap
         case replyList
+        case hasAuthority
         case images
     }
 
@@ -58,6 +60,7 @@ struct Post: Codable {
         postLike = try values.decodeIfPresent(Bool.self, forKey: .postLike)
         postScrap = try values.decodeIfPresent(Bool.self, forKey: .postScrap)
         replyList = try values.decodeIfPresent([Reply].self, forKey: .replyList)
+        hasAuthority = try values.decodeIfPresent(Bool.self, forKey: .hasAuthority)
         images = try values.decodeIfPresent([String].self, forKey: .images)
     }
 

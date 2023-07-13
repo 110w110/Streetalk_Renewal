@@ -14,4 +14,5 @@ struct Reply : Codable {
     let location : String?
     let content : String?
     let lastTime : Int?
+    let hasAuthority : Bool?
 }
