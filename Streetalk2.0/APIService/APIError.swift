@@ -18,5 +18,6 @@ public enum APIError: Error {
     case httpServer5xxError
     case invalidCredential
     case dataDecodingError
+    case createRequestFail
     case requestCouldNotBeCompleted
 }
