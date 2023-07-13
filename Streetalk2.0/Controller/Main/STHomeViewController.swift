@@ -42,7 +42,7 @@ extension STHomeViewController: UITableViewDelegate {
         case 0:
             return 60
         case 2:
-            return 200
+            return 80 + ceil(CGFloat(self.homeInfo?.likeBoardList?.count ?? 0) / (2.0)) * 40
         default:
             return 360
         }
@@ -84,6 +84,7 @@ extension STHomeViewController: UITableViewDataSource {
             cell.homeInfo = self.homeInfo
             cell.navigation = self.navigationController
             cell.likedBoardCollectionView.reloadData()
+            cell.setData()
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "boardTableViewCell", for: indexPath) as! STBoardTableViewCell
@@ -111,9 +112,6 @@ extension STHomeViewController {
             switch result {
             case let .success(object):
                 self.homeInfo = object
-                
-                // for test
-                self.homeInfo?.likeBoardList?.append(BoardLiked(boardName: "재밌는 게시판", boardId: 1))
                 
                 let noticeRequest = NoticeRequest()
                 noticeRequest.request(completion: { result in
