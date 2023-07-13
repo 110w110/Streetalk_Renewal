@@ -13,9 +13,11 @@ class STPostListViewController: UIViewController {
     
     private var postList: [PostList] = []
     private let refreshControl = UIRefreshControl()
+    private var favoriteButton: UIBarButtonItem?
     
     // 임시로 1번 게시판 할당, 차후에 게시판 선택 구현 후에 수정할 예정
     var boardId: Int? = 1
+    var favorite: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,9 @@ extension STPostListViewController {
     private func initialSetUI() {
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshUI), for: .valueChanged)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: self.favorite ? "즐겨찾기 추가" : "즐겨찾기 취소", style: .plain, target: self, action: #selector(boardLike))
+        favoriteButton = navigationItem.rightBarButtonItem
+        
         guard let id = boardId else { return }
         let request = GetPostListRequest(additionalInfo: "\(id)")
         request.request(completion: { result in
@@ -45,6 +50,7 @@ extension STPostListViewController {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+//                self.favoriteButton?.title = self.favorite ? "즐겨찾기 추가" : "즐겨찾기 취소"
             }
         })
     }
@@ -62,10 +68,26 @@ extension STPostListViewController {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.favoriteButton?.title = self.favorite ? "즐겨찾기 추가" : "즐겨찾기 취소"
                 self.refreshControl.endRefreshing()
             }
         })
         
+    }
+    
+    @objc private func boardLike() {
+        guard let id = boardId else { return }
+        let request = LikeBoardRequest(additionalInfo: "/\(id)")
+        request.request(completion: { result in
+            switch result {
+            case .success(let data):
+                print(data)
+                self.favorite = !self.favorite
+                self.refreshUI()
+            case .failure(let error):
+                print(error)
+            }
+        })
     }
 }
 
