@@ -79,11 +79,9 @@ extension STPostViewController {
         DispatchQueue.main.async {
             if self.anonymous {
                 self.anonymousButton.setTitle("익명", for: .selected)
-//                self.anonymousButton.setBackgroundColor(.streetalkPink, for: .selected)
                 self.anonymousButton.tintColor = .streetalkPink
             } else {
                 self.anonymousButton.setTitle("실명", for: .selected)
-//                self.anonymousButton.setBackgroundColor(.streetalkOrange, for: .normal)
                 self.anonymousButton.tintColor = .streetalkOrange
             }
         }

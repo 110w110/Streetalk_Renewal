@@ -70,6 +70,7 @@ extension STLikedBoardTableViewCell: UICollectionViewDelegate {
         let postListViewController = storyboard.instantiateViewController(identifier: "postListViewController") as! STPostListViewController
         postListViewController.boardId = homeInfo?.likeBoardList?[indexPath.row].boardId
         postListViewController.title = homeInfo?.likeBoardList?[indexPath.row].boardName
+//        postListViewController.favorite = homeInfo?.likeBoardList?[indexPath.row].
         self.navigation?.pushViewController(postListViewController, animated: true)
     }
     

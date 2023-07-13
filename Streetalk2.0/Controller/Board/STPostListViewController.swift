@@ -35,7 +35,8 @@ extension STPostListViewController {
     private func initialSetUI() {
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshUI), for: .valueChanged)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: self.favorite ? "즐겨찾기 추가" : "즐겨찾기 취소", style: .plain, target: self, action: #selector(boardLike))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: self.favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star"), style: .plain, target: self, action: #selector(boardLike))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: self.favorite ? "즐겨찾기 추가" : "즐겨찾기 취소", style: .plain, target: self, action: #selector(boardLike))
         favoriteButton = navigationItem.rightBarButtonItem
         
         guard let id = boardId else { return }
@@ -50,7 +51,6 @@ extension STPostListViewController {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-//                self.favoriteButton?.title = self.favorite ? "즐겨찾기 추가" : "즐겨찾기 취소"
             }
         })
     }
@@ -68,7 +68,7 @@ extension STPostListViewController {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                self.favoriteButton?.title = self.favorite ? "즐겨찾기 추가" : "즐겨찾기 취소"
+                self.navigationItem.rightBarButtonItem?.image = self.favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
                 self.refreshControl.endRefreshing()
             }
         })
