@@ -65,6 +65,8 @@
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
 		337CB04F2A49550B00A7E375 /* STPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337CB04E2A49550B00A7E375 /* STPostViewController.swift */; };
 		3388DB452A5F8D7B004A64CE /* LikeBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB442A5F8D7A004A64CE /* LikeBoardRequest.swift */; };
+		3388DB472A5F976C004A64CE /* Password.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3388DB462A5F976C004A64CE /* Password.storyboard */; };
+		3388DB4A2A5F98D3004A64CE /* STPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB492A5F98D3004A64CE /* STPasswordViewController.swift */; };
 		3399BAF52A400E9400A56A4B /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF42A400E9400A56A4B /* String+.swift */; };
 		3399BAF82A40122100A56A4B /* AnyFormatKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3399BAF72A40122100A56A4B /* AnyFormatKit */; };
 		3399BAFA2A401C2400A56A4B /* STJoinRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */; };
@@ -179,6 +181,8 @@
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
 		337CB04E2A49550B00A7E375 /* STPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostViewController.swift; sourceTree = "<group>"; };
 		3388DB442A5F8D7A004A64CE /* LikeBoardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBoardRequest.swift; sourceTree = "<group>"; };
+		3388DB462A5F976C004A64CE /* Password.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Password.storyboard; sourceTree = "<group>"; };
+		3388DB492A5F98D3004A64CE /* STPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPasswordViewController.swift; sourceTree = "<group>"; };
 		3399BAF42A400E9400A56A4B /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinRegisterViewController.swift; sourceTree = "<group>"; };
 		3399BAFB2A402FE200A56A4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -285,6 +289,14 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		3388DB482A5F989A004A64CE /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				3388DB492A5F98D3004A64CE /* STPasswordViewController.swift */,
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
 		339AE2BE2A273F5D006005AE /* APIService */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +341,7 @@
 				33506C162A40456F00BFCBF0 /* Search.storyboard */,
 				330CE9902A3A90AA00BFA26F /* Alert.storyboard */,
 				330CE9922A3A90B200BFA26F /* MyPage.storyboard */,
+				3388DB462A5F976C004A64CE /* Password.storyboard */,
 				33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */,
 				33BB8BF62A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift */,
 				330CE9722A38444400BFA26F /* STButton.swift */,
@@ -357,6 +370,7 @@
 				33D30C272A4543470053C0CF /* Board */,
 				33D30C282A45434F0053C0CF /* Search */,
 				33D30C292A4543560053C0CF /* MyPage */,
+				3388DB482A5F989A004A64CE /* Password */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -610,6 +624,7 @@
 				33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */,
 				330CE9832A38A4F700BFA26F /* Join.storyboard in Resources */,
 				330CE9932A3A90B200BFA26F /* MyPage.storyboard in Resources */,
+				3388DB472A5F976C004A64CE /* Password.storyboard in Resources */,
 				B2C2254E29D6BE4E00222C8A /* Main.storyboard in Resources */,
 				330CE9912A3A90AA00BFA26F /* Alert.storyboard in Resources */,
 			);
@@ -652,6 +667,7 @@
 				337CB04F2A49550B00A7E375 /* STPostViewController.swift in Sources */,
 				3399BAFC2A402FE200A56A4B /* UIView+.swift in Sources */,
 				330CE9A32A3C35B600BFA26F /* STJoinMobileAuthViewController.swift in Sources */,
+				3388DB4A2A5F98D3004A64CE /* STPasswordViewController.swift in Sources */,
 				33D4C9672A5EDECF0099E94A /* Notice.swift in Sources */,
 				3314278F2A541EAC004AFF23 /* STReplyTableViewCell.swift in Sources */,
 				33D30C232A453A710053C0CF /* STMyPageFAQViewController.swift in Sources */,

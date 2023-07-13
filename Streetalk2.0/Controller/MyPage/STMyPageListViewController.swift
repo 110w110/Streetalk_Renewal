@@ -58,6 +58,8 @@ extension STMyPageListViewController: UITableViewDelegate {
             switch indexPath.row {
             case 0:
                 performSegue(withIdentifier: "popUpSegue", sender: [self.contents[1][indexPath.row], "로그아웃 하시겠습니까?", PopUpViewUsage.logout] as [Any])
+            case 1:
+                showNextViewController(identifier: "passwordViewController", title: "암호 설정", viewControllerType: STPasswordViewController.self, storyboard: UIStoryboard(name: "Password", bundle: nil))
             case 2:
                 performSegue(withIdentifier: "popUpSegue", sender: [self.contents[1][indexPath.row], "확인을 누르시면 되돌릴 수 없습니다.", PopUpViewUsage.leave] as [Any])
             default:
@@ -136,8 +138,8 @@ extension STMyPageListViewController: UITableViewDataSource {
 
 extension STMyPageListViewController {
     
-    private func showNextViewController<T: UIViewController>(identifier: String, title: String, viewControllerType: T.Type) {
-        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: identifier) as? T else { return }
+    private func showNextViewController<T: UIViewController>(identifier: String, title: String, viewControllerType: T.Type, storyboard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil)) {
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: identifier) as? T else { return }
         viewController.title = title
         self.navigationController?.pushViewController(viewController, animated: true)
     }
