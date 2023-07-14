@@ -98,6 +98,8 @@ extension STPostViewController {
             case let .success(data):
                 self.post = data
                 self.replies = data.replyList ?? []
+                print(data.hasAuthority)
+//                print(data.replyList)
             case let .failure(error):
                 print(error)
             }
@@ -169,6 +171,9 @@ extension STPostViewController: UITableViewDataSource {
             cell.nickNameLabel.text = replies[indexPath.row - 1].replyWriterName
             cell.contentLabel.text = replies[indexPath.row - 1].content
             cell.timeLabel.text = replies[indexPath.row - 1].lastTime?.toLastTimeString()
+            if let hasAuthority = replies[indexPath.row - 1].hasAuthority {
+                cell.replyButton.setTitle(hasAuthority ? "삭제" : "신고", for: .normal)
+            }
             return cell
             
         }
