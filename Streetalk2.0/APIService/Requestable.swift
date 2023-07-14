@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol Requestable {
     associatedtype ResultType: Codable
@@ -21,12 +22,13 @@ protocol Requestable {
 extension Requestable {
     var baseUrl: String { ServerData.url }
     var header: [String : String] { ["application/json" : "Content-Type"] }
+    var headerForMulitipart: [String : String] { ["multipart/form-data; boundary=\(UUID().uuidString)" : "Content-Type"] }
     var credential: String? { UserDefaults.standard.string(forKey: "userToken") }
 }
 
 extension Requestable {
-    func request(completion: @escaping (Result<ResultType, APIError>) -> Void) {
-        var innerHeader: [String : String] = self.header
+    func request(multipart: Bool = false, imagesData: [Data] = [], completion: @escaping (Result<ResultType, APIError>) -> Void) {
+        var innerHeader: [String : String] = multipart ? self.headerForMulitipart : self.header
         
         if auth {
             guard let credential = credential else {
@@ -37,16 +39,36 @@ extension Requestable {
             innerHeader["Bearer " + credential] = "Authorization"
         }
         
-        APIClient.shared.request(url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param) { result in
-            switch result {
-            case let .success(response):
-                guard let data = dataToObject(data: response) as? ResultType else { return }
-                completion(.success(data))
-            case let .failure(error):
-                print(error)
-                completion(.failure(error))
+        if multipart {
+            let boundary = generateBoundaryString()
+            let dataList = imagesData.count == 0 ? [Data()] : imagesData
+            
+            let bodyData = createBody(parameters: param, boundary: boundary, dataList: dataList, mimeType: "image/png", filename: "Image.png")
+            
+            APIClient.shared.request(data: bodyData, url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param, completion: { result in
+                switch result {
+                case let .success(response):
+                    guard let data = dataToObject(data: response) as? ResultType else { return }
+                    completion(.success(data))
+                case let .failure(error):
+                    print(error)
+                    completion(.failure(error))
+                }
+            })
+            
+        } else {
+            APIClient.shared.request(url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param) { result in
+                switch result {
+                case let .success(response):
+                    guard let data = dataToObject(data: response) as? ResultType else { return }
+                    completion(.success(data))
+                case let .failure(error):
+                    print(error)
+                    completion(.failure(error))
+                }
             }
         }
+        
     }
     
     func dataToObject(data: Data) -> Codable? {
@@ -63,6 +85,39 @@ extension Requestable {
             return nil
         }
     }
+    
+    private func generateBoundaryString() -> String {
+        return "Boundary-\(UUID().uuidString)"
+    }
+    
+    private func createBody(parameters: [String: Any]?,
+                                boundary: String,
+                                dataList: [Data],
+                                mimeType: String,
+                                filename: String) -> Data {
+        var body = Data()
+        let imgDataKey = "multipartFiles"
+        let boundaryPrefix = "--\(boundary)\r\n"
+        
+        if let parameters = parameters {
+            for (key, value) in parameters {
+                body.append(boundaryPrefix.data(using: .utf8)!)
+                body.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!)
+                body.append("\(value)\r\n".data(using: .utf8)!)
+            }
+        }
+        
+        for data in dataList {
+            body.append(boundaryPrefix.data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"\(imgDataKey)\"; filename=\"\(filename)\"\r\n".data(using: .utf8)!)
+            body.append("Content-Type: \(mimeType)\r\n\r\n".data(using: .utf8)!)
+            body.append(data)
+            body.append("\r\n".data(using: .utf8)!)
+            body.append("--".appending(boundary.appending("--\r\n")).data(using: .utf8)!)
+        }
+
+        return body as Data
+    }
 }
 
 public enum HttpMethods: String {
@@ -71,4 +126,3 @@ public enum HttpMethods: String {
     case put    = "PUT"
     case delete = "DELETE"
 }
-

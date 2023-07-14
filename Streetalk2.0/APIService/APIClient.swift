@@ -13,23 +13,36 @@ final class APIClient {
     
     private let timeoutInterval = 10.0
     
-    func request(url: String, method: HttpMethods, header: [String : String],  param: [String : Any]?, completion: @escaping (Result<Data, APIError>) -> Void) {
+    private func createRequest(url: String, method: HttpMethods, header: [String : String]) -> URLRequest? {
         guard let url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: url) else {
             print("Error: cannot create URL")
-            completion(.failure(.invalidUrl))
-            return
+            return nil
         }
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.timeoutInterval = timeoutInterval
         
-        if let param = param {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: param, options: [])
-        }
-        
         for item in header {
             request.setValue(item.key, forHTTPHeaderField: item.value)
+        }
+        
+        return request
+    }
+    
+    func request(data: Data? = nil, url: String, method: HttpMethods, header: [String : String],  param: [String : Any]?, completion: @escaping (Result<Data, APIError>) -> Void) {
+        
+        guard var request = createRequest(url: url, method: method, header: header) else {
+            completion(.failure(.createRequestFail))
+            return
+        }
+        
+        if let data = data {
+            request.httpBody = data
+        } else {
+            if let param = param {
+                request.httpBody = try? JSONSerialization.data(withJSONObject: param, options: [])
+            }
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -61,8 +74,10 @@ final class APIClient {
                 case (300 ..< 399):
                     completion(.failure(.httpRedirection3xxError))
                 case (400 ..< 499):
+                    print(response)
                     completion(.failure(.httpClient4xxError))
                 case (500 ..< 599):
+                    print(response)
                     completion(.failure(.httpServer5xxError))
                 default:
                     completion(.failure(.httpNetworkRequestError))
@@ -75,4 +90,5 @@ final class APIClient {
             
         }.resume()
     }
+    
 }
