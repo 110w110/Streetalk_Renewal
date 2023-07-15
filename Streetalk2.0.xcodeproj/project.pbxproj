@@ -67,6 +67,7 @@
 		3388DB452A5F8D7B004A64CE /* LikeBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB442A5F8D7A004A64CE /* LikeBoardRequest.swift */; };
 		3388DB472A5F976C004A64CE /* Password.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3388DB462A5F976C004A64CE /* Password.storyboard */; };
 		3388DB4A2A5F98D3004A64CE /* STPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB492A5F98D3004A64CE /* STPasswordViewController.swift */; };
+		3388DB4D2A6120D9004A64CE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3388DB4C2A6120D9004A64CE /* Kingfisher */; };
 		3399BAF52A400E9400A56A4B /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF42A400E9400A56A4B /* String+.swift */; };
 		3399BAF82A40122100A56A4B /* AnyFormatKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3399BAF72A40122100A56A4B /* AnyFormatKit */; };
 		3399BAFA2A401C2400A56A4B /* STJoinRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */; };
@@ -229,6 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3388DB4D2A6120D9004A64CE /* Kingfisher in Frameworks */,
 				3399BAF82A40122100A56A4B /* AnyFormatKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,6 +527,7 @@
 			name = Streetalk2.0;
 			packageProductDependencies = (
 				3399BAF72A40122100A56A4B /* AnyFormatKit */,
+				3388DB4C2A6120D9004A64CE /* Kingfisher */,
 			);
 			productName = Streetalk2.0;
 			productReference = B2C2254329D6BE4E00222C8A /* Streetalk2.0.app */;
@@ -600,6 +603,7 @@
 			mainGroup = B2C2253A29D6BE4E00222C8A;
 			packageReferences = (
 				3399BAF62A40122100A56A4B /* XCRemoteSwiftPackageReference "AnyFormatKit" */,
+				3388DB4B2A6120D9004A64CE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = B2C2254429D6BE4E00222C8A /* Products */;
 			projectDirPath = "";
@@ -1096,6 +1100,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3388DB4B2A6120D9004A64CE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		3399BAF62A40122100A56A4B /* XCRemoteSwiftPackageReference "AnyFormatKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/luximetr/AnyFormatKit.git";
@@ -1107,6 +1119,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3388DB4C2A6120D9004A64CE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3388DB4B2A6120D9004A64CE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		3399BAF72A40122100A56A4B /* AnyFormatKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3399BAF62A40122100A56A4B /* XCRemoteSwiftPackageReference "AnyFormatKit" */;

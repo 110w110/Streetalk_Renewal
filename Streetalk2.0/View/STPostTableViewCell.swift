@@ -27,13 +27,18 @@ class STPostTableViewCell: UITableViewCell {
     @IBOutlet var likeImage: UIImageView!
     @IBOutlet var scrapImage: UIImageView!
     
+    @IBOutlet var imageCollectionView: UICollectionView!
+    
     var postId: Int?
     var like: Int?
     var scrap: Int?
+    var imageUrls: [String]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        imageCollectionView.dataSource = self
+        
         cellBackground.setRoundedBorder()
         bottomStackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 15, right: 10)
         bottomStackView.isLayoutMarginsRelativeArrangement = true
@@ -119,4 +124,32 @@ extension STPostTableViewCell {
             }
         })
     }
+}
+
+extension STPostTableViewCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imageUrls?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postImageCell", for: indexPath) as! PostImageCell
+        
+        if let image = imageUrls?[indexPath.row] {
+            let url = URL(string: image)
+            cell.imageView.kf.indicatorType = .activity
+            cell.imageView.kf.setImage(
+              with: url,
+              placeholder: nil,
+              options: [.transition(.fade(1.2))],
+              completionHandler: nil
+            )
+        }
+            
+        return cell
+    }
+    
+}
+
+class PostImageCell: UICollectionViewCell {
+    @IBOutlet var imageView: UIImageView!
 }

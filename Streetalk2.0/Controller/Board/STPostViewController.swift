@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class STPostViewController: UIViewController {
 
@@ -161,6 +162,7 @@ extension STPostViewController: UITableViewDataSource {
                 cell.postId = self.postId
                 cell.likeImage.isHighlighted = post.postLike ?? false
                 cell.scrapImage.isHighlighted = post.postScrap ?? false
+                cell.imageUrls = post.images
             }
             return cell
         } else {
