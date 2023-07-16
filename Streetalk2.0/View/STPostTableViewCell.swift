@@ -38,6 +38,7 @@ class STPostTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         imageCollectionView.dataSource = self
+        imageCollectionView.delegate = self
         
         cellBackground.setRoundedBorder()
         bottomStackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 15, right: 10)
@@ -124,6 +125,20 @@ extension STPostTableViewCell {
             }
         })
     }
+}
+
+extension STPostTableViewCell: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = collectionView.frame.width
+        let height: CGFloat = collectionView.frame.height
+        return CGSize(width: width, height: height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
 }
 
 extension STPostTableViewCell: UICollectionViewDataSource {

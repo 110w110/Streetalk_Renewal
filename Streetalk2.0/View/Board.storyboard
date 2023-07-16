@@ -558,13 +558,13 @@
                                                                                 <constraint firstAttribute="height" constant="15" id="XYy-1P-6Jn"/>
                                                                             </constraints>
                                                                         </stackView>
-                                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dpK-Zt-f6a">
+                                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dpK-Zt-f6a">
                                                                             <rect key="frame" x="0.0" y="60" width="353" height="10"/>
-                                                                            <color key="backgroundColor" red="0.66666668650000005" green="0.14901961389999999" blue="0.1058823466" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="200" id="7gG-B1-xO3"/>
                                                                             </constraints>
-                                                                            <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qZN-vd-uor">
+                                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qZN-vd-uor">
                                                                                 <size key="itemSize" width="128" height="128"/>
                                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -572,7 +572,7 @@
                                                                             </collectionViewFlowLayout>
                                                                             <cells>
                                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="postImageViewCollectionViewCell" id="IbQ-cM-kzQ" customClass="STPostImageViewCollectionViewCell" customModule="Streetalk2_0" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                                    <rect key="frame" x="0.0" y="-59" width="128" height="128"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tBL-Kk-2Ra">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
