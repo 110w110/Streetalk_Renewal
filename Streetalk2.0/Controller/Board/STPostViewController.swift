@@ -87,7 +87,8 @@ extension STPostViewController {
             }
         }
     }
-    private func setUI() {
+    
+    func setUI() {
         bottomView.setRoundedBorder(shadow: true, bottomExtend: true)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "신고", style: .plain, target: self, action: #selector(showReportViewController))
@@ -178,6 +179,7 @@ extension STPostViewController: UITableViewDataSource {
             cell.contentLabel.text = replies[indexPath.row - 1].content
             cell.timeLabel.text = replies[indexPath.row - 1].lastTime?.toLastTimeString()
             if let hasAuthority = replies[indexPath.row - 1].hasAuthority {
+                cell.hasAuthority = hasAuthority
                 cell.replyButton.setTitle(hasAuthority ? "삭제" : "신고", for: .normal)
             }
             return cell

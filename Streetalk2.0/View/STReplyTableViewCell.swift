@@ -15,8 +15,9 @@ class STReplyTableViewCell: UITableViewCell {
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var replyButton: UIButton!
     
-    var targetViewController: UIViewController?
+    var targetViewController: STPostViewController?
     var replyId: Int?
+    var hasAuthority: Bool?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,14 +32,44 @@ class STReplyTableViewCell: UITableViewCell {
     }
 
     @IBAction func replyButtonTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Board", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "reportViewController") as! STReportViewController
-        viewController.target = .reply
-        viewController.replyId = replyId
-        viewController.modalPresentationStyle = .overFullScreen
-        viewController.modalTransitionStyle = .crossDissolve
-        guard let targetViewController = targetViewController else { return }
-        targetViewController.present(viewController, animated: true)
+        guard let hasAuthority = hasAuthority else { return }
+        switch hasAuthority {
+        case true:
+            let alert = UIAlertController(title: "삭제", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "확인", style: .default) { _ in
+                let request = ReplyDeleteRequest(additionalInfo: self.replyId?.toString())
+                request.request(completion: { result in
+                    var alert: UIAlertController
+                    switch result {
+                    case .success(_):
+                        alert = UIAlertController(title: "댓글 삭제", message: "댓글 삭제에 성공하였습니다.", preferredStyle: .alert)
+                    case .failure(_):
+                        alert = UIAlertController(title: "댓글 삭제", message: "댓글 삭제에 실패하였습니다.", preferredStyle: .alert)
+                    }
+                    let okay = UIAlertAction(title: "확인", style: .default)
+                    alert.addAction(okay)
+                    DispatchQueue.main.async {
+                        self.targetViewController?.present(alert, animated: true)
+                        self.targetViewController?.setUI()
+                    }
+                })
+            }
+            let cancel = UIAlertAction(title: "취소", style: .cancel)
+            alert.addAction(cancel)
+            alert.addAction(confirm)
+            DispatchQueue.main.async {
+                self.targetViewController?.present(alert, animated: true)
+            }
+        case false:
+            let storyboard = UIStoryboard(name: "Board", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "reportViewController") as! STReportViewController
+            viewController.target = .reply
+            viewController.replyId = replyId
+            viewController.modalPresentationStyle = .overFullScreen
+            viewController.modalTransitionStyle = .crossDissolve
+            guard let targetViewController = targetViewController else { return }
+            targetViewController.present(viewController, animated: true)
+        }
     }
     
 }
