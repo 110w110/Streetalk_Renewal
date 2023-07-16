@@ -19,7 +19,7 @@ class STNoticeDetailViewController: UIViewController {
         super.viewDidLoad()
 
         titleLabel.text = notice?.title
-        timeLabel.text = notice?.createdDate
+        timeLabel.text = notice?.createDate
         contentLabel.text = notice?.content
     }
 

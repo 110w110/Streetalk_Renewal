@@ -58,7 +58,7 @@ extension STMyPageNoticeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noticeTableViewCell") as! STMyPageNoticeCell
         cell.titleLabel.text = noticeList?[indexPath.row].title
-        cell.timeLabel.text = noticeList?[indexPath.row].createdDate
+        cell.timeLabel.text = noticeList?[indexPath.row].createDate
         cell.selectionStyle = .none
         return cell
     }
