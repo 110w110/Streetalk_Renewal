@@ -20,6 +20,7 @@ class STPostViewController: UIViewController {
     private var post: Post?
     private var replies: [Reply] = []
     private var anonymous: Bool = true
+    private var hasAuthority: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,8 +91,6 @@ extension STPostViewController {
     
     func setUI() {
         bottomView.setRoundedBorder(shadow: true, bottomExtend: true)
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "신고", style: .plain, target: self, action: #selector(showReportViewController))
 
         guard let id = postId else { return }
         let request = GetPostRequest(additionalInfo: "\(id)")
@@ -100,19 +99,59 @@ extension STPostViewController {
             case let .success(data):
                 self.post = data
                 self.replies = data.replyList ?? []
-                print(data.hasAuthority)
-//                print(data.replyList)
+                self.hasAuthority = data.hasAuthority ?? false
             case let .failure(error):
                 print(error)
             }
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: self.hasAuthority ? "삭제" : "신고", style: .plain, target: self, action: #selector(self.optionButtonTapped))
             }
         })
     }
     
-    @objc private func showReportViewController() {
+    @objc private func optionButtonTapped() {
+        switch hasAuthority {
+        case true:
+            deletePost()
+        case false:
+            showReportViewController()
+        }
+    }
+    
+    private func deletePost() {
+        let alert = UIAlertController(title: "삭제", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "확인", style: .default) { _ in
+            let request = PostDeleteRequest(additionalInfo: self.postId?.toString())
+            request.request(completion: { result in
+                var alert: UIAlertController
+                switch result {
+                case .success(_):
+                    alert = UIAlertController(title: "게시글 삭제", message: "게시글 삭제에 성공하였습니다.", preferredStyle: .alert)
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                case .failure(_):
+                    alert = UIAlertController(title: "게시글 삭제", message: "게시글 삭제에 실패하였습니다.", preferredStyle: .alert)
+                }
+                let okay = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(okay)
+                DispatchQueue.main.async {
+                    self.present(alert, animated: true)
+                }
+            })
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(cancel)
+        alert.addAction(confirm)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
+        
+    }
+    
+    private func showReportViewController() {
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "reportViewController") as! STReportViewController
         viewController.postId = self.postId
         viewController.modalPresentationStyle = .overFullScreen

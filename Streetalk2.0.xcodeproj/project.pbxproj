@@ -70,6 +70,7 @@
 		3388DB4D2A6120D9004A64CE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3388DB4C2A6120D9004A64CE /* Kingfisher */; };
 		3388DB4F2A641729004A64CE /* STPostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB4E2A641729004A64CE /* STPostListTableViewCell.swift */; };
 		3388DB512A642A44004A64CE /* ReplyDeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB502A642A44004A64CE /* ReplyDeleteRequest.swift */; };
+		3388DB532A64322C004A64CE /* PostDeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB522A64322C004A64CE /* PostDeleteRequest.swift */; };
 		3399BAF52A400E9400A56A4B /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF42A400E9400A56A4B /* String+.swift */; };
 		3399BAF82A40122100A56A4B /* AnyFormatKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3399BAF72A40122100A56A4B /* AnyFormatKit */; };
 		3399BAFA2A401C2400A56A4B /* STJoinRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */; };
@@ -188,6 +189,7 @@
 		3388DB492A5F98D3004A64CE /* STPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPasswordViewController.swift; sourceTree = "<group>"; };
 		3388DB4E2A641729004A64CE /* STPostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostListTableViewCell.swift; sourceTree = "<group>"; };
 		3388DB502A642A44004A64CE /* ReplyDeleteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyDeleteRequest.swift; sourceTree = "<group>"; };
+		3388DB522A64322C004A64CE /* PostDeleteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDeleteRequest.swift; sourceTree = "<group>"; };
 		3399BAF42A400E9400A56A4B /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinRegisterViewController.swift; sourceTree = "<group>"; };
 		3399BAFB2A402FE200A56A4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				33D4C9622A5E6F090099E94A /* ScarpPostRequest.swift */,
 				33D4C9642A5EDE770099E94A /* NoticeRequest.swift */,
 				3388DB502A642A44004A64CE /* ReplyDeleteRequest.swift */,
+				3388DB522A64322C004A64CE /* PostDeleteRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				339AE2C42A273FE8006005AE /* APIClient.swift in Sources */,
 				B2C2257929D6BF2000222C8A /* STTabBarController.swift in Sources */,
 				33D4C9632A5E6F090099E94A /* ScarpPostRequest.swift in Sources */,
+				3388DB532A64322C004A64CE /* PostDeleteRequest.swift in Sources */,
 				330CE99D2A3A961000BFA26F /* STWriteViewController.swift in Sources */,
 				330CE98D2A3A8B8500BFA26F /* STRootViewController.swift in Sources */,
 				330CE9712A3843D400BFA26F /* UIColor+.swift in Sources */,
