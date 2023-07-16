@@ -163,6 +163,10 @@ extension STPostViewController: UITableViewDataSource {
                 cell.likeImage.isHighlighted = post.postLike ?? false
                 cell.scrapImage.isHighlighted = post.postScrap ?? false
                 cell.imageUrls = post.images
+                cell.imageCollectionView.isHidden = false
+                DispatchQueue.main.async {
+                    cell.imageCollectionView.reloadData()
+                }
             }
             return cell
         } else {

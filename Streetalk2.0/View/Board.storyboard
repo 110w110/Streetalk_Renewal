@@ -261,7 +261,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postTableViewCell" id="4qM-Lx-rKL" customClass="STPostTableViewCell" customModule="Streetalk2_0" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postListTableViewCell" id="4qM-Lx-rKL" customClass="STPostListTableViewCell" customModule="Streetalk2_0" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="172"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4qM-Lx-rKL" id="4p0-pz-1cs">
@@ -335,43 +335,6 @@
                                                                                 <constraint firstAttribute="height" constant="15" id="uYl-Eb-ZAZ"/>
                                                                             </constraints>
                                                                         </stackView>
-                                                                        <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qEk-an-hAz">
-                                                                            <rect key="frame" x="0.0" y="82" width="353" height="200"/>
-                                                                            <color key="backgroundColor" red="0.66666668650000005" green="0.14901961389999999" blue="0.1058823466" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="200" id="p8k-rr-KXf"/>
-                                                                            </constraints>
-                                                                            <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YZ3-In-5X5">
-                                                                                <size key="itemSize" width="128" height="128"/>
-                                                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                                            </collectionViewFlowLayout>
-                                                                            <cells>
-                                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="postImageCell" id="E9r-VT-oZo" customClass="PostImageCell">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="47" height="52"/>
-                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                    <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yTj-xj-1pk">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="47" height="52"/>
-                                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                        <subviews>
-                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="XYY-zF-hzw">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="47" height="52"/>
-                                                                                            </imageView>
-                                                                                        </subviews>
-                                                                                        <constraints>
-                                                                                            <constraint firstItem="XYY-zF-hzw" firstAttribute="leading" secondItem="yTj-xj-1pk" secondAttribute="leading" id="DlB-tt-aaR"/>
-                                                                                            <constraint firstAttribute="trailing" secondItem="XYY-zF-hzw" secondAttribute="trailing" id="Xu7-VT-nsm"/>
-                                                                                            <constraint firstAttribute="bottom" secondItem="XYY-zF-hzw" secondAttribute="bottom" id="d9M-Q4-RBp"/>
-                                                                                            <constraint firstItem="XYY-zF-hzw" firstAttribute="top" secondItem="yTj-xj-1pk" secondAttribute="top" id="mWP-JY-vUb"/>
-                                                                                        </constraints>
-                                                                                    </collectionViewCellContentView>
-                                                                                    <connections>
-                                                                                        <outlet property="imageView" destination="XYY-zF-hzw" id="LbX-1r-k1p"/>
-                                                                                    </connections>
-                                                                                </collectionViewCell>
-                                                                            </cells>
-                                                                        </collectionView>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
@@ -479,7 +442,6 @@
                                             <outlet property="cellBackground" destination="Ddd-GX-vj2" id="xLK-Vy-LQy"/>
                                             <outlet property="commentCount" destination="dIT-kM-0yv" id="sVw-mB-gos"/>
                                             <outlet property="contentLabel" destination="e2B-xl-ka1" id="Az5-xT-RBa"/>
-                                            <outlet property="imageCollectionView" destination="qEk-an-hAz" id="lL6-5a-whw"/>
                                             <outlet property="likeCount" destination="te4-yf-ugs" id="OEe-pU-ddV"/>
                                             <outlet property="likeImage" destination="GUJ-jd-LiY" id="0do-W9-RZR"/>
                                             <outlet property="likeView" destination="baa-lk-Aby" id="VhT-CO-rIJ"/>
@@ -609,26 +571,26 @@
                                                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                             </collectionViewFlowLayout>
                                                                             <cells>
-                                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="postImageCell" id="IbQ-cM-kzQ" customClass="PostImageCell">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="47" height="52"/>
+                                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="postImageViewCollectionViewCell" id="IbQ-cM-kzQ" customClass="STPostImageViewCollectionViewCell" customModule="Streetalk2_0" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tBL-Kk-2Ra">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="47" height="52"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                                         <subviews>
-                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="GLm-Su-sTb">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="47" height="52"/>
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XVP-sJ-1LO">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                                                             </imageView>
                                                                                         </subviews>
                                                                                         <constraints>
-                                                                                            <constraint firstItem="GLm-Su-sTb" firstAttribute="leading" secondItem="tBL-Kk-2Ra" secondAttribute="leading" id="CCq-8o-ehJ"/>
-                                                                                            <constraint firstAttribute="trailing" secondItem="GLm-Su-sTb" secondAttribute="trailing" id="GkH-z8-LB4"/>
-                                                                                            <constraint firstItem="GLm-Su-sTb" firstAttribute="top" secondItem="tBL-Kk-2Ra" secondAttribute="top" id="bOz-37-4mD"/>
-                                                                                            <constraint firstAttribute="bottom" secondItem="GLm-Su-sTb" secondAttribute="bottom" id="oRh-Oz-dg9"/>
+                                                                                            <constraint firstItem="XVP-sJ-1LO" firstAttribute="top" secondItem="tBL-Kk-2Ra" secondAttribute="top" id="2WF-Rk-dUj"/>
+                                                                                            <constraint firstAttribute="trailing" secondItem="XVP-sJ-1LO" secondAttribute="trailing" id="3qm-9R-LgY"/>
+                                                                                            <constraint firstItem="XVP-sJ-1LO" firstAttribute="leading" secondItem="tBL-Kk-2Ra" secondAttribute="leading" id="aX3-NN-wAq"/>
+                                                                                            <constraint firstAttribute="bottom" secondItem="XVP-sJ-1LO" secondAttribute="bottom" id="sWa-1b-Q8s"/>
                                                                                         </constraints>
                                                                                     </collectionViewCellContentView>
                                                                                     <connections>
-                                                                                        <outlet property="imageView" destination="GLm-Su-sTb" id="LJT-nX-SQy"/>
+                                                                                        <outlet property="imageView" destination="XVP-sJ-1LO" id="sUK-zk-Tff"/>
                                                                                     </connections>
                                                                                 </collectionViewCell>
                                                                             </cells>
@@ -1055,7 +1017,6 @@
         <image name="Comment" width="42" height="39"/>
         <image name="Like" width="36" height="38"/>
         <image name="Like_Highlight" width="36" height="38"/>
-        <image name="Profile" width="47" height="52"/>
         <image name="Scrap" width="30" height="34.5"/>
         <image name="Scrap_Highlight" width="30" height="34.5"/>
         <systemColor name="systemBackgroundColor">

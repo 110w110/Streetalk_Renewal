@@ -1,13 +1,13 @@
 //
-//  STPostTableViewCell.swift
+//  STPostListTableViewCell.swift
 //  Streetalk2.0
 //
-//  Created by 한태희 on 2023/06/30.
+//  Created by 한태희 on 2023/07/16.
 //
 
 import UIKit
 
-class STPostTableViewCell: UITableViewCell {
+class STPostListTableViewCell: UITableViewCell {
 
     @IBOutlet var cellBackground: UIStackView!
     @IBOutlet var titleLabel: UILabel!
@@ -21,13 +21,13 @@ class STPostTableViewCell: UITableViewCell {
     @IBOutlet var likeCount: UILabel!
     @IBOutlet var commentCount: UILabel!
     @IBOutlet var scrapCount: UILabel!
-    
+
     @IBOutlet var likeView: UIStackView!
     @IBOutlet var scrapView: UIStackView!
     @IBOutlet var likeImage: UIImageView!
     @IBOutlet var scrapImage: UIImageView!
-    
-    @IBOutlet var imageCollectionView: UICollectionView!
+//
+//    @IBOutlet var imageCollectionView: UICollectionView!
     
     var postId: Int?
     var like: Int?
@@ -37,7 +37,7 @@ class STPostTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        imageCollectionView.dataSource = self
+//        imageCollectionView.dataSource = self
         
         cellBackground.setRoundedBorder()
         bottomStackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 15, right: 10)
@@ -61,7 +61,7 @@ class STPostTableViewCell: UITableViewCell {
 
 }
 
-extension STPostTableViewCell {
+extension STPostListTableViewCell {
     
     @objc func likeTapped(sender: UITapGestureRecognizer) {
         guard let id = postId else { return }
@@ -126,30 +126,19 @@ extension STPostTableViewCell {
     }
 }
 
-extension STPostTableViewCell: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageUrls?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postImageViewCollectionViewCell", for: indexPath) as! STPostImageViewCollectionViewCell
-        
-        if let image = imageUrls?[indexPath.row] {
-            let url = URL(string: image)
-            cell.imageView.kf.indicatorType = .activity
-            cell.imageView.kf.setImage(
-              with: url,
-              placeholder: nil,
-              options: [.transition(.fade(1.2))],
-              completionHandler: nil
-            )
-        }
-            
-        return cell
-    }
-    
-}
-
-class STPostImageViewCollectionViewCell: UICollectionViewCell {
-    @IBOutlet var imageView: UIImageView!
-}
+//extension STPostListTableViewCell: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return imageUrls?.count ?? 0
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postImageCell", for: indexPath) as! PostImageCell
+//
+//        return cell
+//    }
+//
+//}
+//
+//class PostImageCell: UICollectionViewCell {
+////    @IBOutlet var imageView: UIImageView!
+//}

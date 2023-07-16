@@ -36,7 +36,6 @@ extension STPostListViewController {
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshUI), for: .valueChanged)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: self.favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star"), style: .plain, target: self, action: #selector(boardLike))
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: self.favorite ? "즐겨찾기 추가" : "즐겨찾기 취소", style: .plain, target: self, action: #selector(boardLike))
         favoriteButton = navigationItem.rightBarButtonItem
         
         guard let id = boardId else { return }
@@ -98,7 +97,7 @@ extension STPostListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postTableViewCell", for: indexPath) as! STPostTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postListTableViewCell", for: indexPath) as! STPostListTableViewCell
         cell.selectionStyle = .none
         cell.titleLabel.text = postList[indexPath.row].title
         cell.contentLabel.text = postList[indexPath.row].content
