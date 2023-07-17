@@ -59,14 +59,14 @@ final class APIClient {
         return data
     }
     
-    func request(images: [UIImage?] = [], url: String, method: HttpMethods, header: [String : String],  param: [String : Any]?, completion: @escaping (Result<Data, APIError>) -> Void) {
+    func request(multipart: Bool = false, images: [UIImage?] = [], url: String, method: HttpMethods, header: [String : String],  param: [String : Any]?, completion: @escaping (Result<Data, APIError>) -> Void) {
         
         guard var request = createRequest(url: url, method: method, header: header) else {
             completion(.failure(.createRequestFail))
             return
         }
         
-        if images.count != 0 {
+        if multipart {
             if let body = createMultipartBody(param: param, images: images) {
                 request.httpBody = body
             }

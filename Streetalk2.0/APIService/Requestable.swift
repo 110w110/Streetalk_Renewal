@@ -40,8 +40,8 @@ extension Requestable {
         }
         
         if multipart {
-            let imageList = imageList.count == 0 ? [UIImage(systemName: "star")] : imageList
-            APIClient.shared.request(images: imageList, url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param, completion: { result in
+//            let imageList = imageList.count == 0 ? [UIImage(systemName: "star")] : imageList
+            APIClient.shared.request(multipart: true, images: imageList, url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param, completion: { result in
                 switch result {
                 case let .success(response):
                     guard let data = dataToObject(data: response) as? ResultType else { return }
