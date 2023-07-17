@@ -239,6 +239,21 @@ extension STWriteViewController: UITableViewDataSource {
     
 }
 
+extension STWriteViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == uploadImageList.count - 1 {
+            print("add photo")
+            
+            // test
+            guard let image = UIImage(named: "streetalk_background") else { return }
+            uploadImageList.insert(image, at: 0)
+        } else {
+            uploadImageList.remove(at: indexPath.row)
+        }
+        collectionView.reloadData()
+    }
+}
+
 extension STWriteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return uploadImageList.count
