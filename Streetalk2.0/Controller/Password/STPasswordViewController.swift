@@ -70,7 +70,6 @@ extension STPasswordViewController {
                 guard let input = textField.text else { return }
                 if inputPassword == input {
                     UserDefaults.standard.set(inputPassword, forKey: "localPassword")
-//                    self.navigationController?.popViewController(animated: true)
                     self.navigationController?.popToRootViewController(animated: true)
                 } else {
                     inputPassword = ""
@@ -90,8 +89,6 @@ extension STPasswordViewController {
             if realNumber == input {
                 if let completion = passHandler {
                     completion()
-                    // 세팅에서는 알럿뷰로 없앨건지 변경할건지 선택시키기
-                    // 첫화면에서는 dismiss
                 }
             } else {
                 primaryLabel.text = "비밀번호 확인"
