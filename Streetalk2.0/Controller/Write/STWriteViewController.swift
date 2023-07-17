@@ -22,6 +22,7 @@ class STWriteViewController: UIViewController {
     private var subBoardList: [Board] = []
     private let imagePickerController = UIImagePickerController()
     private var targetBoardId: Int = 1
+    private var targetBoardName: String = ""
     private var anonymous: Bool = false
     
     override func viewDidLoad() {
@@ -32,6 +33,7 @@ class STWriteViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
         
         writeContentTextView.delegate = self
         writeContentTextView.setPlaceholder(placeholder: "게시글 내용을 작성해주세요.")
@@ -49,19 +51,13 @@ class STWriteViewController: UIViewController {
             return button
         }()
         
-        lazy var boardButton: UIBarButtonItem = {
-            let button = UIBarButtonItem(image: UIImage(systemName: "list.bullet.rectangle.portrait"), style: .plain, target: self, action: #selector(boardButtonTapped(_:)))
-            button.tintColor = .streetalkPink
-            return button
-        }()
+//        lazy var boardButton: UIBarButtonItem = {
+//            let button = UIBarButtonItem(image: UIImage(systemName: "list.bullet.rectangle.portrait"), style: .plain, target: self, action: #selector(boardButtonTapped(_:)))
+//            button.tintColor = .streetalkPink
+//            return button
+//        }()
         
-        lazy var imageButton: UIBarButtonItem = {
-            let button = UIBarButtonItem(image: UIImage(systemName: "list.bullet.rectangle.portrait"), style: .plain, target: self, action: #selector(boardButtonTapped(_:)))
-            button.tintColor = .streetalkPink
-            return button
-        }()
-        
-        self.navigationItem.leftBarButtonItem = boardButton
+//        self.navigationItem.leftBarButtonItem = boardButton
         self.navigationItem.rightBarButtonItems = [submitButton, cancelButton]
         
         
@@ -115,19 +111,22 @@ class STWriteViewController: UIViewController {
         present(alert, animated: false, completion: nil)
     }
     
-    @objc func boardButtonTapped(_ sender: UIButton) {
+    func boardButtonTapped() {
         let alert = UIAlertController(title: "게시판 선택", message: nil, preferredStyle: .alert)
         for board in self.mainBoardList {
             let action = UIAlertAction(title: board.boardName, style: .default) {_ in
                 self.targetBoardId = board.id ?? 0
-                self.title = board.boardName ?? "게시판"
+                self.targetBoardName = board.boardName ?? ""
+                self.title = self.targetBoardName
+                self.tableView.reloadData()
             }
             alert.addAction(action)
         }
         for board in self.subBoardList {
             let action = UIAlertAction(title: board.boardName, style: .default) {_ in
                 self.targetBoardId = board.id ?? 0
-                self.title = board.boardName ?? "게시판"
+                self.targetBoardName = board.boardName ?? ""
+                self.title = self.targetBoardName
             }
             alert.addAction(action)
         }
@@ -150,7 +149,10 @@ class STWriteViewController: UIViewController {
                     }
                     
                     DispatchQueue.main.async {
-                        self.title = self.mainBoardList[0].boardName ?? "게시판"
+                        self.targetBoardId = self.mainBoardList[0].id ?? 1
+                        self.targetBoardName = self.mainBoardList[0].boardName ?? ""
+                        self.title = self.targetBoardName
+                        self.tableView.reloadData()
                     }
                 }
             case let .failure(error):
@@ -205,6 +207,14 @@ extension STWriteViewController: UITextViewDelegate {
     }
 }
 
+extension STWriteViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            boardButtonTapped()
+        }
+    }
+}
+
 extension STWriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -216,7 +226,7 @@ extension STWriteViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             cell.label.text = "게시판 변경"
             cell.toggle.isHidden = true
-            cell.detailLabel.text = "게시판 이름"
+            cell.detailLabel.text = targetBoardName
         } else {
             cell.label.text = "익명"
             cell.detailLabel.isHidden = true
