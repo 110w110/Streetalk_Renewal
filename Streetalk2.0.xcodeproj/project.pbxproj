@@ -64,6 +64,7 @@
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
 		337B88392A659F1A0051B7FF /* STPasswordCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B88382A659F1A0051B7FF /* STPasswordCheckViewController.swift */; };
+		337B883B2A65B5270051B7FF /* STEnlargedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B883A2A65B5270051B7FF /* STEnlargedImageViewController.swift */; };
 		337CB04F2A49550B00A7E375 /* STPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337CB04E2A49550B00A7E375 /* STPostViewController.swift */; };
 		3388DB452A5F8D7B004A64CE /* LikeBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB442A5F8D7A004A64CE /* LikeBoardRequest.swift */; };
 		3388DB472A5F976C004A64CE /* Password.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3388DB462A5F976C004A64CE /* Password.storyboard */; };
@@ -186,6 +187,7 @@
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
 		337B88382A659F1A0051B7FF /* STPasswordCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPasswordCheckViewController.swift; sourceTree = "<group>"; };
+		337B883A2A65B5270051B7FF /* STEnlargedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STEnlargedImageViewController.swift; sourceTree = "<group>"; };
 		337CB04E2A49550B00A7E375 /* STPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostViewController.swift; sourceTree = "<group>"; };
 		3388DB442A5F8D7A004A64CE /* LikeBoardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBoardRequest.swift; sourceTree = "<group>"; };
 		3388DB462A5F976C004A64CE /* Password.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Password.storyboard; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				330CE9962A3A913700BFA26F /* STPostListViewController.swift */,
 				337CB04E2A49550B00A7E375 /* STPostViewController.swift */,
 				333C20842A56A35800F8265C /* STReportViewController.swift */,
+				337B883A2A65B5270051B7FF /* STEnlargedImageViewController.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				333C206F2A55104D00F8265C /* Location.swift in Sources */,
 				33BB8BF72A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift in Sources */,
 				330438F32A315F55008123AD /* Industry.swift in Sources */,
+				337B883B2A65B5270051B7FF /* STEnlargedImageViewController.swift in Sources */,
 				333C20752A559C6E00F8265C /* JoinRequest.swift in Sources */,
 				330CE9A12A3B506400BFA26F /* STTextView.swift in Sources */,
 				333C20732A5514D100F8265C /* Login.swift in Sources */,

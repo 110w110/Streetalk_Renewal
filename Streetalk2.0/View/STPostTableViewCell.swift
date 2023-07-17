@@ -32,6 +32,7 @@ class STPostTableViewCell: UITableViewCell {
     var like: Int?
     var scrap: Int?
     var imageUrls: [String]?
+    var targetViewController: UIViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -123,6 +124,17 @@ extension STPostTableViewCell {
                 print(error)
             }
         })
+    }
+}
+
+extension STPostTableViewCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Board", bundle: nil)
+        let enlargedImageViewController = storyboard.instantiateViewController(withIdentifier: "enlargedImageViewController") as! STEnlargedImageViewController
+        enlargedImageViewController.modalTransitionStyle = .crossDissolve
+        enlargedImageViewController.modalPresentationStyle = .overFullScreen
+        enlargedImageViewController.imageUrl = imageUrls?[indexPath.row]
+        targetViewController?.present(enlargedImageViewController, animated: true, completion: nil)
     }
 }
 
