@@ -15,4 +15,5 @@ struct Reply : Codable {
     let content : String?
     let lastTime : Int?
     let hasAuthority : Bool?
+    let isPrivate : Bool?
 }

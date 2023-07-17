@@ -44,7 +44,7 @@ class STPostViewController: UIViewController {
         replyTextField.endEditing(false)
         
         guard let postId = postId, let text = self.replyTextField.text else { return }
-        let request = PostReplyRequest(param: ["postId" : postId, "content" : text, "checkName" : anonymous])
+        let request = PostReplyRequest(param: ["postId" : postId, "content" : text, "checkName" : anonymous, "isPrivate" : anonymous])
         request.request(completion: {result in
             switch result {
             case .success(_):
