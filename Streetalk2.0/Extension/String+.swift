@@ -13,11 +13,8 @@ extension String {
         return NSPredicate(format:"SELF MATCHES %@", "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$").evaluate(with: self)
     }
     
-//    func toSimpleDateFormat() -> String {
-//        let date = self[self.index(after: self.startIndex) ..< self.index(self.startIndex, offsetBy: 3)]
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-//        let convertDate = dateFormatter.date(from: self)
-//        return ""
-//    }
+    func toNameWithIndustry(industry: String?) -> String {
+        guard let industry = industry else { return self + "미선택"}
+        return self + " | " + industry
+    }
 }

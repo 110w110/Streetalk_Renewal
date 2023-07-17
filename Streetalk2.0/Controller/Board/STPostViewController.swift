@@ -187,12 +187,11 @@ extension STPostViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "postContentTableViewCell", for: indexPath) as! STPostTableViewCell
             cell.selectionStyle = .none
-            cell.primaryNickNameStackView.isHidden = true
             cell.secondaryNickNameStackView.isHidden = false
             if let post = post {
                 cell.titleLabel.text = post.title
                 cell.contentLabel.text = post.content
-                cell.nickNameLabel.text = post.postWriterName
+                cell.nickNameLabel.text = post.postWriterName?.toNameWithIndustry(industry: post.industry)
                 cell.postTimeLabel.text = post.lastTime?.toLastTimeString()
                 cell.commentCount.text = post.replyCount?.toString()
                 cell.likeCount.text = post.likeCount?.toString()

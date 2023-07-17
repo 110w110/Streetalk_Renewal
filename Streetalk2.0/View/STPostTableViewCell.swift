@@ -16,7 +16,6 @@ class STPostTableViewCell: UITableViewCell {
     @IBOutlet var postTimeLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var bottomStackView: UIStackView!
-    @IBOutlet var primaryNickNameStackView: UIStackView!
     @IBOutlet var secondaryNickNameStackView: UIStackView!
     @IBOutlet var likeCount: UILabel!
     @IBOutlet var commentCount: UILabel!
