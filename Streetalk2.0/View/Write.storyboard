@@ -64,7 +64,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Writting" translatesAutoresizingMaskIntoConstraints="NO" id="H6m-yb-XBz">
-                                                <rect key="frame" x="80" y="142" width="233" height="233"/>
+                                                <rect key="frame" x="72.333333333333329" y="134.33333333333331" width="248.33333333333337" height="248.33333333333331"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="H6m-yb-XBz" secondAttribute="height" multiplier="1:1" id="p53-GO-N7N"/>
                                                 </constraints>
@@ -75,11 +75,10 @@
                                             <constraint firstItem="hhs-78-0Ru" firstAttribute="top" secondItem="HNk-dl-LBH" secondAttribute="top" constant="10" id="DuJ-wF-X6z"/>
                                             <constraint firstAttribute="bottom" secondItem="hhs-78-0Ru" secondAttribute="bottom" constant="10" id="Ei6-Hi-RBS"/>
                                             <constraint firstItem="hhs-78-0Ru" firstAttribute="leading" secondItem="HNk-dl-LBH" secondAttribute="leading" constant="10" id="HOb-vE-s4T"/>
-                                            <constraint firstAttribute="trailing" secondItem="H6m-yb-XBz" secondAttribute="trailing" constant="80" id="Jox-GU-yp8"/>
                                             <constraint firstItem="H6m-yb-XBz" firstAttribute="centerY" secondItem="HNk-dl-LBH" secondAttribute="centerY" id="Wa0-nA-6M1"/>
                                             <constraint firstAttribute="trailing" secondItem="hhs-78-0Ru" secondAttribute="trailing" constant="10" id="Wqb-Yl-eSJ"/>
                                             <constraint firstItem="H6m-yb-XBz" firstAttribute="centerX" secondItem="HNk-dl-LBH" secondAttribute="centerX" id="oJD-X2-6pt"/>
-                                            <constraint firstItem="H6m-yb-XBz" firstAttribute="leading" secondItem="HNk-dl-LBH" secondAttribute="leading" constant="80" id="oOW-mp-zxS"/>
+                                            <constraint firstItem="H6m-yb-XBz" firstAttribute="height" secondItem="hhs-78-0Ru" secondAttribute="height" multiplier="0.5" id="qV8-MS-Mgo"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dNY-Nd-L6R">

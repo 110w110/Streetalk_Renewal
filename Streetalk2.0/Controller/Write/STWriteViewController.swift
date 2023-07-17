@@ -60,6 +60,10 @@ class STWriteViewController: UIViewController {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     @objc func writeButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: "작성하신 글은 수정하실 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "작성", style: .default) { _ in
