@@ -122,7 +122,7 @@ extension STPostViewController {
     
     private func deletePost() {
         let alert = UIAlertController(title: "삭제", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "확인", style: .default) { _ in
+        let confirm = UIAlertAction(title: "삭제", style: .destructive) { _ in
             let request = PostDeleteRequest(additionalInfo: self.postId?.toString())
             request.request(completion: { result in
                 var alert: UIAlertController
