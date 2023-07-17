@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -53,17 +54,17 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNk-dl-LBH">
-                                        <rect key="frame" x="0.0" y="52" width="393" height="707"/>
+                                        <rect key="frame" x="0.0" y="52" width="393" height="517"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hhs-78-0Ru" customClass="STTextView" customModule="Streetalk2_0" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="10" width="373" height="687"/>
+                                                <rect key="frame" x="10" y="10" width="373" height="497"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Writting" translatesAutoresizingMaskIntoConstraints="NO" id="H6m-yb-XBz">
-                                                <rect key="frame" x="80" y="237" width="233" height="233"/>
+                                                <rect key="frame" x="80" y="142" width="233" height="233"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="H6m-yb-XBz" secondAttribute="height" multiplier="1:1" id="p53-GO-N7N"/>
                                                 </constraints>
@@ -81,9 +82,107 @@
                                             <constraint firstItem="H6m-yb-XBz" firstAttribute="leading" secondItem="HNk-dl-LBH" secondAttribute="leading" constant="80" id="oOW-mp-zxS"/>
                                         </constraints>
                                     </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dNY-Nd-L6R">
+                                        <rect key="frame" x="0.0" y="569" width="393" height="90"/>
+                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="jsk-4p-WGH"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="writeTableViewCell" id="57B-DZ-H0a" customClass="STWriteTableViewCell" customModule="Streetalk2_0" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="393" height="45.333332061767578"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="57B-DZ-H0a" id="646-jC-eif">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="45.333332061767578"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wEB-65-scR">
+                                                            <rect key="frame" x="20" y="0.0" width="353" height="45.333333333333336"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="익명으로 등록하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGB-Fn-o8a">
+                                                                    <rect key="frame" x="0.0" y="14.333333333333336" width="153" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="통합게시판" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6i-IA-7D9">
+                                                                    <rect key="frame" x="153" y="14.333333333333336" width="150" height="17"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="150" id="ZMq-sY-vuQ"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZpX-Nm-Cxa">
+                                                                    <rect key="frame" x="303" y="7.3333333333333321" width="52" height="30.999999999999996"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="50" id="m9P-8M-fNS"/>
+                                                                    </constraints>
+                                                                </switch>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="45" id="HoD-IU-Whd"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="wEB-65-scR" firstAttribute="leading" secondItem="646-jC-eif" secondAttribute="leading" constant="20" id="8MM-FD-F87"/>
+                                                        <constraint firstAttribute="bottom" secondItem="wEB-65-scR" secondAttribute="bottom" id="QbW-Qv-04O"/>
+                                                        <constraint firstAttribute="trailing" secondItem="wEB-65-scR" secondAttribute="trailing" constant="20" id="Wsi-2y-H15"/>
+                                                        <constraint firstItem="wEB-65-scR" firstAttribute="top" secondItem="646-jC-eif" secondAttribute="top" id="ZSb-5V-met"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="detailLabel" destination="e6i-IA-7D9" id="lwb-ma-yij"/>
+                                                    <outlet property="label" destination="DGB-Fn-o8a" id="sSh-wU-oUf"/>
+                                                    <outlet property="toggle" destination="ZpX-Nm-Cxa" id="GMY-SE-vSM"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R9y-36-e7z">
+                                        <rect key="frame" x="0.0" y="659" width="393" height="100"/>
+                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="w2b-6H-Ar5"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AH5-S7-XVp">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="writeCollectionViewCell" id="tKv-cB-rJr" customClass="STWriteCollectionViewCell" customModule="Streetalk2_0" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="-14" width="128" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fkS-tO-qYb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="streetalk_background" translatesAutoresizingMaskIntoConstraints="NO" id="T4C-hS-ldQ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="T4C-hS-ldQ" firstAttribute="leading" secondItem="fkS-tO-qYb" secondAttribute="leading" id="6NG-hj-V6I"/>
+                                                        <constraint firstAttribute="bottom" secondItem="T4C-hS-ldQ" secondAttribute="bottom" id="CjH-bC-ADd"/>
+                                                        <constraint firstAttribute="trailing" secondItem="T4C-hS-ldQ" secondAttribute="trailing" id="Mrj-th-CbT"/>
+                                                        <constraint firstItem="T4C-hS-ldQ" firstAttribute="top" secondItem="fkS-tO-qYb" secondAttribute="top" id="VmF-rL-JYy"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <connections>
+                                                    <outlet property="imageView" destination="T4C-hS-ldQ" id="YyN-3s-1A1"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cS-uD-Vu2">
                                         <rect key="frame" x="0.0" y="759" width="393" height="280"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="280" id="Ptq-OI-rbM"/>
                                         </constraints>
@@ -101,7 +200,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="R9y-36-e7z" id="lZP-lV-eaz"/>
                         <outlet property="keyboardArea" destination="2cS-uD-Vu2" id="HxI-hV-Pln"/>
+                        <outlet property="tableView" destination="dNY-Nd-L6R" id="MER-iH-KKL"/>
                         <outlet property="writeContentTextView" destination="hhs-78-0Ru" id="3bM-sv-N1y"/>
                         <outlet property="writeTitleTextField" destination="WCW-vF-fJt" id="g1S-l9-ZPG"/>
                         <outlet property="writtingBackgroundImageView" destination="H6m-yb-XBz" id="Bmn-R1-NmE"/>
@@ -113,7 +214,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Writting" width="611" height="579"/>
+        <image name="Writting" width="286.5" height="291.5"/>
+        <image name="streetalk_background" width="2048" height="1280"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -121,6 +223,9 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>

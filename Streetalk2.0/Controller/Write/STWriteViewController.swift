@@ -9,20 +9,29 @@ import UIKit
 
 class STWriteViewController: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var collectionView: UICollectionView!
+    
     @IBOutlet var writeTitleTextField: UITextField!
     @IBOutlet weak var writeContentTextView: STTextView!
     @IBOutlet weak var writtingBackgroundImageView: UIImageView!
     @IBOutlet var keyboardArea: UIView!
     
+    private var uploadImageList: [UIImage] = [UIImage(systemName: "plus.circle.fill")!]
     private var mainBoardList: [Board] = []
     private var subBoardList: [Board] = []
-    
+    private let imagePickerController = UIImagePickerController()
     private var targetBoardId: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         fetchBoardList()
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        tableView.dataSource = self
+        
         writeContentTextView.delegate = self
         writeContentTextView.setPlaceholder(placeholder: "게시글 내용을 작성해주세요.")
         writeContentTextView.keyboardDismissMode = .onDrag
@@ -77,6 +86,7 @@ class STWriteViewController: UIViewController {
                                                   "content" : self.writeContentTextView.text ?? "",
                                                 "checkName" : false,
                                                 "isPrivate" : false])
+            // TODO: request의 파라미터로 이미지 리스트 넘겨야함
             request.request(multipart: true, completion: { result in
                 switch result {
                 case .success(let success):
@@ -184,4 +194,72 @@ extension STWriteViewController: UITextViewDelegate {
         textField.resignFirstResponder()
         return true
     }
+}
+
+extension STWriteViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "writeTableViewCell") as! STWriteTableViewCell
+        cell.selectionStyle = .none
+        if indexPath.row == 0 {
+            cell.label.text = "게시판 변경"
+            cell.toggle.isHidden = true
+            cell.detailLabel.text = "게시판 이름"
+        } else {
+            cell.label.text = "익명"
+            cell.detailLabel.isHidden = true
+            cell.toggle.isOn = false
+        }
+        return cell
+    }
+    
+    
+}
+
+extension STWriteViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return uploadImageList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "writeCollectionViewCell", for: indexPath) as! STWriteCollectionViewCell
+        cell.imageView.image = uploadImageList[indexPath.row]
+        return cell
+    }
+    
+    
+}
+
+extension STWriteViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = collectionView.frame.height - 10
+        let height: CGFloat = collectionView.frame.height - 10
+        return CGSize(width: width, height: height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+}
+
+class STWriteTableViewCell: UITableViewCell {
+    @IBOutlet var label: UILabel!
+    @IBOutlet var detailLabel: UILabel!
+    @IBOutlet var toggle: UISwitch!
+}
+
+class STWriteCollectionViewCell: UICollectionViewCell {
+    @IBOutlet var imageView: UIImageView!
 }
