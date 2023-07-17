@@ -22,6 +22,7 @@ class STWriteViewController: UIViewController {
     private var subBoardList: [Board] = []
     private let imagePickerController = UIImagePickerController()
     private var targetBoardId: Int = 1
+    private var anonymous: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,8 +85,8 @@ class STWriteViewController: UIViewController {
             let request = PostPostRequest(param: ["boardId" : self.targetBoardId,
                                                   "title" : self.writeTitleTextField.text ?? "",
                                                   "content" : self.writeContentTextView.text ?? "",
-                                                "checkName" : false,
-                                                "isPrivate" : false])
+                                                  "checkName" : self.anonymous,
+                                                  "isPrivate" : self.anonymous])
             // TODO: request의 파라미터로 이미지 리스트 넘겨야함
             request.request(multipart: true, completion: { result in
                 switch result {
@@ -160,6 +161,14 @@ class STWriteViewController: UIViewController {
     
 }
 
+extension STWriteViewController {
+    @objc func switchValueChanged(_ sender: UISwitch) {
+        // 테이블 뷰 자체가 가진 속성을 설정합니다.
+        anonymous = sender.isOn
+        print(anonymous)
+    }
+}
+
 extension STWriteViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -212,6 +221,7 @@ extension STWriteViewController: UITableViewDataSource {
             cell.label.text = "익명"
             cell.detailLabel.isHidden = true
             cell.toggle.isOn = false
+            cell.toggle.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
         }
         return cell
     }
