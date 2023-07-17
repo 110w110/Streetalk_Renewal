@@ -33,14 +33,26 @@ class STWriteViewController: UIViewController {
             return button
         }()
         
-        lazy var boardButton: UIBarButtonItem = {
-            let button = UIBarButtonItem(title: "게시판 선택", style: .plain, target: self, action: #selector(boardButtonTapped(_:)))
+        lazy var cancelButton: UIBarButtonItem = {
+            let button = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped(_:)))
             button.tintColor = .streetalkPink
             return button
         }()
         
-        self.navigationItem.rightBarButtonItem = submitButton
+        lazy var boardButton: UIBarButtonItem = {
+            let button = UIBarButtonItem(image: UIImage(systemName: "list.bullet.rectangle.portrait"), style: .plain, target: self, action: #selector(boardButtonTapped(_:)))
+            button.tintColor = .streetalkPink
+            return button
+        }()
+        
+        lazy var imageButton: UIBarButtonItem = {
+            let button = UIBarButtonItem(image: UIImage(systemName: "list.bullet.rectangle.portrait"), style: .plain, target: self, action: #selector(boardButtonTapped(_:)))
+            button.tintColor = .streetalkPink
+            return button
+        }()
+        
         self.navigationItem.leftBarButtonItem = boardButton
+        self.navigationItem.rightBarButtonItems = [submitButton, cancelButton]
         
         
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -49,21 +61,47 @@ class STWriteViewController: UIViewController {
     }
     
     @objc func writeButtonTapped(_ sender: UIButton) {
-        // TODO: Post 구현 후 익명성 등 여러가지 확인해야함
-        let request = PostPostRequest(param: ["boardId" : targetBoardId,
-                                                "title" : writeTitleTextField.text ?? "",
-                                              "content" : writeContentTextView.text ?? "",
-                                            "checkName" : false,
-                                            "isPrivate" : false])
-        request.request(multipart: true, completion: { result in
-            switch result {
-            case .success(let success):
-                print(success)
-            case .failure(let failure):
-                print(failure)
+        let alert = UIAlertController(title: nil, message: "작성하신 글은 수정하실 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "작성", style: .default) { (action) in
+            if self.writeTitleTextField.text == "" || self.writeContentTextView.text == "" {
+                let alert = UIAlertController(title: nil, message: "제목과 본문을 채워주세요", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "닫기", style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: false, completion: nil)
+                return
             }
-        })
-        self.dismiss(animated: true)
+            
+            // TODO: Post 구현 후 익명성 등 여러가지 확인해야함
+            let request = PostPostRequest(param: ["boardId" : self.targetBoardId,
+                                                  "title" : self.writeTitleTextField.text ?? "",
+                                                  "content" : self.writeContentTextView.text ?? "",
+                                                "checkName" : false,
+                                                "isPrivate" : false])
+            request.request(multipart: true, completion: { result in
+                switch result {
+                case .success(let success):
+                    print(success)
+                case .failure(let failure):
+                    print(failure)
+                }
+            })
+            self.dismiss(animated: true)
+        }
+        let cancleAction = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(okAction)
+        alert.addAction(cancleAction)
+        present(alert, animated: false, completion: nil)
+    }
+    
+    @objc func cancelButtonTapped(_ sender: UIButton) {
+        let alert = UIAlertController(title: nil, message: "작성 중인 내용은 모두 사라집니다.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "나가기", style: .destructive) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let cancleAction = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(okAction)
+        alert.addAction(cancleAction)
+        present(alert, animated: false, completion: nil)
     }
     
     @objc func boardButtonTapped(_ sender: UIButton) {
