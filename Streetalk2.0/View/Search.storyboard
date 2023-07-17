@@ -48,7 +48,7 @@
                                         <rect key="frame" x="0.0" y="60" width="393" height="699"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postTableViewCell" rowHeight="176" id="JBx-wy-7cX" customClass="STPostTableViewCell" customModule="Streetalk2_0" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchPostTableViewCell" rowHeight="176" id="JBx-wy-7cX" customClass="STSearchPostTableViewCell" customModule="Streetalk2_0" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50" width="393" height="176"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JBx-wy-7cX" id="miO-5Y-zBR">
@@ -73,26 +73,6 @@
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="NXv-Wt-3Uh">
-                                                                                    <rect key="frame" x="0.0" y="27.666666666666664" width="353" height="15"/>
-                                                                                    <subviews>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="익명 | 동네" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOz-EI-gvn">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="15"/>
-                                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                            <nil key="textColor"/>
-                                                                                            <nil key="highlightedColor"/>
-                                                                                        </label>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10분 전" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYH-ND-ONd">
-                                                                                            <rect key="frame" x="191" y="0.0" width="162" height="15"/>
-                                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                            <nil key="textColor"/>
-                                                                                            <nil key="highlightedColor"/>
-                                                                                        </label>
-                                                                                    </subviews>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="15" id="W1q-wZ-mvt"/>
-                                                                                    </constraints>
-                                                                                </stackView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAP-Zo-QN8">
                                                                                     <rect key="frame" x="0.0" y="35" width="353" height="21"/>
                                                                                     <string key="text">1985년 하와이의 호놀룰루에서 태어난 피터 진 에르난데스. 그는 푸에르토리코계이면서 유대인의 혈통이자 필리핀계 미국인이다. 피터는 집에 화장실이 없을 정도로 가난한 가정에서 태어났다. 누군가는 그의 환경을 불행하다고 볼 수도 있겠지만 그의 실제 삶은 달랐다. 가정 환경은 다름 아닌 그의 재능, 음악을 발견하도록 도와주었다. 피터는 음악을 하는 아버지 밑에서 태어나 아주 어렸을 때부터 음악을 접했고, 아버지와 함께 밴드에서 공연을 하기도 했다. 자연스럽게 음악가로 성장했고, 20살에 가수 데뷔를 했다.  이 이야기는 다름 아닌 세계적인 팝가수, ‘브루노 마스’의 이야기다. 브루노 마스라는 예명은 아버지가 지어준 것으로, 어린 시절 그에게 레슬링 선수 ‘브루노 삼마르티노’와 닮았다고 한 기억에서 비롯한 것이라고 한다.
@@ -225,21 +205,20 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="bottomStackView" destination="9KZ-Zz-XXA" id="KeI-Da-BPh"/>
-                                                    <outlet property="cellBackground" destination="ziY-Q2-V75" id="Etb-9v-BtU"/>
-                                                    <outlet property="commentCount" destination="w2l-0y-A7O" id="gqR-tJ-LZL"/>
-                                                    <outlet property="contentLabel" destination="tAP-Zo-QN8" id="qIa-Iz-8RC"/>
-                                                    <outlet property="likeCount" destination="LNo-Bf-NqZ" id="9MJ-KK-hhc"/>
-                                                    <outlet property="likeImage" destination="9vb-qZ-mGH" id="UcQ-h0-x2z"/>
-                                                    <outlet property="likeView" destination="V6e-Nu-dwy" id="5vf-5C-Syu"/>
-                                                    <outlet property="nickNameLabel" destination="6U1-YC-bV3" id="dYW-WW-VHI"/>
-                                                    <outlet property="primaryNickNameStackView" destination="11f-PZ-51r" id="6dI-nC-MgE"/>
-                                                    <outlet property="scrapCount" destination="dt8-12-ONL" id="oci-sS-aLW"/>
-                                                    <outlet property="scrapImage" destination="8iM-lP-9zl" id="gUv-Cq-eFC"/>
-                                                    <outlet property="scrapView" destination="vbI-fQ-AKJ" id="mG6-sS-Obl"/>
-                                                    <outlet property="secondaryNickNameStackView" destination="NXv-Wt-3Uh" id="VRu-Zm-HJx"/>
-                                                    <outlet property="timeLabel" destination="K71-VX-40O" id="pBh-Hr-rLf"/>
-                                                    <outlet property="titleLabel" destination="TvQ-iR-2EY" id="Afv-Yl-lcv"/>
+                                                    <outlet property="bottomStackView" destination="9KZ-Zz-XXA" id="M6J-aH-TD9"/>
+                                                    <outlet property="cellBackground" destination="ziY-Q2-V75" id="WgY-q2-u1u"/>
+                                                    <outlet property="commentCount" destination="w2l-0y-A7O" id="R1a-z8-SBv"/>
+                                                    <outlet property="contentLabel" destination="tAP-Zo-QN8" id="E9o-Uh-eTG"/>
+                                                    <outlet property="likeCount" destination="LNo-Bf-NqZ" id="sbI-ds-IJA"/>
+                                                    <outlet property="likeImage" destination="9vb-qZ-mGH" id="VA4-FE-tgu"/>
+                                                    <outlet property="likeView" destination="V6e-Nu-dwy" id="QNu-v5-TXb"/>
+                                                    <outlet property="nickNameLabel" destination="6U1-YC-bV3" id="g9t-je-6st"/>
+                                                    <outlet property="scrapCount" destination="dt8-12-ONL" id="eAe-om-LRT"/>
+                                                    <outlet property="scrapImage" destination="8iM-lP-9zl" id="OKa-vN-Ohf"/>
+                                                    <outlet property="scrapView" destination="vbI-fQ-AKJ" id="Kgk-ZH-v7W"/>
+                                                    <outlet property="secondaryNickNameStackView" destination="11f-PZ-51r" id="7Ph-4b-CI2"/>
+                                                    <outlet property="timeLabel" destination="K71-VX-40O" id="BMC-i9-hLn"/>
+                                                    <outlet property="titleLabel" destination="TvQ-iR-2EY" id="tOg-Fz-PZC"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -267,11 +246,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Comment" width="42" height="39"/>
-        <image name="Like" width="36" height="38"/>
-        <image name="Like_Highlight" width="36" height="38"/>
-        <image name="Scrap" width="30" height="34.5"/>
-        <image name="Scrap_Highlight" width="30" height="34.5"/>
+        <image name="Comment" width="21" height="19.5"/>
+        <image name="Like" width="18" height="19"/>
+        <image name="Like_Highlight" width="18" height="19"/>
+        <image name="Scrap" width="15" height="17.5"/>
+        <image name="Scrap_Highlight" width="15" height="17.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

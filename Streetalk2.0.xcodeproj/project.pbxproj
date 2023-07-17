@@ -71,6 +71,7 @@
 		3388DB4F2A641729004A64CE /* STPostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB4E2A641729004A64CE /* STPostListTableViewCell.swift */; };
 		3388DB512A642A44004A64CE /* ReplyDeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB502A642A44004A64CE /* ReplyDeleteRequest.swift */; };
 		3388DB532A64322C004A64CE /* PostDeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB522A64322C004A64CE /* PostDeleteRequest.swift */; };
+		3388DB552A6502CB004A64CE /* STSearchPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB542A6502CB004A64CE /* STSearchPostTableViewCell.swift */; };
 		3399BAF52A400E9400A56A4B /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF42A400E9400A56A4B /* String+.swift */; };
 		3399BAF82A40122100A56A4B /* AnyFormatKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3399BAF72A40122100A56A4B /* AnyFormatKit */; };
 		3399BAFA2A401C2400A56A4B /* STJoinRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */; };
@@ -190,6 +191,7 @@
 		3388DB4E2A641729004A64CE /* STPostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostListTableViewCell.swift; sourceTree = "<group>"; };
 		3388DB502A642A44004A64CE /* ReplyDeleteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyDeleteRequest.swift; sourceTree = "<group>"; };
 		3388DB522A64322C004A64CE /* PostDeleteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDeleteRequest.swift; sourceTree = "<group>"; };
+		3388DB542A6502CB004A64CE /* STSearchPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchPostTableViewCell.swift; sourceTree = "<group>"; };
 		3399BAF42A400E9400A56A4B /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3399BAF92A401C2400A56A4B /* STJoinRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinRegisterViewController.swift; sourceTree = "<group>"; };
 		3399BAFB2A402FE200A56A4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				33D4C9562A5C65A30099E94A /* STLikedBoardTableViewCell.swift */,
 				332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */,
 				3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */,
+				3388DB542A6502CB004A64CE /* STSearchPostTableViewCell.swift */,
 				3388DB4E2A641729004A64CE /* STPostListTableViewCell.swift */,
 				33D4C9542A5C5D4D0099E94A /* STBoardTableViewCell.swift */,
 				B2C2257829D6BF2000222C8A /* STTabBarController.swift */,
@@ -664,6 +667,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3388DB552A6502CB004A64CE /* STSearchPostTableViewCell.swift in Sources */,
 				330439012A3460F5008123AD /* Requestable.swift in Sources */,
 				B2C2257729D6BE8100222C8A /* STMainViewController.swift in Sources */,
 				333C20682A545C9F00F8265C /* RegisterRequest.swift in Sources */,

@@ -49,7 +49,7 @@ extension STSearchListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postTableViewCell", for: indexPath) as! STPostTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchPostTableViewCell", for: indexPath) as! STSearchPostTableViewCell
         cell.selectionStyle = .none
         cell.titleLabel.text = postList[indexPath.row].title
         cell.contentLabel.text = postList[indexPath.row].content

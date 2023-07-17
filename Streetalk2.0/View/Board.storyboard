@@ -692,7 +692,6 @@
                                             <outlet property="scrapImage" destination="wmU-qU-ftp" id="u4C-1t-c9K"/>
                                             <outlet property="scrapView" destination="0mC-Jq-kbA" id="IeG-mn-prM"/>
                                             <outlet property="secondaryNickNameStackView" destination="KZZ-LG-FT5" id="KGD-ws-bG6"/>
-                                            <outlet property="timeLabel" destination="gFB-lg-bpI" id="TeD-t1-dqu"/>
                                             <outlet property="titleLabel" destination="2w4-jd-OIU" id="NGl-qf-STX"/>
                                         </connections>
                                     </tableViewCell>
