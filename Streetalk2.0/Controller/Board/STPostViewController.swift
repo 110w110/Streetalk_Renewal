@@ -219,6 +219,10 @@ extension STPostViewController: UITableViewDataSource {
             if let hasAuthority = replies[indexPath.row - 1].hasAuthority {
                 cell.hasAuthority = hasAuthority
                 cell.replyButton.setTitle(hasAuthority ? "삭제" : "신고", for: .normal)
+                if post?.postWriterId == replies[indexPath.row - 1].replyWriterId {
+                    cell.cellBackground.layer.borderColor = UIColor.streetalkPink.cgColor
+                    cell.nickNameLabel.text = "작성자"
+                }
             }
             return cell
             
