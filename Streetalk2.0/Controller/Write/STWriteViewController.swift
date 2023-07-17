@@ -30,6 +30,7 @@ class STWriteViewController: UIViewController {
 
         fetchBoardList()
         
+        imagePickerController.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
         tableView.dataSource = self
@@ -51,13 +52,6 @@ class STWriteViewController: UIViewController {
             return button
         }()
         
-//        lazy var boardButton: UIBarButtonItem = {
-//            let button = UIBarButtonItem(image: UIImage(systemName: "list.bullet.rectangle.portrait"), style: .plain, target: self, action: #selector(boardButtonTapped(_:)))
-//            button.tintColor = .streetalkPink
-//            return button
-//        }()
-        
-//        self.navigationItem.leftBarButtonItem = boardButton
         self.navigationItem.rightBarButtonItems = [submitButton, cancelButton]
         
         
@@ -68,7 +62,7 @@ class STWriteViewController: UIViewController {
     
     @objc func writeButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: "작성하신 글은 수정하실 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "작성", style: .default) { (action) in
+        let okAction = UIAlertAction(title: "작성", style: .default) { _ in
             if self.writeTitleTextField.text == "" || self.writeContentTextView.text == "" {
                 let alert = UIAlertController(title: nil, message: "제목과 본문을 채워주세요", preferredStyle: UIAlertController.Style.alert)
                 let okAction = UIAlertAction(title: "닫기", style: .default)
@@ -77,14 +71,12 @@ class STWriteViewController: UIViewController {
                 return
             }
             
-            // TODO: Post 구현 후 익명성 등 여러가지 확인해야함
             let request = PostPostRequest(param: ["boardId" : self.targetBoardId,
                                                   "title" : self.writeTitleTextField.text ?? "",
                                                   "content" : self.writeContentTextView.text ?? "",
                                                   "checkName" : self.anonymous,
                                                   "isPrivate" : self.anonymous])
-            // TODO: request의 파라미터로 이미지 리스트 넘겨야함
-            request.request(multipart: true, completion: { result in
+            request.request(multipart: true, imageList: Array(self.uploadImageList[0..<self.uploadImageList.count - 1]), completion: { result in
                 switch result {
                 case .success(let success):
                     print(success)
@@ -165,9 +157,25 @@ class STWriteViewController: UIViewController {
 
 extension STWriteViewController {
     @objc func switchValueChanged(_ sender: UISwitch) {
-        // 테이블 뷰 자체가 가진 속성을 설정합니다.
         anonymous = sender.isOn
-        print(anonymous)
+    }
+}
+
+extension STWriteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var newImage: UIImage? = nil
+        
+        if let possibleImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            newImage = possibleImage
+        } else if let possibleImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            newImage = possibleImage
+        }
+        
+        guard let image = newImage else { return }
+        uploadImageList.insert(image, at: uploadImageList.count - 1)
+        dismiss(animated: true, completion: {
+            self.collectionView.reloadData()
+        })
     }
 }
 
@@ -242,11 +250,9 @@ extension STWriteViewController: UITableViewDataSource {
 extension STWriteViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == uploadImageList.count - 1 {
-            print("add photo")
-            
-            // test
-            guard let image = UIImage(named: "streetalk_background") else { return }
-            uploadImageList.insert(image, at: 0)
+            self.imagePickerController.sourceType = .photoLibrary
+            self.imagePickerController.allowsEditing = true
+            self.present(imagePickerController, animated: true, completion: nil)
         } else {
             uploadImageList.remove(at: indexPath.row)
         }
