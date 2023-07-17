@@ -9,6 +9,7 @@ import UIKit
 
 class STWriteViewController: UIViewController {
 
+    @IBOutlet var writeTitleTextField: UITextField!
     @IBOutlet weak var writeContentTextView: STTextView!
     @IBOutlet weak var writtingBackgroundImageView: UIImageView!
     @IBOutlet var keyboardArea: UIView!
@@ -16,7 +17,7 @@ class STWriteViewController: UIViewController {
     private var mainBoardList: [Board] = []
     private var subBoardList: [Board] = []
     
-    private var targetBoardId: Int = 0
+    private var targetBoardId: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,20 @@ class STWriteViewController: UIViewController {
     }
     
     @objc func writeButtonTapped(_ sender: UIButton) {
+        // TODO: Post 구현 후 익명성 등 여러가지 확인해야함
+        let request = PostPostRequest(param: ["boardId" : targetBoardId,
+                                                "title" : writeTitleTextField.text ?? "",
+                                              "content" : writeContentTextView.text ?? "",
+                                            "checkName" : false,
+                                            "isPrivate" : false])
+        request.request(multipart: true, completion: { result in
+            switch result {
+            case .success(let success):
+                print(success)
+            case .failure(let failure):
+                print(failure)
+            }
+        })
         self.dismiss(animated: true)
     }
     

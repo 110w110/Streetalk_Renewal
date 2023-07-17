@@ -103,6 +103,7 @@
                     <connections>
                         <outlet property="keyboardArea" destination="2cS-uD-Vu2" id="HxI-hV-Pln"/>
                         <outlet property="writeContentTextView" destination="hhs-78-0Ru" id="3bM-sv-N1y"/>
+                        <outlet property="writeTitleTextField" destination="WCW-vF-fJt" id="g1S-l9-ZPG"/>
                         <outlet property="writtingBackgroundImageView" destination="H6m-yb-XBz" id="Bmn-R1-NmE"/>
                     </connections>
                 </viewController>
