@@ -49,9 +49,9 @@ class STPostViewController: UIViewController {
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
-                    self.setUI()
                     self.replyTextField.text = ""
                     self.tableView.reloadData()
+                    self.setUI()
                     
                     let lastIndex = IndexPath(row: self.post?.replyList?.count ?? 0, section: 0)
                     self.tableView.scrollToRow(at: lastIndex, at: .bottom, animated: true)
@@ -222,6 +222,8 @@ extension STPostViewController: UITableViewDataSource {
                 if post?.postWriterId == replies[indexPath.row - 1].replyWriterId {
                     cell.cellBackground.layer.borderColor = UIColor.streetalkPink.cgColor
                     cell.nickNameLabel.text = "작성자"
+                } else {
+                    cell.cellBackground.layer.borderColor = UIColor.systemGray6.cgColor
                 }
             }
             return cell
