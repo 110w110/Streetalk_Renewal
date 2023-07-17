@@ -524,7 +524,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="HTd-Ri-Gf3">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="HTd-Ri-Gf3">
                                 <rect key="frame" x="186.66666666666666" y="598" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -544,8 +544,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Board_Normal" width="18" height="20"/>
-        <image name="Comment" width="42" height="39"/>
+        <image name="Board_Normal" width="17.5" height="20"/>
+        <image name="Comment" width="21" height="19.5"/>
         <image name="Grid" width="52" height="52"/>
         <image name="Notification" width="6" height="7.5"/>
         <image name="Pin" width="50" height="66"/>

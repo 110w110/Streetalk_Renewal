@@ -59,7 +59,27 @@ extension STMyPageListViewController: UITableViewDelegate {
             case 0:
                 performSegue(withIdentifier: "popUpSegue", sender: [self.contents[1][indexPath.row], "로그아웃 하시겠습니까?", PopUpViewUsage.logout] as [Any])
             case 1:
-                showNextViewController(identifier: "passwordViewController", title: "암호 설정", viewControllerType: STPasswordViewController.self, storyboard: UIStoryboard(name: "Password", bundle: nil))
+                if let password = UserDefaults.standard.string(forKey: "localPassword"), password != "" {
+                    let handler = {
+                        // alert view 띄워서 확인 후
+                        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                        let modify = UIAlertAction(title: "비밀번호 변경", style: .default) { _ in
+                            self.showPasswordViewController(mode: .set, identifier: "passwordViewController", title: "암호 설정", storyboard: UIStoryboard(name: "Password", bundle: nil))
+                        }
+                        let remove = UIAlertAction(title: "비밀번호 비활성화", style: .default) { _ in
+                            UserDefaults.standard.set("", forKey: "localPassword")
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                        let cancel = UIAlertAction(title: "취소", style: .cancel)
+                        alert.addAction(modify)
+                        alert.addAction(remove)
+                        alert.addAction(cancel)
+                        self.present(alert, animated: true)
+                    }
+                    showPasswordViewController(mode: .check, passHandler: handler, identifier: "passwordViewController", title: "암호 확인", storyboard: UIStoryboard(name: "Password", bundle: nil))
+                } else {
+                    showPasswordViewController(mode: .set, identifier: "passwordViewController", title: "암호 설정", storyboard: UIStoryboard(name: "Password", bundle: nil))
+                }
             case 2:
                 performSegue(withIdentifier: "popUpSegue", sender: [self.contents[1][indexPath.row], "확인을 누르시면 되돌릴 수 없습니다.", PopUpViewUsage.leave] as [Any])
             default:
@@ -150,6 +170,15 @@ extension STMyPageListViewController {
         viewController.modalPresentationStyle = .overFullScreen
         viewController.modalTransitionStyle = .crossDissolve
         self.present(viewController, animated: true)
+    }
+    
+    private func showPasswordViewController(mode: passwordMode, passHandler: @escaping (() -> ()) = {}, identifier: String, title: String, storyboard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil)) {
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: identifier) as? STPasswordViewController else { return }
+        viewController.title = title
+        viewController.mode = mode
+        viewController.passHandler = passHandler
+        viewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

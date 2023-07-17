@@ -11,7 +11,29 @@ class STRootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkUserToken()
+        checkPassword()
+    }
+    
+    private func checkPassword() {
+        if let password = UserDefaults.standard.string(forKey: "localPassword"), password != "" {
+            let handler = {
+                self.dismiss(animated: true) {
+                    self.checkUserToken()
+                }
+            }
+            let storyboard = UIStoryboard(name: "Password", bundle: nil)
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: "passwordViewController") as? STPasswordViewController else { return }
+            viewController.title = title
+            viewController.mode = .check
+            viewController.passHandler = handler
+            viewController.modalPresentationStyle = .overFullScreen
+            viewController.hidesBottomBarWhenPushed = true
+            DispatchQueue.main.async {
+                self.present(viewController, animated: true)
+            }
+        } else {
+            checkUserToken()
+        }
     }
     
     private func checkUserToken() {
