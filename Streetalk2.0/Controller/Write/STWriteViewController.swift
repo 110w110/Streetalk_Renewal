@@ -17,7 +17,7 @@ class STWriteViewController: UIViewController {
     @IBOutlet weak var writtingBackgroundImageView: UIImageView!
     @IBOutlet var keyboardArea: UIView!
     
-    private var uploadImageList: [UIImage] = [UIImage(systemName: "plus.circle.fill")!]
+    private var uploadImageList: [UIImage] = [UIImage(named: "Add")!]
     private var mainBoardList: [Board] = []
     private var subBoardList: [Board] = []
     private let imagePickerController = UIImagePickerController()
@@ -266,7 +266,7 @@ extension STWriteViewController: UICollectionViewDelegate {
 
 extension STWriteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return uploadImageList.count
+        return min(uploadImageList.count, 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
