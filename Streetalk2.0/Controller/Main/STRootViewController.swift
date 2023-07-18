@@ -43,7 +43,16 @@ class STRootViewController: UIViewController {
     
     private func checkUserToken() {
         if UserDefaults.standard.string(forKey: "userToken") != nil {
-            presentHomeViewController()
+            let request = RefreshToken()
+            request.request(completion: { result in
+                switch result {
+                case let .success(data):
+                    UserDefaults.standard.set(data.token, forKey: "userToken")
+                    self.presentHomeViewController()
+                case let .failure(error):
+                    print(error)
+                }
+            })
         } else {
             presentJoinViewController()
         }

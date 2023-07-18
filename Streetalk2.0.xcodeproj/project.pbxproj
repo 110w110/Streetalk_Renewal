@@ -69,6 +69,7 @@
 		337B883F2A6621FE0051B7FF /* GetMyLikesListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B883E2A6621FE0051B7FF /* GetMyLikesListRequest.swift */; };
 		337B88412A6622240051B7FF /* GetMyScrapsListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B88402A6622240051B7FF /* GetMyScrapsListRequest.swift */; };
 		337B88432A66349D0051B7FF /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B88422A66349D0051B7FF /* RefreshTokenRequest.swift */; };
+		337B88452A6645140051B7FF /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B88442A6645140051B7FF /* Token.swift */; };
 		337CB04F2A49550B00A7E375 /* STPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337CB04E2A49550B00A7E375 /* STPostViewController.swift */; };
 		3388DB452A5F8D7B004A64CE /* LikeBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB442A5F8D7A004A64CE /* LikeBoardRequest.swift */; };
 		3388DB472A5F976C004A64CE /* Password.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3388DB462A5F976C004A64CE /* Password.storyboard */; };
@@ -196,6 +197,7 @@
 		337B883E2A6621FE0051B7FF /* GetMyLikesListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyLikesListRequest.swift; sourceTree = "<group>"; };
 		337B88402A6622240051B7FF /* GetMyScrapsListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyScrapsListRequest.swift; sourceTree = "<group>"; };
 		337B88422A66349D0051B7FF /* RefreshTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequest.swift; sourceTree = "<group>"; };
+		337B88442A6645140051B7FF /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		337CB04E2A49550B00A7E375 /* STPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostViewController.swift; sourceTree = "<group>"; };
 		3388DB442A5F8D7A004A64CE /* LikeBoardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBoardRequest.swift; sourceTree = "<group>"; };
 		3388DB462A5F976C004A64CE /* Password.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Password.storyboard; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				333C20782A55D94B00F8265C /* SearchPost.swift */,
 				333C207E2A56935300F8265C /* PostList.swift */,
 				33D4C9662A5EDECF0099E94A /* Notice.swift */,
+				337B88442A6645140051B7FF /* Token.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				333C207B2A55DA4500F8265C /* SearchRequest.swift in Sources */,
 				333C20932A5BD7F300F8265C /* HomeInfo.swift in Sources */,
 				33D4C95F2A5D551A0099E94A /* PostPostRequest.swift in Sources */,
+				337B88452A6645140051B7FF /* Token.swift in Sources */,
 				330439032A346551008123AD /* AddReplyRequest.swift in Sources */,
 				337B883D2A661DEE0051B7FF /* GetMyPostListRequest.swift in Sources */,
 				333C20892A57D14700F8265C /* STBoardListViewController.swift in Sources */,
