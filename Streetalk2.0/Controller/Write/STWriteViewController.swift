@@ -41,18 +41,19 @@ class STWriteViewController: UIViewController {
         writeContentTextView.keyboardDismissMode = .onDrag
         
         lazy var submitButton: UIBarButtonItem = {
-            let button = UIBarButtonItem(title: "등록", style: .plain, target: self, action: #selector(writeButtonTapped(_:)))
+            let button = UIBarButtonItem(title: "등록", style: .done, target: self, action: #selector(writeButtonTapped(_:)))
             button.tintColor = .streetalkPink
             return button
         }()
         
         lazy var cancelButton: UIBarButtonItem = {
-            let button = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped(_:)))
+            let button = UIBarButtonItem(title: "취소", style: .done, target: self, action: #selector(cancelButtonTapped(_:)))
             button.tintColor = .streetalkPink
             return button
         }()
         
-        self.navigationItem.rightBarButtonItems = [submitButton, cancelButton]
+        self.navigationItem.leftBarButtonItem = cancelButton
+        self.navigationItem.rightBarButtonItem = submitButton
         
         
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
