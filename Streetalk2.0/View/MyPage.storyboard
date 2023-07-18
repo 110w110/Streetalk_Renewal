@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileCell" rowHeight="193" id="I8v-7o-SSA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileCell" rowHeight="193" id="I8v-7o-SSA" customClass="STProfileCell" customModule="Streetalk2_0" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.333332061767578" width="353" height="193"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I8v-7o-SSA" id="TO3-ag-A0s">
@@ -143,6 +143,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="Ilh-fB-Prf" secondAttribute="bottom" constant="20" id="wfv-em-u5X"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="industry" destination="8M4-c0-yRT" id="U7p-8k-OLk"/>
+                                            <outlet property="location" destination="Bmz-qY-s5u" id="k6K-t3-wC2"/>
+                                            <outlet property="nickName" destination="eOQ-fS-IfE" id="rvp-mY-JU0"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myPageCell" id="t6f-CH-QRv" customClass="STMyPageTableViewCell" customModule="Streetalk2_0" customModuleProvider="target">
                                         <rect key="frame" x="20" y="248.33333206176758" width="353" height="43.666667938232422"/>

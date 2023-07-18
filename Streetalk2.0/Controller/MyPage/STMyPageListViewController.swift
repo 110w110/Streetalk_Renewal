@@ -11,6 +11,7 @@ class STMyPageListViewController: UIViewController {
 
     private var titles: [String] = []
     private var contents: [Array<String>] = []
+    private var homeInfo: HomeInfo?
     
     @IBOutlet var tableView: UITableView!
     
@@ -25,6 +26,8 @@ class STMyPageListViewController: UIViewController {
             self.titles = titles
             self.contents = contents
         })
+        
+        fetchHomeData()
     }
     
     @IBAction func profileSettingButtonTapped(_ sender: Any) {
@@ -115,9 +118,11 @@ extension STMyPageListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as! STProfileCell
             cell.selectionStyle = .none
-            
+            cell.location.text = homeInfo?.location
+            cell.industry.text = homeInfo?.industry
+            cell.nickName.text = "\(homeInfo?.userName ?? "거리지기") 사장님"
             return cell
             
         }
@@ -159,6 +164,21 @@ extension STMyPageListViewController: UITableViewDataSource {
 
 extension STMyPageListViewController {
     
+    private func fetchHomeData() {
+        let request = HomeInfoRequest()
+        request.request(completion: { result in
+            switch result {
+            case let .success(object):
+                self.homeInfo = object
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case let .failure(error):
+                print(error)
+            }
+        })
+    }
+    
     private func showNextViewController<T: UIViewController>(identifier: String, title: String, viewControllerType: T.Type, storyboard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil)) {
         guard let viewController = storyboard.instantiateViewController(withIdentifier: identifier) as? T else { return }
         viewController.title = title
@@ -182,4 +202,10 @@ extension STMyPageListViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
+}
+
+class STProfileCell: UITableViewCell {
+    @IBOutlet var location: UILabel!
+    @IBOutlet var industry: UILabel!
+    @IBOutlet var nickName: UILabel!
 }
