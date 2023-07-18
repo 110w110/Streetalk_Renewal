@@ -199,6 +199,7 @@ extension STBoardListViewController: UICollectionViewDataSource {
             return label
         }()
         
+        cell.backgroundColor = .systemBackground
         cell.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 20).isActive = true
@@ -244,10 +245,16 @@ extension STBoardListViewController: UICollectionViewDelegate {
         // TODO: 내 게시판 API 생성 후 연결되는 게시판 수정 필요
         if collectionView == mainBoardListCollectionView {
             viewController.boardId = mainBoardList[indexPath.row].id
+            viewController.boardName = mainBoardList[indexPath.row].boardName
+            viewController.title = mainBoardList[indexPath.row].boardName
         } else if collectionView == mainBoardListCollectionView {
             viewController.boardId = mainBoardList[indexPath.row].id
+            viewController.boardName = mainBoardList[indexPath.row].boardName
+            viewController.title = mainBoardList[indexPath.row].boardName
         } else if collectionView == subBoardListCollectionView {
             viewController.boardId = subBoardList[indexPath.row].id
+            viewController.boardName = subBoardList[indexPath.row].boardName
+            viewController.title = subBoardList[indexPath.row].boardName
         }
         
         self.navigationController?.pushViewController(viewController, animated: true)

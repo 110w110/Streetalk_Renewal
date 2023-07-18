@@ -127,12 +127,14 @@ extension STBoardTableViewCell: UICollectionViewDelegate {
             switch self.sectionSelection {
             case .myLocal:
                 postController.postId = homeInfo?.myLocalPosts?[indexPath.row].postId
+                postController.title = "내 지역 게시판"
             case .myIndustry:
                 postController.postId = homeInfo?.myIndustryPosts?[indexPath.row].postId
+                postController.title = "내 업종 게시판"
             case .newPost:
                 postController.postId = homeInfo?.newPosts?[indexPath.row].postId
+                postController.title = "새 글 게시판"
             }
-//            postController.title = "지역 게시판"
             postController.hidesBottomBarWhenPushed = true
             self.navigation?.pushViewController(postController, animated: true)
                 

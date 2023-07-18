@@ -17,6 +17,7 @@ class STPostListViewController: UIViewController {
     
     // 임시로 1번 게시판 할당, 차후에 게시판 선택 구현 후에 수정할 예정
     var boardId: Int? = 1
+    var boardName: String?
     var favorite: Bool = false
     
     override func viewDidLoad() {
@@ -116,7 +117,7 @@ extension STPostListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "postViewController") as! STPostViewController
-        postViewController.title = "지역 게시판"
+        postViewController.title = boardName
         postViewController.hidesBottomBarWhenPushed = true
         postViewController.postId = postList[indexPath.row].postId
         self.navigationController?.pushViewController(postViewController, animated: true)
