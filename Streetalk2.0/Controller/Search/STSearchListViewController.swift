@@ -11,6 +11,7 @@ class STSearchListViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchTextField: UITextField!
+    @IBOutlet var emptyImage: UIImageView!
     
     private var postList: [SearchPost] = []
     
@@ -24,6 +25,12 @@ class STSearchListViewController: UIViewController {
     
     @IBAction func searchTextFieldEditing(_ sender: Any) {
         guard let text = self.searchTextField.text else { return }
+        
+        if text.isEmpty {
+            postList = []
+            self.tableView.reloadData()
+        }
+        
         let request = SearchRequest(additionalInfo: text)
         request.request(completion: { result in
             switch result {
@@ -32,6 +39,11 @@ class STSearchListViewController: UIViewController {
                 self.postList = data
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    if self.postList.isEmpty {
+                        self.emptyImage.isHidden = false
+                    } else {
+                        self.emptyImage.isHidden = true
+                    }
                 }
             case let .failure(error):
                 print(error)
