@@ -18,8 +18,9 @@ class STBoardListViewController: UIViewController {
     @IBOutlet var mainBoardEmptyLabel: UILabel!
     @IBOutlet var subBoardEmptyLabel: UILabel!
     
-    let myBoardImageList = [UIImage(named: "MyPost"), UIImage(named: "MyComment"), UIImage(named: "MyLike"), UIImage(named: "MyScrap")]
-    let debugMyBoardTitles = ["내 게시글", "내 댓글", "추천한 게시글", "내 스크랩"]
+    private let myBoardImageList = [UIImage(named: "MyPost"), UIImage(named: "MyComment"), UIImage(named: "MyLike"), UIImage(named: "MyScrap")]
+    private let myBoardTitles = ["내 게시글", "내 댓글", "추천한 게시글", "내 스크랩"]
+    private let myBoardMode: [ListMode] = [.myPost, .myReply, .myLike, .myScrap]
     
     private var mainBoardList: [Board] = []
     private var subBoardList: [Board] = []
@@ -130,8 +131,8 @@ extension STBoardListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // TODO: 내 게시판 관련 API 생성 이후에 네 가지로 분기 처리 필요
-        if collectionView == mainBoardListCollectionView {
-            return min(4, mainBoardList.count)
+        if collectionView == myBoardListCollectionView {
+            return min(4, myBoardTitles.count)
         } else if collectionView == mainBoardListCollectionView {
             return min(4, mainBoardList.count)
         } else if collectionView == subBoardListCollectionView {
@@ -154,7 +155,7 @@ extension STBoardListViewController: UICollectionViewDataSource {
             let label = {
                 let label = UILabel()
                 label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
-                label.text = debugMyBoardTitles[indexPath.row]
+                label.text = myBoardTitles[indexPath.row]
                 label.textAlignment = .center
                 return label
             }()
@@ -243,10 +244,9 @@ extension STBoardListViewController: UICollectionViewDelegate {
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "postListViewController") as! STPostListViewController
         
         // TODO: 내 게시판 API 생성 후 연결되는 게시판 수정 필요
-        if collectionView == mainBoardListCollectionView {
-            viewController.boardId = mainBoardList[indexPath.row].id
-            viewController.boardName = mainBoardList[indexPath.row].boardName
-            viewController.title = mainBoardList[indexPath.row].boardName
+        if collectionView == myBoardListCollectionView {
+            viewController.title = myBoardTitles[indexPath.row]
+            viewController.listMode = myBoardMode[indexPath.row]
         } else if collectionView == mainBoardListCollectionView {
             viewController.boardId = mainBoardList[indexPath.row].id
             viewController.boardName = mainBoardList[indexPath.row].boardName
