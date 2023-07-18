@@ -13,6 +13,7 @@ struct SearchPost: Codable {
     let id : Int?
     let title : String?
     let content : String?
+    let writer: String?
     let likeCount : Int?
     let scrapCount : Int?
     let replyCount : Int?
@@ -20,11 +21,12 @@ struct SearchPost: Codable {
     let replyList : [SearchReply]?
 
     enum CodingKeys: String, CodingKey {
-        case createdDate
+        case createdDate = "createTime"
         case modifiedDate
-        case id
+        case id = "postId"
         case title
         case content
+        case writer
         case likeCount
         case scrapCount
         case replyCount
@@ -39,6 +41,7 @@ struct SearchPost: Codable {
         id = try values.decodeIfPresent(Int.self, forKey: .id)
         title = try values.decodeIfPresent(String.self, forKey: .title)
         content = try values.decodeIfPresent(String.self, forKey: .content)
+        writer = try values.decodeIfPresent(String.self, forKey: .writer)
         likeCount = try values.decodeIfPresent(Int.self, forKey: .likeCount)
         scrapCount = try values.decodeIfPresent(Int.self, forKey: .scrapCount)
         replyCount = try values.decodeIfPresent(Int.self, forKey: .replyCount)

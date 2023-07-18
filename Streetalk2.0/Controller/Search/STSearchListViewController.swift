@@ -53,8 +53,8 @@ extension STSearchListViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         cell.titleLabel.text = postList[indexPath.row].title
         cell.contentLabel.text = postList[indexPath.row].content
-//        cell.nickNameLabel.text = postList[indexPath.row].
-        cell.timeLabel.text = postList[indexPath.row].modifiedDate
+        cell.nickNameLabel.text = postList[indexPath.row].writer
+        cell.timeLabel.text = postList[indexPath.row].createdDate
         cell.commentCount.text = postList[indexPath.row].replyCount?.toString()
         cell.likeCount.text = postList[indexPath.row].likeCount?.toString()
         cell.scrapCount.text = postList[indexPath.row].scrapCount?.toString()
