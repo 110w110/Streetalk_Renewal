@@ -55,6 +55,8 @@ extension STSearchListViewController: UITableViewDataSource {
         cell.contentLabel.text = postList[indexPath.row].content
         cell.nickNameLabel.text = postList[indexPath.row].writer
         cell.timeLabel.text = postList[indexPath.row].createdDate
+        cell.likeImage.isHighlighted = postList[indexPath.row].postLike ?? false
+        cell.scrapImage.isHighlighted = postList[indexPath.row].postScrap ?? false
         cell.commentCount.text = postList[indexPath.row].replyCount?.toString()
         cell.likeCount.text = postList[indexPath.row].likeCount?.toString()
         cell.scrapCount.text = postList[indexPath.row].scrapCount?.toString()

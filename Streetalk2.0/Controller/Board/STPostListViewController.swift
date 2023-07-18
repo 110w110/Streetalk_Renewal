@@ -175,6 +175,8 @@ extension STPostListViewController: UITableViewDataSource {
             cell.contentLabel.text = postList[indexPath.row].content
             cell.nickNameLabel.text = postList[indexPath.row].writer
             cell.timeLabel.text = postList[indexPath.row].lastTime?.toLastTimeString()
+            cell.likeImage.isHighlighted = postList[indexPath.row].postLike ?? false
+            cell.scrapImage.isHighlighted = postList[indexPath.row].postScrap ?? false
             cell.commentCount.text = postList[indexPath.row].replyCount?.toString()
             cell.likeCount.text = postList[indexPath.row].likeCount?.toString()
             cell.scrapCount.text = postList[indexPath.row].scrapCount?.toString()
@@ -187,6 +189,8 @@ extension STPostListViewController: UITableViewDataSource {
             cell.contentLabel.text = searchPostList[indexPath.row].content
             cell.nickNameLabel.text = searchPostList[indexPath.row].writer
             cell.timeLabel.text = searchPostList[indexPath.row].createdDate
+            cell.likeImage.isHighlighted = searchPostList[indexPath.row].postLike ?? false
+            cell.scrapImage.isHighlighted = searchPostList[indexPath.row].postScrap ?? false
             cell.commentCount.text = searchPostList[indexPath.row].replyCount?.toString()
             cell.likeCount.text = searchPostList[indexPath.row].likeCount?.toString()
             cell.scrapCount.text = searchPostList[indexPath.row].scrapCount?.toString()

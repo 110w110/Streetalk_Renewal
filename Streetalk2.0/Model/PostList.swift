@@ -13,6 +13,8 @@ struct PostList: Codable {
     let content : String?
     let location : String?
     let writer : String?
+    let postLike : Bool?
+    let postScrap : Bool?
     let lastTime : Int?
     let likeCount : Int?
     let scrapCount : Int?
@@ -24,6 +26,8 @@ struct PostList: Codable {
         case content
         case location
         case writer
+        case postLike
+        case postScrap
         case lastTime
         case likeCount
         case scrapCount
@@ -38,6 +42,8 @@ struct PostList: Codable {
         location = try values.decodeIfPresent(String.self, forKey: .location)
         writer = try values.decodeIfPresent(String.self, forKey: .writer)
         lastTime = try values.decodeIfPresent(Int.self, forKey: .lastTime)
+        postLike = try values.decodeIfPresent(Bool.self, forKey: .postLike)
+        postScrap = try values.decodeIfPresent(Bool.self, forKey: .postScrap)
         likeCount = try values.decodeIfPresent(Int.self, forKey: .likeCount)
         scrapCount = try values.decodeIfPresent(Int.self, forKey: .scrapCount)
         replyCount = try values.decodeIfPresent(Int.self, forKey: .replyCount)

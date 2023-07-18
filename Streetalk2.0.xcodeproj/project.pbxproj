@@ -68,6 +68,7 @@
 		337B883D2A661DEE0051B7FF /* GetMyPostListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B883C2A661DEE0051B7FF /* GetMyPostListRequest.swift */; };
 		337B883F2A6621FE0051B7FF /* GetMyLikesListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B883E2A6621FE0051B7FF /* GetMyLikesListRequest.swift */; };
 		337B88412A6622240051B7FF /* GetMyScrapsListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B88402A6622240051B7FF /* GetMyScrapsListRequest.swift */; };
+		337B88432A66349D0051B7FF /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B88422A66349D0051B7FF /* RefreshTokenRequest.swift */; };
 		337CB04F2A49550B00A7E375 /* STPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337CB04E2A49550B00A7E375 /* STPostViewController.swift */; };
 		3388DB452A5F8D7B004A64CE /* LikeBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3388DB442A5F8D7A004A64CE /* LikeBoardRequest.swift */; };
 		3388DB472A5F976C004A64CE /* Password.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3388DB462A5F976C004A64CE /* Password.storyboard */; };
@@ -194,6 +195,7 @@
 		337B883C2A661DEE0051B7FF /* GetMyPostListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyPostListRequest.swift; sourceTree = "<group>"; };
 		337B883E2A6621FE0051B7FF /* GetMyLikesListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyLikesListRequest.swift; sourceTree = "<group>"; };
 		337B88402A6622240051B7FF /* GetMyScrapsListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyScrapsListRequest.swift; sourceTree = "<group>"; };
+		337B88422A66349D0051B7FF /* RefreshTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequest.swift; sourceTree = "<group>"; };
 		337CB04E2A49550B00A7E375 /* STPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostViewController.swift; sourceTree = "<group>"; };
 		3388DB442A5F8D7A004A64CE /* LikeBoardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBoardRequest.swift; sourceTree = "<group>"; };
 		3388DB462A5F976C004A64CE /* Password.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Password.storyboard; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				337B883C2A661DEE0051B7FF /* GetMyPostListRequest.swift */,
 				337B883E2A6621FE0051B7FF /* GetMyLikesListRequest.swift */,
 				337B88402A6622240051B7FF /* GetMyScrapsListRequest.swift */,
+				337B88422A66349D0051B7FF /* RefreshTokenRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -751,6 +754,7 @@
 				330CE9712A3843D400BFA26F /* UIColor+.swift in Sources */,
 				333C20872A56AF3900F8265C /* ReportPostRequest.swift in Sources */,
 				333C20952A5BD8D800F8265C /* HomeInfoRequest.swift in Sources */,
+				337B88432A66349D0051B7FF /* RefreshTokenRequest.swift in Sources */,
 				330438F12A315E95008123AD /* Address.swift in Sources */,
 				332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */,
 				33D4C9552A5C5D4E0099E94A /* STBoardTableViewCell.swift in Sources */,

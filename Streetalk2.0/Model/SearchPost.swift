@@ -14,6 +14,8 @@ struct SearchPost: Codable {
     let title : String?
     let content : String?
     let writer: String?
+    let postLike : Bool?
+    let postScrap : Bool?
     let likeCount : Int?
     let scrapCount : Int?
     let replyCount : Int?
@@ -27,6 +29,8 @@ struct SearchPost: Codable {
         case title
         case content
         case writer
+        case postLike
+        case postScrap
         case likeCount
         case scrapCount
         case replyCount
@@ -42,6 +46,8 @@ struct SearchPost: Codable {
         title = try values.decodeIfPresent(String.self, forKey: .title)
         content = try values.decodeIfPresent(String.self, forKey: .content)
         writer = try values.decodeIfPresent(String.self, forKey: .writer)
+        postLike = try values.decodeIfPresent(Bool.self, forKey: .postLike)
+        postScrap = try values.decodeIfPresent(Bool.self, forKey: .postScrap)
         likeCount = try values.decodeIfPresent(Int.self, forKey: .likeCount)
         scrapCount = try values.decodeIfPresent(Int.self, forKey: .scrapCount)
         replyCount = try values.decodeIfPresent(Int.self, forKey: .replyCount)
