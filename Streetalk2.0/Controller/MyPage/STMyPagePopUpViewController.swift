@@ -43,6 +43,10 @@ class STMyPagePopUpViewController: UIViewController {
             }
         case .leave:
             leave()
+            let notYet = UIAlertController(title: nil, message: "회원 탈퇴 준비 중입니다", preferredStyle: .alert)
+            let okay = UIAlertAction(title: "확인", style: .default) { _ in self.targetViewController?.dismiss(animated: true) }
+            notYet.addAction(okay)
+            self.present(notYet, animated: true, completion: nil)
         default:
             print("Error: pop-up usage is undefined")
         }
