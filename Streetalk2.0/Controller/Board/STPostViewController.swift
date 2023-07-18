@@ -204,6 +204,7 @@ extension STPostViewController: UITableViewDataSource {
                 cell.imageUrls = post.images
                 cell.targetViewController = self
                 cell.imageCollectionView.isHidden = post.images?.count == 0
+                cell.setUI()
                 DispatchQueue.main.async {
                     cell.imageCollectionView.reloadData()
                 }

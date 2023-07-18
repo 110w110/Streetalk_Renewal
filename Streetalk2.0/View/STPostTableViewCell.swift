@@ -27,6 +27,7 @@ class STPostTableViewCell: UITableViewCell {
     @IBOutlet var scrapImage: UIImageView!
     
     @IBOutlet var imageCollectionView: UICollectionView!
+    @IBOutlet var imageCount: UILabel!
     
     var postId: Int?
     var like: Int?
@@ -63,6 +64,12 @@ class STPostTableViewCell: UITableViewCell {
 }
 
 extension STPostTableViewCell {
+    func setUI() {
+        if self.imageUrls?.count != 0 {
+            self.imageCount.isHidden = false
+            self.imageCount.text = "1 / \(self.imageUrls?.count ?? 1)"
+        }
+    }
     
     @objc func likeTapped(sender: UITapGestureRecognizer) {
         guard let id = postId else { return }
@@ -127,6 +134,15 @@ extension STPostTableViewCell {
     }
 }
 
+extension STPostTableViewCell: UIScrollViewDelegate {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let totalWidth = scrollView.frame.width
+        var offset = targetContentOffset.pointee
+        let current = Int(offset.x/totalWidth)+1
+        imageCount.text = "\(current) / \(imageUrls?.count ?? 1)"
+    }
+}
+
 extension STPostTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Board", bundle: nil)
@@ -159,7 +175,6 @@ extension STPostTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postImageViewCollectionViewCell", for: indexPath) as! STPostImageViewCollectionViewCell
-        
         if let image = imageUrls?[indexPath.row] {
             let url = URL(string: image)
             cell.imageView.kf.indicatorType = .activity
