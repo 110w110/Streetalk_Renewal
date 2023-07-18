@@ -488,7 +488,7 @@
         <!--Root View Controller-->
         <scene sceneID="6UW-ff-KbX">
             <objects>
-                <viewController id="Vfm-eS-dPR" customClass="STRootViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rootViewController" id="Vfm-eS-dPR" customClass="STRootViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kdf-61-8g4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

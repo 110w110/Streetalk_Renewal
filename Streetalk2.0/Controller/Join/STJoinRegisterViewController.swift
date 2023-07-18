@@ -106,9 +106,11 @@ class STJoinRegisterViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.indicatiorDimmingView.isHidden = true
                     let mainViewController = STMainViewController()
-                    mainViewController.modalPresentationStyle = .overFullScreen
+                    mainViewController.modalPresentationStyle = .fullScreen
                     mainViewController.modalTransitionStyle = .crossDissolve
-                    self.present(mainViewController, animated: true, completion: nil)
+                    self.present(mainViewController, animated: true, completion: {
+                        self.navigationController?.popToRootViewController(animated: false)
+                    })
                 }
             case .failure(_):
                 UserDefaults.standard.set(nil, forKey: "userToken")

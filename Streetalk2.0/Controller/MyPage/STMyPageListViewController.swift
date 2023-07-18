@@ -97,6 +97,7 @@ extension STMyPageListViewController: UITableViewDelegate {
             nextViewController.popUpTitle = sender[0] as! String
             nextViewController.popUpContent = sender[1] as! String
             nextViewController.popUpUsage = sender[2] as! PopUpViewUsage
+            nextViewController.targetViewController = self
         }
     }
     

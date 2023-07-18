@@ -65,7 +65,7 @@ class STReplyTableViewCell: UITableViewCell {
             let viewController = storyboard.instantiateViewController(withIdentifier: "reportViewController") as! STReportViewController
             viewController.target = .reply
             viewController.replyId = replyId
-            viewController.modalPresentationStyle = .overFullScreen
+            viewController.modalPresentationStyle = .fullScreen
             viewController.modalTransitionStyle = .crossDissolve
             guard let targetViewController = targetViewController else { return }
             targetViewController.present(viewController, animated: true)

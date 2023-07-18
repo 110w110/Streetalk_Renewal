@@ -16,6 +16,7 @@ class STMyPagePopUpViewController: UIViewController {
     var popUpTitle: String = "title"
     var popUpContent: String = "content"
     var popUpUsage: PopUpViewUsage = .undefined
+    var targetViewController: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,11 @@ class STMyPagePopUpViewController: UIViewController {
         switch self.popUpUsage {
         case .logout:
             logOut()
+            UserDefaults.standard.set(nil, forKey: "userToken")
+            UserDefaults.standard.set(nil, forKey: "localPassword")
+            self.dismiss(animated: true) {
+                self.targetViewController?.dismiss(animated: true)
+            }
         case .leave:
             leave()
         default:

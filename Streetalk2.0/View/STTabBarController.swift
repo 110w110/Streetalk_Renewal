@@ -65,7 +65,7 @@ class STTabBarController: UITabBarController, UITabBarControllerDelegate {
         let writeViewController = writeStoryboard.instantiateViewController(withIdentifier: "writeViewController")
         writeViewController.title = "글쓰기"
         let navigationController = UINavigationController(rootViewController: writeViewController)
-        navigationController.modalPresentationStyle = .overFullScreen
+        navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
     }
     

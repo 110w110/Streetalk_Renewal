@@ -14,6 +14,11 @@ class STRootViewController: UIViewController {
         checkPassword()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkUserToken()
+    }
+    
     private func checkPassword() {
         if let password = UserDefaults.standard.string(forKey: "localPassword"), password != "" {
             let handler = {
@@ -26,7 +31,7 @@ class STRootViewController: UIViewController {
             viewController.title = title
             viewController.mode = .check
             viewController.passHandler = handler
-            viewController.modalPresentationStyle = .overFullScreen
+            viewController.modalPresentationStyle = .fullScreen
             viewController.hidesBottomBarWhenPushed = true
             DispatchQueue.main.async {
                 self.present(viewController, animated: true)
@@ -49,7 +54,7 @@ class STRootViewController: UIViewController {
             let joinStoryboard = UIStoryboard(name: "Join", bundle: nil)
             let joinViewController = joinStoryboard.instantiateViewController(withIdentifier: "joinViewController")
             let navigationController = UINavigationController(rootViewController: joinViewController)
-            navigationController.modalPresentationStyle = .overFullScreen
+            navigationController.modalPresentationStyle = .fullScreen
             navigationController.modalTransitionStyle = .crossDissolve
             navigationController.navigationBar.tintColor = .streetalkPink
             navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.streetalkPink]
@@ -60,7 +65,7 @@ class STRootViewController: UIViewController {
     private func presentHomeViewController() {
         DispatchQueue.main.async {
             let mainViewController = STMainViewController()
-            mainViewController.modalPresentationStyle = .overFullScreen
+            mainViewController.modalPresentationStyle = .fullScreen
             mainViewController.modalTransitionStyle = .crossDissolve
             self.present(mainViewController, animated: true, completion: nil)
         }

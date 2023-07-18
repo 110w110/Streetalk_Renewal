@@ -13,6 +13,12 @@ class STMainViewController: UIViewController {
         super.viewDidLoad()
         presentHomeViewController()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("A")
+        self.dismiss(animated: true)
+    }
 
     private func presentHomeViewController() {
         DispatchQueue.main.async {
@@ -72,7 +78,7 @@ class STMainViewController: UIViewController {
             items[4].image = UIImage(named: "MyPage_Normal")
             items[4].selectedImage = UIImage(named: "MyPage_Highlight")
             
-            tabBarController.modalPresentationStyle = .overFullScreen
+            tabBarController.modalPresentationStyle = .fullScreen
             tabBarController.modalTransitionStyle = .crossDissolve
             self.present(tabBarController, animated: true, completion: nil)
         }
