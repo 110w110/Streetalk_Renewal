@@ -16,10 +16,16 @@ class STHomeViewController: UIViewController {
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var industryLabel: UILabel!
     
+    @IBOutlet var bannerCollectionView: UICollectionView!
+    
     private let refreshControl = UIRefreshControl()
     private var kTableHeaderHeight:CGFloat = 200
     private var homeInfo: HomeInfo?
     private var notice: Notice?
+    
+    // temp
+    var imageList: [String]? = []
+//    ["https://app-streetalk.s3.ap-northeast-2.amazonaws.com/8/42/1?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230718T051657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=18000&X-Amz-Credential=AKIAUCID2AFMZ2JXZUJB%2F20230718%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Signature=bfe2aa0d9889fb217d093c122b477e8f1cba2cbc8cccba55181c3353ff65a771","https://app-streetalk.s3.ap-northeast-2.amazonaws.com/8/42/2?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230718T051657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=18000&X-Amz-Credential=AKIAUCID2AFMZ2JXZUJB%2F20230718%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Signature=f4e8f2c12782d8e1225cddbd2d1432978e2a4e1b9dde8d90a10d8f1406918bcf","https://app-streetalk.s3.ap-northeast-2.amazonaws.com/8/42/3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230718T051657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=17999&X-Amz-Credential=AKIAUCID2AFMZ2JXZUJB%2F20230718%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Signature=4be1dc369e72444fae35c02f14ccf6cda36ee26d1bdab9839e857fdc4013e94b"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +33,56 @@ class STHomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        bannerCollectionView.dataSource = self
+        bannerCollectionView.delegate = self
+        
         tableView.rowHeight = UITableView.automaticDimension
         setStretchableHeaderView()
         updateHeaderView()
         initialSetUI()
+    }
+    
+}
+
+extension STHomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = collectionView.frame.width - 10
+        let height: CGFloat = collectionView.frame.height
+        return CGSize(width: width, height: height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1000
+    }
+}
+
+extension STHomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imageList?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bannerCell", for: indexPath) as! BannerCell
+        
+        if let image = imageList?[indexPath.row] {
+            let url = URL(string: image)
+            cell.image.kf.indicatorType = .activity
+            cell.image.kf.setImage(
+              with: url,
+              placeholder: nil,
+              options: [.transition(.fade(1.2))],
+              completionHandler: nil
+            )
+        }
+        return cell
     }
     
 }
@@ -182,7 +234,6 @@ extension STHomeViewController {
 }
 
 class StretchyTableViewCell: UITableViewCell {
-
     private let view1: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -211,6 +262,10 @@ class StretchyTableViewCell: UITableViewCell {
         view1.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
 
     }
+}
+
+class BannerCell: UICollectionViewCell {
+    @IBOutlet var image: UIImageView!
 }
 
 class NoticeTableViewCell: UITableViewCell {
