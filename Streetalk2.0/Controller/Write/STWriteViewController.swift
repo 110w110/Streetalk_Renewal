@@ -176,10 +176,25 @@ extension STWriteViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         
         guard let image = newImage else { return }
-        uploadImageList.insert(image, at: uploadImageList.count - 1)
+        uploadImageList.insert(fixOrientation(img: image), at: uploadImageList.count - 1)
         dismiss(animated: true, completion: {
             self.collectionView.reloadData()
         })
+    }
+    
+    func fixOrientation(img: UIImage) -> UIImage {
+        if (img.imageOrientation == .up) {
+            return img
+        }
+
+        UIGraphicsBeginImageContextWithOptions(img.size, false, img.scale)
+        let rect = CGRect(x: 0, y: 0, width: img.size.width, height: img.size.height)
+        img.draw(in: rect)
+
+        let normalizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return normalizedImage
     }
 }
 
@@ -254,9 +269,26 @@ extension STWriteViewController: UITableViewDataSource {
 extension STWriteViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == uploadImageList.count - 1 {
-            self.imagePickerController.sourceType = .photoLibrary
-            self.imagePickerController.allowsEditing = true
-            self.present(imagePickerController, animated: true, completion: nil)
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let camera = UIAlertAction(title: "카메라", style: .default) { _ in
+                self.imagePickerController.sourceType = .camera
+                self.present(self.imagePickerController, animated: true, completion: nil)
+            }
+            let album = UIAlertAction(title: "앨범 (원본)", style: .default) { _ in
+                self.imagePickerController.sourceType = .photoLibrary
+                self.present(self.imagePickerController, animated: true, completion: nil)
+            }
+            let albumEditing = UIAlertAction(title: "앨범 (편집)", style: .default) { _ in
+                self.imagePickerController.sourceType = .photoLibrary
+                self.imagePickerController.allowsEditing = true
+                self.present(self.imagePickerController, animated: true, completion: nil)
+            }
+            let cancel = UIAlertAction(title: "취소", style: .cancel)
+            alert.addAction(camera)
+            alert.addAction(album)
+            alert.addAction(albumEditing)
+            alert.addAction(cancel)
+            self.present(alert, animated: true)
         } else {
             uploadImageList.remove(at: indexPath.row)
         }

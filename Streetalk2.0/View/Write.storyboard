@@ -172,7 +172,6 @@
                                                         <constraint firstItem="T4C-hS-ldQ" firstAttribute="top" secondItem="fkS-tO-qYb" secondAttribute="top" id="VmF-rL-JYy"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <connections>
                                                     <outlet property="imageView" destination="T4C-hS-ldQ" id="YyN-3s-1A1"/>
                                                 </connections>
