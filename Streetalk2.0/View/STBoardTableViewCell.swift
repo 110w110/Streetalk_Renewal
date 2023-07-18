@@ -147,7 +147,7 @@ extension STBoardTableViewCell: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView == sectionCollectionView {
-            return UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 60)
+            return UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
         }
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
@@ -169,6 +169,6 @@ extension STBoardTableViewCell: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 30
     }
 }

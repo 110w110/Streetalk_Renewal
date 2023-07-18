@@ -176,14 +176,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="boardTableViewCell" id="1uL-0k-4wo" customClass="STBoardTableViewCell" customModule="Streetalk2_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="338" width="393" height="262"/>
+                                        <rect key="frame" x="0.0" y="338" width="393" height="280"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1uL-0k-4wo" id="ZDP-s5-K5J">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="262"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="een-8v-R3Z">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="262"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="een-8v-R3Z">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  인기글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cf-Zd-IAx">
                                                             <rect key="frame" x="0.0" y="0.0" width="393" height="20"/>
@@ -195,7 +195,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OP1-6M-CPc">
-                                                            <rect key="frame" x="0.0" y="26" width="393" height="30"/>
+                                                            <rect key="frame" x="0.0" y="35" width="393" height="30"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="FNz-PO-FXG"/>
@@ -252,7 +252,7 @@
                                                             </cells>
                                                         </collectionView>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BK3-CQ-1FA">
-                                                            <rect key="frame" x="0.0" y="62" width="393" height="200"/>
+                                                            <rect key="frame" x="0.0" y="80" width="393" height="200"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="200" id="dgH-Ws-dYD"/>
@@ -360,7 +360,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="likedBoardTableViewCell" id="Amp-3Y-J9I" customClass="STLikedBoardTableViewCell" customModule="Streetalk2_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="600" width="393" height="226"/>
+                                        <rect key="frame" x="0.0" y="618" width="393" height="226"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Amp-3Y-J9I" id="6Mq-HF-bFJ">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="226"/>
