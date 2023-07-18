@@ -13,7 +13,7 @@ class STRegisterLocationCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                self.backgroundColor = .streetalkPink.withAlphaComponent(0.1)
+                self.backgroundColor = .streetalkPink.withAlphaComponent(0.3)
             } else {
                 self.backgroundColor = .clear
             }
