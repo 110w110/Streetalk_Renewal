@@ -48,7 +48,8 @@ extension STPostListViewController {
             request.request(completion: { result in
                 switch result {
                 case let .success(data):
-                    self.postList += data
+                    self.postList += data.postList ?? []
+                    self.favorite = data.like ?? false
                 case let .failure(error):
                     print(error)
                 }
@@ -127,7 +128,8 @@ extension STPostListViewController {
         request.request(completion: { result in
             switch result {
             case let .success(data):
-                self.postList = data
+                self.postList = data.postList ?? []
+                self.favorite = data.like ?? false
             case let .failure(error):
                 print(error)
             }
@@ -143,12 +145,14 @@ extension STPostListViewController {
     
     @objc private func boardLike() {
         guard let id = boardId else { return }
-        let request = LikeBoardRequest(additionalInfo: "/\(id)")
+        var method: HttpMethods = favorite ? .delete : .post
+        let request = LikeBoardRequest(methods: method, additionalInfo: "/\(id)")
         request.request(completion: { result in
             switch result {
             case .success(let data):
                 print(data)
-                self.favorite = !self.favorite
+                // TODO: data의 favorite으로 값 넣어줘야함
+//                self.favorite = !self.favorite
                 self.refreshUI()
             case .failure(let error):
                 print(error)
@@ -224,7 +228,7 @@ extension STPostListViewController: UITableViewDelegate {
             request.request(completion: { result in
                 switch result {
                 case let .success(data):
-                    self.postList += data
+                    self.postList += data.postList ?? []
                 case let .failure(error):
                     print(error)
                 }

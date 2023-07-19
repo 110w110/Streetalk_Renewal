@@ -11,7 +11,7 @@ struct LikeBoardRequest: Requestable {
     typealias ResultType = String
     
     var uri: String = "/boardLike"
-    var methods: HttpMethods = .put
+    var methods: HttpMethods = .post
     var auth: Bool = true
     var param: [String : Any]?
     var additionalInfo: String?

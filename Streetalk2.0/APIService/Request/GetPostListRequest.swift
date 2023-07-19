@@ -8,7 +8,7 @@
 import Foundation
 
 struct GetPostListRequest: Requestable {
-    typealias ResultType = [PostList]
+    typealias ResultType = BoardInfo
     
     var uri: String = "/post/list/"
     var methods: HttpMethods = .get
