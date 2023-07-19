@@ -37,7 +37,7 @@ class STWriteViewController: UIViewController {
         tableView.delegate = self
         
         writeContentTextView.delegate = self
-        writeContentTextView.setPlaceholder(placeholder: "게시글 내용을 작성해주세요.")
+        writeContentTextView.setPlaceholder("게시글 내용을 작성해주세요.")
         writeContentTextView.keyboardDismissMode = .onDrag
         
         lazy var submitButton: UIBarButtonItem = {
@@ -68,7 +68,7 @@ class STWriteViewController: UIViewController {
     @objc func writeButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: "작성하신 글은 수정하실 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "작성", style: .default) { _ in
-            if self.writeTitleTextField.text == "" || self.writeContentTextView.text == "" {
+            if self.writeTitleTextField.text == "" || self.writeContentTextView.isEmpty() {
                 let alert = UIAlertController(title: nil, message: "제목과 본문을 채워주세요", preferredStyle: UIAlertController.Style.alert)
                 let okAction = UIAlertAction(title: "닫기", style: .default)
                 alert.addAction(okAction)
@@ -204,7 +204,7 @@ extension STWriteViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         let contentTextView = textView as! STTextView
         if contentTextView.text == "" {
-            contentTextView.text = contentTextView.placeholder
+            contentTextView.text = contentTextView.getPlaceholder()
             contentTextView.textColor = .placeholderText
             self.writtingBackgroundImageView.isHidden = false
         } else {
@@ -215,7 +215,7 @@ extension STWriteViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         self.writtingBackgroundImageView.isHidden = true
         let contentTextView = textView as! STTextView
-        if contentTextView.text == contentTextView.placeholder {
+        if contentTextView.text == contentTextView.getPlaceholder() {
             contentTextView.text = ""
             contentTextView.textColor = .label
         }

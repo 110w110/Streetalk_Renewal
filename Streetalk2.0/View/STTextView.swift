@@ -9,11 +9,20 @@ import UIKit
 
 class STTextView: UITextView {
 
-    public var placeholder: String?
+    private var placeholder: String?
     
-    public func setPlaceholder(placeholder: String) {
+    public func setPlaceholder(_ placeholder: String) {
         self.placeholder = placeholder
         self.text = placeholder
         self.textColor = .placeholderText
     }
+    
+    public func getPlaceholder() -> String? {
+        return placeholder
+    }
+    
+    public func isEmpty() -> Bool {
+        return self.text == "" || self.text == placeholder
+    }
+    
 }
