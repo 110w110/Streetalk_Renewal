@@ -16,8 +16,10 @@ class STPasswordViewController: UIViewController {
     var mode: passwordMode = .set
     var passHandler: (() -> ())?
     
+    private let auth = BiometricsAuth()
     private let realNumber: String = Foundation.UserDefaults.standard.string(forKey: "localPassword") ?? ""
     private var inputPassword: String = ""
+    private var usingBioAuth: Bool = UserDefaults.standard.bool(forKey: "usingBioAuth")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +27,16 @@ class STPasswordViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        auth.delegate = self
+        
         textField.becomeFirstResponder()
         textField.addTarget(self, action: #selector(passwordEditing), for: .editingChanged)
         
         initialSetUI()
+        
+        if mode != .set && usingBioAuth {
+            biometricsCheck()
+        }
     }
     
     @objc func passwordEditing(_ sender: Any) {
@@ -97,6 +105,20 @@ extension STPasswordViewController {
             textField.text = ""
         }
         collectionView.reloadData()
+    }
+    
+    private func biometricsCheck() {
+        auth.execute()
+    }
+}
+
+extension STPasswordViewController: AuthenticateStateDelegate {
+    func didUpdateState(_ state: BiometricsAuth.AuthenticationState) {
+        if case .loggedIn = state {
+            if let completion = passHandler {
+                completion()
+            }
+        }
     }
 }
 

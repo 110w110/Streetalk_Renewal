@@ -73,9 +73,15 @@ extension STMyPageListViewController: UITableViewDelegate {
                             UserDefaults.standard.set("", forKey: "localPassword")
                             self.navigationController?.popViewController(animated: true)
                         }
+                        let usingBio = UserDefaults.standard.bool(forKey: "usingBioAuth")
+                        let bioauth = UIAlertAction(title: usingBio ? "생체인증 비활성화" : "생체인증 활성화", style: .default) { _ in
+                            UserDefaults.standard.set(!usingBio, forKey: "usingBioAuth")
+                            self.navigationController?.popViewController(animated: true)
+                        }
                         let cancel = UIAlertAction(title: "취소", style: .cancel)
                         alert.addAction(modify)
                         alert.addAction(remove)
+                        alert.addAction(bioauth)
                         alert.addAction(cancel)
                         self.present(alert, animated: true)
                     }
