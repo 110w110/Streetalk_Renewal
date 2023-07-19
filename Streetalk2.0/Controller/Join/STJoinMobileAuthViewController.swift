@@ -17,18 +17,17 @@ class STJoinMobileAuthViewController: UIViewController {
     @IBOutlet weak var authStackView: UIStackView!
     @IBOutlet weak var backgroundPhoneImageView: UIImageView!
     @IBOutlet var retryLabel: UILabel!
-    
-    
-    private var masterNumber: String = "960513"
-    private var serverNumber: String?
+    @IBOutlet var locationIndicatorView: UIActivityIndicatorView!
+    @IBOutlet var indicatiorDimmingView: UIView!
     
     private let locationManager = CLLocationManager()
-    private let timeLimit: Int = 10
-    
-    private var timeRemain: Int = 10
+    private let timeLimit: Int = 180
+    private var timeRemain: Int = 180
     private var timer: Timer?
     private var location: Location?
     private var loginInfo: Login?
+    private var masterNumber: String = "960513"
+    private var serverNumber: String?
     
     var auth: [String : String]?
     
@@ -74,10 +73,6 @@ class STJoinMobileAuthViewController: UIViewController {
             return
         }
         
-        // TODO: 여기서 login API 요청하고 필요 정보를 담아서 다음 뷰에 전달
-        /// 만약 응답값의 userName 필드가 "new user"가 아니면 이미 가입된 회원이므로 바로 메인 화면으로 분기 처리
-        
-        
         setLocation()
         
     }
@@ -102,12 +97,14 @@ extension STJoinMobileAuthViewController {
             return
         }
         
+        self.indicatiorDimmingView.isHidden = false
+        
         let request = LoginRequest(param: ["phoneNum" : phoneNum, "longitude" : longitude, "latitude" : latitude, "randomNum" : authNum])
         request.request(completion: { result in
             switch result {
             case let .success(data):
                 DispatchQueue.main.async {
-                    // TODO: 가입된 회원이면 넘어가게 수정
+                    self.indicatiorDimmingView.isHidden = true
                     if data.userName == "new user" {
                         let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "joinRegisterViewController") as! STJoinRegisterViewController
                         nextViewController.title = "본인인증하기"
@@ -131,7 +128,7 @@ extension STJoinMobileAuthViewController {
                 
             case let .failure(error):
                 DispatchQueue.main.async {
-//                    self.locationIndicatorView.isHidden = true
+                    self.indicatiorDimmingView.isHidden = true
                 }
                 print(error)
             }
@@ -214,7 +211,6 @@ extension STJoinMobileAuthViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
         self.location = Location(longitude: Double(location.coordinate.longitude), latitude: Double(location.coordinate.latitude))
-        setLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

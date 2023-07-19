@@ -21,23 +21,15 @@ class STJoinRegisterViewController: UIViewController {
     @IBOutlet var isValidCharLabel: UILabel!
     @IBOutlet var lengthLimitLabel: UILabel!
     @IBOutlet var confirmButton: STButton!
+    @IBOutlet var scrollView: UIScrollView!
     
-//    private let locationManager = CLLocationManager()
-//    private var location: Location?
-//    private var token: String?
     private var nearCities: [Cities] = []
     private var industries: [String] = []
     private var selectedIndustry: String?
+    private let industryList: [String] = ["식당", "카페", "주점", "오락", "미용", "숙박", "교육", "스포츠", "반려동물", "제조 및 유통", "의료", "패션"]
     
-    @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var indicatiorDimmingView: UIView!
-    @IBOutlet var locationIndicatorView: UIActivityIndicatorView!
-    
-//    var auth: [String : String]?
     var loginInfo: Login?
     var isFirstRegister: Bool = true
-    
-    private let debugingJobList: [String] = ["식당", "카페", "주점", "오락", "미용", "숙박", "교육", "스포츠", "반려동물", "제조 및 유통", "의료", "패션"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +43,10 @@ class STJoinRegisterViewController: UIViewController {
         jobSectionView.setRoundedBorder()
         jobCollectionView.setRoundedBorder()
         
-//        locationManager.delegate = self
-//        requestLocationAuth()
-        
         nickNameTextField.delegate = self
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = self
+        
         locationCollectionView.collectionViewLayout = {
             let layout = UICollectionViewFlowLayout()
             layout.minimumInteritemSpacing = 0
@@ -66,6 +56,7 @@ class STJoinRegisterViewController: UIViewController {
         
         jobCollectionView.delegate = self
         jobCollectionView.dataSource = self
+        
         jobCollectionView.collectionViewLayout = {
             let layout = UICollectionViewFlowLayout()
             layout.minimumInteritemSpacing = 0
@@ -78,6 +69,7 @@ class STJoinRegisterViewController: UIViewController {
         
         self.nearCities = loginInfo?.nearCities ?? []
         self.nearCities.insert(Cities(fullName: loginInfo?.currentCity, id: nil), at: 0)
+        
     }
     
     @IBAction func nickNameTextFieldEditing(_ sender: Any) {
@@ -97,9 +89,6 @@ class STJoinRegisterViewController: UIViewController {
     }
     
     private func showHomeViewController() {
-        DispatchQueue.main.async {
-            self.indicatiorDimmingView.isHidden = false
-        }
         guard let name = self.nickNameTextField.text, let location = self.locationTextField.text, let industry = self.selectedIndustry else { return }
         let request = JoinRequest(param: ["name" : name, "location" : location, "industry" : industry])
         guard let token = loginInfo?.token else { return }
@@ -108,7 +97,6 @@ class STJoinRegisterViewController: UIViewController {
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
-                    self.indicatiorDimmingView.isHidden = true
                     let mainViewController = STMainViewController()
                     mainViewController.modalPresentationStyle = .fullScreen
                     mainViewController.modalTransitionStyle = .crossDissolve
@@ -118,10 +106,7 @@ class STJoinRegisterViewController: UIViewController {
                 }
             case .failure(_):
                 UserDefaults.standard.set(nil, forKey: "userToken")
-                DispatchQueue.main.async {
-                    self.indicatiorDimmingView.isHidden = true
-                }
-                return
+//                return
             }
         })
     }
@@ -160,47 +145,6 @@ extension STJoinRegisterViewController: UITextFieldDelegate {
     
 }
 
-extension STJoinRegisterViewController {
-    
-//    private func requestLocationAuth() {
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.requestLocation()
-//    }
-//
-//    private func setLocation() {
-//        guard let phoneNum = auth?["phoneNum"], let authNum = auth?["authNum"], let longitude = self.location?.longitude, let latitude = self.location?.latitude else {
-//            print("Error: cannot request Login")
-//            print("Check phone number or auth number")
-//            return
-//        }
-//
-//        let request = LoginRequest(param: ["phoneNum" : phoneNum, "longitude" : longitude, "latitude" : latitude, "randomNum" : authNum])
-//        request.request(completion: { result in
-//            switch result {
-//            case let .success(data):
-//                self.token = data.token
-//                self.nearCities = data.nearCities ?? []
-//                self.nearCities.insert(Cities(fullName: data.currentCity, id: nil), at: 0)
-//                self.selectedIndustry = self.debugingJobList[0]
-//
-//                DispatchQueue.main.async {
-//                    self.locationIndicatorView.isHidden = true
-//                    self.locationTextField.text = data.currentCity
-//                    self.locationCollectionView.reloadData()
-//                }
-//
-//            case let .failure(error):
-//                DispatchQueue.main.async {
-//                    self.locationIndicatorView.isHidden = true
-//                }
-//                print(error)
-//            }
-//        })
-//    }
-    
-}
-
 extension STJoinRegisterViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -208,7 +152,7 @@ extension STJoinRegisterViewController: UICollectionViewDataSource {
             return nearCities.count
         }
         else if collectionView == jobCollectionView {
-            return debugingJobList.count
+            return industryList.count
         }
         return 0
     }
@@ -237,7 +181,7 @@ extension STJoinRegisterViewController: UICollectionViewDataSource {
                 return STRegisterJobCollectionViewCell()
             }
             
-            let job = debugingJobList[indexPath.item]
+            let job = industryList[indexPath.item]
             cell.jobLabel.text = job
             cell.layer.borderColor = UIColor.systemGray5.cgColor
             cell.layer.borderWidth = 0.5
@@ -261,7 +205,7 @@ extension STJoinRegisterViewController: UICollectionViewDelegate {
         if collectionView == locationCollectionView {
             self.locationTextField.text = self.nearCities[indexPath.row].fullName
         } else if collectionView == jobCollectionView {
-            self.selectedIndustry = self.debugingJobList[indexPath.row]
+            self.selectedIndustry = self.industryList[indexPath.row]
         }
     }
 }
@@ -281,26 +225,6 @@ extension STJoinRegisterViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 0.0, height: 0.0 )
     }
 }
-
-//extension STJoinRegisterViewController: CLLocationManagerDelegate {
-//
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let location = locations.first else { return }
-//        self.location = Location(longitude: Double(location.coordinate.longitude), latitude: Double(location.coordinate.latitude))
-//        setLocation()
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        if status == .authorizedWhenInUse {
-//            locationManager.requestLocation()
-//        }
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-//         print("error:: \(error.localizedDescription)")
-//    }
-//}
-
 
 fileprivate extension String {
     func isValidChar() -> Bool {

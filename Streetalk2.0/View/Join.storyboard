@@ -200,19 +200,33 @@
                                     <constraint firstAttribute="width" secondItem="HBn-em-dWl" secondAttribute="height" multiplier="1:1" id="WgY-qI-Cnj"/>
                                 </constraints>
                             </imageView>
+                            <view hidden="YES" alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duK-CS-fay">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Yvb-5P-Eo8">
+                                        <rect key="frame" x="110" y="54" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Lq-z4-cm7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="pZL-Aj-69P" firstAttribute="leading" secondItem="2Lq-z4-cm7" secondAttribute="leading" constant="30" id="FgX-S6-b4X"/>
                             <constraint firstItem="2Lq-z4-cm7" firstAttribute="trailing" secondItem="w41-wj-PFm" secondAttribute="trailing" constant="30" id="Qy6-fe-w8b"/>
+                            <constraint firstItem="duK-CS-fay" firstAttribute="leading" secondItem="2Lq-z4-cm7" secondAttribute="leading" id="TLS-pw-Bf3"/>
                             <constraint firstItem="HBn-em-dWl" firstAttribute="leading" secondItem="2Lq-z4-cm7" secondAttribute="leading" constant="100" id="ZVC-CM-Dx6"/>
                             <constraint firstItem="2Lq-z4-cm7" firstAttribute="trailing" secondItem="HBn-em-dWl" secondAttribute="trailing" constant="100" id="aHA-EE-xcW"/>
                             <constraint firstItem="pZL-Aj-69P" firstAttribute="top" secondItem="2Lq-z4-cm7" secondAttribute="top" constant="30" id="co4-5L-iyj"/>
                             <constraint firstItem="2Lq-z4-cm7" firstAttribute="trailing" secondItem="pZL-Aj-69P" secondAttribute="trailing" constant="30" id="ide-j2-h23"/>
+                            <constraint firstItem="duK-CS-fay" firstAttribute="trailing" secondItem="2Lq-z4-cm7" secondAttribute="trailing" id="jT2-OR-ltg"/>
+                            <constraint firstItem="duK-CS-fay" firstAttribute="bottom" secondItem="p8K-fw-jDc" secondAttribute="bottom" constant="-34" id="lp5-Tn-e3w"/>
                             <constraint firstItem="w41-wj-PFm" firstAttribute="top" secondItem="pZL-Aj-69P" secondAttribute="bottom" constant="30" id="lu7-42-aXy"/>
                             <constraint firstItem="w41-wj-PFm" firstAttribute="leading" secondItem="2Lq-z4-cm7" secondAttribute="leading" constant="30" id="o5E-8b-FYg"/>
                             <constraint firstItem="HBn-em-dWl" firstAttribute="centerY" secondItem="2Lq-z4-cm7" secondAttribute="centerY" constant="-50" id="qRo-tg-Y78"/>
+                            <constraint firstItem="duK-CS-fay" firstAttribute="top" secondItem="p8K-fw-jDc" secondAttribute="top" constant="59" id="r3V-lq-S2k"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YbA-YP-ju6"/>
@@ -220,6 +234,8 @@
                         <outlet property="authNumberTextField" destination="oA8-yh-jzm" id="yC9-d9-Wnj"/>
                         <outlet property="authStackView" destination="w41-wj-PFm" id="ftE-Td-4VK"/>
                         <outlet property="backgroundPhoneImageView" destination="HBn-em-dWl" id="ZrW-nH-D6b"/>
+                        <outlet property="indicatiorDimmingView" destination="duK-CS-fay" id="dFo-AE-oF5"/>
+                        <outlet property="locationIndicatorView" destination="Yvb-5P-Eo8" id="ekb-S4-121"/>
                         <outlet property="mobileNumberTextField" destination="5mJ-JH-mXh" id="ssb-n8-i3V"/>
                         <outlet property="retryLabel" destination="GVv-zc-X8R" id="qjC-Vx-Nq2"/>
                         <outlet property="submitButton" destination="3py-Vu-j3L" id="ebi-4U-ieW"/>
@@ -561,40 +577,24 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="vgR-WI-9o7"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="KDh-Zd-nqW"/>
                             </scrollView>
-                            <view hidden="YES" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9k-i5-MHE">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="i8o-1W-OfI">
-                                        <rect key="frame" x="110" y="54" width="20" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="labelColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WNO-qh-WSS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="C2Z-ki-9MT" firstAttribute="leading" secondItem="WNO-qh-WSS" secondAttribute="leading" id="1IR-7d-dMe"/>
                             <constraint firstItem="WNO-qh-WSS" firstAttribute="bottom" secondItem="C2Z-ki-9MT" secondAttribute="bottom" id="Jjd-bN-DyN"/>
-                            <constraint firstAttribute="bottom" secondItem="d9k-i5-MHE" secondAttribute="bottom" constant="34" id="Ppk-kz-vWU"/>
                             <constraint firstItem="C2Z-ki-9MT" firstAttribute="top" secondItem="WNO-qh-WSS" secondAttribute="top" id="UGT-Cj-Xpe"/>
                             <constraint firstItem="WNO-qh-WSS" firstAttribute="trailing" secondItem="C2Z-ki-9MT" secondAttribute="trailing" id="bO8-1K-IjS"/>
-                            <constraint firstItem="d9k-i5-MHE" firstAttribute="top" secondItem="zf6-Lu-Row" secondAttribute="top" constant="59" id="ebz-c2-2tl"/>
-                            <constraint firstItem="WNO-qh-WSS" firstAttribute="trailing" secondItem="d9k-i5-MHE" secondAttribute="trailing" id="vkI-2g-pW8"/>
-                            <constraint firstItem="d9k-i5-MHE" firstAttribute="leading" secondItem="WNO-qh-WSS" secondAttribute="leading" id="vzJ-S5-DBy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="confirmButton" destination="9b2-K3-UEO" id="vB1-bn-Og2"/>
-                        <outlet property="indicatiorDimmingView" destination="d9k-i5-MHE" id="FNJ-s8-dI2"/>
                         <outlet property="isValidCharLabel" destination="l64-ta-eiZ" id="LkO-tp-d2Z"/>
                         <outlet property="isValidNickNameLabel" destination="cDP-nB-d7G" id="d0O-IL-T8k"/>
                         <outlet property="jobCollectionView" destination="xE5-aj-bBn" id="c2b-uX-FLU"/>
                         <outlet property="jobSectionView" destination="iPw-8h-I8Z" id="n06-Wz-9nb"/>
                         <outlet property="lengthLimitLabel" destination="bAH-o2-N1R" id="GaV-7U-T4h"/>
                         <outlet property="locationCollectionView" destination="hvE-5Z-r2E" id="pOO-yZ-YYB"/>
-                        <outlet property="locationIndicatorView" destination="IYd-ah-gP4" id="L67-Hj-bWH"/>
                         <outlet property="locationSectionView" destination="vx7-ND-HNL" id="efa-25-bHS"/>
                         <outlet property="locationTextField" destination="Uut-tW-7D0" id="7v7-fC-5vp"/>
                         <outlet property="nickNameTextField" destination="HeN-yy-GQo" id="gyo-ZE-tSt"/>
