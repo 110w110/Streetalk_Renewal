@@ -165,6 +165,11 @@ extension STBoardTableViewCell: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == boardCollectionView {
+            return 2.5
+        } else if collectionView == sectionCollectionView {
+            return 2.5
+        }
         return 0
     }
 

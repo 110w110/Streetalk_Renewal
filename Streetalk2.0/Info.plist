@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSFaceIDUsageDescription</key>
-	<string>암호를 입력하는 대신 스트릿톡 앱의 잠금을 해제하기 위해 Face ID 접근에 대한 권한이 필요합니다.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>사장님의 앨범 접근에 대한 권한이 필요합니다.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>사장님의 카메라 접근에 대한 권한이 필요합니다.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

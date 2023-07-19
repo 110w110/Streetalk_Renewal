@@ -97,9 +97,9 @@ extension STHomeViewController: UITableViewDelegate {
             if self.self.homeInfo?.likeBoardList?.count == nil || self.homeInfo?.likeBoardList?.count == 0 {
                 return 200
             }
-            return 80 + ceil(CGFloat(self.homeInfo?.likeBoardList?.count ?? 0) / 2.0) * 40
+            return 80 + ceil(CGFloat(self.homeInfo?.likeBoardList?.count ?? 0) / 4.5) * 40
         default:
-            return 360
+            return 420
         }
     }
     
