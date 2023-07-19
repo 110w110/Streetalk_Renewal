@@ -65,7 +65,7 @@ extension STMyPageListViewController: UITableViewDelegate {
                 if let password = UserDefaults.standard.string(forKey: "localPassword"), password != "" {
                     let handler = {
                         // alert view 띄워서 확인 후
-                        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
                         let modify = UIAlertAction(title: "비밀번호 변경", style: .default) { _ in
                             self.showPasswordViewController(mode: .set, identifier: "passwordViewController", title: "암호 설정", storyboard: UIStoryboard(name: "Password", bundle: nil))
                         }

@@ -30,7 +30,7 @@ public class BiometricsAuth {
 
     private func configure() {
         /// 생체 인증이 실패한 경우, Username/Password를 입력하여 인증할 수 있는 버튼에 표출되는 문구
-        context.localizedCancelTitle = "비밀번호 입력하기"
+        context.localizedCancelTitle = "닫기"
     }
 
     public func execute() {
