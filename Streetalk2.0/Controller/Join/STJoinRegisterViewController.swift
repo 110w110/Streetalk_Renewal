@@ -22,6 +22,10 @@ class STJoinRegisterViewController: UIViewController {
     @IBOutlet var lengthLimitLabel: UILabel!
     @IBOutlet var confirmButton: STButton!
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var locationIndicator: UIActivityIndicatorView!
+    
+    private let locationManager = CLLocationManager()
+    private var location: Location?
     
     private var nearCities: [Cities] = []
     private var industries: [String] = []
@@ -38,10 +42,15 @@ class STJoinRegisterViewController: UIViewController {
         nickNameTextField.becomeFirstResponder()
         scrollView.keyboardDismissMode = .onDrag
         
+        selectedIndustry = industryList[0]
+        
         nicknameSectionView.setRoundedBorder()
         locationSectionView.setRoundedBorder()
         jobSectionView.setRoundedBorder()
         jobCollectionView.setRoundedBorder()
+        
+        locationManager.delegate = self
+        requestLocationAuth()
         
         nickNameTextField.delegate = self
         locationCollectionView.delegate = self
@@ -70,6 +79,7 @@ class STJoinRegisterViewController: UIViewController {
         self.nearCities = loginInfo?.nearCities ?? []
         self.nearCities.insert(Cities(fullName: loginInfo?.currentCity, id: nil), at: 0)
         
+        fetchProfile()
     }
     
     @IBAction func nickNameTextFieldEditing(_ sender: Any) {
@@ -86,6 +96,37 @@ class STJoinRegisterViewController: UIViewController {
         alert.addAction(cancel)
         alert.addAction(confirm)
         present(alert, animated: true)
+    }
+    
+}
+
+extension STJoinRegisterViewController {
+    private func fetchProfile() {
+        guard let token = UserDefaults.standard.string(forKey: "userToken"), token != "" else { return }
+        guard let latitude = location?.latitude, let longitude = location?.longitude else { return }
+        let request = GetProfileRequest(param: ["latitude" : latitude, "longitude" : longitude])
+        request.request(completion: { result in
+            switch result {
+            case let .success(data):
+                self.nickNameTextField.text = data.userName ?? ""
+                self.selectedIndustry = data.industry ?? "식당"
+                self.nearCities += data.nearCities ?? []
+                if let currentCity = data.currentCity {
+                    self.nearCities.insert(Cities(fullName: currentCity, id: 0), at: 0)
+                }
+                
+                DispatchQueue.main.async {
+                    self.jobCollectionView.reloadData()
+                    self.locationCollectionView.reloadData()
+                    self.locationIndicator.isHidden = true
+                }
+            case let .failure(error):
+                print(error)
+                DispatchQueue.main.async {
+                    self.locationIndicator.isHidden = true
+                }
+            }
+        })
     }
     
     private func showHomeViewController() {
@@ -106,7 +147,6 @@ class STJoinRegisterViewController: UIViewController {
                 }
             case .failure(_):
                 UserDefaults.standard.set(nil, forKey: "userToken")
-//                return
             }
         })
     }
@@ -186,7 +226,7 @@ extension STJoinRegisterViewController: UICollectionViewDataSource {
             cell.layer.borderColor = UIColor.systemGray5.cgColor
             cell.layer.borderWidth = 0.5
             
-            if indexPath.row == 0 {
+            if industryList[indexPath.row] == self.selectedIndustry {
                 cell.isSelected = true
                 collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
             }
@@ -236,4 +276,29 @@ fileprivate extension String {
     func isConformLengthLimit() -> Bool {
         return self.count >= 2 && self.count < 9
     }
+}
+
+extension STJoinRegisterViewController: CLLocationManagerDelegate {
+    private func requestLocationAuth() {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        self.location = Location(longitude: Double(location.coordinate.longitude), latitude: Double(location.coordinate.latitude))
+        fetchProfile()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+         print("error:: \(error.localizedDescription)")
+    }
+    
 }

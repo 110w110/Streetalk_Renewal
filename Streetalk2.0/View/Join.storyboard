@@ -181,13 +181,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vf9-lc-JHv" customClass="STButton" customModule="Streetalk2_0" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vf9-lc-JHv" customClass="STButton" customModule="Streetalk2_0" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="110" width="333" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="2hZ-YV-iwW"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="인증하기"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="위치정보 가져오는 중"/>
                                         <connections>
                                             <action selector="authButtonTapped:" destination="GnG-q7-XBN" eventType="touchUpInside" id="jn4-qk-x68"/>
                                         </connections>
@@ -231,6 +231,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YbA-YP-ju6"/>
                     <connections>
+                        <outlet property="authButton" destination="vf9-lc-JHv" id="j7l-t3-UFc"/>
                         <outlet property="authNumberTextField" destination="oA8-yh-jzm" id="yC9-d9-Wnj"/>
                         <outlet property="authStackView" destination="w41-wj-PFm" id="ftE-Td-4VK"/>
                         <outlet property="backgroundPhoneImageView" destination="HBn-em-dWl" id="ZrW-nH-D6b"/>
@@ -595,6 +596,7 @@
                         <outlet property="jobSectionView" destination="iPw-8h-I8Z" id="n06-Wz-9nb"/>
                         <outlet property="lengthLimitLabel" destination="bAH-o2-N1R" id="GaV-7U-T4h"/>
                         <outlet property="locationCollectionView" destination="hvE-5Z-r2E" id="pOO-yZ-YYB"/>
+                        <outlet property="locationIndicator" destination="IYd-ah-gP4" id="ZO7-sV-eJn"/>
                         <outlet property="locationSectionView" destination="vx7-ND-HNL" id="efa-25-bHS"/>
                         <outlet property="locationTextField" destination="Uut-tW-7D0" id="7v7-fC-5vp"/>
                         <outlet property="nickNameTextField" destination="HeN-yy-GQo" id="gyo-ZE-tSt"/>

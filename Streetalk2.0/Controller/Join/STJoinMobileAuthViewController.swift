@@ -13,6 +13,7 @@ class STJoinMobileAuthViewController: UIViewController {
 
     @IBOutlet weak var mobileNumberTextField: UITextField!
     @IBOutlet weak var submitButton: STButton!
+    @IBOutlet weak var authButton: STButton!
     @IBOutlet weak var authNumberTextField: UITextField!
     @IBOutlet weak var authStackView: UIStackView!
     @IBOutlet weak var backgroundPhoneImageView: UIImageView!
@@ -80,12 +81,6 @@ class STJoinMobileAuthViewController: UIViewController {
 }
 
 extension STJoinMobileAuthViewController {
-    
-    private func requestLocationAuth() {
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestLocation()
-    }
     
     private func setLocation() {
         
@@ -208,9 +203,17 @@ extension STJoinMobileAuthViewController:  UITextFieldDelegate {
 
 extension STJoinMobileAuthViewController: CLLocationManagerDelegate {
     
+    private func requestLocationAuth() {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
         self.location = Location(longitude: Double(location.coordinate.longitude), latitude: Double(location.coordinate.latitude))
+        self.authButton.isEnabled = true
+        self.authButton.setTitle("인증하기", for: .normal)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
