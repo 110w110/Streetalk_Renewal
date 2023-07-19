@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		330256E32A67F909007FB66F /* BoardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330256E22A67F909007FB66F /* BoardInfo.swift */; };
+		330256E52A6810DC007FB66F /* GetMyReplyListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330256E42A6810DC007FB66F /* GetMyReplyListRequest.swift */; };
 		330438F12A315E95008123AD /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330438F02A315E95008123AD /* Address.swift */; };
 		330438F32A315F55008123AD /* Industry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330438F22A315F55008123AD /* Industry.swift */; };
 		330438F52A316005008123AD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330438F42A316005008123AD /* User.swift */; };
@@ -137,6 +138,7 @@
 
 /* Begin PBXFileReference section */
 		330256E22A67F909007FB66F /* BoardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardInfo.swift; sourceTree = "<group>"; };
+		330256E42A6810DC007FB66F /* GetMyReplyListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyReplyListRequest.swift; sourceTree = "<group>"; };
 		330438F02A315E95008123AD /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		330438F22A315F55008123AD /* Industry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Industry.swift; sourceTree = "<group>"; };
 		330438F42A316005008123AD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				3388DB522A64322C004A64CE /* PostDeleteRequest.swift */,
 				337B883C2A661DEE0051B7FF /* GetMyPostListRequest.swift */,
 				337B883E2A6621FE0051B7FF /* GetMyLikesListRequest.swift */,
+				330256E42A6810DC007FB66F /* GetMyReplyListRequest.swift */,
 				337B88402A6622240051B7FF /* GetMyScrapsListRequest.swift */,
 				337B88422A66349D0051B7FF /* RefreshTokenRequest.swift */,
 			);
@@ -739,6 +742,7 @@
 				330438FB2A316323008123AD /* Reply.swift in Sources */,
 				333C20812A5694A100F8265C /* GetPostListRequest.swift in Sources */,
 				33D30C2B2A4543A90053C0CF /* STMyPageNoticeViewController.swift in Sources */,
+				330256E52A6810DC007FB66F /* GetMyReplyListRequest.swift in Sources */,
 				3388DB4F2A641729004A64CE /* STPostListTableViewCell.swift in Sources */,
 				333C207D2A568F8300F8265C /* GetPostRequest.swift in Sources */,
 				B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */,

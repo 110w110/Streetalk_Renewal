@@ -75,7 +75,7 @@ extension STPostListViewController {
                     }
                 })
             case .myReply:
-                let request = GetMyPostListRequest()
+                let request = GetMyReplyListRequest()
                 request.request(completion: { result in
                     switch result {
                     case let .success(data):
