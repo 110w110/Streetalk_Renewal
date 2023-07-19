@@ -36,17 +36,8 @@ class STMyPagePopUpViewController: UIViewController {
         switch self.popUpUsage {
         case .logout:
             logOut()
-            UserDefaults.standard.set(nil, forKey: "userToken")
-            UserDefaults.standard.set(nil, forKey: "localPassword")
-            self.dismiss(animated: true) {
-                self.targetViewController?.dismiss(animated: true)
-            }
         case .leave:
             leave()
-            let notYet = UIAlertController(title: nil, message: "회원 탈퇴 준비 중입니다", preferredStyle: .alert)
-            let okay = UIAlertAction(title: "확인", style: .default) { _ in self.targetViewController?.dismiss(animated: true) }
-            notYet.addAction(okay)
-            self.present(notYet, animated: true, completion: nil)
         default:
             print("Error: pop-up usage is undefined")
         }
@@ -57,11 +48,37 @@ class STMyPagePopUpViewController: UIViewController {
 extension STMyPagePopUpViewController {
     
     private func logOut() {
-        print(#function)
+        DispatchQueue.main.async {
+            UserDefaults.standard.set(nil, forKey: "userToken")
+            UserDefaults.standard.set(nil, forKey: "localPassword")
+            self.dismiss(animated: true) {
+                self.targetViewController?.dismiss(animated: true)
+            }
+        }
     }
     
     private func leave() {
-        print(#function)
+        let request = LeaveReqeust()
+        request.request(completion: { result in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    UserDefaults.standard.set(nil, forKey: "userToken")
+                    UserDefaults.standard.set(nil, forKey: "localPassword")
+                    self.dismiss(animated: true) {
+                        self.targetViewController?.dismiss(animated: true)
+                    }
+                }
+            case .failure(_):
+                DispatchQueue.main.async {
+                    let notYet = UIAlertController(title: nil, message: "정상적으로 처리되지 않았습니다", preferredStyle: .alert)
+                    let okay = UIAlertAction(title: "확인", style: .default) { _ in self.targetViewController?.dismiss(animated: true) }
+                    notYet.addAction(okay)
+                    self.present(notYet, animated: true, completion: nil)
+                }
+            }
+        })
+        
     }
     
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		330256E32A67F909007FB66F /* BoardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330256E22A67F909007FB66F /* BoardInfo.swift */; };
 		330256E52A6810DC007FB66F /* GetMyReplyListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330256E42A6810DC007FB66F /* GetMyReplyListRequest.swift */; };
+		330256ED2A6817F9007FB66F /* LeaveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330256EC2A6817F9007FB66F /* LeaveRequest.swift */; };
 		330438F12A315E95008123AD /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330438F02A315E95008123AD /* Address.swift */; };
 		330438F32A315F55008123AD /* Industry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330438F22A315F55008123AD /* Industry.swift */; };
 		330438F52A316005008123AD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330438F42A316005008123AD /* User.swift */; };
@@ -139,6 +140,7 @@
 /* Begin PBXFileReference section */
 		330256E22A67F909007FB66F /* BoardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardInfo.swift; sourceTree = "<group>"; };
 		330256E42A6810DC007FB66F /* GetMyReplyListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyReplyListRequest.swift; sourceTree = "<group>"; };
+		330256EC2A6817F9007FB66F /* LeaveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveRequest.swift; sourceTree = "<group>"; };
 		330438F02A315E95008123AD /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		330438F22A315F55008123AD /* Industry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Industry.swift; sourceTree = "<group>"; };
 		330438F42A316005008123AD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				330256E42A6810DC007FB66F /* GetMyReplyListRequest.swift */,
 				337B88402A6622240051B7FF /* GetMyScrapsListRequest.swift */,
 				337B88422A66349D0051B7FF /* RefreshTokenRequest.swift */,
+				330256EC2A6817F9007FB66F /* LeaveRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				3388DB552A6502CB004A64CE /* STSearchPostTableViewCell.swift in Sources */,
 				330439012A3460F5008123AD /* Requestable.swift in Sources */,
 				B2C2257729D6BE8100222C8A /* STMainViewController.swift in Sources */,
+				330256ED2A6817F9007FB66F /* LeaveRequest.swift in Sources */,
 				333C20682A545C9F00F8265C /* RegisterRequest.swift in Sources */,
 				333C206A2A545D7500F8265C /* RegisterRandNum.swift in Sources */,
 				330CE9752A385F4400BFA26F /* STHomeViewController.swift in Sources */,
