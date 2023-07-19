@@ -108,7 +108,7 @@ extension STPasswordViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "passwordCell", for: indexPath) as! PasswordCell
-        cell.circle.layer.cornerRadius = 15
+        cell.circle.layer.cornerRadius = 10
         if indexPath.row < textField.text?.count ?? 0 {
             cell.circle.backgroundColor = .streetalkPink
         } else {
@@ -127,8 +127,8 @@ extension STPasswordViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = trunc(collectionView.frame.width / 6) - 5
-        let height: CGFloat = collectionView.frame.height
+        let width: CGFloat = trunc(collectionView.frame.width / 6) - 15
+        let height: CGFloat = width
         return CGSize(width: width, height: height)
     }
 
@@ -137,7 +137,7 @@ extension STPasswordViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return 15
     }
 }
 

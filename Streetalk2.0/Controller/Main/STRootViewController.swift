@@ -28,13 +28,13 @@ class STRootViewController: UIViewController {
             }
             let storyboard = UIStoryboard(name: "Password", bundle: nil)
             guard let viewController = storyboard.instantiateViewController(withIdentifier: "passwordViewController") as? STPasswordViewController else { return }
-            viewController.title = title
             viewController.mode = .check
             viewController.passHandler = handler
-            viewController.modalPresentationStyle = .fullScreen
-            viewController.hidesBottomBarWhenPushed = true
+            let navigation = UINavigationController(rootViewController: viewController)
+            navigation.modalPresentationStyle = .fullScreen
+            navigation.hidesBottomBarWhenPushed = true
             DispatchQueue.main.async {
-                self.present(viewController, animated: true)
+                self.present(navigation, animated: true)
             }
         } else {
             checkUserToken()

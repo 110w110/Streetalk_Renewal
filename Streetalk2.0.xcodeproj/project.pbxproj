@@ -63,7 +63,6 @@
 		33506C172A40456F00BFCBF0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33506C162A40456F00BFCBF0 /* Search.storyboard */; };
 		33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */; };
 		33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */; };
-		337B88392A659F1A0051B7FF /* STPasswordCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B88382A659F1A0051B7FF /* STPasswordCheckViewController.swift */; };
 		337B883B2A65B5270051B7FF /* STEnlargedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B883A2A65B5270051B7FF /* STEnlargedImageViewController.swift */; };
 		337B883D2A661DEE0051B7FF /* GetMyPostListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B883C2A661DEE0051B7FF /* GetMyPostListRequest.swift */; };
 		337B883F2A6621FE0051B7FF /* GetMyLikesListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337B883E2A6621FE0051B7FF /* GetMyLikesListRequest.swift */; };
@@ -191,7 +190,6 @@
 		33506C162A40456F00BFCBF0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		33506C182A4045A000BFCBF0 /* STSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSearchListViewController.swift; sourceTree = "<group>"; };
 		33506C1C2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterLocationCollectionViewCell.swift; sourceTree = "<group>"; };
-		337B88382A659F1A0051B7FF /* STPasswordCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPasswordCheckViewController.swift; sourceTree = "<group>"; };
 		337B883A2A65B5270051B7FF /* STEnlargedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STEnlargedImageViewController.swift; sourceTree = "<group>"; };
 		337B883C2A661DEE0051B7FF /* GetMyPostListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyPostListRequest.swift; sourceTree = "<group>"; };
 		337B883E2A6621FE0051B7FF /* GetMyLikesListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyLikesListRequest.swift; sourceTree = "<group>"; };
@@ -323,7 +321,6 @@
 			isa = PBXGroup;
 			children = (
 				3388DB492A5F98D3004A64CE /* STPasswordViewController.swift */,
-				337B88382A659F1A0051B7FF /* STPasswordCheckViewController.swift */,
 			);
 			path = Password;
 			sourceTree = "<group>";
@@ -746,7 +743,6 @@
 				3388DB512A642A44004A64CE /* ReplyDeleteRequest.swift in Sources */,
 				330438F52A316005008123AD /* User.swift in Sources */,
 				33D30C1C2A4485170053C0CF /* myPage.swift in Sources */,
-				337B88392A659F1A0051B7FF /* STPasswordCheckViewController.swift in Sources */,
 				33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */,
 				339AE2C42A273FE8006005AE /* APIClient.swift in Sources */,
 				B2C2257929D6BF2000222C8A /* STTabBarController.swift in Sources */,
