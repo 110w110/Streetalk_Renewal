@@ -40,8 +40,6 @@ extension STPostListViewController {
         refreshControl.addTarget(self, action: #selector(refreshUI), for: .valueChanged)
         
         if listMode == .default {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: self.favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star"), style: .plain, target: self, action: #selector(boardLike))
-            favoriteButton = navigationItem.rightBarButtonItem
             
             guard let id = boardId else { return }
             let request = GetPostListRequest(additionalInfo: "\(id)")
@@ -56,6 +54,8 @@ extension STPostListViewController {
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: self.favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star"), style: .plain, target: self, action: #selector(self.boardLike))
+                    self.favoriteButton = self.navigationItem.rightBarButtonItem
                 }
             })
         } else {

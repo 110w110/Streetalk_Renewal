@@ -12,8 +12,8 @@ struct BoardInfo: Codable {
     let postList : [PostList]?
 
     enum CodingKeys: String, CodingKey {
-        case like = "isBoardLike"
-        case postList
+        case like = "boardLike"
+        case postList = "postListDto"
     }
 
     init(from decoder: Decoder) throws {
