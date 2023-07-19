@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		330256E32A67F909007FB66F /* BoardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330256E22A67F909007FB66F /* BoardInfo.swift */; };
 		330438F12A315E95008123AD /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330438F02A315E95008123AD /* Address.swift */; };
 		330438F32A315F55008123AD /* Industry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330438F22A315F55008123AD /* Industry.swift */; };
 		330438F52A316005008123AD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330438F42A316005008123AD /* User.swift */; };
@@ -135,6 +136,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		330256E22A67F909007FB66F /* BoardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardInfo.swift; sourceTree = "<group>"; };
 		330438F02A315E95008123AD /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		330438F22A315F55008123AD /* Industry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Industry.swift; sourceTree = "<group>"; };
 		330438F42A316005008123AD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -351,12 +353,13 @@
 				333C20722A5514D100F8265C /* Login.swift */,
 				330438F62A3161B9008123AD /* Board.swift */,
 				330438F82A316217008123AD /* Post.swift */,
-				330438FA2A316323008123AD /* Reply.swift */,
 				333C20692A545D7500F8265C /* RegisterRandNum.swift */,
 				333C20782A55D94B00F8265C /* SearchPost.swift */,
-				333C207E2A56935300F8265C /* PostList.swift */,
+				330256E22A67F909007FB66F /* BoardInfo.swift */,
 				33D4C9662A5EDECF0099E94A /* Notice.swift */,
 				337B88442A6645140051B7FF /* Token.swift */,
+				330438FA2A316323008123AD /* Reply.swift */,
+				333C207E2A56935300F8265C /* PostList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				337B88412A6622240051B7FF /* GetMyScrapsListRequest.swift in Sources */,
 				B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */,
 				330CE9992A3A94A900BFA26F /* STAlertListViewController.swift in Sources */,
+				330256E32A67F909007FB66F /* BoardInfo.swift in Sources */,
 				3388DB452A5F8D7B004A64CE /* LikeBoardRequest.swift in Sources */,
 				33D4C9652A5EDE770099E94A /* NoticeRequest.swift in Sources */,
 				3399BAF52A400E9400A56A4B /* String+.swift in Sources */,
