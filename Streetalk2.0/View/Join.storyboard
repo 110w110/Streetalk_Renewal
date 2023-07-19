@@ -221,6 +221,7 @@
                         <outlet property="authStackView" destination="w41-wj-PFm" id="ftE-Td-4VK"/>
                         <outlet property="backgroundPhoneImageView" destination="HBn-em-dWl" id="ZrW-nH-D6b"/>
                         <outlet property="mobileNumberTextField" destination="5mJ-JH-mXh" id="ssb-n8-i3V"/>
+                        <outlet property="retryLabel" destination="GVv-zc-X8R" id="qjC-Vx-Nq2"/>
                         <outlet property="submitButton" destination="3py-Vu-j3L" id="ebi-4U-ieW"/>
                     </connections>
                 </viewController>

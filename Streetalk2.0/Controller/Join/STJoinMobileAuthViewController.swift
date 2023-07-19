@@ -15,9 +15,15 @@ class STJoinMobileAuthViewController: UIViewController {
     @IBOutlet weak var authNumberTextField: UITextField!
     @IBOutlet weak var authStackView: UIStackView!
     @IBOutlet weak var backgroundPhoneImageView: UIImageView!
+    @IBOutlet var retryLabel: UILabel!
+    
     
     private var masterNumber: String = "960513"
     private var serverNumber: String?
+    
+    private let timeLimit: Int = 10
+    private var timeRemain: Int = 10
+    private var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +33,7 @@ class STJoinMobileAuthViewController: UIViewController {
 
         mobileNumberTextField.delegate = self
         mobileNumberTextField.becomeFirstResponder()
+        
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
@@ -34,11 +41,26 @@ class STJoinMobileAuthViewController: UIViewController {
     }
     
     @IBAction func retryAuthButtonTapped(_ sender: Any) {
+        self.timeRemain = self.timeLimit
         smsReqeust()
     }
     
     @IBAction func authButtonTapped(_ sender: Any) {
+        if self.timeRemain <= 0 {
+            let alert = UIAlertController(title: nil, message: "인증 시간이 초과되었습니다", preferredStyle: .alert)
+            let okay = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okay)
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         if authNumberTextField.text != self.serverNumber && authNumberTextField.text != self.masterNumber {
+            let alert = UIAlertController(title: nil, message: "인증번호가 일치하지 않습니다", preferredStyle: .alert)
+            let okay = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okay)
+            self.present(alert, animated: true, completion: nil)
+            
             return
         }
         
@@ -53,12 +75,29 @@ class STJoinMobileAuthViewController: UIViewController {
 }
 
 extension STJoinMobileAuthViewController {
+    private func timerSet() {
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallback), userInfo: nil, repeats: true)
+    }
+    
+    @objc func timerCallback(){
+        if(self.timeRemain <= 0){
+            self.timer?.invalidate()
+            self.timer = nil
+        }
+        else{
+            self.timeRemain -= 1
+            retryLabel.text = String(format: "문자를 받지 못하셨나요? %02d",self.timeRemain / 60) + ":" + String(format: "%02d",self.timeRemain % 60)
+        }
+    }
+    
     private func smsReqeust() {
         authStackView.isHidden = false
         backgroundPhoneImageView.isHidden = true
         submitButton.isEnabled = false
         mobileNumberTextField.isEnabled = false
         authNumberTextField.becomeFirstResponder()
+        
+        timerSet()
         
         // 인증번호 요청
         guard let mobileNum = mobileNumberTextField.text?.replacingOccurrences(of: "-", with: "") else { return }
