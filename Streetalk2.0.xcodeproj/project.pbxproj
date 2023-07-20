@@ -338,15 +338,16 @@
 			path = Password;
 			sourceTree = "<group>";
 		};
-		339AE2BE2A273F5D006005AE /* APIService */ = {
+		339AE2BE2A273F5D006005AE /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				337B88462A677FAB0051B7FF /* BiomerticsAuth.swift */,
 				339AE2C32A273FE8006005AE /* APIClient.swift */,
 				330438FE2A33604C008123AD /* APIError.swift */,
 				330439002A3460F5008123AD /* Requestable.swift */,
 				333C206B2A5486DC00F8265C /* Request */,
 			);
-			path = APIService;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		339AE2BF2A273F6C006005AE /* Model */ = {
@@ -425,7 +426,6 @@
 			children = (
 				33D30C1D2A44851A0053C0CF /* Data */,
 				B2C2254F29D6BE5100222C8A /* Assets.xcassets */,
-				337B88462A677FAB0051B7FF /* BiomerticsAuth.swift */,
 			);
 			path = Resoucres;
 			sourceTree = "<group>";
@@ -529,7 +529,7 @@
 				B2C2254829D6BE4E00222C8A /* SceneDelegate.swift */,
 				330CE96F2A3843A800BFA26F /* Extension */,
 				339AE2C22A273F89006005AE /* Resoucres */,
-				339AE2BE2A273F5D006005AE /* APIService */,
+				339AE2BE2A273F5D006005AE /* Service */,
 				339AE2BF2A273F6C006005AE /* Model */,
 				339AE2C02A273F74006005AE /* View */,
 				339AE2C12A273F7B006005AE /* Controller */,
