@@ -30,4 +30,12 @@ extension UIViewController {
         return version
     }
     
+    func errorMessage(error: APIError, message: String?) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: message ?? "unknown error", message: error.localizedDescription, preferredStyle: .alert)
+            let okay = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okay)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }
