@@ -25,6 +25,11 @@ class STWriteViewController: UIViewController {
     private var targetBoardName: String = ""
     private var anonymous: Bool = false
     
+    var mode: HttpMethods = .post
+    var targetModifyPostId: Int?
+    var currentPost: Post?
+    var currentPostId: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,6 +64,7 @@ class STWriteViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        setCurrentPostData()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -66,35 +72,69 @@ class STWriteViewController: UIViewController {
     }
     
     @objc func writeButtonTapped(_ sender: UIButton) {
-        let alert = UIAlertController(title: nil, message: "작성하신 글은 수정하실 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "작성", style: .default) { _ in
-            if self.writeTitleTextField.text == "" || self.writeContentTextView.isEmpty() {
-                let alert = UIAlertController(title: nil, message: "제목과 본문을 채워주세요", preferredStyle: UIAlertController.Style.alert)
-                let okAction = UIAlertAction(title: "닫기", style: .default)
-                alert.addAction(okAction)
-                self.present(alert, animated: false, completion: nil)
-                return
-            }
-            
-            let request = PostPostRequest(param: ["boardId" : self.targetBoardId,
-                                                  "title" : self.writeTitleTextField.text ?? "",
-                                                  "content" : self.writeContentTextView.text ?? "",
-                                                  "checkName" : self.anonymous,
-                                                  "isPrivate" : self.anonymous])
-            request.request(multipart: true, imageList: Array(self.uploadImageList[0..<self.uploadImageList.count - 1]), completion: { result in
-                switch result {
-                case .success(let success):
-                    print(success)
-                case .failure(let failure):
-                    print(failure)
+        if mode == .post {
+            let alert = UIAlertController(title: nil, message: "게시글을 등록하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "작성", style: .default) { _ in
+                if self.writeTitleTextField.text == "" || self.writeContentTextView.isEmpty() {
+                    let alert = UIAlertController(title: nil, message: "제목과 본문을 채워주세요", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "닫기", style: .default)
+                    alert.addAction(okAction)
+                    self.present(alert, animated: false, completion: nil)
+                    return
                 }
-            })
-            self.dismiss(animated: true)
+                
+                let request = PostPostRequest(param: ["boardId" : self.targetBoardId,
+                                                      "title" : self.writeTitleTextField.text ?? "",
+                                                      "content" : self.writeContentTextView.text ?? "",
+                                                      "checkName" : self.anonymous,
+                                                      "isPrivate" : self.anonymous])
+                request.request(multipart: true, imageList: Array(self.uploadImageList[0..<self.uploadImageList.count - 1]), completion: { result in
+                    switch result {
+                    case .success(let success):
+                        print(success)
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                })
+                self.dismiss(animated: true)
+            }
+            let cancleAction = UIAlertAction(title: "취소", style: .cancel)
+            alert.addAction(okAction)
+            alert.addAction(cancleAction)
+            present(alert, animated: false, completion: nil)
+        } else if mode == .put {
+            let alert = UIAlertController(title: nil, message: "게시글을 등록하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "작성", style: .default) { _ in
+                if self.writeTitleTextField.text == "" || self.writeContentTextView.isEmpty() {
+                    let alert = UIAlertController(title: nil, message: "제목과 본문을 채워주세요", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "닫기", style: .default)
+                    alert.addAction(okAction)
+                    self.present(alert, animated: false, completion: nil)
+                    return
+                }
+                
+                let request = PostPostRequest(methods: .put,
+                                                param: ["postId" : self.currentPostId ?? -1,
+                                                        "title" : self.writeTitleTextField.text ?? "",
+                                                        "content" : self.writeContentTextView.text ?? ""])
+                request.request(multipart: true, imageList: Array(self.uploadImageList[0..<self.uploadImageList.count - 1]), completion: { result in
+                    switch result {
+                    case let .success(data):
+                        print(data)
+                    case let .failure(error):
+                        print(error)
+                        self.errorMessage(error: error, message: #function)
+                    }
+                })
+                self.dismiss(animated: true)
+            }
+            let cancleAction = UIAlertAction(title: "취소", style: .cancel)
+            alert.addAction(okAction)
+            alert.addAction(cancleAction)
+            present(alert, animated: false, completion: nil)
+            
+            
         }
-        let cancleAction = UIAlertAction(title: "취소", style: .cancel)
-        alert.addAction(okAction)
-        alert.addAction(cancleAction)
-        present(alert, animated: false, completion: nil)
     }
     
     @objc func cancelButtonTapped(_ sender: UIButton) {
@@ -162,6 +202,15 @@ class STWriteViewController: UIViewController {
 }
 
 extension STWriteViewController {
+    private func setCurrentPostData() {
+        guard let post = currentPost else { return }
+        writeTitleTextField.text = post.title
+        writeContentTextView.text = post.content
+        writeTitleTextField.text = post.title
+        writeTitleTextField.text = post.title
+        writeContentTextView.textColor = .label
+    }
+    
     @objc func switchValueChanged(_ sender: UISwitch) {
         anonymous = sender.isOn
     }

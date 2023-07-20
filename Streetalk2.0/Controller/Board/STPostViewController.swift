@@ -108,41 +108,22 @@ extension STPostViewController {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: self.hasAuthority ? "삭제" : "신고", style: .plain, target: self, action: #selector(self.optionButtonTapped))
+                if self.hasAuthority {
+                    let modify = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(self.modifyButtonTapped))
+                    let delete = UIBarButtonItem(title: "삭제", style: .done, target: self, action: #selector(self.deleteButtonTapped))
+                    self.navigationItem.rightBarButtonItems = [delete, modify]
+                } else {
+                    let report = UIBarButtonItem(title: "신고", style: .done, target: self, action: #selector(self.reportButtonTapped))
+                    self.navigationItem.rightBarButtonItem = report
+                }
             }
         })
     }
     
-    @objc private func optionButtonTapped() {
-        switch hasAuthority {
-        case true:
-            deletePost()
-        case false:
-            showReportViewController()
-        }
-    }
-    
-    private func deletePost() {
-        let alert = UIAlertController(title: "삭제", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "삭제", style: .destructive) { _ in
-            let request = PostDeleteRequest(additionalInfo: self.postId?.toString())
-            request.request(completion: { result in
-                var alert: UIAlertController
-                switch result {
-                case .success(_):
-                    alert = UIAlertController(title: "게시글 삭제", message: "게시글 삭제에 성공하였습니다.", preferredStyle: .alert)
-                    DispatchQueue.main.async {
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                case .failure(_):
-                    alert = UIAlertController(title: "게시글 삭제", message: "게시글 삭제에 실패하였습니다.", preferredStyle: .alert)
-                }
-                let okay = UIAlertAction(title: "확인", style: .default)
-                alert.addAction(okay)
-                DispatchQueue.main.async {
-                    self.present(alert, animated: true)
-                }
-            })
+    @objc private func modifyButtonTapped() {
+        let alert = UIAlertController(title: nil, message: "게시글을 수정하시겠습니까?", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "수정", style: .default) { _ in
+            self.modifyPost()
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         alert.addAction(cancel)
@@ -150,7 +131,57 @@ extension STPostViewController {
         DispatchQueue.main.async {
             self.present(alert, animated: true)
         }
-        
+    }
+    
+    @objc private func deleteButtonTapped() {
+        let alert = UIAlertController(title: nil, message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "삭제", style: .destructive) { _ in
+            self.deletePost()
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(cancel)
+        alert.addAction(confirm)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
+    }
+    
+    @objc private func reportButtonTapped() {
+        showReportViewController()
+    }
+    
+    private func modifyPost() {
+        let storyboard = UIStoryboard(name: "Write", bundle: nil)
+        let writeViewController = storyboard.instantiateViewController(identifier: "writeViewController") as! STWriteViewController
+        writeViewController.mode = .put
+        writeViewController.targetModifyPostId = self.postId
+        writeViewController.title = "글쓰기"
+        writeViewController.currentPostId = postId
+        writeViewController.currentPost = post
+        let navigationController = UINavigationController(rootViewController: writeViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    private func deletePost() {
+        let request = PostDeleteRequest(additionalInfo: self.postId?.toString())
+        request.request(completion: { result in
+            var alert: UIAlertController
+            switch result {
+            case .success(_):
+                alert = UIAlertController(title: nil, message: "게시글 삭제에 성공하였습니다.", preferredStyle: .alert)
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            case .failure(_):
+                alert = UIAlertController(title: nil, message: "게시글 삭제에 실패하였습니다.", preferredStyle: .alert)
+            }
+            let okay = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okay)
+            DispatchQueue.main.async {
+                self.present(alert, animated: true)
+            }
+        })
     }
     
     private func showReportViewController() {
@@ -223,6 +254,7 @@ extension STPostViewController: UITableViewDataSource {
             if let hasAuthority = replies[indexPath.row - 1].hasAuthority {
                 cell.hasAuthority = hasAuthority
                 cell.replyButton.setTitle(hasAuthority ? "삭제" : "신고", for: .normal)
+                cell.modifyButton.isHidden = !hasAuthority
                 if post?.postWriterId == replies[indexPath.row - 1].replyWriterId {
                     cell.cellBackground.layer.borderColor = UIColor.streetalkPink.cgColor
                     cell.nickNameLabel.text = "작성자"
