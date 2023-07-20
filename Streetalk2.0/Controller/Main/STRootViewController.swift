@@ -51,6 +51,7 @@ class STRootViewController: UIViewController {
                     self.presentHomeViewController()
                 case let .failure(error):
                     print(error)
+                    self.errorMessage(error: error, message: #function)
                 }
             })
         } else {

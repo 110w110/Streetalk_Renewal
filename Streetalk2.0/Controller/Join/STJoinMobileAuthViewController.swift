@@ -126,6 +126,7 @@ extension STJoinMobileAuthViewController {
                     self.indicatiorDimmingView.isHidden = true
                 }
                 print(error)
+                self.errorMessage(error: error, message: #function)
             }
         })
     }
@@ -168,6 +169,7 @@ extension STJoinMobileAuthViewController {
                 self.serverNumber = randomNum
             case let .failure(error):
                 print(error)
+                self.errorMessage(error: error, message: #function)
             }
         })
     }

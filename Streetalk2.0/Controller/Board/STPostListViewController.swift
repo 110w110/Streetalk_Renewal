@@ -50,6 +50,7 @@ extension STPostListViewController {
                     self.favorite = data.like ?? false
                 case let .failure(error):
                     print(error)
+                    self.errorMessage(error: error, message: #function)
                 }
                 
                 DispatchQueue.main.async {
@@ -68,6 +69,7 @@ extension STPostListViewController {
                         self.searchPostList = data
                     case let .failure(error):
                         print(error)
+                        self.errorMessage(error: error, message: #function)
                     }
                     
                     DispatchQueue.main.async {
@@ -82,6 +84,7 @@ extension STPostListViewController {
                         self.searchPostList = data
                     case let .failure(error):
                         print(error)
+                        self.errorMessage(error: error, message: #function)
                     }
                     
                     DispatchQueue.main.async {
@@ -96,6 +99,7 @@ extension STPostListViewController {
                         self.searchPostList = data
                     case let .failure(error):
                         print(error)
+                        self.errorMessage(error: error, message: #function)
                     }
                     
                     DispatchQueue.main.async {
@@ -110,6 +114,7 @@ extension STPostListViewController {
                         self.searchPostList = data
                     case let .failure(error):
                         print(error)
+                        self.errorMessage(error: error, message: #function)
                     }
                     
                     DispatchQueue.main.async {
@@ -132,6 +137,7 @@ extension STPostListViewController {
                 self.favorite = data.like ?? false
             case let .failure(error):
                 print(error)
+                self.errorMessage(error: error, message: #function)
             }
             
             DispatchQueue.main.async {
@@ -156,6 +162,7 @@ extension STPostListViewController {
                 self.refreshUI()
             case .failure(let error):
                 print(error)
+                self.errorMessage(error: error, message: #function)
             }
         })
     }
@@ -231,6 +238,7 @@ extension STPostListViewController: UITableViewDelegate {
                     self.postList += data.postList ?? []
                 case let .failure(error):
                     print(error)
+                    self.errorMessage(error: error, message: #function)
                 }
                 
                 DispatchQueue.main.async {

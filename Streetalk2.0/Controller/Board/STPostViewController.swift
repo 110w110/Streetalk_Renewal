@@ -58,6 +58,7 @@ class STPostViewController: UIViewController {
                 }
             case let .failure(error):
                 print(error)
+                self.errorMessage(error: error, message: #function)
                 DispatchQueue.main.async {
                     self.replyTextField.text = ""
                     let alert = UIAlertController(title: "댓글 작성 실패", message: "댓글 작성에 실패했습니다.\n\(error)", preferredStyle: .alert)
@@ -102,6 +103,7 @@ extension STPostViewController {
                 self.hasAuthority = data.hasAuthority ?? false
             case let .failure(error):
                 print(error)
+                self.errorMessage(error: error, message: #function)
             }
             
             DispatchQueue.main.async {

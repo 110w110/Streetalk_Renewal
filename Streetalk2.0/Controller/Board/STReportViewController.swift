@@ -65,6 +65,7 @@ class STReportViewController: UIViewController {
                 }
             case let .failure(error):
                 print(error)
+                self.errorMessage(error: error, message: #function)
             }
         })
     }
@@ -90,6 +91,7 @@ class STReportViewController: UIViewController {
                 }
             case let .failure(error):
                 print(error)
+                self.errorMessage(error: error, message: #function)
             }
         })
     }

@@ -38,4 +38,13 @@ extension UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    static func errorMessage(error: APIError, message: String?, viewController: UIViewController) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: message ?? "unknown error", message: error.localizedDescription, preferredStyle: .alert)
+            let okay = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okay)
+            viewController.present(alert, animated: true, completion: nil)
+        }
+    }
 }

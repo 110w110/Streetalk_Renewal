@@ -154,6 +154,7 @@ class STWriteViewController: UIViewController {
                 }
             case let .failure(error):
                 print(error)
+                self.errorMessage(error: error, message: #function)
             }
         })
     }

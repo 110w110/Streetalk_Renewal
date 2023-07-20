@@ -125,6 +125,7 @@ extension STJoinRegisterViewController {
                 }
             case let .failure(error):
                 print(error)
+                self.errorMessage(error: error, message: #function)
                 DispatchQueue.main.async {
                     self.locationIndicator.isHidden = true
                 }
