@@ -36,6 +36,7 @@ class STMyPageListViewController: UIViewController {
         nextViewController.title = "프로필 관리"
         let navigationController = UINavigationController(rootViewController: nextViewController)
         self.present(navigationController, animated: true)
+//        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
 }

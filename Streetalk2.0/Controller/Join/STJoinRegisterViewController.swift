@@ -73,8 +73,7 @@ class STJoinRegisterViewController: UIViewController {
             return layout
         }()
         
-        guard let text = nickNameTextField.text else { return }
-        setNickNameCheckUI(nickname: text)
+        setNickNameCheckUI(nickname: nickNameTextField.text)
         
         self.nearCities = loginInfo?.nearCities ?? []
         self.nearCities.insert(Cities(fullName: loginInfo?.currentCity, id: nil), at: 0)
@@ -108,7 +107,6 @@ extension STJoinRegisterViewController {
         request.request(completion: { result in
             switch result {
             case let .success(data):
-                self.nickNameTextField.text = data.userName ?? ""
                 self.selectedIndustry = data.industry ?? "식당"
                 self.nearCities += data.nearCities ?? []
                 if let currentCity = data.currentCity {
@@ -116,6 +114,11 @@ extension STJoinRegisterViewController {
                 }
                 
                 DispatchQueue.main.async {
+                    if self.nearCities.count != 0 {
+                        self.locationTextField.text = self.nearCities[0].fullName
+                    }
+                    self.nickNameTextField.text = data.userName ?? ""
+                    self.setNickNameCheckUI(nickname: self.nickNameTextField.text)
                     self.jobCollectionView.reloadData()
                     self.locationCollectionView.reloadData()
                     self.locationIndicator.isHidden = true
@@ -130,20 +133,28 @@ extension STJoinRegisterViewController {
     }
     
     private func showHomeViewController() {
+        var isNewMember: Bool = false
         guard let name = self.nickNameTextField.text, let location = self.locationTextField.text, let industry = self.selectedIndustry else { return }
         let request = JoinRequest(param: ["name" : name, "location" : location, "industry" : industry])
-        guard let token = loginInfo?.token else { return }
-        UserDefaults.standard.set(token, forKey: "userToken")
+        if UserDefaults.standard.string(forKey: "userToken") == nil || UserDefaults.standard.string(forKey: "userToken") == "" {
+            isNewMember = true
+            guard let token = loginInfo?.token else { return }
+            UserDefaults.standard.set(token, forKey: "userToken")
+        }
         request.request(completion: { result in
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
-                    let mainViewController = STMainViewController()
-                    mainViewController.modalPresentationStyle = .fullScreen
-                    mainViewController.modalTransitionStyle = .crossDissolve
-                    self.present(mainViewController, animated: true, completion: {
-                        self.navigationController?.popToRootViewController(animated: false)
-                    })
+                    if isNewMember {
+                        let mainViewController = STMainViewController()
+                        mainViewController.modalPresentationStyle = .fullScreen
+                        mainViewController.modalTransitionStyle = .crossDissolve
+                        self.present(mainViewController, animated: true, completion: {
+                            self.navigationController?.popToRootViewController(animated: false)
+                        })
+                    } else {
+                        self.dismiss(animated: true)
+                    }
                 }
             case .failure(_):
                 UserDefaults.standard.set(nil, forKey: "userToken")
@@ -151,20 +162,21 @@ extension STJoinRegisterViewController {
         })
     }
     
-    private func setNickNameCheckUI(nickname: String) {
-        if nickname.isValidChar() {
+    private func setNickNameCheckUI(nickname: String?) {
+        guard let text = nickname else { return }
+        if text.isValidChar() {
             isValidCharLabel.textColor = .systemGreen
         } else {
             isValidCharLabel.textColor = .streetalkPink
         }
         
-        if nickname.isConformLengthLimit() {
+        if text.isConformLengthLimit() {
             lengthLimitLabel.textColor = .systemGreen
         } else {
             lengthLimitLabel.textColor = .streetalkPink
         }
         
-        if nickname.isValidChar() && nickname.isConformLengthLimit() {
+        if text.isValidChar() && text.isConformLengthLimit() {
             isValidNickNameLabel.textColor = .systemGreen
             confirmButton.isEnabled = true
             
@@ -281,7 +293,7 @@ fileprivate extension String {
 extension STJoinRegisterViewController: CLLocationManagerDelegate {
     private func requestLocationAuth() {
         locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         locationManager.requestLocation()
     }
     

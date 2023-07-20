@@ -205,7 +205,7 @@ extension STJoinMobileAuthViewController: CLLocationManagerDelegate {
     
     private func requestLocationAuth() {
         locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         locationManager.requestLocation()
     }
     

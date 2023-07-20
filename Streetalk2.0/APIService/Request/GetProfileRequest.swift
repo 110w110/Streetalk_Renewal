@@ -11,7 +11,7 @@ struct GetProfileRequest: Requestable {
     typealias ResultType = Login
     
     var uri: String = "/user/profile"
-    var methods: HttpMethods = .get
+    var methods: HttpMethods = .post
     var auth: Bool = true
     var param: [String : Any]?
     var additionalInfo: String?
