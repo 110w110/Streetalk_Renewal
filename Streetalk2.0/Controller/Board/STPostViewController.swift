@@ -22,6 +22,8 @@ class STPostViewController: UIViewController {
     private var anonymous: Bool = true
     private var hasAuthority: Bool = false
     
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +36,8 @@ class STPostViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshUI), for: .valueChanged)
         setUI()
         setAnonymousButton()
         
@@ -78,6 +82,11 @@ class STPostViewController: UIViewController {
 
 extension STPostViewController {
     
+    @objc private func refreshUI() {
+        print("refresh")
+        setUI()
+    }
+    
     private func setAnonymousButton() {
         DispatchQueue.main.async {
             if self.anonymous {
@@ -116,6 +125,7 @@ extension STPostViewController {
                     let report = UIBarButtonItem(title: "신고", style: .done, target: self, action: #selector(self.reportButtonTapped))
                     self.navigationItem.rightBarButtonItem = report
                 }
+                self.refreshControl.endRefreshing()
             }
         })
     }
