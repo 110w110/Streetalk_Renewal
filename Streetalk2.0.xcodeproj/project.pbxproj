@@ -11,6 +11,7 @@
 		330256E52A6810DC007FB66F /* GetMyReplyListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330256E42A6810DC007FB66F /* GetMyReplyListRequest.swift */; };
 		330256ED2A6817F9007FB66F /* LeaveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330256EC2A6817F9007FB66F /* LeaveRequest.swift */; };
 		330256EF2A68586D007FB66F /* GetProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330256EE2A68586D007FB66F /* GetProfileRequest.swift */; };
+		330256F12A6905BB007FB66F /* STReplyModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330256F02A6905BB007FB66F /* STReplyModifyViewController.swift */; };
 		330438F12A315E95008123AD /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330438F02A315E95008123AD /* Address.swift */; };
 		330438F32A315F55008123AD /* Industry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330438F22A315F55008123AD /* Industry.swift */; };
 		330438F52A316005008123AD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330438F42A316005008123AD /* User.swift */; };
@@ -143,6 +144,7 @@
 		330256E42A6810DC007FB66F /* GetMyReplyListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyReplyListRequest.swift; sourceTree = "<group>"; };
 		330256EC2A6817F9007FB66F /* LeaveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveRequest.swift; sourceTree = "<group>"; };
 		330256EE2A68586D007FB66F /* GetProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileRequest.swift; sourceTree = "<group>"; };
+		330256F02A6905BB007FB66F /* STReplyModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STReplyModifyViewController.swift; sourceTree = "<group>"; };
 		330438F02A315E95008123AD /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		330438F22A315F55008123AD /* Industry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Industry.swift; sourceTree = "<group>"; };
 		330438F42A316005008123AD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				337CB04E2A49550B00A7E375 /* STPostViewController.swift */,
 				333C20842A56A35800F8265C /* STReportViewController.swift */,
 				337B883A2A65B5270051B7FF /* STEnlargedImageViewController.swift */,
+				330256F02A6905BB007FB66F /* STReplyModifyViewController.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				330CE9972A3A913700BFA26F /* STPostListViewController.swift in Sources */,
 				337CB04F2A49550B00A7E375 /* STPostViewController.swift in Sources */,
 				3399BAFC2A402FE200A56A4B /* UIView+.swift in Sources */,
+				330256F12A6905BB007FB66F /* STReplyModifyViewController.swift in Sources */,
 				330CE9A32A3C35B600BFA26F /* STJoinMobileAuthViewController.swift in Sources */,
 				3388DB4A2A5F98D3004A64CE /* STPasswordViewController.swift in Sources */,
 				33D4C9672A5EDECF0099E94A /* Notice.swift in Sources */,

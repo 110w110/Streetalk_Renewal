@@ -14,6 +14,7 @@ class STReplyTableViewCell: UITableViewCell {
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var replyButton: UIButton!
+    @IBOutlet var modifyButton: UIButton!
     
     var targetViewController: STPostViewController?
     var replyId: Int?
@@ -31,20 +32,30 @@ class STReplyTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func modifyButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Board", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "replyModifyViewController") as! STReplyModifyViewController
+        viewController.modalPresentationStyle = .overFullScreen
+        viewController.modalTransitionStyle = .crossDissolve
+        viewController.content = contentLabel.text
+        guard let targetViewController = targetViewController else { return }
+        targetViewController.present(viewController, animated: true)
+    }
+    
     @IBAction func replyButtonTapped(_ sender: Any) {
         guard let hasAuthority = hasAuthority else { return }
         switch hasAuthority {
         case true:
-            let alert = UIAlertController(title: "삭제", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
+            let alert = UIAlertController(title: nil, message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
             let confirm = UIAlertAction(title: "확인", style: .default) { _ in
                 let request = ReplyDeleteRequest(additionalInfo: self.replyId?.toString())
                 request.request(completion: { result in
                     var alert: UIAlertController
                     switch result {
                     case .success(_):
-                        alert = UIAlertController(title: "댓글 삭제", message: "댓글 삭제에 성공하였습니다.", preferredStyle: .alert)
+                        alert = UIAlertController(title: nil, message: "댓글 삭제에 성공하였습니다.", preferredStyle: .alert)
                     case .failure(_):
-                        alert = UIAlertController(title: "댓글 삭제", message: "댓글 삭제에 실패하였습니다.", preferredStyle: .alert)
+                        alert = UIAlertController(title: nil, message: "댓글 삭제에 실패하였습니다.", preferredStyle: .alert)
                     }
                     let okay = UIAlertAction(title: "확인", style: .default)
                     alert.addAction(okay)
