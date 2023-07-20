@@ -18,6 +18,9 @@ class STBoardListViewController: UIViewController {
     @IBOutlet var mainBoardEmptyLabel: UILabel!
     @IBOutlet var subBoardEmptyLabel: UILabel!
     
+    @IBOutlet var mainBoardHeight: NSLayoutConstraint!
+    @IBOutlet var subBoardHeight: NSLayoutConstraint!
+    
     private let myBoardImageList = [UIImage(named: "MyPost"), UIImage(named: "MyComment"), UIImage(named: "MyLike"), UIImage(named: "MyScrap")]
     private let myBoardTitles = ["내 게시글", "내 댓글", "추천한 게시글", "내 스크랩"]
     private let myBoardMode: [ListMode] = [.myPost, .myReply, .myLike, .myScrap]
@@ -37,6 +40,14 @@ class STBoardListViewController: UIViewController {
         
         getBoardList()
         setUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        mainBoardHeight.constant = mainBoardListCollectionView.collectionViewLayout.collectionViewContentSize.height
+        subBoardHeight.constant = subBoardListCollectionView.collectionViewLayout.collectionViewContentSize.height
+        view.layoutIfNeeded()
     }
     
     @IBAction func boardSuggestionButtonTapped(_ sender: Any) {
@@ -79,6 +90,10 @@ class STBoardListViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.mainBoardListCollectionView.reloadData()
                         self.subBoardListCollectionView.reloadData()
+                        self.mainBoardListCollectionView.translatesAutoresizingMaskIntoConstraints = false
+                        self.mainBoardListCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(self.mainBoardList.count * 50)).isActive = true
+                        self.subBoardListCollectionView.translatesAutoresizingMaskIntoConstraints = false
+                        self.subBoardListCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(self.subBoardList.count * 50)).isActive = true
                         self.setUI()
                     }
                 }
@@ -134,9 +149,9 @@ extension STBoardListViewController: UICollectionViewDataSource {
         if collectionView == myBoardListCollectionView {
             return min(4, myBoardTitles.count)
         } else if collectionView == mainBoardListCollectionView {
-            return min(4, mainBoardList.count)
+            return mainBoardList.count
         } else if collectionView == subBoardListCollectionView {
-            return min(4, subBoardList.count)
+            return subBoardList.count
         }
         return 4
     }
@@ -145,6 +160,10 @@ extension STBoardListViewController: UICollectionViewDataSource {
         
         if collectionView == myBoardListCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myBoardListCell", for: indexPath)
+            
+            for view in cell.subviews {
+                view.removeFromSuperview()
+            }
             
             let imageView = {
                 let view = UIImageView(image: myBoardImageList[indexPath.row]?.withAlignmentRectInsets(UIEdgeInsets(top: -20, left: -20, bottom: -20, right: -20)))
@@ -218,7 +237,7 @@ extension STBoardListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == mainBoardListCollectionView || collectionView == subBoardListCollectionView {
             let width: CGFloat = collectionView.frame.width
-            let height: CGFloat = collectionView.frame.height / 4
+            let height: CGFloat = 50
             return CGSize(width: width, height: height )
         } else if collectionView == myBoardListCollectionView {
             let width: CGFloat = collectionView.frame.width / 4

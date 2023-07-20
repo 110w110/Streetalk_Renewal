@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="J01-in-Taj">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="780"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="820"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 게시판" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnL-oi-51B">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="30"/>
@@ -72,6 +72,9 @@
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Tf-7Q-hcR">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="200" id="2o3-3j-MJb"/>
+                                                        </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bzx-ay-n4e">
                                                             <size key="itemSize" width="390" height="48"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -118,11 +121,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lc4-ol-RvP">
-                                                <rect key="frame" x="0.0" y="465" width="393" height="200"/>
+                                                <rect key="frame" x="0.0" y="465" width="393" height="240"/>
                                                 <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o5X-pd-bip">
-                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o5X-pd-bip">
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="240"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="240" id="a5P-tf-Gb1"/>
+                                                        </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jMv-Vj-NHK">
                                                             <size key="itemSize" width="128" height="128"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -152,14 +158,13 @@
                                                     <constraint firstItem="o5X-pd-bip" firstAttribute="leading" secondItem="Lc4-ol-RvP" secondAttribute="leading" id="56S-SW-viF"/>
                                                     <constraint firstAttribute="trailing" secondItem="o5X-pd-bip" secondAttribute="trailing" id="C7r-e3-arn"/>
                                                     <constraint firstItem="NZ1-00-NZ7" firstAttribute="centerX" secondItem="Lc4-ol-RvP" secondAttribute="centerX" id="JBJ-Cv-Kex"/>
-                                                    <constraint firstAttribute="height" constant="200" id="JnN-u3-aq1"/>
                                                     <constraint firstAttribute="bottom" secondItem="o5X-pd-bip" secondAttribute="bottom" id="KOU-Db-OIc"/>
                                                     <constraint firstItem="o5X-pd-bip" firstAttribute="top" secondItem="Lc4-ol-RvP" secondAttribute="top" id="xBN-zM-sTT"/>
                                                     <constraint firstItem="NZ1-00-NZ7" firstAttribute="centerY" secondItem="Lc4-ol-RvP" secondAttribute="centerY" id="yWi-v9-FWP"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gvp-K8-pbP">
-                                                <rect key="frame" x="0.0" y="680" width="393" height="100"/>
+                                                <rect key="frame" x="0.0" y="720" width="393" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="만들고 싶은 게시판이 있으신가요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEI-tW-Wyd">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="20"/>
@@ -209,6 +214,9 @@
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="7lo-8b-lJi"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -238,10 +246,12 @@
                     </view>
                     <connections>
                         <outlet property="mainBoardEmptyLabel" destination="dGa-yj-cez" id="IZi-B6-29J"/>
+                        <outlet property="mainBoardHeight" destination="2o3-3j-MJb" id="2sz-dy-6e2"/>
                         <outlet property="mainBoardListCollectionView" destination="4Tf-7Q-hcR" id="b7K-SH-tWj"/>
                         <outlet property="myBoardListCollectionView" destination="Ohh-AM-FxU" id="sSp-li-v4M"/>
                         <outlet property="stackView" destination="J01-in-Taj" id="eKD-Xi-G4h"/>
                         <outlet property="subBoardEmptyLabel" destination="NZ1-00-NZ7" id="lSj-lX-okT"/>
+                        <outlet property="subBoardHeight" destination="a5P-tf-Gb1" id="zos-PV-dZD"/>
                         <outlet property="subBoardListCollectionView" destination="o5X-pd-bip" id="IzK-49-5NX"/>
                     </connections>
                 </viewController>
@@ -504,7 +514,7 @@
                                                                     <rect key="frame" x="10" y="10" width="353" height="89.666666666666671"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2w4-jd-OIU">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="353" height="0.0"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="353" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="94R-Id-4iW"/>
                                                                             </constraints>
@@ -513,7 +523,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="KZZ-LG-FT5">
-                                                                            <rect key="frame" x="0.0" y="7.6666666666666679" width="353" height="15"/>
+                                                                            <rect key="frame" x="0.0" y="27.666666666666664" width="353" height="15.000000000000007"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="익명 | 동네" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebR-6H-BAZ">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="177" height="15"/>
@@ -533,13 +543,13 @@
                                                                             </constraints>
                                                                         </stackView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upg-Md-7sP">
-                                                                            <rect key="frame" x="0.0" y="15" width="353" height="0.0"/>
+                                                                            <rect key="frame" x="0.0" y="35" width="353" height="0.0"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dpK-Zt-f6a">
-                                                                            <rect key="frame" x="0.0" y="29.999999999999996" width="353" height="59.666666666666657"/>
+                                                                            <rect key="frame" x="0.0" y="50" width="353" height="39.666666666666657"/>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="200" id="7gG-B1-xO3"/>
@@ -552,7 +562,7 @@
                                                                             </collectionViewFlowLayout>
                                                                             <cells>
                                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="postImageViewCollectionViewCell" id="IbQ-cM-kzQ" customClass="STPostImageViewCollectionViewCell" customModule="Streetalk2_0" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="-34.333333333333336" width="128" height="128"/>
+                                                                                    <rect key="frame" x="0.0" y="-44.333333333333336" width="128" height="128"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tBL-Kk-2Ra">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
