@@ -26,30 +26,35 @@ class STSearchListViewController: UIViewController {
     @IBAction func searchTextFieldEditing(_ sender: Any) {
         guard let text = self.searchTextField.text else { return }
         
-        if text.isEmpty {
-            postList = []
-            self.tableView.reloadData()
-        }
-        
-        let request = SearchRequest(additionalInfo: text)
-        request.request(completion: { result in
-            switch result {
-            case let .success(data):
-                print(data)
-                self.postList = data
+        DispatchQueue.global().async {
+            if text.isEmpty {
+                self.postList = []
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    if self.postList.isEmpty {
-                        self.emptyImage.isHidden = false
-                    } else {
-                        self.emptyImage.isHidden = true
-                    }
                 }
-            case let .failure(error):
-                print(error)
-                self.errorMessage(error: error, message: #function)
+                return
             }
-        })
+            
+            let request = SearchRequest(additionalInfo: text)
+            request.request(completion: { result in
+                switch result {
+                case let .success(data):
+                    print(data)
+                    self.postList = data
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        if self.postList.isEmpty {
+                            self.emptyImage.isHidden = false
+                        } else {
+                            self.emptyImage.isHidden = true
+                        }
+                    }
+                case let .failure(error):
+                    print(error)
+                    self.errorMessage(error: error, message: #function)
+                }
+            })
+        }
     }
     
 }
