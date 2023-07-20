@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class STWriteViewController: UIViewController {
 
@@ -209,6 +210,30 @@ extension STWriteViewController {
         writeTitleTextField.text = post.title
         writeTitleTextField.text = post.title
         writeContentTextView.textColor = .label
+        
+        guard let images = currentPost?.images else { return }
+        for imageUrl in images {
+            var imageView = UIImageView()
+            guard let url = URL(string: imageUrl) else { return }
+            imageView.kf.indicatorType = .activity
+            imageView.kf.setImage(
+              with: url,
+              placeholder: nil,
+              options: [.transition(.fade(1.2))],
+              completionHandler: nil
+            )
+            uploadImageList.insert(fixOrientation(img: imageView.image ?? UIImage()), at: uploadImageList.count - 1)
+//            let image = KingfisherManager.shared.retrieveImage(with: KF.ImageResource(downloadURL: url), completionHandler: { result in
+//                switch result {
+//                case .success(_):
+//                    self.uploadImageList.insert(self.fixOrientation(img: imageView.image ?? UIImage()), at: self.uploadImageList.count - 1)
+//                case let .failure(error):
+//                    print(error)
+//                }
+//            })
+        }
+        
+        self.collectionView.reloadData()
     }
     
     @objc func switchValueChanged(_ sender: UISwitch) {
@@ -354,7 +379,19 @@ extension STWriteViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "writeCollectionViewCell", for: indexPath) as! STWriteCollectionViewCell
-        cell.imageView.image = uploadImageList[indexPath.row]
+        if let currentPost = currentPost, currentPost.images?.count ?? 0 >= indexPath.row + 1, let url = currentPost.images?[indexPath.row] {
+            if let url = URL(string: url) {
+                cell.imageView.kf.indicatorType = .activity
+                cell.imageView.kf.setImage(
+                    with: url,
+                    placeholder: nil,
+                    options: [.transition(.fade(1.2))],
+                    completionHandler: nil
+                )
+            }
+        } else {
+            cell.imageView.image = uploadImageList[indexPath.row]
+        }
         return cell
     }
     
