@@ -249,6 +249,7 @@
                         <outlet property="mainBoardHeight" destination="2o3-3j-MJb" id="2sz-dy-6e2"/>
                         <outlet property="mainBoardListCollectionView" destination="4Tf-7Q-hcR" id="b7K-SH-tWj"/>
                         <outlet property="myBoardListCollectionView" destination="Ohh-AM-FxU" id="sSp-li-v4M"/>
+                        <outlet property="scrollView" destination="EiV-Ux-Vaw" id="8At-77-xmk"/>
                         <outlet property="stackView" destination="J01-in-Taj" id="eKD-Xi-G4h"/>
                         <outlet property="subBoardEmptyLabel" destination="NZ1-00-NZ7" id="lSj-lX-okT"/>
                         <outlet property="subBoardHeight" destination="a5P-tf-Gb1" id="zos-PV-dZD"/>

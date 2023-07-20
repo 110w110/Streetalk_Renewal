@@ -10,6 +10,7 @@ import MessageUI
 
 class STBoardListViewController: UIViewController {
 
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var stackView: UIStackView!
     @IBOutlet var myBoardListCollectionView: UICollectionView!
     @IBOutlet var mainBoardListCollectionView: UICollectionView!
@@ -20,6 +21,8 @@ class STBoardListViewController: UIViewController {
     
     @IBOutlet var mainBoardHeight: NSLayoutConstraint!
     @IBOutlet var subBoardHeight: NSLayoutConstraint!
+    
+    private let refreshControl = UIRefreshControl()
     
     private let myBoardImageList = [UIImage(named: "MyPost"), UIImage(named: "MyComment"), UIImage(named: "MyLike"), UIImage(named: "MyScrap")]
     private let myBoardTitles = ["내 게시글", "내 댓글", "추천한 게시글", "내 스크랩"]
@@ -38,6 +41,8 @@ class STBoardListViewController: UIViewController {
         subBoardListCollectionView.dataSource = self
         subBoardListCollectionView.delegate = self
         
+        scrollView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshUI), for: .valueChanged)
         getBoardList()
         setUI()
     }
@@ -52,6 +57,11 @@ class STBoardListViewController: UIViewController {
     
     @IBAction func boardSuggestionButtonTapped(_ sender: Any) {
         mailBoardSuggestion()
+    }
+    
+    @objc private func refreshUI() {
+        print("refresh")
+        getBoardList()
     }
     
     func setUI() {
@@ -95,6 +105,7 @@ class STBoardListViewController: UIViewController {
                         self.subBoardListCollectionView.translatesAutoresizingMaskIntoConstraints = false
                         self.subBoardListCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(self.subBoardList.count * 50)).isActive = true
                         self.setUI()
+                        self.refreshControl.endRefreshing()
                     }
                 }
             case let .failure(error):
@@ -208,6 +219,10 @@ extension STBoardListViewController: UICollectionViewDataSource {
             }
         }()
         
+        for view in cell.subviews {
+            view.removeFromSuperview()
+        }
+        
         let label = {
             let label = UILabel()
             label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
@@ -220,7 +235,6 @@ extension STBoardListViewController: UICollectionViewDataSource {
             return label
         }()
         
-        cell.backgroundColor = .systemBackground
         cell.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 20).isActive = true
