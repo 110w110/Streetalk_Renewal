@@ -16,6 +16,8 @@ class STReplyModifyViewController: UIViewController {
     @IBOutlet var textView: UITextView!
     
     var content: String?
+    var replyId: Int?
+    var handler: (() -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,26 @@ class STReplyModifyViewController: UIViewController {
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    
+    @IBAction func modifyButtonTapped(_ sender: Any) {
+        guard let text = textView.text, let id = replyId else { return }
+        let request = PostReplyRequest(methods: .put, param: ["replyId" : id, "content" : text])
+        request.request(completion: { result in
+            switch result {
+            case let .success(data):
+                print(data)
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true) {
+                        if let handler = self.handler {
+                            handler()
+                        }
+                    }
+                }
+            case let .failure(error):
+                print(error)
+            }
+        })
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

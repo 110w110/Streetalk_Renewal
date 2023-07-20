@@ -38,6 +38,10 @@ class STReplyTableViewCell: UITableViewCell {
         viewController.modalPresentationStyle = .overFullScreen
         viewController.modalTransitionStyle = .crossDissolve
         viewController.content = contentLabel.text
+        viewController.replyId = replyId
+        viewController.handler = {
+            self.targetViewController?.setUI()
+        }
         guard let targetViewController = targetViewController else { return }
         targetViewController.present(viewController, animated: true)
     }
