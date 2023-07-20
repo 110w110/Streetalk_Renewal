@@ -15,6 +15,8 @@ class STMyPageListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +29,8 @@ class STMyPageListViewController: UIViewController {
             self.contents = contents
         })
         
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshUI), for: .valueChanged)
         fetchHomeData()
     }
     
@@ -171,6 +175,11 @@ extension STMyPageListViewController: UITableViewDataSource {
 
 extension STMyPageListViewController {
     
+    @objc private func refreshUI() {
+        print("refresh")
+        fetchHomeData()
+    }
+    
     private func fetchHomeData() {
         let request = HomeInfoRequest()
         request.request(completion: { result in
@@ -179,6 +188,7 @@ extension STMyPageListViewController {
                 self.homeInfo = object
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.refreshControl.endRefreshing()
                 }
             case let .failure(error):
                 print(error)
