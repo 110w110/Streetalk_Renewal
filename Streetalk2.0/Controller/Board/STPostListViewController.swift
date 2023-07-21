@@ -29,7 +29,12 @@ class STPostListViewController: UIViewController {
         
         initialSetUI()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchData(id: boardId)
+    }
+    
 }
 
 extension STPostListViewController {
@@ -116,7 +121,7 @@ extension STPostListViewController {
             request.request(completion: { result in
                 switch result {
                 case let .success(data):
-                    self.postList += data.postList ?? []
+                    self.postList = data.postList ?? []
                     self.favorite = data.like ?? false
                 case let .failure(error):
                     print(error)
