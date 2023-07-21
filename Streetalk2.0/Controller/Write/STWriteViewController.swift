@@ -18,10 +18,12 @@ class STWriteViewController: UIViewController {
     @IBOutlet weak var writtingBackgroundImageView: UIImageView!
     @IBOutlet var keyboardArea: UIView!
     
+    private let placeholder = "게시글 내용을 작성해주세요."
+    private let imagePickerController = UIImagePickerController()
+    
     private var uploadImageList: [UIImage] = [UIImage(named: "Add")!]
     private var mainBoardList: [Board] = []
     private var subBoardList: [Board] = []
-    private let imagePickerController = UIImagePickerController()
     private var targetBoardId: Int = 1
     private var targetBoardName: String = ""
     private var anonymous: Bool = false
@@ -30,6 +32,7 @@ class STWriteViewController: UIViewController {
     var targetModifyPostId: Int?
     var currentPost: Post?
     var currentPostId: Int?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +46,7 @@ class STWriteViewController: UIViewController {
         tableView.delegate = self
         
         writeContentTextView.delegate = self
-        writeContentTextView.setPlaceholder("게시글 내용을 작성해주세요.")
+        writeContentTextView.setPlaceholder(placeholder)
         writeContentTextView.keyboardDismissMode = .onDrag
         
         lazy var submitButton: UIBarButtonItem = {
@@ -76,7 +79,8 @@ class STWriteViewController: UIViewController {
         if mode == .post {
             let alert = UIAlertController(title: nil, message: "게시글을 등록하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "작성", style: .default) { _ in
-                if self.writeTitleTextField.text == "" || self.writeContentTextView.isEmpty() {
+                guard let titleText = self.writeTitleTextField.text, !titleText.isRealEmptyText(),
+                      let contentText = self.writeContentTextView.text, !contentText.isRealEmptyText(placeholder: self.placeholder) else {
                     let alert = UIAlertController(title: nil, message: "제목과 본문을 채워주세요", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "닫기", style: .default)
                     alert.addAction(okAction)
@@ -107,7 +111,8 @@ class STWriteViewController: UIViewController {
         } else if mode == .put {
             let alert = UIAlertController(title: nil, message: "게시글을 등록하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "작성", style: .default) { _ in
-                if self.writeTitleTextField.text == "" || self.writeContentTextView.isEmpty() {
+                guard let titleText = self.writeTitleTextField.text, !titleText.isRealEmptyText(),
+                      let contentText = self.writeContentTextView.text, !contentText.isRealEmptyText(placeholder: self.placeholder) else {
                     let alert = UIAlertController(title: nil, message: "제목과 본문을 채워주세요", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "닫기", style: .default)
                     alert.addAction(okAction)

@@ -44,7 +44,8 @@ class STPostViewController: UIViewController {
     }
     
     @IBAction func replySubmitButtonTapped(_ sender: Any) {
-        if self.replyTextField.text == "" { return }
+        guard let text = self.replyTextField.text, !text.isRealEmptyText() else { return }
+//        if self.replyTextField.text == ""
         replyTextField.endEditing(false)
         
         guard let postId = postId, let text = self.replyTextField.text else { return }

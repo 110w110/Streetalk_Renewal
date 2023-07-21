@@ -17,4 +17,10 @@ extension String {
         guard let industry = industry else { return self + "미선택"}
         return self + " | " + industry
     }
+    
+    func isRealEmptyText(placeholder: String = "") -> Bool {
+        if self == "" || self == placeholder { return true }
+        if NSPredicate(format:"SELF MATCHES %@", "[\\s]*").evaluate(with: self) { return true }
+        return false
+    }
 }
