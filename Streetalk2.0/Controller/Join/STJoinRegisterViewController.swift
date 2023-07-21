@@ -179,10 +179,12 @@ extension STJoinRegisterViewController {
         
         if text.isValidChar() && text.isConformLengthLimit() {
             isValidNickNameLabel.textColor = .systemGreen
+            isValidNickNameLabel.text = "사용할 수 있는 닉네임입니다."
             confirmButton.isEnabled = true
             
         } else {
             isValidNickNameLabel.textColor = .streetalkPink
+            isValidNickNameLabel.text = "사용할 수 없는 닉네임입니다."
             confirmButton.isEnabled = false
         }
     }
