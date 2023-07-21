@@ -92,21 +92,25 @@ class STBoardListViewController: UIViewController {
                 print(data)
                 for board in data {
                     if board.category == "main" {
-                        self.mainBoardList.append(board)
+                        if !self.mainBoardList.contains(where: { $0.boardName == board.boardName }) {
+                            self.mainBoardList.append(board)
+                        }
                     } else if board.category == "sub" {
-                        self.subBoardList.append(board)
+                        if !self.subBoardList.contains(where: { $0.boardName == board.boardName }) {
+                            self.subBoardList.append(board)
+                        }
                     }
-                    
-                    DispatchQueue.main.async {
-                        self.mainBoardListCollectionView.reloadData()
-                        self.subBoardListCollectionView.reloadData()
-                        self.mainBoardListCollectionView.translatesAutoresizingMaskIntoConstraints = false
-                        self.mainBoardListCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(self.mainBoardList.count * 50)).isActive = true
-                        self.subBoardListCollectionView.translatesAutoresizingMaskIntoConstraints = false
-                        self.subBoardListCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(self.subBoardList.count * 50)).isActive = true
-                        self.setUI()
-                        self.refreshControl.endRefreshing()
-                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.mainBoardListCollectionView.reloadData()
+                    self.subBoardListCollectionView.reloadData()
+                    self.mainBoardListCollectionView.translatesAutoresizingMaskIntoConstraints = false
+                    self.mainBoardListCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(self.mainBoardList.count * 50)).isActive = true
+                    self.subBoardListCollectionView.translatesAutoresizingMaskIntoConstraints = false
+                    self.subBoardListCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(self.subBoardList.count * 50)).isActive = true
+                    self.setUI()
+                    self.refreshControl.endRefreshing()
                 }
             case let .failure(error):
                 print(error)
@@ -148,7 +152,6 @@ extension STBoardListViewController: MFMailComposeViewControllerDelegate {
 extension STBoardListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: 내 게시판 관련 API 생성 이후에 네 가지로 분기 처리 필요
         if collectionView == myBoardListCollectionView {
             return min(4, myBoardTitles.count)
         } else if collectionView == mainBoardListCollectionView {
@@ -267,8 +270,7 @@ extension STBoardListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "postListViewController") as! STPostListViewController
-        
-        // TODO: 내 게시판 API 생성 후 연결되는 게시판 수정 필요
+
         if collectionView == myBoardListCollectionView {
             viewController.title = myBoardTitles[indexPath.row]
             viewController.listMode = myBoardMode[indexPath.row]
