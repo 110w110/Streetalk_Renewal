@@ -62,6 +62,7 @@ extension STSearchListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if postList.count <= indexPath.row {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "searchEmptyCell") as! STSearchEmptyCell
+            cell.selectionStyle = .none
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchPostTableViewCell", for: indexPath) as! STSearchPostTableViewCell
@@ -83,6 +84,9 @@ extension STSearchListViewController: UITableViewDataSource {
 extension STSearchListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if postList.count <= indexPath.row {
+            return
+        }
         let storyboard = UIStoryboard(name: "Board", bundle: nil)
         let postViewController = storyboard.instantiateViewController(withIdentifier: "postViewController") as! STPostViewController
         postViewController.title = "지역 게시판"
@@ -93,7 +97,7 @@ extension STSearchListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if postList.count == 0 {
-            return tableView.frame.height
+            return tableView.frame.height - 50
         }
         return 180
     }
