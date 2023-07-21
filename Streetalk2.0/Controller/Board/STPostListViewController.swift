@@ -16,7 +16,6 @@ class STPostListViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private var favoriteButton: UIBarButtonItem?
     
-    // 임시로 1번 게시판 할당, 차후에 게시판 선택 구현 후에 수정할 예정
     var boardId: Int? = 1
     var boardName: String?
     var favorite: Bool = false
@@ -38,10 +37,81 @@ extension STPostListViewController {
     private func initialSetUI() {
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshUI), for: .valueChanged)
-        
-        if listMode == .default {
-            
-            guard let id = boardId else { return }
+        fetchData(id: boardId)
+    }
+    
+    @objc private func refreshUI() {
+        fetchData(id: boardId)
+    }
+    
+    private func fetchData(id: Int?) {
+        switch listMode {
+        case .myPost:
+            let request = GetMyPostListRequest()
+            request.request(completion: { result in
+                switch result {
+                case let .success(data):
+                    self.searchPostList = data
+                case let .failure(error):
+                    print(error)
+                    self.errorMessage(error: error, message: #function)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.refreshControl.endRefreshing()
+                }
+            })
+        case .myReply:
+            let request = GetMyReplyListRequest()
+            request.request(completion: { result in
+                switch result {
+                case let .success(data):
+                    self.searchPostList = data
+                case let .failure(error):
+                    print(error)
+                    self.errorMessage(error: error, message: #function)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.refreshControl.endRefreshing()
+                }
+            })
+        case .myLike:
+            let request = GetMyLikesListRequest()
+            request.request(completion: { result in
+                switch result {
+                case let .success(data):
+                    self.searchPostList = data
+                case let .failure(error):
+                    print(error)
+                    self.errorMessage(error: error, message: #function)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.refreshControl.endRefreshing()
+                }
+            })
+        case .myScrap:
+            let request = GetMyScrapsListRequest()
+            request.request(completion: { result in
+                switch result {
+                case let .success(data):
+                    self.searchPostList = data
+                case let .failure(error):
+                    print(error)
+                    self.errorMessage(error: error, message: #function)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.refreshControl.endRefreshing()
+                }
+            })
+        default:
+            guard let id = id else { return }
             let request = GetPostListRequest(additionalInfo: "\(id)")
             request.request(completion: { result in
                 switch result {
@@ -57,96 +127,10 @@ extension STPostListViewController {
                     self.tableView.reloadData()
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: self.favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star"), style: .plain, target: self, action: #selector(self.boardLike))
                     self.favoriteButton = self.navigationItem.rightBarButtonItem
+                    self.refreshControl.endRefreshing()
                 }
             })
-        } else {
-            switch listMode {
-            case .myPost:
-                let request = GetMyPostListRequest()
-                request.request(completion: { result in
-                    switch result {
-                    case let .success(data):
-                        self.searchPostList = data
-                    case let .failure(error):
-                        print(error)
-                        self.errorMessage(error: error, message: #function)
-                    }
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                })
-            case .myReply:
-                let request = GetMyReplyListRequest()
-                request.request(completion: { result in
-                    switch result {
-                    case let .success(data):
-                        self.searchPostList = data
-                    case let .failure(error):
-                        print(error)
-                        self.errorMessage(error: error, message: #function)
-                    }
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                })
-            case .myLike:
-                let request = GetMyLikesListRequest()
-                request.request(completion: { result in
-                    switch result {
-                    case let .success(data):
-                        self.searchPostList = data
-                    case let .failure(error):
-                        print(error)
-                        self.errorMessage(error: error, message: #function)
-                    }
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                })
-            case .myScrap:
-                let request = GetMyScrapsListRequest()
-                request.request(completion: { result in
-                    switch result {
-                    case let .success(data):
-                        self.searchPostList = data
-                    case let .failure(error):
-                        print(error)
-                        self.errorMessage(error: error, message: #function)
-                    }
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                })
-            default:
-                return
-            }
         }
-    }
-    
-    @objc private func refreshUI() {
-        guard let id = boardId else { return }
-        let request = GetPostListRequest(additionalInfo: "\(id)")
-        request.request(completion: { result in
-            switch result {
-            case let .success(data):
-                self.postList = data.postList ?? []
-                self.favorite = data.like ?? false
-            case let .failure(error):
-                print(error)
-                self.errorMessage(error: error, message: #function)
-            }
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.navigationItem.rightBarButtonItem?.image = self.favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
-                self.refreshControl.endRefreshing()
-            }
-        })
-        
     }
     
     @objc private func boardLike() {
@@ -157,8 +141,6 @@ extension STPostListViewController {
             switch result {
             case .success(let data):
                 print(data)
-                // TODO: data의 favorite으로 값 넣어줘야함
-//                self.favorite = !self.favorite
                 self.refreshUI()
             case .failure(let error):
                 print(error)
