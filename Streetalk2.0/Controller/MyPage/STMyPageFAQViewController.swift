@@ -15,7 +15,7 @@ class STMyPageFAQViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        textView.text = "\n문의 사항은 아래의 메일로 주시면 검토 후 연락 드리겠습니다.\n(dev.hantae@gmail.com)"
+        textView.text = ConstantStringData.helpMessage
         textView.delegate = self
         textView.isEditable = false
         textView.isScrollEnabled = false
@@ -40,7 +40,7 @@ extension STMyPageFAQViewController: UITextViewDelegate, MFMailComposeViewContro
         if MFMailComposeViewController.canSendMail() {
             let compseVC = MFMailComposeViewController()
             compseVC.mailComposeDelegate = self
-            compseVC.setToRecipients(["dev.hantae@gmail.com"])
+            compseVC.setToRecipients([ConstantStringData.helpServiceTargetEmail])
             compseVC.setSubject("Streetalk Asking Mail")
             let body = """
                          -------------------

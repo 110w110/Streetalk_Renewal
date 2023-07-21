@@ -133,18 +133,9 @@ extension STBoardListViewController: MFMailComposeViewControllerDelegate {
         if MFMailComposeViewController.canSendMail() {
             let viewController = MFMailComposeViewController()
             viewController.mailComposeDelegate = self
-            viewController.setToRecipients(["dev.hantae@gmail.com"])
+            viewController.setToRecipients([ConstantStringData.helpServiceTargetEmail])
             viewController.setSubject("Streetalk Board Suggestion")
-            let body = """
-                         스트릿톡 서비스에 관심을 가지고 도움을 주셔서 감사합니다.
-                         요청해주신 사항을 면밀히 검토하겠습니다.
-                         
-                         아래에 추천하고 싶으신 게시판에 대해 작성해주세요.
-                         
-                         게시판명 :
-                         게시판 목적:
-                         
-                         """
+            let body = ConstantStringData.boardRequestMailForm
             viewController.setMessageBody(body, isHTML: false)
             self.present(viewController, animated: true, completion: nil)
         }

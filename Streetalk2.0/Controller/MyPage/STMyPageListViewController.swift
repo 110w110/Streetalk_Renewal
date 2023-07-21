@@ -24,7 +24,7 @@ class STMyPageListViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = 50
         
-        MyPage.getMyPageData(completion: { titles, contents in
+        ConstantStringData.getMyPageData(completion: { titles, contents in
             self.titles = titles
             self.contents = contents
         })

@@ -90,7 +90,7 @@
 		3399BAFC2A402FE200A56A4B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3399BAFB2A402FE200A56A4B /* UIView+.swift */; };
 		339AE2C42A273FE8006005AE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339AE2C32A273FE8006005AE /* APIClient.swift */; };
 		33BB8BF72A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BB8BF62A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift */; };
-		33D30C1C2A4485170053C0CF /* myPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C1B2A4485170053C0CF /* myPage.swift */; };
+		33D30C1C2A4485170053C0CF /* ConstantStringData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C1B2A4485170053C0CF /* ConstantStringData.swift */; };
 		33D30C1F2A4489E00053C0CF /* STMyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C1E2A4489E00053C0CF /* STMyPageTableViewCell.swift */; };
 		33D30C232A453A710053C0CF /* STMyPageFAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C222A453A710053C0CF /* STMyPageFAQViewController.swift */; };
 		33D30C2B2A4543A90053C0CF /* STMyPageNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D30C2A2A4543A90053C0CF /* STMyPageNoticeViewController.swift */; };
@@ -221,7 +221,7 @@
 		3399BAFB2A402FE200A56A4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		339AE2C32A273FE8006005AE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		33BB8BF62A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRegisterJobCollectionViewCell.swift; sourceTree = "<group>"; };
-		33D30C1B2A4485170053C0CF /* myPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPage.swift; sourceTree = "<group>"; };
+		33D30C1B2A4485170053C0CF /* ConstantStringData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantStringData.swift; sourceTree = "<group>"; };
 		33D30C1E2A4489E00053C0CF /* STMyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPageTableViewCell.swift; sourceTree = "<group>"; };
 		33D30C222A453A710053C0CF /* STMyPageFAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPageFAQViewController.swift; sourceTree = "<group>"; };
 		33D30C2A2A4543A90053C0CF /* STMyPageNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPageNoticeViewController.swift; sourceTree = "<group>"; };
@@ -435,7 +435,7 @@
 		33D30C1D2A44851A0053C0CF /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				33D30C1B2A4485170053C0CF /* myPage.swift */,
+				33D30C1B2A4485170053C0CF /* ConstantStringData.swift */,
 				333C20902A5AFEC500F8265C /* ServerData.swift */,
 			);
 			path = Data;
@@ -764,7 +764,7 @@
 				333C208D2A57F8F100F8265C /* PolicyRequest.swift in Sources */,
 				3388DB512A642A44004A64CE /* ReplyDeleteRequest.swift in Sources */,
 				330438F52A316005008123AD /* User.swift in Sources */,
-				33D30C1C2A4485170053C0CF /* myPage.swift in Sources */,
+				33D30C1C2A4485170053C0CF /* ConstantStringData.swift in Sources */,
 				33506C192A4045A000BFCBF0 /* STSearchListViewController.swift in Sources */,
 				339AE2C42A273FE8006005AE /* APIClient.swift in Sources */,
 				B2C2257929D6BF2000222C8A /* STTabBarController.swift in Sources */,
