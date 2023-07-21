@@ -91,10 +91,11 @@ class STWriteViewController: UIViewController {
                                                       "isPrivate" : self.anonymous])
                 request.request(multipart: true, imageList: Array(self.uploadImageList[0..<self.uploadImageList.count - 1]), completion: { result in
                     switch result {
-                    case .success(let success):
-                        print(success)
-                    case .failure(let failure):
-                        print(failure)
+                    case .success(let data):
+                        print(data)
+                    case .failure(let error):
+                        print(error)
+                        self.errorMessage(error: error, message: #function)
                     }
                 })
                 self.dismiss(animated: true)
@@ -223,14 +224,6 @@ extension STWriteViewController {
               completionHandler: nil
             )
             uploadImageList.insert(fixOrientation(img: imageView.image ?? UIImage()), at: uploadImageList.count - 1)
-//            let image = KingfisherManager.shared.retrieveImage(with: KF.ImageResource(downloadURL: url), completionHandler: { result in
-//                switch result {
-//                case .success(_):
-//                    self.uploadImageList.insert(self.fixOrientation(img: imageView.image ?? UIImage()), at: self.uploadImageList.count - 1)
-//                case let .failure(error):
-//                    print(error)
-//                }
-//            })
         }
         
         self.collectionView.reloadData()
