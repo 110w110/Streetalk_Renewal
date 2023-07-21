@@ -74,7 +74,7 @@
                                             <constraint firstAttribute="height" constant="50" id="YEJ-CV-sU1"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="사장님이신가요?">
+                                        <buttonConfiguration key="configuration" style="plain" title="휴대폰 인증하고 시작하기">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                         </buttonConfiguration>
                                         <connections>
