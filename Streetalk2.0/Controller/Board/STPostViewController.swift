@@ -248,6 +248,7 @@ extension STPostViewController: UITableViewDataSource {
                 cell.imageUrls = post.images
                 cell.targetViewController = self
                 cell.imageCollectionView.isHidden = post.images?.count == 0
+                cell.cellBackground.layer.borderColor = UIColor.systemGray5.cgColor
                 cell.setUI()
                 DispatchQueue.main.async {
                     cell.imageCollectionView.reloadData()
@@ -270,7 +271,7 @@ extension STPostViewController: UITableViewDataSource {
                     cell.cellBackground.layer.borderColor = UIColor.streetalkPink.cgColor
                     cell.nickNameLabel.text = "작성자"
                 } else {
-                    cell.cellBackground.layer.borderColor = UIColor.systemGray6.cgColor
+                    cell.cellBackground.layer.borderColor = UIColor.systemGray5.cgColor
                 }
             }
             return cell

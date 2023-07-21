@@ -193,6 +193,7 @@ extension STPostListViewController: UITableViewDataSource {
             cell.likeCount.text = searchPostList[indexPath.row].likeCount?.toString()
             cell.scrapCount.text = searchPostList[indexPath.row].scrapCount?.toString()
             cell.postId = searchPostList[indexPath.row].id
+            cell.cellBackground.layer.borderColor = UIColor.systemGray5.cgColor
             return cell
         }
     }
