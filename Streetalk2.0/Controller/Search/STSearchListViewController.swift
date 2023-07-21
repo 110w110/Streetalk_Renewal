@@ -11,7 +11,6 @@ class STSearchListViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchTextField: UITextField!
-    @IBOutlet var emptyImage: UIImageView!
     
     private var postList: [SearchPost] = []
     
@@ -43,11 +42,6 @@ class STSearchListViewController: UIViewController {
                     self.postList = data
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
-                        if self.postList.isEmpty {
-                            self.emptyImage.isHidden = false
-                        } else {
-                            self.emptyImage.isHidden = true
-                        }
                     }
                 case let .failure(error):
                     print(error)
@@ -59,14 +53,17 @@ class STSearchListViewController: UIViewController {
     
 }
 
-
 extension STSearchListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postList.count
+        return max(1, postList.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if postList.count <= indexPath.row {
+            let cell =  tableView.dequeueReusableCell(withIdentifier: "searchEmptyCell") as! STSearchEmptyCell
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchPostTableViewCell", for: indexPath) as! STSearchPostTableViewCell
         cell.selectionStyle = .none
         cell.titleLabel.text = postList[indexPath.row].title
@@ -93,5 +90,16 @@ extension STSearchListViewController: UITableViewDelegate {
         postViewController.postId = postList[indexPath.row].id
         self.navigationController?.pushViewController(postViewController, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if postList.count == 0 {
+            return tableView.frame.height
+        }
+        return 180
+    }
+    
+}
+
+class STSearchEmptyCell: UITableViewCell {
     
 }
