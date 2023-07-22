@@ -19,5 +19,6 @@ struct PostList: Codable {
     let likeCount : Int?
     let scrapCount : Int?
     let replyCount : Int?
+    let isPrivate : Bool?
 
 }

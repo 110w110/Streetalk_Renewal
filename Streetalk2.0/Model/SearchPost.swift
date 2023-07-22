@@ -19,6 +19,7 @@ struct SearchPost: Codable {
     let likeCount : Int?
     let scrapCount : Int?
     let replyCount : Int?
+    let isPrivate : Bool?
     let images : [SearchImage]?
     let replyList : [SearchReply]?
 
@@ -34,6 +35,7 @@ struct SearchPost: Codable {
         case likeCount
         case scrapCount
         case replyCount
+        case isPrivate
         case images
         case replyList
     }
@@ -51,6 +53,7 @@ struct SearchPost: Codable {
         likeCount = try values.decodeIfPresent(Int.self, forKey: .likeCount)
         scrapCount = try values.decodeIfPresent(Int.self, forKey: .scrapCount)
         replyCount = try values.decodeIfPresent(Int.self, forKey: .replyCount)
+        isPrivate = try values.decodeIfPresent(Bool.self, forKey: .isPrivate)
         images = try values.decodeIfPresent([SearchImage].self, forKey: .images)
         replyList = try values.decodeIfPresent([SearchReply].self, forKey: .replyList)
     }

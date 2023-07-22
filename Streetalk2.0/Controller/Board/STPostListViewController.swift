@@ -168,10 +168,11 @@ extension STPostListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if listMode == .default {
             let cell = tableView.dequeueReusableCell(withIdentifier: "postListTableViewCell", for: indexPath) as! STPostListTableViewCell
+            let writerName = postList[indexPath.row].isPrivate ?? false ? "익명" : postList[indexPath.row].writer
             cell.selectionStyle = .none
             cell.titleLabel.text = postList[indexPath.row].title
             cell.contentLabel.text = postList[indexPath.row].content
-            cell.nickNameLabel.text = postList[indexPath.row].writer
+            cell.nickNameLabel.text = writerName
             cell.timeLabel.text = postList[indexPath.row].lastTime?.toLastTimeString()
             cell.likeImage.isHighlighted = postList[indexPath.row].postLike ?? false
             cell.scrapImage.isHighlighted = postList[indexPath.row].postScrap ?? false
@@ -182,10 +183,11 @@ extension STPostListViewController: UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "postListTableViewCell", for: indexPath) as! STPostListTableViewCell
+            let writerName = postList[indexPath.row].isPrivate ?? false ? "익명" : postList[indexPath.row].writer
             cell.selectionStyle = .none
             cell.titleLabel.text = searchPostList[indexPath.row].title
             cell.contentLabel.text = searchPostList[indexPath.row].content
-            cell.nickNameLabel.text = searchPostList[indexPath.row].writer
+            cell.nickNameLabel.text = writerName
             cell.timeLabel.text = searchPostList[indexPath.row].createdDate
             cell.likeImage.isHighlighted = searchPostList[indexPath.row].postLike ?? false
             cell.scrapImage.isHighlighted = searchPostList[indexPath.row].postScrap ?? false

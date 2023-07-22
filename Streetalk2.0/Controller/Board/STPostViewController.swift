@@ -233,9 +233,10 @@ extension STPostViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.secondaryNickNameStackView.isHidden = false
             if let post = post {
+                let writerName = post.isPrivate ?? false ? "익명" : post.postWriterName
                 cell.titleLabel.text = post.title
                 cell.contentLabel.text = post.content
-                cell.nickNameLabel.text = post.postWriterName?.toNameWithIndustry(industry: post.industry)
+                cell.nickNameLabel.text = writerName?.toNameWithIndustry(industry: post.industry)
                 cell.postTimeLabel.text = post.lastTime?.toLastTimeString()
                 cell.commentCount.text = post.replyCount?.toString()
                 cell.likeCount.text = post.likeCount?.toString()
@@ -257,10 +258,11 @@ extension STPostViewController: UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "replyTableViewCell", for: indexPath) as! STReplyTableViewCell
+            let writerName = replies[indexPath.row - 1].isPrivate ?? false ? "익명" : replies[indexPath.row - 1].replyWriterName
             cell.selectionStyle = .none
             cell.targetViewController = self
             cell.replyId = replies[indexPath.row - 1].replyId
-            cell.nickNameLabel.text = replies[indexPath.row - 1].replyWriterName
+            cell.nickNameLabel.text = writerName
             cell.contentLabel.text = replies[indexPath.row - 1].content
             cell.timeLabel.text = replies[indexPath.row - 1].lastTime?.toLastTimeString()
             if let hasAuthority = replies[indexPath.row - 1].hasAuthority {

@@ -544,20 +544,20 @@
                                                                             </constraints>
                                                                         </stackView>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPq-AY-2Gt">
-                                                                            <rect key="frame" x="0.0" y="15" width="353" height="10"/>
+                                                                            <rect key="frame" x="0.0" y="15" width="353" height="5"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="10" id="bA1-JY-3hq"/>
+                                                                                <constraint firstAttribute="height" constant="5" id="bA1-JY-3hq"/>
                                                                             </constraints>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upg-Md-7sP">
-                                                                            <rect key="frame" x="0.0" y="40" width="353" height="0.0"/>
+                                                                            <rect key="frame" x="0.0" y="35" width="353" height="0.0"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dpK-Zt-f6a">
-                                                                            <rect key="frame" x="0.0" y="55" width="353" height="11"/>
+                                                                            <rect key="frame" x="0.0" y="50" width="353" height="21"/>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="200" id="7gG-B1-xO3"/>
@@ -570,7 +570,7 @@
                                                                             </collectionViewFlowLayout>
                                                                             <cells>
                                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="postImageViewCollectionViewCell" id="IbQ-cM-kzQ" customClass="STPostImageViewCollectionViewCell" customModule="Streetalk2_0" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="-58.666666666666664" width="128" height="128"/>
+                                                                                    <rect key="frame" x="0.0" y="-53.666666666666664" width="128" height="128"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tBL-Kk-2Ra">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -594,16 +594,16 @@
                                                                             </cells>
                                                                         </collectionView>
                                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 / 1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d8-gO-FtV">
-                                                                            <rect key="frame" x="0.0" y="73.666666666666671" width="353" height="0.0"/>
+                                                                            <rect key="frame" x="0.0" y="78.666666666666671" width="353" height="0.0"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0v-zq-enR">
-                                                                            <rect key="frame" x="0.0" y="81" width="353" height="10"/>
+                                                                            <rect key="frame" x="0.0" y="86" width="353" height="5"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="10" id="2FH-Yc-Mvh"/>
+                                                                                <constraint firstAttribute="height" constant="5" id="2FH-Yc-Mvh"/>
                                                                             </constraints>
                                                                         </view>
                                                                     </subviews>
