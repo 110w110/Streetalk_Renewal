@@ -36,7 +36,6 @@
 		330CE9932A3A90B200BFA26F /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9922A3A90B200BFA26F /* MyPage.storyboard */; };
 		330CE9952A3A90BE00BFA26F /* Write.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330CE9942A3A90BE00BFA26F /* Write.storyboard */; };
 		330CE9972A3A913700BFA26F /* STPostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9962A3A913700BFA26F /* STPostListViewController.swift */; };
-		330CE9992A3A94A900BFA26F /* STAlertListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9982A3A94A900BFA26F /* STAlertListViewController.swift */; };
 		330CE99B2A3A955000BFA26F /* STMyPageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE99A2A3A955000BFA26F /* STMyPageListViewController.swift */; };
 		330CE99D2A3A961000BFA26F /* STWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE99C2A3A961000BFA26F /* STWriteViewController.swift */; };
 		330CE9A12A3B506400BFA26F /* STTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9A02A3B506400BFA26F /* STTextView.swift */; };
@@ -169,7 +168,6 @@
 		330CE9922A3A90B200BFA26F /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		330CE9942A3A90BE00BFA26F /* Write.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
 		330CE9962A3A913700BFA26F /* STPostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostListViewController.swift; sourceTree = "<group>"; };
-		330CE9982A3A94A900BFA26F /* STAlertListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAlertListViewController.swift; sourceTree = "<group>"; };
 		330CE99A2A3A955000BFA26F /* STMyPageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyPageListViewController.swift; sourceTree = "<group>"; };
 		330CE99C2A3A961000BFA26F /* STWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWriteViewController.swift; sourceTree = "<group>"; };
 		330CE9A02A3B506400BFA26F /* STTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTextView.swift; sourceTree = "<group>"; };
@@ -411,7 +409,6 @@
 			isa = PBXGroup;
 			children = (
 				B2C2254A29D6BE4E00222C8A /* ViewController.swift */,
-				330CE9982A3A94A900BFA26F /* STAlertListViewController.swift */,
 				33D30C242A45432A0053C0CF /* Join */,
 				33D30C252A45433C0053C0CF /* Main */,
 				33D30C262A4543410053C0CF /* Write */,
@@ -713,7 +710,6 @@
 				330438F92A316217008123AD /* Post.swift in Sources */,
 				337B88412A6622240051B7FF /* GetMyScrapsListRequest.swift in Sources */,
 				B2C2254B29D6BE4E00222C8A /* ViewController.swift in Sources */,
-				330CE9992A3A94A900BFA26F /* STAlertListViewController.swift in Sources */,
 				330256E32A67F909007FB66F /* BoardInfo.swift in Sources */,
 				3388DB452A5F8D7B004A64CE /* LikeBoardRequest.swift in Sources */,
 				33D4C9652A5EDE770099E94A /* NoticeRequest.swift in Sources */,
