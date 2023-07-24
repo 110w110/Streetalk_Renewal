@@ -183,7 +183,7 @@ extension STPostListViewController: UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "postListTableViewCell", for: indexPath) as! STPostListTableViewCell
-            let writerName = postList[indexPath.row].isPrivate ?? false ? "익명" : postList[indexPath.row].writer
+            let writerName = searchPostList[indexPath.row].isPrivate ?? false ? "익명" : searchPostList[indexPath.row].writer
             cell.selectionStyle = .none
             cell.titleLabel.text = searchPostList[indexPath.row].title
             cell.contentLabel.text = searchPostList[indexPath.row].content

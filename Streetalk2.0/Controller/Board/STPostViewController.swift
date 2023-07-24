@@ -113,7 +113,11 @@ extension STPostViewController {
                 self.hasAuthority = data.hasAuthority ?? false
             case let .failure(error):
                 print(error)
-                self.errorMessage(error: error, message: #function)
+                if error == .httpClient4xxError {
+                    self.errorMessage(error: error, message: "삭제되었거나 존재하지 않는 게시글입니다.")
+                } else {
+                    self.errorMessage(error: error, message: #function)
+                }
             }
             
             DispatchQueue.main.async {
