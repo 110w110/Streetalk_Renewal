@@ -377,19 +377,7 @@ extension STWriteViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "writeCollectionViewCell", for: indexPath) as! STWriteCollectionViewCell
-        if let currentPost = currentPost, currentPost.images?.count ?? 0 >= indexPath.row + 1, let url = currentPost.images?[indexPath.row] {
-            if let url = URL(string: url) {
-                cell.imageView.kf.indicatorType = .activity
-                cell.imageView.kf.setImage(
-                    with: url,
-                    placeholder: nil,
-                    options: [.transition(.fade(1.2))],
-                    completionHandler: nil
-                )
-            }
-        } else {
-            cell.imageView.image = uploadImageList[indexPath.row]
-        }
+        cell.imageView.image = uploadImageList[indexPath.row]
         return cell
     }
     
