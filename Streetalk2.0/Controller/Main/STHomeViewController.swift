@@ -22,10 +22,14 @@ class STHomeViewController: UIViewController {
     private var kTableHeaderHeight:CGFloat = 200
     private var homeInfo: HomeInfo?
     private var notice: Notice?
+    private var noticeList: [Notice]?
     
     // temp
     var imageList: [String]? = []
 //    ["https://app-streetalk.s3.ap-northeast-2.amazonaws.com/8/42/1?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230718T051657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=18000&X-Amz-Credential=AKIAUCID2AFMZ2JXZUJB%2F20230718%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Signature=bfe2aa0d9889fb217d093c122b477e8f1cba2cbc8cccba55181c3353ff65a771","https://app-streetalk.s3.ap-northeast-2.amazonaws.com/8/42/2?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230718T051657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=18000&X-Amz-Credential=AKIAUCID2AFMZ2JXZUJB%2F20230718%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Signature=f4e8f2c12782d8e1225cddbd2d1432978e2a4e1b9dde8d90a10d8f1406918bcf","https://app-streetalk.s3.ap-northeast-2.amazonaws.com/8/42/3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230718T051657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=17999&X-Amz-Credential=AKIAUCID2AFMZ2JXZUJB%2F20230718%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Signature=4be1dc369e72444fae35c02f14ccf6cda36ee26d1bdab9839e857fdc4013e94b"]
+    var largeTextList = ["스트릿톡 서비스 정식 오픈🎉", "큰 글씨 자리", "스트릿톡 중학생한테 다 털렸죠?ㅋㅋ"]
+    var smallTextList = ["정식 서비스 오픈 안내 (2023.8.1)", "작은 글씨 자리"]
+    var bannerLink = ["Streetalk 앱 출시", "[서울사랑] 구독기간 및 배송 방법 변경 안내★", ""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,22 +70,27 @@ extension STHomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension STHomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageList?.count ?? 0
+//        return imageList?.count ?? 0
+//        return 3
+        return largeTextList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bannerCell", for: indexPath) as! BannerCell
-        
-        if let image = imageList?[indexPath.row] {
-            let url = URL(string: image)
-            cell.image.kf.indicatorType = .activity
-            cell.image.kf.setImage(
-              with: url,
-              placeholder: nil,
-              options: [.transition(.fade(1.2))],
-              completionHandler: nil
-            )
+        cell.LargeLabel.text = largeTextList[indexPath.row]
+        if smallTextList.count > indexPath.row {
+            cell.SmallLabel.text = smallTextList[indexPath.row]
         }
+//        if let image = imageList?[indexPath.row] {
+//            let url = URL(string: image)
+//            cell.image.kf.indicatorType = .activity
+//            cell.image.kf.setImage(
+//              with: url,
+//              placeholder: nil,
+//              options: [.transition(.fade(1.2))],
+//              completionHandler: nil
+//            )
+//        }
         return cell
     }
     
@@ -182,6 +191,8 @@ extension STHomeViewController {
                     DispatchQueue.main.async { self.setUI() }
                 })
                 
+                self.fetchNotice()
+                
             case let .failure(error):
                 print("Error: Decoding error \(error)")
             }
@@ -232,6 +243,22 @@ extension STHomeViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         updateHeaderView()
     }
+    
+    private func fetchNotice() {
+        let request = NoticeRequest()
+        request.request(completion: { result in
+            switch result {
+            case let .success(data):
+                self.noticeList = data
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case let .failure(error):
+                print(error)
+                self.errorMessage(error: error, message: #function)
+            }
+        })
+    }
 }
 
 class StretchyTableViewCell: UITableViewCell {
@@ -267,6 +294,8 @@ class StretchyTableViewCell: UITableViewCell {
 
 class BannerCell: UICollectionViewCell {
     @IBOutlet var image: UIImageView!
+    @IBOutlet var LargeLabel: UILabel!
+    @IBOutlet var SmallLabel: UILabel!
 }
 
 class NoticeTableViewCell: UITableViewCell {
