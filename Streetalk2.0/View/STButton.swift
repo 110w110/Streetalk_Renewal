@@ -22,11 +22,13 @@ class STButton: UIButton {
     // for using in storyboard
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        setGradient(color1: UIColor.streetalkOrange, color2: UIColor.streetalkPink)
-        roundCorners(cornerRadius: 10)
-        tintColor = .white
-        titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+
+        DispatchQueue.main.async {
+            self.setGradient(color1: UIColor.streetalkOrange, color2: UIColor.streetalkPink)
+            self.roundCorners(cornerRadius: 10)
+            self.tintColor = .white
+            self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        }
     }
     
     private func setGradient(color1:UIColor,color2:UIColor){
@@ -35,8 +37,8 @@ class STButton: UIButton {
         gradient.locations = [0.0 , 1.0]
         gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
         gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradient.frame = bounds
-        layer.addSublayer(gradient)
+        gradient.frame = self.bounds
+        layer.insertSublayer(gradient, at: 0)
     }
     
     private func roundCorners(cornerRadius: CGFloat) {
