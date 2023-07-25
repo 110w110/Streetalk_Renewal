@@ -48,6 +48,18 @@ class STHomeViewController: UIViewController {
     
 }
 
+extension STHomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == bannerCollectionView {
+            if bannerLink.count <= indexPath.row { return }
+            
+            let noticeTitle = bannerLink[indexPath.row]
+            print(noticeTitle)
+            showNotice(by: noticeTitle)
+        }
+    }
+}
+
 extension STHomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -258,6 +270,20 @@ extension STHomeViewController {
                 self.errorMessage(error: error, message: #function)
             }
         })
+    }
+    
+    private func showNotice(by: String) {
+        guard let noticeList = noticeList else { return }
+        for notice in noticeList {
+            if let title = notice.title, by == title {
+                print(title)
+                let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+                let noticeViewController = storyboard.instantiateViewController(withIdentifier: "noticeDetailViewController") as! STNoticeDetailViewController
+                noticeViewController.title = "공지사항"
+                noticeViewController.notice = notice
+                self.navigationController?.pushViewController(noticeViewController, animated: true)
+            }
+        }
     }
 }
 
