@@ -41,6 +41,8 @@ class STJoinMobileAuthViewController: UIViewController {
         locationManager.delegate = self
         requestLocationAuth()
         
+        self.hideKeyboardWhenTappedAround()
+        
         mobileNumberTextField.delegate = self
         mobileNumberTextField.becomeFirstResponder()
         

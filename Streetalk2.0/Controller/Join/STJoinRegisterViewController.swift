@@ -52,6 +52,8 @@ class STJoinRegisterViewController: UIViewController {
         locationManager.delegate = self
         requestLocationAuth()
         
+        self.hideKeyboardWhenTappedAround()
+        
         nickNameTextField.delegate = self
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = self

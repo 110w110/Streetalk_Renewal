@@ -19,7 +19,7 @@ class STSearchListViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.keyboardDismissMode = .onDrag
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func searchTextFieldEditing(_ sender: Any) {
