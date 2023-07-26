@@ -10,6 +10,6 @@ import Foundation
 struct Banner : Codable {
     let title : String?
     let content : String?
-    let isNotice : Bool?
+    let notice : Bool?
     let contentId : Int?
 }
