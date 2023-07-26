@@ -11,6 +11,7 @@ import Kingfisher
 class STWriteViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var collectionView: UICollectionView!
     
     @IBOutlet var writeTitleTextField: UITextField!
@@ -44,10 +45,13 @@ class STWriteViewController: UIViewController {
         collectionView.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
+        pickerView.delegate = self
         
         writeContentTextView.delegate = self
         writeContentTextView.setPlaceholder(placeholder)
         writeContentTextView.keyboardDismissMode = .onDrag
+        
+        self.hideKeyboardWhenTappedAround()
         
         lazy var submitButton: UIBarButtonItem = {
             let button = UIBarButtonItem(title: "등록", style: .done, target: self, action: #selector(writeButtonTapped(_:)))
@@ -67,7 +71,7 @@ class STWriteViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
+    
         setCurrentPostData()
     }
     
@@ -164,27 +168,28 @@ class STWriteViewController: UIViewController {
     }
     
     func boardButtonTapped() {
-        let alert = UIAlertController(title: "게시판 선택", message: nil, preferredStyle: .alert)
-        for board in self.mainBoardList {
-            let action = UIAlertAction(title: board.boardName, style: .default) {_ in
-                self.targetBoardId = board.id ?? 0
-                self.targetBoardName = board.boardName ?? ""
-                self.title = self.targetBoardName
-                self.tableView.reloadData()
-            }
-            alert.addAction(action)
-        }
-        for board in self.subBoardList {
-            let action = UIAlertAction(title: board.boardName, style: .default) {_ in
-                self.targetBoardId = board.id ?? 0
-                self.targetBoardName = board.boardName ?? ""
-                self.title = self.targetBoardName
-            }
-            alert.addAction(action)
-        }
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        alert.addAction(cancel)
-        self.present(alert, animated: true)
+        createPickerView()
+//        let alert = UIAlertController(title: "게시판 선택", message: nil, preferredStyle: .alert)
+//        for board in self.mainBoardList {
+//            let action = UIAlertAction(title: board.boardName, style: .default) {_ in
+//                self.targetBoardId = board.id ?? 0
+//                self.targetBoardName = board.boardName ?? ""
+//                self.title = self.targetBoardName
+//                self.tableView.reloadData()
+//            }
+//            alert.addAction(action)
+//        }
+//        for board in self.subBoardList {
+//            let action = UIAlertAction(title: board.boardName, style: .default) {_ in
+//                self.targetBoardId = board.id ?? 0
+//                self.targetBoardName = board.boardName ?? ""
+//                self.title = self.targetBoardName
+//            }
+//            alert.addAction(action)
+//        }
+//        let cancel = UIAlertAction(title: "취소", style: .cancel)
+//        alert.addAction(cancel)
+//        self.present(alert, animated: true)
     }
     
     private func fetchBoardList() {
@@ -247,6 +252,48 @@ extension STWriteViewController {
     }
 }
 
+extension STWriteViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return mainBoardList.count + subBoardList.count
+    }
+
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if row < mainBoardList.count {
+            return mainBoardList[row].boardName
+        } else {
+            return subBoardList[row - mainBoardList.count].boardName
+        }
+    }
+
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if row < mainBoardList.count {
+            self.targetBoardId = mainBoardList[row].id ?? 0
+            self.targetBoardName = mainBoardList[row].boardName ?? ""
+            self.title = self.targetBoardName
+            self.tableView.reloadData()
+        } else {
+            self.targetBoardId = subBoardList[row - mainBoardList.count].id ?? 0
+            self.targetBoardName = subBoardList[row - mainBoardList.count].boardName ?? ""
+            self.title = self.targetBoardName
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func createPickerView() {
+        writeTitleTextField.endEditing(true)
+        UIView.animate(withDuration: 0.1, animations: {
+            self.pickerView.isHidden = !self.pickerView.isHidden
+        })
+    }
+}
+
 extension STWriteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         var newImage: UIImage? = nil
@@ -294,6 +341,7 @@ extension STWriteViewController: UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        self.pickerView.isHidden = true
         self.writtingBackgroundImageView.isHidden = true
         let contentTextView = textView as! STTextView
         if contentTextView.text == contentTextView.getPlaceholder() {
