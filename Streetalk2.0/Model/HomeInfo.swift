@@ -17,6 +17,7 @@ struct HomeInfo: Codable {
     let myIndustryPosts : [HomePost]?
     let newPosts : [HomePost]?
     var likeBoardList : [BoardLiked]?
+    let bannerList : [Banner]?
 
     enum CodingKeys: String, CodingKey {
         case userName
@@ -28,6 +29,7 @@ struct HomeInfo: Codable {
         case myIndustryPosts
         case newPosts
         case likeBoardList
+        case bannerList
     }
 
     init(from decoder: Decoder) throws {
@@ -41,6 +43,7 @@ struct HomeInfo: Codable {
         myIndustryPosts = try values.decodeIfPresent([HomePost].self, forKey: .myIndustryPosts)
         newPosts = try values.decodeIfPresent([HomePost].self, forKey: .newPosts)
         likeBoardList = try values.decodeIfPresent([BoardLiked].self, forKey: .likeBoardList)
+        bannerList = try values.decodeIfPresent([Banner].self, forKey: .bannerList)
     }
 
 }
