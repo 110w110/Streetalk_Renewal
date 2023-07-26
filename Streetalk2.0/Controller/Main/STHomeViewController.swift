@@ -28,8 +28,9 @@ class STHomeViewController: UIViewController {
     var imageList: [String]? = []
 //    ["https://app-streetalk.s3.ap-northeast-2.amazonaws.com/8/42/1?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230718T051657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=18000&X-Amz-Credential=AKIAUCID2AFMZ2JXZUJB%2F20230718%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Signature=bfe2aa0d9889fb217d093c122b477e8f1cba2cbc8cccba55181c3353ff65a771","https://app-streetalk.s3.ap-northeast-2.amazonaws.com/8/42/2?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230718T051657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=18000&X-Amz-Credential=AKIAUCID2AFMZ2JXZUJB%2F20230718%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Signature=f4e8f2c12782d8e1225cddbd2d1432978e2a4e1b9dde8d90a10d8f1406918bcf","https://app-streetalk.s3.ap-northeast-2.amazonaws.com/8/42/3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230718T051657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=17999&X-Amz-Credential=AKIAUCID2AFMZ2JXZUJB%2F20230718%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Signature=4be1dc369e72444fae35c02f14ccf6cda36ee26d1bdab9839e857fdc4013e94b"]
     var largeTextList = ["스트릿톡 서비스 정식 오픈🎉", "큰 글씨 자리", "스트릿톡 중학생한테 다 털렸죠?ㅋㅋ"]
-    var smallTextList = ["정식 서비스 오픈 안내 (2023.8.1)", "작은 글씨 자리"]
-    var bannerLink = ["Streetalk 앱 출시", "[서울사랑] 구독기간 및 배송 방법 변경 안내★", ""]
+    var smallTextList = ["정식 서비스 오픈 안내", "작은 글씨 자리", ""]
+    var linkType = ["notice", "notice", "post"]
+    var bannerLink = ["Streetalk 앱 출시", "[서울사랑] 구독기간 및 배송 방법 변경 안내★", "20"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +52,16 @@ class STHomeViewController: UIViewController {
 extension STHomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == bannerCollectionView {
-            if bannerLink.count <= indexPath.row { return }
+            guard let bannerList = homeInfo?.bannerList else { return }
             
-            let noticeTitle = bannerLink[indexPath.row]
-            print(noticeTitle)
-            showNotice(by: noticeTitle)
+            if bannerList[indexPath.row].isNotice ?? false {
+                let noticeId = bannerList[indexPath.row].contentId ?? 0
+//                print(noticeTitle)
+                showNotice(by: noticeId)
+            } else {
+                let postId = bannerList[indexPath.row].contentId ?? 0
+                showPost(id: postId)
+            }
         }
     }
 }
@@ -82,27 +88,15 @@ extension STHomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension STHomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return imageList?.count ?? 0
-//        return 3
-        return largeTextList.count
+        return homeInfo?.bannerList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bannerCell", for: indexPath) as! BannerCell
-        cell.LargeLabel.text = largeTextList[indexPath.row]
-        if smallTextList.count > indexPath.row {
-            cell.SmallLabel.text = smallTextList[indexPath.row]
+        cell.LargeLabel.text = homeInfo?.bannerList?[indexPath.row].title
+        if homeInfo?.bannerList?.count ?? 0 > indexPath.row {
+            cell.SmallLabel.text = homeInfo?.bannerList?[indexPath.row].content
         }
-//        if let image = imageList?[indexPath.row] {
-//            let url = URL(string: image)
-//            cell.image.kf.indicatorType = .activity
-//            cell.image.kf.setImage(
-//              with: url,
-//              placeholder: nil,
-//              options: [.transition(.fade(1.2))],
-//              completionHandler: nil
-//            )
-//        }
         return cell
     }
     
@@ -213,6 +207,7 @@ extension STHomeViewController {
 
     private func setUI() {
         tableView.reloadData()
+        bannerCollectionView.reloadData()
         
         nickNameLabel.text = homeInfo?.userName
         locationLabel.text = homeInfo?.location
@@ -272,18 +267,25 @@ extension STHomeViewController {
         })
     }
     
-    private func showNotice(by: String) {
+    private func showNotice(by: Int) {
         guard let noticeList = noticeList else { return }
         for notice in noticeList {
-            if let title = notice.title, by == title {
-                print(title)
-                let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
-                let noticeViewController = storyboard.instantiateViewController(withIdentifier: "noticeDetailViewController") as! STNoticeDetailViewController
-                noticeViewController.title = "공지사항"
-                noticeViewController.notice = notice
-                self.navigationController?.pushViewController(noticeViewController, animated: true)
-            }
+//            if let title = notice.title, by == title {
+//                print(title)
+//                let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+//                let noticeViewController = storyboard.instantiateViewController(withIdentifier: "noticeDetailViewController") as! STNoticeDetailViewController
+//                noticeViewController.title = "공지사항"
+//                noticeViewController.notice = notice
+//                self.navigationController?.pushViewController(noticeViewController, animated: true)
+//            }
         }
+    }
+    
+    private func showPost(id: Int) {
+        let storyboard = UIStoryboard(name: "Board", bundle: nil)
+        let postViewController = storyboard.instantiateViewController(withIdentifier: "postViewController") as! STPostViewController
+        postViewController.postId = id
+        self.navigationController?.pushViewController(postViewController, animated: true)
     }
 }
 
