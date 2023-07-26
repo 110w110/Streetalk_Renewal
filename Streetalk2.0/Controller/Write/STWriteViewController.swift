@@ -81,7 +81,7 @@ class STWriteViewController: UIViewController {
     
     @objc func writeButtonTapped(_ sender: UIButton) {
         if mode == .post {
-            let alert = UIAlertController(title: nil, message: "게시글을 등록하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: nil, message: "작성 후에는 수정하실 수 없습니다. 게시글을 등록하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "작성", style: .default) { _ in
                 guard let titleText = self.writeTitleTextField.text, !titleText.isRealEmptyText(),
                       let contentText = self.writeContentTextView.text, !contentText.isRealEmptyText(placeholder: self.placeholder) else {
@@ -168,28 +168,10 @@ class STWriteViewController: UIViewController {
     }
     
     func boardButtonTapped() {
-        createPickerView()
-//        let alert = UIAlertController(title: "게시판 선택", message: nil, preferredStyle: .alert)
-//        for board in self.mainBoardList {
-//            let action = UIAlertAction(title: board.boardName, style: .default) {_ in
-//                self.targetBoardId = board.id ?? 0
-//                self.targetBoardName = board.boardName ?? ""
-//                self.title = self.targetBoardName
-//                self.tableView.reloadData()
-//            }
-//            alert.addAction(action)
-//        }
-//        for board in self.subBoardList {
-//            let action = UIAlertAction(title: board.boardName, style: .default) {_ in
-//                self.targetBoardId = board.id ?? 0
-//                self.targetBoardName = board.boardName ?? ""
-//                self.title = self.targetBoardName
-//            }
-//            alert.addAction(action)
-//        }
-//        let cancel = UIAlertAction(title: "취소", style: .cancel)
-//        alert.addAction(cancel)
-//        self.present(alert, animated: true)
+        writeTitleTextField.endEditing(true)
+        UIView.animate(withDuration: 0.1, animations: {
+            self.pickerView.isHidden = !self.pickerView.isHidden
+        })
     }
     
     private func fetchBoardList() {
@@ -285,13 +267,6 @@ extension STWriteViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             self.tableView.reloadData()
         }
     }
-    
-    private func createPickerView() {
-        writeTitleTextField.endEditing(true)
-        UIView.animate(withDuration: 0.1, animations: {
-            self.pickerView.isHidden = !self.pickerView.isHidden
-        })
-    }
 }
 
 extension STWriteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -366,7 +341,7 @@ extension STWriteViewController: UITextViewDelegate {
 
 extension STWriteViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
+        if indexPath.row == 1 {
             boardButtonTapped()
         }
     }
@@ -381,14 +356,14 @@ extension STWriteViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "writeTableViewCell") as! STWriteTableViewCell
         cell.selectionStyle = .none
         if indexPath.row == 0 {
-            cell.label.text = "게시판 변경"
-            cell.toggle.isHidden = true
-            cell.detailLabel.text = targetBoardName
-        } else {
             cell.label.text = "익명"
             cell.detailLabel.isHidden = true
             cell.toggle.isOn = false
             cell.toggle.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
+        } else {
+            cell.label.text = "게시판 변경"
+            cell.toggle.isHidden = true
+            cell.detailLabel.text = targetBoardName
         }
         return cell
     }
