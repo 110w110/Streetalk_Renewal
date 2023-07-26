@@ -187,14 +187,14 @@ class STWriteViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    func fetchBoardList() {
+    private func fetchBoardList() {
         let request = BoardListRequest()
         request.request(completion: { result in
             switch result {
             case let .success(data):
                 print(data)
                 for board in data {
-                    if board.category == "main" {
+                    if board.category == "main" && board.boardName == "통합게시판" {
                         self.mainBoardList.append(board)
                     } else if board.category == "sub" {
                         self.subBoardList.append(board)
