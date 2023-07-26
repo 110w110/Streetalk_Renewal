@@ -88,6 +88,14 @@ class STWriteViewController: UIViewController {
                     return
                 }
                 
+                if titleText.count >= 100 {
+                    let alert = UIAlertController(title: nil, message: "제목은 100자 이내로 작성해주세요", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "닫기", style: .default)
+                    alert.addAction(okAction)
+                    self.present(alert, animated: false, completion: nil)
+                    return
+                }
+                
                 let request = PostPostRequest(param: ["boardId" : self.targetBoardId,
                                                       "title" : self.writeTitleTextField.text ?? "",
                                                       "content" : self.writeContentTextView.text ?? "",
