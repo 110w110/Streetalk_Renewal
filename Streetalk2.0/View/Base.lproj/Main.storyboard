@@ -552,6 +552,7 @@
                         <outlet property="nickNameLabel" destination="aD7-dD-DHR" id="qf1-Xz-650"/>
                         <outlet property="stretchableView" destination="VXM-9J-r6X" id="Zcp-jL-wHi"/>
                         <outlet property="tableView" destination="HkR-EE-WlU" id="fsD-yS-jC6"/>
+                        <outlet property="userInfoView" destination="sTe-g5-JJr" id="F7l-mb-hLB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3HK-Pm-v2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
