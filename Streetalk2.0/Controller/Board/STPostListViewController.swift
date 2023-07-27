@@ -159,13 +159,18 @@ extension STPostListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if listMode == .default {
-            return postList.count
+            return max(1, postList.count)
         } else {
-            return searchPostList.count
+            return max(1, searchPostList.count)
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if postList.count == 0 && searchPostList.count == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "postEmptyCell", for: indexPath) as! STPostEmptyCell
+            cell.selectionStyle = .none
+            return cell
+        }
         if listMode == .default {
             let cell = tableView.dequeueReusableCell(withIdentifier: "postListTableViewCell", for: indexPath) as! STPostListTableViewCell
             let writerName = postList[indexPath.row].isPrivate ?? false ? "익명" : postList[indexPath.row].writer
@@ -205,6 +210,10 @@ extension STPostListViewController: UITableViewDataSource {
 extension STPostListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if postList.count == 0 && searchPostList.count == 0 {
+            return
+        }
+        
         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "postViewController") as! STPostViewController
         postViewController.title = boardName
         postViewController.hidesBottomBarWhenPushed = true
@@ -239,6 +248,9 @@ extension STPostListViewController: UITableViewDelegate {
     }
 }
 
+class STPostEmptyCell: UITableViewCell {
+    
+}
 
 enum ListMode {
     case `default`

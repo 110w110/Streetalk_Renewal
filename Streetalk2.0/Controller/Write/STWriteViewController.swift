@@ -11,6 +11,7 @@ import Kingfisher
 class STWriteViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var collectionView: UICollectionView!
     
     @IBOutlet var writeTitleTextField: UITextField!
@@ -44,10 +45,13 @@ class STWriteViewController: UIViewController {
         collectionView.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
+        pickerView.delegate = self
         
         writeContentTextView.delegate = self
         writeContentTextView.setPlaceholder(placeholder)
         writeContentTextView.keyboardDismissMode = .onDrag
+        
+        self.hideKeyboardWhenTappedAround()
         
         lazy var submitButton: UIBarButtonItem = {
             let button = UIBarButtonItem(title: "등록", style: .done, target: self, action: #selector(writeButtonTapped(_:)))
@@ -67,7 +71,7 @@ class STWriteViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
+    
         setCurrentPostData()
     }
     
@@ -77,11 +81,19 @@ class STWriteViewController: UIViewController {
     
     @objc func writeButtonTapped(_ sender: UIButton) {
         if mode == .post {
-            let alert = UIAlertController(title: nil, message: "게시글을 등록하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: nil, message: "작성 후에는 수정하실 수 없습니다. 게시글을 등록하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "작성", style: .default) { _ in
                 guard let titleText = self.writeTitleTextField.text, !titleText.isRealEmptyText(),
                       let contentText = self.writeContentTextView.text, !contentText.isRealEmptyText(placeholder: self.placeholder) else {
                     let alert = UIAlertController(title: nil, message: "제목과 본문을 채워주세요", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "닫기", style: .default)
+                    alert.addAction(okAction)
+                    self.present(alert, animated: false, completion: nil)
+                    return
+                }
+                
+                if titleText.count >= 100 {
+                    let alert = UIAlertController(title: nil, message: "제목은 100자 이내로 작성해주세요", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "닫기", style: .default)
                     alert.addAction(okAction)
                     self.present(alert, animated: false, completion: nil)
@@ -156,37 +168,20 @@ class STWriteViewController: UIViewController {
     }
     
     func boardButtonTapped() {
-        let alert = UIAlertController(title: "게시판 선택", message: nil, preferredStyle: .alert)
-        for board in self.mainBoardList {
-            let action = UIAlertAction(title: board.boardName, style: .default) {_ in
-                self.targetBoardId = board.id ?? 0
-                self.targetBoardName = board.boardName ?? ""
-                self.title = self.targetBoardName
-                self.tableView.reloadData()
-            }
-            alert.addAction(action)
-        }
-        for board in self.subBoardList {
-            let action = UIAlertAction(title: board.boardName, style: .default) {_ in
-                self.targetBoardId = board.id ?? 0
-                self.targetBoardName = board.boardName ?? ""
-                self.title = self.targetBoardName
-            }
-            alert.addAction(action)
-        }
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        alert.addAction(cancel)
-        self.present(alert, animated: true)
+        writeTitleTextField.endEditing(true)
+        UIView.animate(withDuration: 0.1, animations: {
+            self.pickerView.isHidden = !self.pickerView.isHidden
+        })
     }
     
-    func fetchBoardList() {
+    private func fetchBoardList() {
         let request = BoardListRequest()
         request.request(completion: { result in
             switch result {
             case let .success(data):
                 print(data)
                 for board in data {
-                    if board.category == "main" {
+                    if board.category == "main" && board.boardName == "통합게시판" {
                         self.mainBoardList.append(board)
                     } else if board.category == "sub" {
                         self.subBoardList.append(board)
@@ -197,6 +192,7 @@ class STWriteViewController: UIViewController {
                         self.targetBoardName = self.mainBoardList[0].boardName ?? ""
                         self.title = self.targetBoardName
                         self.tableView.reloadData()
+                        self.pickerView.reloadAllComponents()
                     }
                 }
             case let .failure(error):
@@ -236,6 +232,41 @@ extension STWriteViewController {
     
     @objc func switchValueChanged(_ sender: UISwitch) {
         anonymous = sender.isOn
+    }
+}
+
+extension STWriteViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return mainBoardList.count + subBoardList.count
+    }
+
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if row < mainBoardList.count {
+            return mainBoardList[row].boardName
+        } else {
+            return subBoardList[row - mainBoardList.count].boardName
+        }
+    }
+
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if row < mainBoardList.count {
+            self.targetBoardId = mainBoardList[row].id ?? 0
+            self.targetBoardName = mainBoardList[row].boardName ?? ""
+            self.title = self.targetBoardName
+            self.tableView.reloadData()
+        } else {
+            self.targetBoardId = subBoardList[row - mainBoardList.count].id ?? 0
+            self.targetBoardName = subBoardList[row - mainBoardList.count].boardName ?? ""
+            self.title = self.targetBoardName
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -286,6 +317,7 @@ extension STWriteViewController: UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        self.pickerView.isHidden = true
         self.writtingBackgroundImageView.isHidden = true
         let contentTextView = textView as! STTextView
         if contentTextView.text == contentTextView.getPlaceholder() {
@@ -310,7 +342,7 @@ extension STWriteViewController: UITextViewDelegate {
 
 extension STWriteViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
+        if indexPath.row == 1 {
             boardButtonTapped()
         }
     }
@@ -325,14 +357,14 @@ extension STWriteViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "writeTableViewCell") as! STWriteTableViewCell
         cell.selectionStyle = .none
         if indexPath.row == 0 {
-            cell.label.text = "게시판 변경"
-            cell.toggle.isHidden = true
-            cell.detailLabel.text = targetBoardName
-        } else {
             cell.label.text = "익명"
             cell.detailLabel.isHidden = true
             cell.toggle.isOn = false
             cell.toggle.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
+        } else {
+            cell.label.text = "게시판 변경"
+            cell.toggle.isHidden = true
+            cell.detailLabel.text = targetBoardName
         }
         return cell
     }
@@ -377,19 +409,7 @@ extension STWriteViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "writeCollectionViewCell", for: indexPath) as! STWriteCollectionViewCell
-        if let currentPost = currentPost, currentPost.images?.count ?? 0 >= indexPath.row + 1, let url = currentPost.images?[indexPath.row] {
-            if let url = URL(string: url) {
-                cell.imageView.kf.indicatorType = .activity
-                cell.imageView.kf.setImage(
-                    with: url,
-                    placeholder: nil,
-                    options: [.transition(.fade(1.2))],
-                    completionHandler: nil
-                )
-            }
-        } else {
-            cell.imageView.image = uploadImageList[indexPath.row]
-        }
+        cell.imageView.image = uploadImageList[indexPath.row]
         return cell
     }
     

@@ -141,6 +141,13 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <pickerView hidden="YES" contentMode="scaleToFill" id="2PM-qC-7sA">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="180" id="hQl-JJ-NyK"/>
+                                        </constraints>
+                                    </pickerView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R9y-36-e7z">
                                         <rect key="frame" x="0.0" y="659" width="393" height="100"/>
                                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
@@ -200,6 +207,7 @@
                     <connections>
                         <outlet property="collectionView" destination="R9y-36-e7z" id="lZP-lV-eaz"/>
                         <outlet property="keyboardArea" destination="2cS-uD-Vu2" id="HxI-hV-Pln"/>
+                        <outlet property="pickerView" destination="2PM-qC-7sA" id="DKg-p4-c6x"/>
                         <outlet property="tableView" destination="dNY-Nd-L6R" id="MER-iH-KKL"/>
                         <outlet property="writeContentTextView" destination="hhs-78-0Ru" id="3bM-sv-N1y"/>
                         <outlet property="writeTitleTextField" destination="WCW-vF-fJt" id="g1S-l9-ZPG"/>

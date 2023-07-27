@@ -31,7 +31,7 @@ class STPostViewController: UIViewController {
         tableView.delegate = self
         replyTextField.delegate = self
         
-        tableView.keyboardDismissMode = .onDrag
+        self.hideKeyboardWhenTappedAround()
         
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -125,7 +125,7 @@ extension STPostViewController {
                 if self.hasAuthority {
                     let modify = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(self.modifyButtonTapped))
                     let delete = UIBarButtonItem(title: "삭제", style: .done, target: self, action: #selector(self.deleteButtonTapped))
-                    self.navigationItem.rightBarButtonItems = [delete, modify]
+                    self.navigationItem.rightBarButtonItems = [delete]
                 } else {
                     let report = UIBarButtonItem(title: "신고", style: .done, target: self, action: #selector(self.reportButtonTapped))
                     self.navigationItem.rightBarButtonItem = report

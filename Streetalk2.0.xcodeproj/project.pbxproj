@@ -42,6 +42,7 @@
 		330CE9A32A3C35B600BFA26F /* STJoinMobileAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */; };
 		3314278B2A4EFABB004AFF23 /* STPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */; };
 		3314278F2A541EAC004AFF23 /* STReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3314278E2A541EAC004AFF23 /* STReplyTableViewCell.swift */; };
+		332D4A9A2A6F736F006904D1 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332D4A992A6F736F006904D1 /* Banner.swift */; };
 		332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */; };
 		333C20682A545C9F00F8265C /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20672A545C9F00F8265C /* RegisterRequest.swift */; };
 		333C206A2A545D7500F8265C /* RegisterRandNum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20692A545D7500F8265C /* RegisterRandNum.swift */; };
@@ -174,6 +175,7 @@
 		330CE9A22A3C35B600BFA26F /* STJoinMobileAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STJoinMobileAuthViewController.swift; sourceTree = "<group>"; };
 		3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostTableViewCell.swift; sourceTree = "<group>"; };
 		3314278E2A541EAC004AFF23 /* STReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STReplyTableViewCell.swift; sourceTree = "<group>"; };
+		332D4A992A6F736F006904D1 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostContentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		333C20672A545C9F00F8265C /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		333C20692A545D7500F8265C /* RegisterRandNum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRandNum.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				337B88442A6645140051B7FF /* Token.swift */,
 				330438FA2A316323008123AD /* Reply.swift */,
 				333C207E2A56935300F8265C /* PostList.swift */,
+				332D4A992A6F736F006904D1 /* Banner.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				3388DB4F2A641729004A64CE /* STPostListTableViewCell.swift in Sources */,
 				333C207D2A568F8300F8265C /* GetPostRequest.swift in Sources */,
 				B2C2254929D6BE4E00222C8A /* SceneDelegate.swift in Sources */,
+				332D4A9A2A6F736F006904D1 /* Banner.swift in Sources */,
 				33D30C2F2A4543DE0053C0CF /* STMyPagePrivacyPolicyViewController.swift in Sources */,
 				330CE9792A38627F00BFA26F /* STCollectionReusableView.swift in Sources */,
 				33D4C9612A5E66480099E94A /* LikePostRequest.swift in Sources */,
@@ -973,7 +977,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6W8N7TVCPJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Streetalk2.0/Info.plist;
@@ -1014,7 +1018,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6W8N7TVCPJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Streetalk2.0/Info.plist;

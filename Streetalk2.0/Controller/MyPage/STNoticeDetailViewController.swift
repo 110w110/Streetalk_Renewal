@@ -9,6 +9,7 @@ import UIKit
 
 class STNoticeDetailViewController: UIViewController {
 
+    @IBOutlet var backgroundView: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
@@ -21,6 +22,9 @@ class STNoticeDetailViewController: UIViewController {
         titleLabel.text = notice?.title
         timeLabel.text = notice?.createDate
         contentLabel.text = notice?.content
+        
+        backgroundView.backgroundColor = .systemBackground
+        backgroundView.setRoundedBorder()
     }
 
 }

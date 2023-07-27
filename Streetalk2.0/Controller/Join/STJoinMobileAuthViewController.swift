@@ -41,12 +41,15 @@ class STJoinMobileAuthViewController: UIViewController {
         locationManager.delegate = self
         requestLocationAuth()
         
+        self.hideKeyboardWhenTappedAround()
+        
         mobileNumberTextField.delegate = self
         mobileNumberTextField.becomeFirstResponder()
         
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
+//        submitButton.setGrayColor()
         smsReqeust()
     }
     
@@ -65,7 +68,8 @@ class STJoinMobileAuthViewController: UIViewController {
             return
         }
         
-        if authNumberTextField.text != self.serverNumber && authNumberTextField.text != self.masterNumber {
+        if authNumberTextField.text != self.serverNumber &&
+            (authNumberTextField.text != self.masterNumber || mobileNumberTextField.text != "010-7250-3150") {
             let alert = UIAlertController(title: nil, message: "인증번호가 일치하지 않습니다", preferredStyle: .alert)
             let okay = UIAlertAction(title: "확인", style: .default)
             alert.addAction(okay)

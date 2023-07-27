@@ -52,6 +52,8 @@ class STJoinRegisterViewController: UIViewController {
         locationManager.delegate = self
         requestLocationAuth()
         
+        self.hideKeyboardWhenTappedAround()
+        
         nickNameTextField.delegate = self
         locationCollectionView.delegate = self
         locationCollectionView.dataSource = self
@@ -108,7 +110,7 @@ extension STJoinRegisterViewController {
             switch result {
             case let .success(data):
                 self.selectedIndustry = data.industry ?? "식당"
-                self.nearCities += data.nearCities ?? []
+                self.nearCities = data.nearCities ?? []
                 if let currentCity = data.currentCity {
                     self.nearCities.insert(Cities(fullName: currentCity, id: 0), at: 0)
                 }
