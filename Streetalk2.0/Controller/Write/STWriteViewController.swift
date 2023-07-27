@@ -192,6 +192,7 @@ class STWriteViewController: UIViewController {
                         self.targetBoardName = self.mainBoardList[0].boardName ?? ""
                         self.title = self.targetBoardName
                         self.tableView.reloadData()
+                        self.pickerView.reloadAllComponents()
                     }
                 }
             case let .failure(error):
