@@ -16,6 +16,7 @@ class STPostListViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private var favoriteButton: UIBarButtonItem?
     
+    var isSubBoard: Bool = false
     var boardId: Int? = 1
     var boardName: String?
     var favorite: Bool = false
@@ -26,6 +27,11 @@ class STPostListViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        if isSubBoard {
+            let tabbar = self.tabBarController as! STTabBarController
+            tabbar.targetBoardID = boardId
+        }
         
         initialSetUI()
     }

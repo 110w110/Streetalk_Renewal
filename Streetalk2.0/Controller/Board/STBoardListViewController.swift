@@ -282,6 +282,7 @@ extension STBoardListViewController: UICollectionViewDelegate {
             viewController.boardId = subBoardList[indexPath.row].id
             viewController.boardName = subBoardList[indexPath.row].boardName
             viewController.title = subBoardList[indexPath.row].boardName
+            viewController.isSubBoard = true
         }
         
         self.navigationController?.pushViewController(viewController, animated: true)

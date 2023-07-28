@@ -11,6 +11,7 @@ class STTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     private var addButton: UIButton = UIButton()
     private var isUploadTabBarEnabled = true
+    var targetBoardID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +63,11 @@ class STTabBarController: UITabBarController, UITabBarControllerDelegate {
     private func showWriteViewController() {
         // writeViewController
         let writeStoryboard = UIStoryboard(name: "Write", bundle: nil)
-        let writeViewController = writeStoryboard.instantiateViewController(withIdentifier: "writeViewController")
+        let writeViewController = writeStoryboard.instantiateViewController(withIdentifier: "writeViewController") as! STWriteViewController
         writeViewController.title = "글쓰기"
+        if let id = targetBoardID {
+            writeViewController.targetBoardId = id
+        }
         let navigationController = UINavigationController(rootViewController: writeViewController)
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)

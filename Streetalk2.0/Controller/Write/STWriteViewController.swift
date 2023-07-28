@@ -25,10 +25,10 @@ class STWriteViewController: UIViewController {
     private var uploadImageList: [UIImage] = [UIImage(named: "Add")!]
     private var mainBoardList: [Board] = []
     private var subBoardList: [Board] = []
-    private var targetBoardId: Int = 1
     private var targetBoardName: String = ""
     private var anonymous: Bool = false
     
+    var targetBoardId: Int = 1
     var mode: HttpMethods = .post
     var targetModifyPostId: Int?
     var currentPost: Post?
@@ -187,13 +187,14 @@ class STWriteViewController: UIViewController {
                         self.subBoardList.append(board)
                     }
                     
-                    DispatchQueue.main.async {
-                        self.targetBoardId = self.mainBoardList[0].id ?? 1
-                        self.targetBoardName = self.mainBoardList[0].boardName ?? ""
-                        self.title = self.targetBoardName
-                        self.tableView.reloadData()
-                        self.pickerView.reloadAllComponents()
+                    if board.id == self.targetBoardId {
+                        self.targetBoardName = board.boardName ?? ""
                     }
+                }
+                DispatchQueue.main.async {
+                    self.title = self.targetBoardName
+                    self.tableView.reloadData()
+                    self.pickerView.reloadAllComponents()
                 }
             case let .failure(error):
                 print(error)
@@ -236,6 +237,10 @@ extension STWriteViewController {
 }
 
 extension STWriteViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 40
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
