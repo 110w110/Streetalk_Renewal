@@ -81,7 +81,7 @@ class STWriteViewController: UIViewController {
     
     @objc func writeButtonTapped(_ sender: UIButton) {
         if mode == .post {
-            let alert = UIAlertController(title: nil, message: "작성 후에는 수정하실 수 없습니다. 게시글을 등록하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: nil, message: "부적절한 게시글을 작성하게 되면 확인하는 즉시 조치되며, 활동 정지 처리됩니다. 또한 게시글 작성 후에는 수정하실 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "작성", style: .default) { _ in
                 guard let titleText = self.writeTitleTextField.text, !titleText.isRealEmptyText(),
                       let contentText = self.writeContentTextView.text, !contentText.isRealEmptyText(placeholder: self.placeholder) else {
