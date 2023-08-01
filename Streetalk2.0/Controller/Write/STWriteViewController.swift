@@ -19,7 +19,7 @@ class STWriteViewController: UIViewController {
     @IBOutlet weak var writtingBackgroundImageView: UIImageView!
     @IBOutlet var keyboardArea: UIView!
     
-    private let placeholder = "게시글 내용을 작성해주세요."
+    private let placeholder = "게시글 내용을 작성해주세요.\n\n부적절하거나 타인에게 불쾌감을 줄 수 있는 컨텐츠는 제재를 받을 수 있으며, 해당 사유에 따라 활동 정지 또는 추방 조치될 수 있습니다.\n\n타인을 명예를 훼손하는 비방을 하거나 저작권을 위반하는 등 악의적인 게시글을 작성하는 사용자는 법적 조치의 대상이 될 수 있습니다."
     private let imagePickerController = UIImagePickerController()
     
     private var uploadImageList: [UIImage] = [UIImage(named: "Add")!]
