@@ -1009,13 +1009,13 @@
                                                     <constraint firstAttribute="height" constant="240" id="PXr-5E-cy6"/>
                                                 </constraints>
                                             </tableView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신고가 접수된 게시글은 최대 24시간 내에 조치되며, 사유에 따라 작성자는 활동 정지 될 수 있습니다. 또한 허위 신고로 인한 피해가 발생하지 않도록 주의해주시기 바랍니다." textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lu5-Lz-zIH">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신고가 접수된 컨텐츠는 최대 24시간 내에 조치되며, 사유에 따라 작성자는 활동 정지 될 수 있습니다. 또한 허위 신고로 인한 피해가 발생하지 않도록 주의해주시기 바랍니다." textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lu5-Lz-zIH">
                                                 <rect key="frame" x="0.0" y="355" width="273" height="67"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="긴급하게 해당 게시글을 조치해야 하는 경우에는 운영팀(dev.hantae@gmail.com)으로 연락해주시기 바랍니다." textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6Q-M7-l6d">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="긴급하게 해당 컨텐츠를 조치해야 하는 경우에는 운영팀(dev.hantae@gmail.com)으로 연락해주시기 바랍니다." textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6Q-M7-l6d">
                                                 <rect key="frame" x="0.0" y="437" width="273" height="50.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
