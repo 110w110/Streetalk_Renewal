@@ -129,7 +129,12 @@ extension STPostViewController {
                 } else {
                     let block = UIBarButtonItem(title: "차단", style: .plain, target: self, action: #selector(self.blockButtonTapped))
                     let report = UIBarButtonItem(title: "신고", style: .done, target: self, action: #selector(self.reportButtonTapped))
-                    self.navigationItem.rightBarButtonItems = [block, report]
+                    if self.post?.isPrivate ?? false {
+                        self.navigationItem.rightBarButtonItems = [report]
+                        
+                    } else {
+                        self.navigationItem.rightBarButtonItems = [block, report]
+                    }
                 }
                 self.refreshControl.endRefreshing()
             }
