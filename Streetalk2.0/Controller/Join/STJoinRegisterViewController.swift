@@ -84,6 +84,10 @@ class STJoinRegisterViewController: UIViewController {
         self.nearCities = loginInfo?.nearCities ?? []
         self.nearCities.insert(Cities(fullName: loginInfo?.currentCity, id: nil), at: 0)
         
+        if self.nearCities.count != 0 {
+            self.locationTextField.text = self.nearCities[0].fullName
+        }
+        
         fetchProfile()
     }
     

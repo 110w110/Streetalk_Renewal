@@ -43,6 +43,7 @@
 		3314278B2A4EFABB004AFF23 /* STPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */; };
 		3314278F2A541EAC004AFF23 /* STReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3314278E2A541EAC004AFF23 /* STReplyTableViewCell.swift */; };
 		332D4A9A2A6F736F006904D1 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332D4A992A6F736F006904D1 /* Banner.swift */; };
+		332D4AC22A78BAEA006904D1 /* BlockUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332D4AC12A78BAE9006904D1 /* BlockUserRequest.swift */; };
 		332FEA822A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */; };
 		333C20682A545C9F00F8265C /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20672A545C9F00F8265C /* RegisterRequest.swift */; };
 		333C206A2A545D7500F8265C /* RegisterRandNum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C20692A545D7500F8265C /* RegisterRandNum.swift */; };
@@ -176,6 +177,7 @@
 		3314278A2A4EFABB004AFF23 /* STPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostTableViewCell.swift; sourceTree = "<group>"; };
 		3314278E2A541EAC004AFF23 /* STReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STReplyTableViewCell.swift; sourceTree = "<group>"; };
 		332D4A992A6F736F006904D1 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		332D4AC12A78BAE9006904D1 /* BlockUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockUserRequest.swift; sourceTree = "<group>"; };
 		332FEA812A4959FB00FF2C73 /* STPostContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPostContentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		333C20672A545C9F00F8265C /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		333C20692A545D7500F8265C /* RegisterRandNum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRandNum.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				337B88422A66349D0051B7FF /* RefreshTokenRequest.swift */,
 				330256EE2A68586D007FB66F /* GetProfileRequest.swift */,
 				330256EC2A6817F9007FB66F /* LeaveRequest.swift */,
+				332D4AC12A78BAE9006904D1 /* BlockUserRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				33D30C2D2A4543CC0053C0CF /* STMyPageTermsViewController.swift in Sources */,
 				B2C2254729D6BE4E00222C8A /* AppDelegate.swift in Sources */,
 				333C206F2A55104D00F8265C /* Location.swift in Sources */,
+				332D4AC22A78BAEA006904D1 /* BlockUserRequest.swift in Sources */,
 				33BB8BF72A41562400CAD3A5 /* STRegisterJobCollectionViewCell.swift in Sources */,
 				330438F32A315F55008123AD /* Industry.swift in Sources */,
 				337B883B2A65B5270051B7FF /* STEnlargedImageViewController.swift in Sources */,
