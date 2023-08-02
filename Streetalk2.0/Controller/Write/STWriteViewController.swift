@@ -19,16 +19,16 @@ class STWriteViewController: UIViewController {
     @IBOutlet weak var writtingBackgroundImageView: UIImageView!
     @IBOutlet var keyboardArea: UIView!
     
-    private let placeholder = "게시글 내용을 작성해주세요."
+    private let placeholder = "게시글 내용을 작성해주세요.\n\n부적절하거나 타인에게 불쾌감을 줄 수 있는 컨텐츠는 제재를 받을 수 있으며, 해당 사유에 따라 활동 정지 또는 추방 조치될 수 있습니다.\n\n타인을 명예를 훼손하는 비방을 하거나 저작권을 위반하는 등 악의적인 게시글을 작성하는 사용자는 법적 조치의 대상이 될 수 있습니다."
     private let imagePickerController = UIImagePickerController()
     
     private var uploadImageList: [UIImage] = [UIImage(named: "Add")!]
     private var mainBoardList: [Board] = []
     private var subBoardList: [Board] = []
-    private var targetBoardId: Int = 1
     private var targetBoardName: String = ""
     private var anonymous: Bool = false
     
+    var targetBoardId: Int = 1
     var mode: HttpMethods = .post
     var targetModifyPostId: Int?
     var currentPost: Post?
@@ -81,7 +81,7 @@ class STWriteViewController: UIViewController {
     
     @objc func writeButtonTapped(_ sender: UIButton) {
         if mode == .post {
-            let alert = UIAlertController(title: nil, message: "작성 후에는 수정하실 수 없습니다. 게시글을 등록하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: nil, message: "부적절한 게시글을 작성하게 되면 확인하는 즉시 조치되며, 활동 정지 처리됩니다. 또한 게시글 작성 후에는 수정하실 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "작성", style: .default) { _ in
                 guard let titleText = self.writeTitleTextField.text, !titleText.isRealEmptyText(),
                       let contentText = self.writeContentTextView.text, !contentText.isRealEmptyText(placeholder: self.placeholder) else {
@@ -187,13 +187,14 @@ class STWriteViewController: UIViewController {
                         self.subBoardList.append(board)
                     }
                     
-                    DispatchQueue.main.async {
-                        self.targetBoardId = self.mainBoardList[0].id ?? 1
-                        self.targetBoardName = self.mainBoardList[0].boardName ?? ""
-                        self.title = self.targetBoardName
-                        self.tableView.reloadData()
-                        self.pickerView.reloadAllComponents()
+                    if board.id == self.targetBoardId {
+                        self.targetBoardName = board.boardName ?? ""
                     }
+                }
+                DispatchQueue.main.async {
+                    self.title = self.targetBoardName
+                    self.tableView.reloadData()
+                    self.pickerView.reloadAllComponents()
                 }
             case let .failure(error):
                 print(error)
@@ -236,6 +237,10 @@ extension STWriteViewController {
 }
 
 extension STWriteViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 40
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

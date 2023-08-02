@@ -12,6 +12,7 @@ class STMyPagePopUpViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var contentsLabel: UILabel!
     @IBOutlet var popUpView: UIView!
+    @IBOutlet var confirmButton: STButton!
     
     var popUpTitle: String = "title"
     var popUpContent: String = "content"

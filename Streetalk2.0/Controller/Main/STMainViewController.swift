@@ -16,7 +16,6 @@ class STMainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("A")
         self.dismiss(animated: true)
     }
 

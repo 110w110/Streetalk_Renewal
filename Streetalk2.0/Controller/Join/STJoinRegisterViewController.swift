@@ -42,6 +42,10 @@ class STJoinRegisterViewController: UIViewController {
         nickNameTextField.becomeFirstResponder()
         scrollView.keyboardDismissMode = .onDrag
         
+        if isFirstRegister {
+            locationIndicator.isHidden = true
+        }
+        
         selectedIndustry = industryList[0]
         
         nicknameSectionView.setRoundedBorder()
@@ -80,6 +84,10 @@ class STJoinRegisterViewController: UIViewController {
         self.nearCities = loginInfo?.nearCities ?? []
         self.nearCities.insert(Cities(fullName: loginInfo?.currentCity, id: nil), at: 0)
         
+        if self.nearCities.count != 0 {
+            self.locationTextField.text = self.nearCities[0].fullName
+        }
+        
         fetchProfile()
     }
     
@@ -89,8 +97,8 @@ class STJoinRegisterViewController: UIViewController {
     }
     
     @IBAction func confirmButtonTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "가입하시겠습니까?", message: "닉네임 : \(self.nickNameTextField.text ?? "")\n지역 : \(self.locationTextField.text ?? "")\n업종 : \(self.selectedIndustry ?? "")\n가입 이후에도 변경 가능합니다.", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "가입", style: .default) { action in
+        let alert = UIAlertController(title: "아래와 같이 설정하시겠습니까?", message: "닉네임 : \(self.nickNameTextField.text ?? "")\n지역 : \(self.locationTextField.text ?? "")\n업종 : \(self.selectedIndustry ?? "")\n가입 이후에도 변경 가능합니다.", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "확인", style: .default) { action in
             self.showHomeViewController()
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel)

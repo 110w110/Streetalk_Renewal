@@ -127,8 +127,14 @@ extension STPostViewController {
                     let delete = UIBarButtonItem(title: "삭제", style: .done, target: self, action: #selector(self.deleteButtonTapped))
                     self.navigationItem.rightBarButtonItems = [delete]
                 } else {
+                    let block = UIBarButtonItem(title: "차단", style: .plain, target: self, action: #selector(self.blockButtonTapped))
                     let report = UIBarButtonItem(title: "신고", style: .done, target: self, action: #selector(self.reportButtonTapped))
-                    self.navigationItem.rightBarButtonItem = report
+                    if self.post?.isPrivate ?? false {
+                        self.navigationItem.rightBarButtonItems = [report]
+                        
+                    } else {
+                        self.navigationItem.rightBarButtonItems = [block, report]
+                    }
                 }
                 self.refreshControl.endRefreshing()
             }
@@ -139,6 +145,19 @@ extension STPostViewController {
         let alert = UIAlertController(title: nil, message: "게시글을 수정하시겠습니까?", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "수정", style: .default) { _ in
             self.modifyPost()
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(cancel)
+        alert.addAction(confirm)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
+    }
+    
+    @objc private func blockButtonTapped() {
+        let alert = UIAlertController(title: nil, message: "해당 작성자를 차단하시겠습니까? 이 작성자의 게시물이 노출되지 않으며, 다시 해제를 원하시면 운영팀에 문의 바랍니다.", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "차단", style: .destructive) { _ in
+            self.blockUser()
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         alert.addAction(cancel)
@@ -176,6 +195,28 @@ extension STPostViewController {
         let navigationController = UINavigationController(rootViewController: writeViewController)
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    private func blockUser() {
+        guard let writerId = post?.postWriterId else { return }
+        let request = BlockRequest(additionalInfo: writerId.toString())
+        request.request(completion: { result in
+            var alert: UIAlertController
+            switch result {
+            case .success(_):
+                alert = UIAlertController(title: nil, message: "작성자를 차단했습니다.", preferredStyle: .alert)
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            case .failure(_):
+                alert = UIAlertController(title: nil, message: "잠시 후 다시 시도해주세요.", preferredStyle: .alert)
+            }
+            let okay = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okay)
+            DispatchQueue.main.async {
+                self.present(alert, animated: true)
+            }
+        })
     }
     
     private func deletePost() {
