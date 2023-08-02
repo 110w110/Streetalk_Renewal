@@ -10,8 +10,8 @@ import Foundation
 struct URLSessionRequest<T: Codable>: Requestable {
     typealias ResultType = T
     
-    var uri: String = "/home"
-    var methods: HttpMethods = .get
+    var uri: String?
+    var methods: HttpMethods?
     var auth: Bool = true
     var param: [String : Any]?
     var additionalInfo: String?
