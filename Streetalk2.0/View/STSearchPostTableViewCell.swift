@@ -65,7 +65,7 @@ extension STSearchPostTableViewCell {
                 print(data)
                 
                 guard let id = self.postId else { return }
-                let postRequest = GetPostRequest(additionalInfo: "\(id)")
+                let postRequest = URLSessionRequest<Post>(uri: "/post", methods: .get, additionalInfo: "\(id)")
                 postRequest.request(completion: { result in
                     switch result {
                     case let .success(data):
@@ -96,7 +96,7 @@ extension STSearchPostTableViewCell {
                 print(data)
                 
                 guard let id = self.postId else { return }
-                let postRequest = GetPostRequest(additionalInfo: "\(id)")
+                let postRequest = URLSessionRequest<Post>(uri: "/post", methods: .get, additionalInfo: "\(id)")
                 postRequest.request(completion: { result in
                     switch result {
                     case let .success(data):

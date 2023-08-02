@@ -183,7 +183,7 @@ extension STHomeViewController {
             case let .success(object):
                 self.homeInfo = object
                 
-                let noticeRequest = NoticeRequest()
+                let noticeRequest = URLSessionRequest<[Notice]>(uri: "/user/notice", methods: .get)
                 noticeRequest.request(completion: { result in
                     switch result {
                     case let .success(data):

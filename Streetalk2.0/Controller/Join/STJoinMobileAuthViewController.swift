@@ -161,7 +161,7 @@ extension STJoinMobileAuthViewController {
         
         // 인증번호 요청
         guard let mobileNum = mobileNumberTextField.text?.replacingOccurrences(of: "-", with: "") else { return }
-        let registerRequest = RegisterRequest(param: ["phoneNum" : mobileNum])
+        let registerRequest = URLSessionRequest<RegisterRandNum>(uri: "/user/auth", methods: .post, param: ["phoneNum" : mobileNum])
         registerRequest.request(completion: { result in
             switch result {
             case let .success(data):
