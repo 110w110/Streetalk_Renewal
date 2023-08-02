@@ -65,7 +65,7 @@ extension STPostListTableViewCell {
     
     @objc func likeTapped(sender: UITapGestureRecognizer) {
         guard let id = postId else { return }
-        let request = LikePostRequest(additionalInfo: "/\(id)")
+        let request = URLSessionRequest<String>(uri: "/postLike", methods: .put, additionalInfo: "/\(id)")
         request.request(completion: { result in
             switch result {
             case let .success(data):
@@ -96,7 +96,7 @@ extension STPostListTableViewCell {
     
     @objc func scrapTapped(sender: UITapGestureRecognizer) {
         guard let id = postId else { return }
-        let request = ScrapPostRequest(additionalInfo: "/\(id)")
+        let request = URLSessionRequest<String>(uri: "/postScrap", methods: .put, additionalInfo: "/\(id)")
         request.request(completion: { result in
             switch result {
             case let .success(data):

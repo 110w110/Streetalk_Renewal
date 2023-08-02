@@ -59,7 +59,7 @@ extension STMyPagePopUpViewController {
     }
     
     private func leave() {
-        let request = LeaveReqeust()
+        let request = URLSessionRequest<String>(uri: "/user", methods: .delete)
         request.request(completion: { result in
             switch result {
             case .success(_):

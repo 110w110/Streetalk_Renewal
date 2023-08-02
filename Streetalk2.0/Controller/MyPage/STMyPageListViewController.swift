@@ -181,7 +181,7 @@ extension STMyPageListViewController {
     }
     
     private func fetchHomeData() {
-        let request = HomeInfoRequest()
+        let request = URLSessionRequest<HomeInfo>(uri: "/home", methods: .get)
         request.request(completion: { result in
             switch result {
             case let .success(object):

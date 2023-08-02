@@ -34,7 +34,7 @@ class STSearchListViewController: UIViewController {
                 return
             }
             
-            let request = SearchRequest(additionalInfo: text)
+            let request = URLSessionRequest<[SearchPost]>(uri: "/searchPost/", methods: .get, additionalInfo: text)
             request.request(completion: { result in
                 switch result {
                 case let .success(data):

@@ -85,7 +85,7 @@ class STBoardListViewController: UIViewController {
     }
 
     func getBoardList() {
-        let request = BoardListRequest()
+        let request = URLSessionRequest<[Board]>(uri: "/board/list", methods: .get)
         request.request(completion: { result in
             switch result {
             case let .success(data):

@@ -98,7 +98,7 @@ extension STJoinMobileAuthViewController {
         
         self.indicatiorDimmingView.isHidden = false
         
-        let request = LoginRequest(param: ["phoneNum" : phoneNum, "longitude" : longitude, "latitude" : latitude, "randomNum" : authNum])
+        let request = URLSessionRequest<Login>(uri: "/user/login", methods: .post, auth: false, param: ["phoneNum" : phoneNum, "longitude" : longitude, "latitude" : latitude, "randomNum" : authNum])
         request.request(completion: { result in
             switch result {
             case let .success(data):

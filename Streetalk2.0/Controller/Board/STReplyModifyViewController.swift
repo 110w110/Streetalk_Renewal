@@ -36,7 +36,7 @@ class STReplyModifyViewController: UIViewController {
     
     @IBAction func modifyButtonTapped(_ sender: Any) {
         guard let text = textView.text, let id = replyId else { return }
-        let request = PostReplyRequest(methods: .put, param: ["replyId" : id, "content" : text])
+        let request = URLSessionRequest<String>(uri: "/reply", methods: .put, param: ["replyId" : id, "content" : text])
         request.request(completion: { result in
             switch result {
             case let .success(data):

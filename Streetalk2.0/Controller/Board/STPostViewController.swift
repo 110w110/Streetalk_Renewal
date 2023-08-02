@@ -49,7 +49,7 @@ class STPostViewController: UIViewController {
         replyTextField.endEditing(false)
         
         guard let postId = postId, let text = self.replyTextField.text else { return }
-        let request = PostReplyRequest(param: ["postId" : postId, "content" : text, "checkName" : anonymous, "isPrivate" : anonymous])
+        let request = URLSessionRequest<String>(uri: "/reply", methods: .post, param: ["postId" : postId, "content" : text, "checkName" : anonymous, "isPrivate" : anonymous])
         request.request(completion: {result in
             switch result {
             case .success(_):
@@ -104,7 +104,7 @@ extension STPostViewController {
         bottomView.setRoundedBorder(shadow: true, bottomExtend: true)
 
         guard let id = postId else { return }
-        let request = GetPostRequest(additionalInfo: "\(id)")
+        let request = URLSessionRequest<Post>(uri: "/post/", methods: .get, additionalInfo: "\(id)")
         request.request(completion: { result in
             switch result {
             case let .success(data):
@@ -199,7 +199,7 @@ extension STPostViewController {
     
     private func blockUser() {
         guard let writerId = post?.postWriterId else { return }
-        let request = BlockRequest(additionalInfo: writerId.toString())
+        let request = URLSessionRequest<String>(uri: "/user/block/", methods: .get, additionalInfo: writerId.toString())
         request.request(completion: { result in
             var alert: UIAlertController
             switch result {
@@ -220,7 +220,7 @@ extension STPostViewController {
     }
     
     private func deletePost() {
-        let request = PostDeleteRequest(additionalInfo: self.postId?.toString())
+        let request = URLSessionRequest<String>(uri: "/post", methods: .delete, additionalInfo: self.postId?.toString())
         request.request(completion: { result in
             var alert: UIAlertController
             switch result {

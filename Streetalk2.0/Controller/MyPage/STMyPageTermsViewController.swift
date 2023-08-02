@@ -19,7 +19,7 @@ class STMyPageTermsViewController: UIViewController {
     }
     
     private func getContents() {
-        let request = PolicyRequest()
+        let request = URLSessionRequest<Policy>(uri: "/user/policy", methods: .get)
         request.request(completion: { result in
             switch result {
             case let .success(data):

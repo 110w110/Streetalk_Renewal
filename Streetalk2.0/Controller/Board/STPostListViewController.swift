@@ -58,7 +58,7 @@ extension STPostListViewController {
     private func fetchData(id: Int?) {
         switch listMode {
         case .myPost:
-            let request = GetMyPostListRequest()
+            let request = URLSessionRequest<[SearchPost]>(uri: "/user/post", methods: .get)
             request.request(completion: { result in
                 switch result {
                 case let .success(data):
@@ -74,7 +74,7 @@ extension STPostListViewController {
                 }
             })
         case .myReply:
-            let request = GetMyReplyListRequest()
+            let request = URLSessionRequest<[SearchPost]>(uri: "/user/postMyReply", methods: .get)
             request.request(completion: { result in
                 switch result {
                 case let .success(data):
@@ -90,7 +90,7 @@ extension STPostListViewController {
                 }
             })
         case .myLike:
-            let request = GetMyLikesListRequest()
+            let request = URLSessionRequest<[SearchPost]>(uri: "/user/postLikes", methods: .get)
             request.request(completion: { result in
                 switch result {
                 case let .success(data):
@@ -106,7 +106,7 @@ extension STPostListViewController {
                 }
             })
         case .myScrap:
-            let request = GetMyScrapsListRequest()
+            let request = URLSessionRequest<[SearchPost]>(uri: "/user/postScraps", methods: .get)
             request.request(completion: { result in
                 switch result {
                 case let .success(data):
@@ -123,7 +123,7 @@ extension STPostListViewController {
             })
         default:
             guard let id = id else { return }
-            let request = GetPostListRequest(additionalInfo: "\(id)")
+            let request = URLSessionRequest<BoardInfo>(uri: "/post/list/", methods: .get, additionalInfo: "\(id)")
             request.request(completion: { result in
                 switch result {
                 case let .success(data):
@@ -147,7 +147,7 @@ extension STPostListViewController {
     @objc private func boardLike() {
         guard let id = boardId else { return }
         var method: HttpMethods = favorite ? .delete : .post
-        let request = LikeBoardRequest(methods: method, additionalInfo: "/\(id)")
+        let request = URLSessionRequest<String>(uri: "/boardLike", methods: method, additionalInfo: "/\(id)")
         request.request(completion: { result in
             switch result {
             case .success(let data):
@@ -236,7 +236,7 @@ extension STPostListViewController: UITableViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if (self.tableView.contentOffset.y + 1) >= (self.tableView.contentSize.height - self.tableView.frame.size.height) {
             guard let id = boardId, let lastId = self.postList.last?.postId else { return }
-            let request = GetPostListRequest(additionalInfo: "\(id)/\(lastId)")
+            let request = URLSessionRequest<BoardInfo>(uri: "/post/list", methods: .get, additionalInfo: "\(id)/\(lastId)")
             request.request(completion: { result in
                 switch result {
                 case let .success(data):
