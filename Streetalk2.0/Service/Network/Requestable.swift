@@ -43,7 +43,7 @@ extension Requestable {
         guard let methods = methods, let uri = uri else { return }
         
         if multipart {
-            APIClient.shared.request(multipart: true, images: imageList, url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param, completion: { result in
+            APIClient().request(multipart: true, images: imageList, url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param, completion: { result in
                 switch result {
                 case let .success(response):
                     guard let data = dataToObject(data: response) as? ResultType else { return }
@@ -55,7 +55,7 @@ extension Requestable {
             })
 
         } else {
-            APIClient.shared.request(url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param) { result in
+            APIClient().request(url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param) { result in
                 switch result {
                 case let .success(response):
                     guard let data = dataToObject(data: response) as? ResultType else { return }

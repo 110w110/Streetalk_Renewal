@@ -9,9 +9,6 @@ import Foundation
 import UIKit.UIImage
 
 final class APIClient {
-    static let shared = APIClient()
-    private init() {}
-    
     private let timeoutInterval = 10.0
     
     private func createRequest(url: String, method: HttpMethods, header: [String : String]) -> URLRequest? {
