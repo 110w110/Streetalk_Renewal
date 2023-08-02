@@ -23,6 +23,7 @@
 		330439012A3460F5008123AD /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330439002A3460F5008123AD /* Requestable.swift */; };
 		330439032A346551008123AD /* AddReplyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330439022A346551008123AD /* AddReplyRequest.swift */; };
 		330439052A34701C008123AD /* UserInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330439042A34701C008123AD /* UserInfoRequest.swift */; };
+		330BCE752A7A41260038FE0C /* URLSessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BCE742A7A41260038FE0C /* URLSessionRequest.swift */; };
 		330CE9712A3843D400BFA26F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9702A3843D400BFA26F /* UIColor+.swift */; };
 		330CE9732A38444400BFA26F /* STButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9722A38444400BFA26F /* STButton.swift */; };
 		330CE9752A385F4400BFA26F /* STHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9742A385F4400BFA26F /* STHomeViewController.swift */; };
@@ -157,6 +158,7 @@
 		330439002A3460F5008123AD /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		330439022A346551008123AD /* AddReplyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReplyRequest.swift; sourceTree = "<group>"; };
 		330439042A34701C008123AD /* UserInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRequest.swift; sourceTree = "<group>"; };
+		330BCE742A7A41260038FE0C /* URLSessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRequest.swift; sourceTree = "<group>"; };
 		330CE9702A3843D400BFA26F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		330CE9722A38444400BFA26F /* STButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STButton.swift; sourceTree = "<group>"; };
 		330CE9742A385F4400BFA26F /* STHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STHomeViewController.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				330256EE2A68586D007FB66F /* GetProfileRequest.swift */,
 				330256EC2A6817F9007FB66F /* LeaveRequest.swift */,
 				332D4AC12A78BAE9006904D1 /* BlockUserRequest.swift */,
+				330BCE742A7A41260038FE0C /* URLSessionRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				3399BAFA2A401C2400A56A4B /* STJoinRegisterViewController.swift in Sources */,
 				330CE99B2A3A955000BFA26F /* STMyPageListViewController.swift in Sources */,
 				33D4C9592A5D07E50099E94A /* UIButton+.swift in Sources */,
+				330BCE752A7A41260038FE0C /* URLSessionRequest.swift in Sources */,
 				33506C1D2A40989200BFCBF0 /* STRegisterLocationCollectionViewCell.swift in Sources */,
 				33D4C95D2A5D4AC60099E94A /* UIViewController+.swift in Sources */,
 				33D30C312A45472D0053C0CF /* STMyPagePopUpViewController.swift in Sources */,

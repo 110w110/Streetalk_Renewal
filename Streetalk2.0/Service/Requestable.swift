@@ -39,6 +39,8 @@ extension Requestable {
             innerHeader["Bearer " + credential] = "Authorization"
         }
         
+//        guard let methods = methods, let uri = uri else { return }
+        
         if multipart {
 //            let imageList = imageList.count == 0 ? [UIImage(systemName: "star")] : imageList
             APIClient.shared.request(multipart: true, images: imageList, url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param, completion: { result in

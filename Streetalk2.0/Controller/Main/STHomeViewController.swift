@@ -177,7 +177,7 @@ extension STHomeViewController {
     }
     
     private func fetchHomeData() {
-        let request = HomeInfoRequest()
+        let request = URLSessionRequest<HomeInfo>()
         request.request(completion: { result in
             switch result {
             case let .success(object):
