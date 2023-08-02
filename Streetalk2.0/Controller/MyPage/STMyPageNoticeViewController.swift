@@ -25,7 +25,7 @@ class STMyPageNoticeViewController: UIViewController {
 
 extension STMyPageNoticeViewController {
     private func fetchNotice() {
-        let request = NoticeRequest()
+        let request = URLSessionRequest<[Notice]>(uri: "/user/notice", methods: .get)
         request.request(completion: { result in
             switch result {
             case let .success(data):

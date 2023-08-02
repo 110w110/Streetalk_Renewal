@@ -98,7 +98,7 @@ extension STJoinMobileAuthViewController {
         
         self.indicatiorDimmingView.isHidden = false
         
-        let request = LoginRequest(param: ["phoneNum" : phoneNum, "longitude" : longitude, "latitude" : latitude, "randomNum" : authNum])
+        let request = URLSessionRequest<Login>(uri: "/user/login", methods: .post, auth: false, param: ["phoneNum" : phoneNum, "longitude" : longitude, "latitude" : latitude, "randomNum" : authNum])
         request.request(completion: { result in
             switch result {
             case let .success(data):
@@ -161,7 +161,7 @@ extension STJoinMobileAuthViewController {
         
         // 인증번호 요청
         guard let mobileNum = mobileNumberTextField.text?.replacingOccurrences(of: "-", with: "") else { return }
-        let registerRequest = RegisterRequest(param: ["phoneNum" : mobileNum])
+        let registerRequest = URLSessionRequest<RegisterRandNum>(uri: "/user/auth", methods: .post, param: ["phoneNum" : mobileNum])
         registerRequest.request(completion: { result in
             switch result {
             case let .success(data):

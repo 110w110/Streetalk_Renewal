@@ -43,7 +43,7 @@ class STRootViewController: UIViewController {
     
     private func checkUserToken() {
         if UserDefaults.standard.string(forKey: "userToken") != nil {
-            let request = RefreshToken()
+            let request = URLSessionRequest<Token>(uri: "/user/refreshToken", methods: .put)
             request.request(completion: { result in
                 switch result {
                 case let .success(data):

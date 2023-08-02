@@ -10,8 +10,9 @@ import UIKit
 
 protocol Requestable {
     associatedtype ResultType: Codable
-    var uri: String { get set }
-    var methods: HttpMethods { get set }
+    
+    var uri: String? { get set }
+    var methods: HttpMethods? { get set }
     var auth: Bool { get set }
     var param: [String : Any]? { get set }
     var additionalInfo: String? { get set }
@@ -39,9 +40,10 @@ extension Requestable {
             innerHeader["Bearer " + credential] = "Authorization"
         }
         
+        guard let methods = methods, let uri = uri else { return }
+        
         if multipart {
-//            let imageList = imageList.count == 0 ? [UIImage(systemName: "star")] : imageList
-            APIClient.shared.request(multipart: true, images: imageList, url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param, completion: { result in
+            APIClient().request(multipart: true, images: imageList, url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param, completion: { result in
                 switch result {
                 case let .success(response):
                     guard let data = dataToObject(data: response) as? ResultType else { return }
@@ -53,7 +55,7 @@ extension Requestable {
             })
 
         } else {
-            APIClient.shared.request(url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param) { result in
+            APIClient().request(url: baseUrl + uri + (additionalInfo ?? ""), method: methods, header: innerHeader, param: param) { result in
                 switch result {
                 case let .success(response):
                     guard let data = dataToObject(data: response) as? ResultType else { return }

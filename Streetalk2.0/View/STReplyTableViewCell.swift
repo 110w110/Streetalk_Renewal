@@ -52,7 +52,7 @@ class STReplyTableViewCell: UITableViewCell {
         case true:
             let alert = UIAlertController(title: nil, message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
             let confirm = UIAlertAction(title: "확인", style: .default) { _ in
-                let request = ReplyDeleteRequest(additionalInfo: self.replyId?.toString())
+                let request = URLSessionRequest<String>(uri: "/reply/", methods: .delete, additionalInfo: self.replyId?.toString())
                 request.request(completion: { result in
                     var alert: UIAlertController
                     switch result {

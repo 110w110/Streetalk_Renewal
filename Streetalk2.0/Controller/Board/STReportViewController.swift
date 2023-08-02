@@ -46,7 +46,7 @@ class STReportViewController: UIViewController {
     
     private func reportPost() {
         guard let postId = postId, let reason = reasonTextField.text else { return }
-        let request = ReportPostRequest(param: ["postId" : postId, "lockInfo" : reason])
+        let request = URLSessionRequest<Bool>(uri: "/lockPost", methods: .post, param: ["postId" : postId, "lockInfo" : reason])
         request.request(completion: { result in
             switch result {
             case let .success(data):
@@ -72,7 +72,7 @@ class STReportViewController: UIViewController {
     
     private func reportReply() {
         guard let replyId = replyId, let reason = reasonTextField.text else { return }
-        let request = ReportReplyRequest(param: ["replyId" : replyId, "lockInfo" : reason])
+        let request = URLSessionRequest<Bool>(uri: "/lockReply", methods: .post, param: ["replyId" : replyId, "lockInfo" : reason])
         request.request(completion: { result in
             switch result {
             case let .success(data):

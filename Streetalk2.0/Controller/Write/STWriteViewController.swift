@@ -100,7 +100,7 @@ class STWriteViewController: UIViewController {
                     return
                 }
                 
-                let request = PostPostRequest(param: ["boardId" : self.targetBoardId,
+                let request = URLSessionRequest<String>(uri: "/post", methods: .post, param: ["boardId" : self.targetBoardId,
                                                       "title" : self.writeTitleTextField.text ?? "",
                                                       "content" : self.writeContentTextView.text ?? "",
                                                       "checkName" : self.anonymous,
@@ -132,7 +132,7 @@ class STWriteViewController: UIViewController {
                     return
                 }
                 
-                let request = PostPostRequest(methods: .put,
+                let request = URLSessionRequest<String>(uri: "/post", methods: .put,
                                                 param: ["postId" : self.currentPostId ?? -1,
                                                         "title" : self.writeTitleTextField.text ?? "",
                                                         "content" : self.writeContentTextView.text ?? ""])
@@ -175,7 +175,7 @@ class STWriteViewController: UIViewController {
     }
     
     private func fetchBoardList() {
-        let request = BoardListRequest()
+        let request = URLSessionRequest<[Board]>(uri: "/board/list", methods: .get)
         request.request(completion: { result in
             switch result {
             case let .success(data):

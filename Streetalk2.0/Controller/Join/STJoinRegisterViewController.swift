@@ -113,7 +113,7 @@ extension STJoinRegisterViewController {
     private func fetchProfile() {
         guard let token = UserDefaults.standard.string(forKey: "userToken"), token != "" else { return }
         guard let latitude = location?.latitude, let longitude = location?.longitude else { return }
-        let request = GetProfileRequest(param: ["latitude" : latitude, "longitude" : longitude])
+        let request = URLSessionRequest<Login>(uri: "/user/profile", methods: .post, param: ["latitude" : latitude, "longitude" : longitude])
         request.request(completion: { result in
             switch result {
             case let .success(data):
@@ -146,7 +146,7 @@ extension STJoinRegisterViewController {
     private func showHomeViewController() {
         var isNewMember: Bool = false
         guard let name = self.nickNameTextField.text, let location = self.locationTextField.text, let industry = self.selectedIndustry else { return }
-        let request = JoinRequest(param: ["name" : name, "location" : location, "industry" : industry])
+        let request = URLSessionRequest<String>(uri: "/user", methods: .put, param: ["name" : name, "location" : location, "industry" : industry])
         if UserDefaults.standard.string(forKey: "userToken") == nil || UserDefaults.standard.string(forKey: "userToken") == "" {
             isNewMember = true
             guard let token = loginInfo?.token else { return }
