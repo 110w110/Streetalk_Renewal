@@ -489,20 +489,80 @@
             </objects>
             <point key="canvasLocation" x="900" y="717"/>
         </scene>
-        <!--View Controller-->
+        <!--Leave View Controller-->
         <scene sceneID="Ewg-6T-GrU">
             <objects>
-                <viewController id="0Fk-hH-6x1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leaveViewController" id="0Fk-hH-6x1" customClass="STLeaveViewController" customModule="Streetalk2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aZ9-Cx-96q">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="Cvt-oT-N3M">
+                                <rect key="frame" x="20" y="79" width="390" height="799"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스트릿톡을 떠난다니 아쉬워요. 정말 계정을 탈퇴하시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIK-pg-qdK">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="43"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스트릿톡 이용 시 불편하신 점이 있으셨다면 스트릿톡 운영팀 연락처(dev.hantae@gmail.com)로 피드백을 주시면 많은 도움이 될 것 같습니다." textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6b-Ld-xeY">
+                                        <rect key="frame" x="0.0" y="70" width="390" height="50.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스트릿톡 탈퇴 전 마지막으로 확인해주세요." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QW-R4-GLJ">
+                                        <rect key="frame" x="0.0" y="147.33333333333334" width="390" height="19.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evh-I0-IvA">
+                                        <rect key="frame" x="0.0" y="193.66666666666669" width="390" height="482.00000000000006"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <mutableString key="text">탈퇴 후 회원님의 닉네임과 연락처 등의 데이터가 모두 비활성화 처리됩니다. 커뮤니티의 악의적 이용 또는 개인정보 침해 등 법적 문제에 대응하기 위해 관계 법령에 의거 3년 간 사용자의 기록을 보존하며, 보존 기한이 지나면 모든 데이터는 삭제되어 복구가 불가능합니다.
+
+탈퇴 및 가입을 반복할 경우, 서비스 악용 방지를 위해 재가입이 제한되며, 재가입이 불가능한 경우에는 운영팀으로 개별 문의 바랍니다.
+
+회원님이 작성한 게시물과 댓글은 삭제되지 않으며, 탈퇴 후에는 해당 내용을 수정하거나 삭제하실 수 없으므로 반드시 미리 삭제하시길 바랍니다.</mutableString>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정을 탈퇴하시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXF-1v-gFD">
+                                        <rect key="frame" x="0.0" y="702.66666666666663" width="390" height="19.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddJ-GX-4Ix" customClass="STButton" customModule="Streetalk2_0" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="749" width="390" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="i27-Kd-SGT"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="모든 내용을 확인했으며 탈퇴하겠습니다"/>
+                                        <connections>
+                                            <action selector="leaveButtonTapped:" destination="0Fk-hH-6x1" eventType="touchUpInside" id="hrQ-5d-glG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yPg-LA-gLh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Cvt-oT-N3M" firstAttribute="leading" secondItem="yPg-LA-gLh" secondAttribute="leading" constant="20" id="ZzB-9R-KVC"/>
+                            <constraint firstItem="Cvt-oT-N3M" firstAttribute="trailing" secondItem="yPg-LA-gLh" secondAttribute="trailing" constant="-20" id="cO4-LD-oVa"/>
+                            <constraint firstItem="yPg-LA-gLh" firstAttribute="bottom" secondItem="Cvt-oT-N3M" secondAttribute="bottom" constant="20" id="m6e-cn-97p"/>
+                            <constraint firstItem="Cvt-oT-N3M" firstAttribute="top" secondItem="yPg-LA-gLh" secondAttribute="top" constant="20" id="nK2-4O-wi1"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pxh-n0-QZX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1717" y="717"/>
+            <point key="canvasLocation" x="1716.2790697674418" y="716.52360515021462"/>
         </scene>
         <!--Notice Detail View Controller-->
         <scene sceneID="tbi-fP-l7R">

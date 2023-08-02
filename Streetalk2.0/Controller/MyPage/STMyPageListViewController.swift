@@ -95,7 +95,8 @@ extension STMyPageListViewController: UITableViewDelegate {
                     showPasswordViewController(mode: .set, identifier: "passwordViewController", title: "암호 설정", storyboard: UIStoryboard(name: "Password", bundle: nil))
                 }
             case 2:
-                performSegue(withIdentifier: "popUpSegue", sender: [self.contents[1][indexPath.row], "확인을 누르시면 되돌릴 수 없습니다.", PopUpViewUsage.leave] as [Any])
+                showNextViewController(identifier: "leaveViewController", title: "회원 탈퇴", viewControllerType: STLeaveViewController.self, hideBottomBar: true)
+//                performSegue(withIdentifier: "popUpSegue", sender: [self.contents[1][indexPath.row], "확인을 누르시면 되돌릴 수 없습니다.", PopUpViewUsage.leave] as [Any])
             default:
                 print("Error: Invalid indexPath row")
             }
@@ -197,9 +198,10 @@ extension STMyPageListViewController {
         })
     }
     
-    private func showNextViewController<T: UIViewController>(identifier: String, title: String, viewControllerType: T.Type, storyboard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil)) {
+    private func showNextViewController<T: UIViewController>(identifier: String, title: String, viewControllerType: T.Type, storyboard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil), hideBottomBar: Bool = false) {
         guard let viewController = storyboard.instantiateViewController(withIdentifier: identifier) as? T else { return }
         viewController.title = title
+        viewController.hidesBottomBarWhenPushed = hideBottomBar
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
