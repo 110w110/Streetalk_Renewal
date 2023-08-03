@@ -253,6 +253,11 @@ extension STPostViewController {
 extension STPostViewController: UITextViewDelegate {
     
     @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardFrameBegin = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrameBeginRect = keyboardFrameBegin.cgRectValue
+        
+        self.keyboardArea.translatesAutoresizingMaskIntoConstraints = false
+        self.keyboardArea.heightAnchor.constraint(equalToConstant: keyboardFrameBeginRect.size.height).isActive = true
         self.keyboardArea.isHidden = false
     }
 
@@ -260,10 +265,34 @@ extension STPostViewController: UITextViewDelegate {
         self.keyboardArea.isHidden = true
     }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        
+        textView.constraints.forEach { (constraint) in
+            if estimatedSize.height >= 120 {
+                textView.isScrollEnabled = true
+            }
+            else {
+                textView.isScrollEnabled = false
+                if constraint.firstAttribute == .height {
+                    constraint.constant = estimatedSize.height
+                }
+            }
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        
+        textView.constraints.forEach { (constraint) in
+            textView.isScrollEnabled = false
+            if constraint.firstAttribute == .height {
+                constraint.constant = 20.0
+            }
+        }
+    }
     
 }
 
