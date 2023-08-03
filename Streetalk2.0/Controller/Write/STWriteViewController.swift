@@ -179,7 +179,6 @@ class STWriteViewController: UIViewController {
         request.request(completion: { result in
             switch result {
             case let .success(data):
-                print(data)
                 for board in data {
                     if board.category == "main" && board.boardName == "통합게시판" {
                         self.mainBoardList.append(board)
@@ -197,7 +196,6 @@ class STWriteViewController: UIViewController {
                     self.pickerView.reloadAllComponents()
                 }
             case let .failure(error):
-                print(error)
                 self.errorMessage(error: error, message: #function)
             }
         })

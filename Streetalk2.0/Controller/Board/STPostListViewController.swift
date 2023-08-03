@@ -236,7 +236,7 @@ extension STPostListViewController: UITableViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if (self.tableView.contentOffset.y + 1) >= (self.tableView.contentSize.height - self.tableView.frame.size.height) {
             guard let id = boardId, let lastId = self.postList.last?.postId else { return }
-            let request = URLSessionRequest<BoardInfo>(uri: "/post/list", methods: .get, additionalInfo: "\(id)/\(lastId)")
+            let request = URLSessionRequest<BoardInfo>(uri: "/post/list/", methods: .get, additionalInfo: "\(id)/\(lastId)")
             request.request(completion: { result in
                 switch result {
                 case let .success(data):

@@ -13,7 +13,7 @@ class STPostViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var bottomView: UIView!
     @IBOutlet var keyboardArea: UIView!
-    @IBOutlet var replyTextField: UITextField!
+    @IBOutlet var replyTextView: UITextView!
     @IBOutlet var anonymousButton: UIButton!
     
     var postId: Int?
@@ -29,9 +29,10 @@ class STPostViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
-        replyTextField.delegate = self
+        replyTextView.delegate = self
         
-        self.hideKeyboardWhenTappedAround()
+//        self.hideKeyboardWhenTappedAround()
+        tableView.keyboardDismissMode = .onDrag
         
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -44,17 +45,16 @@ class STPostViewController: UIViewController {
     }
     
     @IBAction func replySubmitButtonTapped(_ sender: Any) {
-        guard let text = self.replyTextField.text, !text.isRealEmptyText() else { return }
-//        if self.replyTextField.text == ""
-        replyTextField.endEditing(false)
+        guard let text = self.replyTextView.text, !text.isRealEmptyText() else { return }
+        replyTextView.endEditing(false)
         
-        guard let postId = postId, let text = self.replyTextField.text else { return }
+        guard let postId = postId, let text = self.replyTextView.text else { return }
         let request = URLSessionRequest<String>(uri: "/reply", methods: .post, param: ["postId" : postId, "content" : text, "checkName" : anonymous, "isPrivate" : anonymous])
         request.request(completion: {result in
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
-                    self.replyTextField.text = ""
+                    self.replyTextView.text = ""
                     self.tableView.reloadData()
                     self.setUI()
                     
@@ -65,7 +65,7 @@ class STPostViewController: UIViewController {
                 print(error)
                 self.errorMessage(error: error, message: #function)
                 DispatchQueue.main.async {
-                    self.replyTextField.text = ""
+                    self.replyTextView.text = ""
                     let alert = UIAlertController(title: "댓글 작성 실패", message: "댓글 작성에 실패했습니다.\n\(error)", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "확인", style: .default))
                     self.present(alert, animated: true)
@@ -102,7 +102,8 @@ extension STPostViewController {
     
     func setUI() {
         bottomView.setRoundedBorder(shadow: true, bottomExtend: true)
-
+        replyTextView.setRoundedBorder()
+        
         guard let id = postId else { return }
         let request = URLSessionRequest<Post>(uri: "/post/", methods: .get, additionalInfo: "\(id)")
         request.request(completion: { result in
@@ -249,9 +250,14 @@ extension STPostViewController {
     }
 }
 
-extension STPostViewController: UITextFieldDelegate {
+extension STPostViewController: UITextViewDelegate {
     
     @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardFrameBegin = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrameBeginRect = keyboardFrameBegin.cgRectValue
+        
+        self.keyboardArea.translatesAutoresizingMaskIntoConstraints = false
+        self.keyboardArea.heightAnchor.constraint(equalToConstant: keyboardFrameBeginRect.size.height).isActive = true
         self.keyboardArea.isHidden = false
     }
 
@@ -259,9 +265,33 @@ extension STPostViewController: UITextFieldDelegate {
         self.keyboardArea.isHidden = true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        
+        textView.constraints.forEach { (constraint) in
+            if estimatedSize.height >= 120 {
+                textView.isScrollEnabled = true
+            }
+            else {
+                textView.isScrollEnabled = false
+                if constraint.firstAttribute == .height {
+                    constraint.constant = estimatedSize.height
+                }
+            }
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        
+        textView.constraints.forEach { (constraint) in
+            textView.isScrollEnabled = false
+            if constraint.firstAttribute == .height {
+                constraint.constant = 20.0
+            }
+        }
     }
     
 }

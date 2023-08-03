@@ -40,6 +40,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        if let currentViewController = UIApplication.topViewController() {
+            if let password = UserDefaults.standard.string(forKey: "localPassword"), password != "" {
+                let handler = {
+                    currentViewController.dismiss(animated: true)
+                }
+                let storyboard = UIStoryboard(name: "Password", bundle: nil)
+                guard let viewController = storyboard.instantiateViewController(withIdentifier: "passwordViewController") as? STPasswordViewController else { return }
+                viewController.mode = .check
+                viewController.passHandler = handler
+                let navigation = UINavigationController(rootViewController: viewController)
+                navigation.modalPresentationStyle = .fullScreen
+                navigation.hidesBottomBarWhenPushed = true
+                DispatchQueue.main.async {
+                    currentViewController.present(navigation, animated: true)
+                }
+            }
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
