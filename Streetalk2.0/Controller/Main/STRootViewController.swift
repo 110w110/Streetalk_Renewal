@@ -81,15 +81,14 @@ class STRootViewController: UIViewController {
         let appBuildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
         
         guard let appVersion = appVersion, let appBuildNumber = appBuildNumber else { return }
-        let currentFullVersion = appVersion + appBuildNumber
+        let currentFullVersion = appVersion + "." + appBuildNumber
         
         let request = URLSessionRequest<Version>(uri: "/version", methods: .get)
         request.request(completion: { result in
             switch result {
             case let .success(data):
                 print(data)
-                let minimumFullVersion = "1.0.10"
-                let latestFullVerseion = "1.0.10"
+                guard let minimumFullVersion = data.minimum, let latestFullVerseion = data.latest else { return }
                 switch self.versionCheck(current: currentFullVersion, minimum: minimumFullVersion, latest: latestFullVerseion) {
                 case .need:
                     let alert = UIAlertController(title: nil, message: "필수 업데이트가 있습니다", preferredStyle: .alert)
@@ -135,14 +134,6 @@ class STRootViewController: UIViewController {
                 print(error)
             }
         })
-        
-//        DispatchQueue.main.async {
-//            let mainViewController = STMainViewController()
-//            mainViewController.modalPresentationStyle = .fullScreen
-//            mainViewController.modalTransitionStyle = .crossDissolve
-//            self.present(mainViewController, animated: true, completion: nil)
-//        }
-        
     }
     
     private func versionCheck(current: String, minimum: String, latest: String) -> Update {
@@ -151,9 +142,13 @@ class STRootViewController: UIViewController {
         let latestVersionNumber = latest.components(separatedBy: ".").map { Int($0) ?? 0 }
         
         for i in 0 ..< currentVersionNumber.count {
+            if currentVersionNumber[i] > latestVersionNumber[i] {
+                return .upToDate
+            }
             if currentVersionNumber[i] < minimumVersionNumber[i] {
                 return .need
-            } else if currentVersionNumber[i] < latestVersionNumber[i] {
+            }
+            if currentVersionNumber[i] < latestVersionNumber[i] {
                 return .outOfDate
             }
         }
