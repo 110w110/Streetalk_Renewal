@@ -49,3 +49,31 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+extension UIApplication {
+    class func topViewController(base: UIViewController? = nil) -> UIViewController? {
+        let base = {
+            if (base != nil) {
+                return base
+            }
+            let scenes = UIApplication.shared.connectedScenes
+            let windowScene = scenes.first as? UIWindowScene
+            let window = windowScene?.windows.first
+            let base: UIViewController? = window?.rootViewController
+            return base
+        }()
+        
+        if let nav = base as? UINavigationController {
+            return topViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(base: presented)
+        }
+        return base
+    }
+}
