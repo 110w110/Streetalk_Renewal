@@ -20,6 +20,7 @@
 		330439012A3460F5008123AD /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330439002A3460F5008123AD /* Requestable.swift */; };
 		330BCE752A7A41260038FE0C /* URLSessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BCE742A7A41260038FE0C /* URLSessionRequest.swift */; };
 		330BCE792A7A52220038FE0C /* STLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BCE782A7A52220038FE0C /* STLeaveViewController.swift */; };
+		330BCE7B2A7B5C810038FE0C /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BCE7A2A7B5C810038FE0C /* Version.swift */; };
 		330CE9712A3843D400BFA26F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9702A3843D400BFA26F /* UIColor+.swift */; };
 		330CE9732A38444400BFA26F /* STButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9722A38444400BFA26F /* STButton.swift */; };
 		330CE9752A385F4400BFA26F /* STHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330CE9742A385F4400BFA26F /* STHomeViewController.swift */; };
@@ -127,6 +128,7 @@
 		330439002A3460F5008123AD /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		330BCE742A7A41260038FE0C /* URLSessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRequest.swift; sourceTree = "<group>"; };
 		330BCE782A7A52220038FE0C /* STLeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STLeaveViewController.swift; sourceTree = "<group>"; };
+		330BCE7A2A7B5C810038FE0C /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		330CE9702A3843D400BFA26F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		330CE9722A38444400BFA26F /* STButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STButton.swift; sourceTree = "<group>"; };
 		330CE9742A385F4400BFA26F /* STHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STHomeViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				337B88442A6645140051B7FF /* Token.swift */,
 				330438FA2A316323008123AD /* Reply.swift */,
 				333C207E2A56935300F8265C /* PostList.swift */,
+				330BCE7A2A7B5C810038FE0C /* Version.swift */,
 				332D4A992A6F736F006904D1 /* Banner.swift */,
 			);
 			path = Model;
@@ -652,6 +655,7 @@
 				3314278F2A541EAC004AFF23 /* STReplyTableViewCell.swift in Sources */,
 				330BCE792A7A52220038FE0C /* STLeaveViewController.swift in Sources */,
 				33D30C232A453A710053C0CF /* STMyPageFAQViewController.swift in Sources */,
+				330BCE7B2A7B5C810038FE0C /* Version.swift in Sources */,
 				3399BAFA2A401C2400A56A4B /* STJoinRegisterViewController.swift in Sources */,
 				330CE99B2A3A955000BFA26F /* STMyPageListViewController.swift in Sources */,
 				33D4C9592A5D07E50099E94A /* UIButton+.swift in Sources */,
