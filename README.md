@@ -42,7 +42,7 @@
 ![스크린샷 2023-06-23 오후 7 34 30](https://github.com/110w110/Streetalk_Renewal/assets/87888411/9a775f47-44ee-4987-844e-0e102509be07)
 ![스크린샷 2023-06-23 오후 7 34 40](https://github.com/110w110/Streetalk_Renewal/assets/87888411/8ceafda3-81bb-46e6-a900-55e74e199198)
 ![스크린샷 2023-06-23 오후 7 34 55](https://github.com/110w110/Streetalk_Renewal/assets/87888411/2483d22c-e0d2-4ada-b3f3-14e38c613f42)
-![스크린샷 2023-06-23 오후 7 34 55](https://github.com/110w110/Streetalk_Renewal/assets/87888411/5ee9636b-fb49-4860-8d93-d9434ccd7f43)
+![스크린샷 2023-06-23 오후 7 34 55](https://github.com/110w110/Algorithm/assets/87888411/2f2cf4d3-9ec6-42f5-abc3-868690c2781f)
 ![스크린샷 2023-06-23 오후 7 35 15](https://github.com/110w110/Streetalk_Renewal/assets/87888411/f26a7378-4ac0-4deb-b6f8-9bbf415ccfd8)
 ![스크린샷 2023-06-23 오후 8 02 13](https://github.com/110w110/Streetalk_Renewal/assets/87888411/2df705e0-3eee-43bf-9f56-5591025567ce)
 ![스크린샷 2023-06-23 오후 8 02 24](https://github.com/110w110/Streetalk_Renewal/assets/87888411/a0057c11-f617-45da-ac2a-944bb24d0c2b)
