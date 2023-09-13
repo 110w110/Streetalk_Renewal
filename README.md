@@ -38,12 +38,14 @@
 - mypage showNextViewController 에서 제너릭 구현으로 메소드 간소화
 
 ## 주요 변경점 자세히 보기
+![스크린샷 2023-06-23 오후 7 34 19](https://github.com/110w110/Algorithm/assets/87888411/aef5a8a5-9b1a-472c-be8a-d89916c4d82d)
 ![스크린샷 2023-06-23 오후 7 34 19](https://github.com/110w110/Streetalk_Renewal/assets/87888411/ce5c0646-2c1f-4e98-9cde-75007a718686)
 ![스크린샷 2023-06-23 오후 7 34 30](https://github.com/110w110/Streetalk_Renewal/assets/87888411/9a775f47-44ee-4987-844e-0e102509be07)
-![스크린샷 2023-06-23 오후 7 34 40](https://github.com/110w110/Streetalk_Renewal/assets/87888411/8ceafda3-81bb-46e6-a900-55e74e199198)
+![스크린샷 2023-06-23 오후 7 34 40](https://github.com/110w110/Algorithm/assets/87888411/7ad28c71-cbb6-445e-920f-0af48861220d)
 ![스크린샷 2023-06-23 오후 7 34 55](https://github.com/110w110/Streetalk_Renewal/assets/87888411/2483d22c-e0d2-4ada-b3f3-14e38c613f42)
+![스크린샷 2023-06-23 오후 7 34 55](https://github.com/110w110/Algorithm/assets/87888411/3262443b-7538-49ad-85fe-dee31078c761)
 ![스크린샷 2023-06-23 오후 7 34 55](https://github.com/110w110/Algorithm/assets/87888411/2f2cf4d3-9ec6-42f5-abc3-868690c2781f)
-![스크린샷 2023-06-23 오후 7 35 15](https://github.com/110w110/Streetalk_Renewal/assets/87888411/f26a7378-4ac0-4deb-b6f8-9bbf415ccfd8)
+![스크린샷 2023-06-23 오후 7 35 15](https://github.com/110w110/Algorithm/assets/87888411/8cad263c-40dc-4e2c-b73b-5cadd3334c01)
 ![스크린샷 2023-06-23 오후 8 02 13](https://github.com/110w110/Streetalk_Renewal/assets/87888411/2df705e0-3eee-43bf-9f56-5591025567ce)
 ![스크린샷 2023-06-23 오후 8 02 24](https://github.com/110w110/Streetalk_Renewal/assets/87888411/a0057c11-f617-45da-ac2a-944bb24d0c2b)
 ![스크린샷 2023-06-23 오후 8 02 32](https://github.com/110w110/Streetalk_Renewal/assets/87888411/569a981f-9728-474b-a98b-90c9816ee578)
